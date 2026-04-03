@@ -73,7 +73,8 @@ def git_is_clean() -> bool:
 
 def git_commit_run(run_dir: Path, message: str) -> str:
     """Stage the run directory and commit. Returns the commit SHA."""
-    git("add", str(run_dir.relative_to(Path(__file__).parent)))
+    rel = str(run_dir.relative_to(Path(__file__).parent))
+    git("add", "-f", rel)  # -f bypasses .gitignore if needed
     git("commit", "-m", message, "--no-gpg-sign")
     return git("rev-parse", "--short", "HEAD")
 

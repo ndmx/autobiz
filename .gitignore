@@ -18,9 +18,6 @@ build/
 # macOS
 .DS_Store
 
-# Research output (committed selectively via agent)
-runs/
-
 # IDE
 .vscode/
 .idea/
