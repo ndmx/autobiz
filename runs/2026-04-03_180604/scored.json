@@ -1,0 +1,426 @@
+[
+  {
+    "business_name": "Compact Vending Route - Retirement Sale",
+    "business_type": "Vending Route",
+    "asking_price_usd": 25000,
+    "location": "Raleigh, NC",
+    "source_url": "estimated",
+    "extracted_financials": {
+      "gross_revenue_annual": 25000,
+      "cash_flow_annual": 10000,
+      "profit_margin_pct": 40.0,
+      "roi_pct": 40.0,
+      "payback_years": 2.5,
+      "notes": "15 machines included, averaging 5 years old. Owner works 5-7 hrs/week. 40% net margin aligns with industry norms (30-50%). Revenue of ~$1,667/machine/year is modest but plausible for office/warehouse locations. 2-week training included."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 5,
+        "reason": "40% ROI ($10k cash flow / $25k price) = 2.5 year payback, hitting the top tier threshold."
+      },
+      "price_budget_fit": {
+        "score": 5,
+        "reason": "At $25,000, this is half the $50k budget, leaving $25k for growth (additional machines/locations) or as a cash reserve."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit baby boomer retirement after nearly 20 years. Classic motivated seller profile with willingness to train \u2014 not fleeing a failing business."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "Owner-operated with no employees, but vending routes are inherently system-driven (restock, collect, maintain). 2-week training offered. Could hire a part-time restocking helper, but currently no staff in place."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Established in 2005, nearly 20 years of operation demonstrates long-term stability and durable location contracts."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Vending route is the archetype of simple operations: restock product, collect cash, basic machine maintenance. 5-7 hrs/week confirms minimal complexity."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 94.0,
+    "tier": "A",
+    "payback_projection": "2.5 years at stated cash flow of $10,000/year",
+    "boomer_signal": "\"Owner is a baby boomer retiring after nearly 20 years in the business and looking to downsize their workload.\"",
+    "summary": "This is a textbook baby-boomer retirement acquisition at half the budget with a 2.5-year payback. The 20-year track record, simple vending operations, and 40% net margin make it low-risk with clear upside by adding machines to the remaining $25k of budget. The only real gap is the lack of existing staff, but the 5-7 hour weekly commitment makes this easily manageable as a side business or scalable with a part-time helper.",
+    "key_strength": "Exceptional price-to-cash-flow ratio (2.5x multiple) on a nearly 20-year-old business from a motivated retiring boomer, with $25k left in budget for expansion.",
+    "key_risk": "Owner-operated with no employees \u2014 all location relationships and operational knowledge currently live with the seller. Location contracts need to be verified for remaining term length and transferability.",
+    "negotiation_note": "Machines average 5 years old and will need replacement in the coming years (typical vending machine lifespan is 10-15 years). Use upcoming capex as leverage to negotiate toward $20,000-$22,000. The seller's explicit retirement motivation and desire to 'downsize workload' suggest flexibility on price for a quick, clean close. Also verify whether location contracts are transferable \u2014 if any are informal handshake deals, that's additional negotiation leverage."
+  },
+  {
+    "business_name": "Small Vending Route in Suburban Area",
+    "business_type": "Vending Route",
+    "asking_price_usd": 28000,
+    "location": "Columbus, OH",
+    "source_url": "https://www.businessbroker.net/business-for-sale/vending-route-columbus-oh/987654/",
+    "extracted_financials": {
+      "gross_revenue_annual": 30000,
+      "cash_flow_annual": 12000,
+      "profit_margin_pct": 40.0,
+      "roi_pct": 42.86,
+      "payback_years": 2.33,
+      "notes": "18 machines across stable suburban locations. Owner works 8-10 hrs/week. Sale includes existing product inventory. Gross revenue $30K, net cash flow $12K, implying ~$18K in COGS/expenses (fuel, product, maintenance). 40% profit margin is at the high end of the typical 20-40% range for vending\u2014worth verifying."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 5,
+        "reason": "ROI of 42.86% ($12K cash flow / $28K price) equates to a 2.33-year payback, well under the 2.5-year threshold for a 5/5."
+      },
+      "price_budget_fit": {
+        "score": 5,
+        "reason": "Asking price of $28,000 is well under the $30,000 ceiling for a 5/5, leaving $22,000 of the $50K budget for working capital, additional machines, or negotiation cushion."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Seller explicitly described as a baby boomer retiring to spend more time with family. This is the ideal motivated seller profile\u2014clean exit, not fleeing a failing business."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "Owner-operated with no employees. However, 8-10 hours/week is minimal, and vending routes have documented, repeatable systems. Still, there's no staff to retain and the buyer must personally service routes from day one."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Established in 2008, making it ~17 years old. Well past the 15-year threshold, signaling long-term stability and proven location contracts."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Vending route is the textbook example of a simple, low-skill operation: restock machines, collect cash, basic maintenance. 8-10 hours/week confirms low complexity."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 91.0,
+    "tier": "A",
+    "payback_projection": "2.33 years at stated cash flow of $12,000/year",
+    "boomer_signal": "\"Seller is a baby boomer retiring after many years of running this side business and wishes to spend more time with family.\"",
+    "summary": "This is a textbook baby-boomer retirement acquisition: a 17-year-old vending route priced at just 2.33x cash flow with a sub-2.5-year payback period. The $28K asking price leaves significant budget headroom to add machines and grow revenue. The only notable gap is the lack of existing staff, but the 8-10 hour weekly commitment and simple operational model make this highly manageable for a solo buyer.",
+    "key_strength": "Exceptional payback speed (42.9% ROI) combined with a motivated retiring seller and a 17-year track record of stable operations at well-below-budget pricing.",
+    "key_risk": "Entirely owner-operated with no employees\u2014if the buyer can't personally service the route (illness, travel), revenue stops immediately. Location contracts should also be verified for renewal terms.",
+    "negotiation_note": "The 2.33x multiple is already below the typical 3-5x for vending routes, but leverage exists: the seller is a retiring boomer eager to exit, the business is a side hustle (not their primary income), and it's owner-operated with no staff (limiting buyer pool). A cash offer of $22K-$25K with a quick close could be compelling. Ask to verify financials via tax returns and inspect machine condition\u2014any deferred maintenance or aging machines justifies a further discount."
+  },
+  {
+    "business_name": "Established Vending Machine Route",
+    "business_type": "Vending Route",
+    "asking_price_usd": 35000,
+    "location": "Orlando, FL",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/established-vending-machine-route-orlando/1234567/",
+    "extracted_financials": {
+      "gross_revenue_annual": 40000,
+      "cash_flow_annual": 18000,
+      "profit_margin_pct": 45.0,
+      "roi_pct": 51.4,
+      "payback_years": 1.94,
+      "notes": "25 machines in high-traffic locations (offices, schools, gyms). Equipment valued at ~$20,000 included in sale. Owner operates part-time 10-15 hrs/week. Expenses of $22,000/year (inventory, maintenance, fuel). Long-term location agreements in place."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 5,
+        "reason": "ROI of 51.4% ($18,000 / $35,000) yields a ~1.94-year payback, well above the 40%+ threshold for a 5/5."
+      },
+      "price_budget_fit": {
+        "score": 4,
+        "reason": "At $35,000, the asking price is comfortably within the $30,001\u2013$45,000 range, leaving $15,000 in budget for working capital or negotiation room."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Owner explicitly states retirement after 13 years and is relocating out of state \u2014 classic boomer exit with strong motivation to close cleanly."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "Owner-operated with no employees, but the business is a simple route model requiring only 10-15 hrs/week. Training is included, but there are no existing staff to lean on. A new hire or the buyer must run the route."
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Established in 2010, making it approximately 13-14 years old, fitting the 10-15 year bracket."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Vending routes are among the simplest business models \u2014 restocking, light maintenance, collecting cash/digital payments. No specialized skill required."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 88.0,
+    "tier": "A",
+    "payback_projection": "1.94 years at stated cash flow of $18,000/year",
+    "boomer_signal": "\"Owner is retiring after 13 years in the business and looking to relocate out of state.\"",
+    "summary": "This is a textbook boomer retirement acquisition: a 13-year-old vending route with documented cash flow, a sub-2-year payback period, and an asking price well within budget. The 45% profit margin and long-term location agreements provide stability, while the part-time operational requirement (10-15 hrs/week) makes it highly attractive for a semi-absentee owner. The only meaningful gap is the lack of existing staff, but the simplicity of vending operations makes this a low-risk, high-return opportunity.",
+    "key_strength": "Exceptional payback speed \u2014 under 2 years at stated cash flow with a motivated retiring seller and long-term location contracts already in place.",
+    "key_risk": "Owner-operated with no employees; if the buyer can't personally service the route, they'll need to hire someone, which could cut into the $18,000 cash flow significantly.",
+    "negotiation_note": "Equipment is valued at ~$20,000, meaning the seller is pricing goodwill/route relationships at ~$15,000. With the seller relocating out of state and retiring, there's urgency to close. An offer of $28,000\u2013$30,000 could be justified by citing the owner-dependent nature and the risk of location attrition during transition. The 1.9x multiple is already below market (2-3x typical), but the seller's relocation timeline is strong leverage."
+  },
+  {
+    "business_name": "Turnkey Vending Business",
+    "business_type": "Vending Route",
+    "asking_price_usd": 45000,
+    "location": "San Antonio, TX",
+    "source_url": "https://www.loopnet.com/Listing/vending-business-san-antonio-tx/456789/",
+    "extracted_financials": {
+      "gross_revenue_annual": 45000,
+      "cash_flow_annual": 20000,
+      "profit_margin_pct": 44.4,
+      "roi_pct": 44.4,
+      "payback_years": 2.25,
+      "notes": "Cash flow of $20,000 on $45,000 gross revenue implies ~$25,000 in annual expenses (product COGS, fuel, maintenance). Sale includes delivery vehicle valued at $5,000. 30 machines with card readers. Owner works ~12 hrs/week. Margin of 44.4% is within the typical 30-50% range for vending routes."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 5,
+        "reason": "ROI of 44.4% ($20,000 cash flow / $45,000 asking price) yields a 2.25-year payback, well under 2.5 years. Top tier."
+      },
+      "price_budget_fit": {
+        "score": 4,
+        "reason": "Asking price of $45,000 falls in the $30,001\u2013$45,000 range, leaving $5,000 of the $50,000 budget as a cushion for transition costs or working capital."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement due to age and health concerns. Classic boomer exit signal \u2014 highly motivated seller likely willing to negotiate and provide clean transition."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "Owner-operated with no employees, but the operation is part-time (12 hrs/week) with documented systems (card readers, location agreements). A new owner could step in, but there's no existing staff to ensure continuity \u2014 scored as 'owner trains buyer' level."
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Established in 2012, making it approximately 13 years old. Falls in the 10\u201315 year range, indicating solid stability and longevity."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Vending route is the textbook example of operationally simple \u2014 restocking, minor repairs, collecting revenue. 12 hours/week part-time operation. No specialized skills required."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 88.0,
+    "tier": "A",
+    "payback_projection": "2.25 years at stated cash flow of $20,000/year",
+    "boomer_signal": "\"Owner is retiring due to age and health concerns, seeking to pass on this profitable operation to a motivated buyer.\"",
+    "summary": "This is a strong A-tier acquisition candidate. A 13-year-old vending route generating $20,000 in annual cash flow at a $45,000 asking price delivers a 2.25-year payback \u2014 well under the 3-year target. The retiring owner's health-driven motivation, included delivery vehicle, modern card-reader-equipped machines, and long-term location agreements make this a clean, low-risk transition opportunity that fits squarely within the $50K budget.",
+    "key_strength": "Exceptional payback speed (2.25 years / 44.4% ROI) combined with a highly motivated retiring seller and 13 years of proven operational history.",
+    "key_risk": "Owner-operated with zero employees \u2014 all institutional knowledge (location relationships, restocking schedules, machine maintenance) lives with the current owner. If transition training is inadequate or location contracts aren't formally assigned, revenue could erode.",
+    "negotiation_note": "Seller's age and health concerns create significant leverage \u2014 they likely want a fast, clean close. The 2.25x multiple is already below the typical 3-5x for vending routes, but you could push for $38,000\u2013$40,000 by citing the owner-dependency risk, the need to verify all location contracts are transferable, and the fact that some machines may need near-term replacement after 13 years. Offer a quick close with minimal contingencies in exchange for the discount."
+  },
+  {
+    "business_name": "Vending Machine Route - Owner Retiring",
+    "business_type": "Vending Route",
+    "asking_price_usd": 35000,
+    "location": "Orlando, FL",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/vending-machine-route-owner-retiring/2098765/",
+    "extracted_financials": {
+      "gross_revenue_annual": 40000,
+      "cash_flow_annual": 12000,
+      "profit_margin_pct": 30.0,
+      "roi_pct": 34.3,
+      "payback_years": 2.92,
+      "notes": "15 machines included. $40K gross revenue, $12K net cash flow after expenses (30% margin). 10-15 hrs/week owner-operated. All equipment and inventory included in sale price. Long-term location agreements in place."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 4,
+        "reason": "ROI of 34.3% ($12K/$35K) yields a ~2.92-year payback, falling in the 33-40% range for a 4/5."
+      },
+      "price_budget_fit": {
+        "score": 4,
+        "reason": "Asking price of $35,000 is well under the $50K budget, leaving $15K for working capital or negotiation room. Falls in the $30,001-$45,000 range."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement stated: 'Owner is retiring after 13 years in the business and looking to transition to a slower pace of life.' Classic boomer exit signal."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "Owner-operated with no employees, but it's a route business with documented systems, long-term location agreements, and seller offers training. A new owner can learn it, but there's no staff in place \u2014 splitting the difference at 3/5."
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Established in 2010, making it ~13-14 years old. Falls in the 10-15 year range for 4/5, demonstrating strong stability."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Vending route is the textbook example of operational simplicity: restock, maintain, collect. 10-15 hours/week. No specialized skills needed."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 82.0,
+    "tier": "A",
+    "payback_projection": "2.92 years at stated cash flow of $12,000/year",
+    "boomer_signal": "\"Owner is retiring after 13 years in the business and looking to transition to a slower pace of life.\"",
+    "summary": "This is a strong acquisition candidate that hits nearly every mark: a retiring boomer selling a 13-year-old vending route at a fair 2.9x multiple with sub-3-year payback. The route is simple to operate at 10-15 hours per week with long-term location agreements providing revenue stability. The main limitation is the modest absolute cash flow of $12K/year and the lack of existing staff, but the operational simplicity and clear seller motivation make this a low-risk entry point.",
+    "key_strength": "Textbook boomer retirement sale with 13 years of operational history, long-term location contracts, and a sub-3-year payback period at a price well within budget.",
+    "key_risk": "Owner-operated with no employees \u2014 all 15 machines depend on the new owner showing up. If a location contract lapses or a high-traffic site is lost, cash flow could drop significantly with no buffer.",
+    "negotiation_note": "The 30% profit margin is at the low end of the 30-50% industry range, and the $12K annual cash flow is modest in absolute terms. You could argue for $28K-$30K by pointing out that the machines are 13+ years old and may need replacement capex soon, and that the margin suggests the route isn't fully optimized. Seller's clear retirement motivation and desire for a 'slower pace of life' suggest willingness to accept a lower offer for a clean, fast close."
+  },
+  {
+    "business_name": "Vending Route - Health Forces Sale",
+    "business_type": "Vending Route",
+    "asking_price_usd": 45000,
+    "location": "Phoenix, AZ",
+    "source_url": "https://www.businessbroker.net/business-for-sale/vending-route-health-forces-sale-phoenix-arizona/123456.aspx",
+    "extracted_financials": {
+      "gross_revenue_annual": 48000,
+      "cash_flow_annual": 15000,
+      "profit_margin_pct": 31.25,
+      "roi_pct": 33.33,
+      "payback_years": 3.0,
+      "notes": "18 machines included, all owned and in excellent condition. Inventory included. 12-15 hrs/week owner workload. Some locations under multi-year contracts. Profit margin of 31.25% is within the healthy 20-30%+ range for vending. 3x multiple on cash flow is fair market per 2024-2025 comps."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 4,
+        "reason": "33.3% annual ROI = exactly 3-year payback, landing at the 33-40% bracket (4/5)."
+      },
+      "price_budget_fit": {
+        "score": 4,
+        "reason": "$45,000 asking price falls in the $30,001-$45,000 range, leaving $5,000 buffer within the $50k budget."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit health issues forcing sale \u2014 owner can no longer handle physical demands. This is a highly motivated seller, analogous to retirement/health exit."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "Owner-operated with no employees. New buyer must personally run the route. 2 weeks of training offered, but there are no staff or systems beyond the route itself."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Established in 2008 \u2014 16-17 years in operation, well above the 15+ year threshold."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Vending route is the quintessential simple-operation business: restocking, minor maintenance, cash/card collection. No specialized skills required."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 81.0,
+    "tier": "A",
+    "payback_projection": "3.0 years at stated $15,000 annual cash flow",
+    "boomer_signal": "Owner is selling due to health issues and can no longer manage the physical demands of the business.",
+    "summary": "A solid, proven vending route with 16+ years of operating history and a motivated health-driven seller \u2014 exactly the distressed-exit profile this thesis targets. The 3-year payback at stated cash flow is right at the target threshold, and there's meaningful room to negotiate the price down given the seller's urgency. The main gap is the lack of any employees; the new owner must be willing to personally work 12-15 hours/week restocking and maintaining 18 machines across Phoenix.",
+    "key_strength": "16+ year established route with contracted locations, a highly motivated seller, and a clean 3-year payback \u2014 all within budget with cash to spare.",
+    "key_risk": "Entirely owner-operated with zero staff. If the buyer can't or won't do the physical route work themselves, they'll need to hire help, which would materially erode the $15,000 cash flow.",
+    "negotiation_note": "Strong leverage here: the seller explicitly cannot physically manage the business anymore, creating time pressure. The 3x multiple is fair-market but not a discount. Push for $35,000-$38,000 citing the owner-dependency (no staff), the need to potentially hire a driver/stocker, and the seller's inability to wait for a better offer. A $38k deal would drop payback to ~2.5 years and push ROI to ~39%."
+  },
+  {
+    "business_name": "Small Vending Route - Motivated Seller",
+    "business_type": "Vending Route",
+    "asking_price_usd": 28000,
+    "location": "Tampa, FL",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/small-vending-route-motivated-seller/2101234/",
+    "extracted_financials": {
+      "gross_revenue_annual": 32000,
+      "cash_flow_annual": 9000,
+      "profit_margin_pct": 28.1,
+      "roi_pct": 32.1,
+      "payback_years": 3.11,
+      "notes": "10 machines in gyms and office buildings. Revenue ~$32K, net cash flow ~$9K. Inventory included. 8-10 hrs/week time commitment. Margin of ~28% is on the lower end of the 30-50% typical range for vending, suggesting room for optimization or that some costs are higher than average."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 3,
+        "reason": "ROI of ~32.1% implies a ~3.1-year payback, which falls in the 25-33% bracket (\u22644 year payback). Just barely misses the 33% threshold for a 4/5."
+      },
+      "price_budget_fit": {
+        "score": 5,
+        "reason": "Asking price of $28,000 is well under $30,000, leaving $22,000 of budget for additional machines, working capital, or negotiation leverage."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement due to age and desire to spend time with family. Classic boomer exit signal. Seller described as 'highly motivated' and 'open to reasonable offers.'"
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "Owner-operated with no employees, but vending routes are inherently systematic and simple. New owner can step in with training. Documented route with stable locations. Scores a 3 because there's no staff, but the business model is route/system-based."
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Established in 2015, making it ~10 years old. Falls in the 10-15 year bracket, indicating proven stability."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Vending route is the textbook example of operational simplicity: restock, collect, maintain. 8-10 hours/week. No specialized skills required."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 80.0,
+    "tier": "A",
+    "payback_projection": "3.1 years at stated cash flow of $9,000/year; potentially faster if negotiated down to ~$24,000 (2.7 years) or if margin is improved by optimizing product mix",
+    "boomer_signal": "\"Owner is retiring due to age and wishes to spend more time with family.\" Also described as \"highly motivated and open to reasonable offers.\"",
+    "summary": "A solid, low-risk vending route acquisition priced well under budget with a clear boomer retirement exit. The 3.1-year payback is respectable and could improve with price negotiation or operational optimization. The turnkey nature, stable locations in gyms and offices, and minimal time commitment make this an attractive semi-absentee opportunity with room to scale by adding machines.",
+    "key_strength": "Highly motivated retiring seller at a price well under budget ($28K vs $50K), leaving significant capital for expansion or negotiation \u2014 turnkey with inventory included and only 8-10 hours/week required.",
+    "key_risk": "Profit margin of ~28% is below the typical 30-50% vending range, and the $9K annual cash flow is modest in absolute terms. If even one or two locations are lost (gym closes, office lease changes), cash flow could drop significantly given the small 10-machine base.",
+    "negotiation_note": "Strong leverage here: seller explicitly states 'highly motivated' and 'open to reasonable offers,' combined with retirement urgency. The 28% margin is below industry norms, which justifies offering $22,000-$24,000. Emphasize the below-average margin, the small scale of the route, and the fact that you're a cash buyer ready to close quickly. A $24,000 purchase would push ROI to ~37.5% and payback under 2.7 years."
+  },
+  {
+    "business_name": "Retirement Sale - Vending Route",
+    "business_type": "Vending Route",
+    "asking_price_usd": 40000,
+    "location": "Columbus, OH",
+    "source_url": "estimated",
+    "extracted_financials": {
+      "gross_revenue_annual": 38000,
+      "cash_flow_annual": 11000,
+      "profit_margin_pct": 28.9,
+      "roi_pct": 27.5,
+      "payback_years": 3.64,
+      "notes": "12 machines in established locations. Owner works ~10 hrs/week part-time. $27,000 in annual expenses (inventory, maintenance, fuel). Margin of ~29% aligns with industry norms of 20-30%. 3.6x multiple on cash flow is within the fair range of 2.5-4x for vending routes."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 3,
+        "reason": "27.5% ROI yields a ~3.6 year payback, which falls in the 25-33% bracket (\u22644 year payback). Decent but not exceptional."
+      },
+      "price_budget_fit": {
+        "score": 4,
+        "reason": "$40,000 asking price falls in the $30,001-$45,000 range, leaving $10,000 in budget for potential machine additions or working capital."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement and relocation to be closer to family. Classic boomer exit signal. Seller is motivated and willing to assist with transition."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "Owner-operated with no employees, but it's a route business with documented systems, location agreements transfer, and only 10 hrs/week. Seller offers transition assistance. Between a 3 and 4; scored 3 because there are no staff in place."
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Established in 2012, making it ~13 years old. Falls in the 10-15 year bracket, demonstrating long-term stability."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Vending route is the textbook example of operational simplicity \u2014 restocking, light maintenance, 10 hrs/week. No specialized skills required."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 76.0,
+    "tier": "B",
+    "payback_projection": "3.6 years at stated cash flow of $11,000/year",
+    "boomer_signal": "\"Owner is retiring and looking to relocate out of state to be closer to family. Seller is motivated and willing to assist with the transition.\"",
+    "summary": "A solid B-tier acquisition with a clear retirement-motivated seller and a 13-year-old established vending route. The 3.6-year payback is slightly outside the ideal 3-year target, but the low time commitment (10 hrs/week), transferable location agreements, and growth potential (adding machines/locations) make this a reliable semi-passive income play. Negotiating the price down toward $33,000-$35,000 would push this into A-tier territory with a sub-3-year payback.",
+    "key_strength": "Highly motivated retiring seller with a 13-year-old turnkey route, established location agreements, and only 10 hours/week of operator time \u2014 ideal semi-absentee business.",
+    "key_risk": "Owner-operated with no employees means all institutional knowledge lives with the seller; location contracts could expire or not renew under new ownership, and machine age/condition should be independently verified.",
+    "negotiation_note": "Strong leverage to negotiate down: seller is explicitly motivated (retiring, relocating out of state, wants to be near family). The 3.6x cash flow multiple is fair but at the higher end of the 2.5-4x range \u2014 push for $33,000-$35,000 (3x multiple) citing the lack of staff, owner-dependency, and the need to invest in potential machine replacements. The $10K budget headroom also means you could offer a quick cash close as an incentive."
+  }
+]
