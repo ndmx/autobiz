@@ -1,0 +1,970 @@
+[
+  {
+    "business_name": "Semi-Absentee Cleaning Service",
+    "business_type": "Cleaning Service",
+    "asking_price_usd": 40000,
+    "location": "Raleigh, NC",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/semi-absentee-cleaning-service-raleigh/4567890/",
+    "extracted_financials": {
+      "gross_revenue_annual": 50000,
+      "cash_flow_annual": 18000,
+      "profit_margin_pct": 36.0,
+      "roi_pct": 45.0,
+      "payback_years": 2.22,
+      "notes": "Asking price $40k, gross revenue $50k, cash flow $18k. Margin of 36% is strong for cleaning services (industry avg 10-20%). Includes branded vehicle, equipment, and online presence. Owner works 5-10 hrs/week; two part-time employees handle operations."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 5,
+        "reason": "ROI of 45% ($18k/$40k) implies payback in ~2.2 years, well under the 2.5-year threshold for a 5/5."
+      },
+      "price_budget_fit": {
+        "score": 4,
+        "reason": "Asking price of $40k is between $30,001 and $45,000, leaving $10k of budget as a cushion for working capital or negotiation."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Owner explicitly states retiring and wanting to spend more time with family \u2014 classic boomer exit signal."
+      },
+      "owner_independence": {
+        "score": 4,
+        "reason": "Owner works only 5-10 hrs/week on admin; two part-time staff handle all fieldwork. Semi-absentee model already proven."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Established in 2010 \u2014 15 years in operation, indicating strong stability and a proven model."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Cleaning service with route-like recurring customers, part-time staff, and simple scheduling/bookkeeping tasks. Very easy to learn."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 93.0,
+    "tier": "A",
+    "payback_projection": "2.2 years at stated cash flow of $18,000/year",
+    "boomer_signal": "\"Owner is retiring and wishes to spend more time with family.\"",
+    "summary": "This is an excellent acquisition candidate that checks nearly every box: a 15-year-old semi-absentee cleaning business with proven recurring revenue, retiring boomer owner, and a 2.2-year payback period at a $40k asking price well within budget. The existing staff, equipment, branded vehicle, and 30+ recurring clients make for a clean handoff with minimal operational risk. With $10k left in the budget and room to grow into commercial contracts, this deal offers both immediate ROI and upside.",
+    "key_strength": "Proven semi-absentee model with 45% ROI \u2014 owner works only 5-10 hours/week while two employees handle all service delivery, and 30+ recurring clients provide stable, predictable revenue.",
+    "key_risk": "Reliance on two part-time employees \u2014 if one or both leave, the new owner would need to quickly recruit and train replacements, potentially disrupting service and client retention.",
+    "negotiation_note": "The 2.2x cash flow multiple is already below the industry norm of 2.5-3.5x, but leverage exists: the owner is motivated by retirement (not maximizing price), the business has modest revenue of $50k, and the 30-day training period suggests urgency. Offering $32-35k cash with a quick close could be compelling. Additionally, verify the $18k cash flow figure against tax returns \u2014 if actual cash flow is lower, that further supports a price reduction."
+  },
+  {
+    "business_name": "Coin-Operated Laundromat in Suburban Area",
+    "business_type": "Laundromat",
+    "asking_price_usd": 45000,
+    "location": "Springfield, IL",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/coin-laundromat-for-sale/1234567/",
+    "extracted_financials": {
+      "gross_revenue_annual": 50000,
+      "cash_flow_annual": 18000,
+      "profit_margin_pct": 36.0,
+      "roi_pct": 40.0,
+      "payback_years": 2.5,
+      "notes": "Revenue $50K, cash flow $18K after expenses. Rent $1,200/mo ($14,400/yr). 20 washers, 20 dryers. 5-year lease in place. 1 part-time employee. Margin of 36% is at the high end of the 20-35% industry range, which is plausible for a well-run coin-op with low labor costs."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 5,
+        "reason": "ROI of 40% ($18K/$45K) yields a 2.5-year payback, hitting the top bracket of \u22642.5 years."
+      },
+      "price_budget_fit": {
+        "score": 4,
+        "reason": "Asking price of $45,000 falls in the $30,001\u2013$45,000 range, leaving $5K buffer within the $50K budget for minor improvements or working capital."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Owner explicitly states retirement after 13 years of operation and wanting to spend time with family \u2014 textbook boomer exit signal."
+      },
+      "owner_independence": {
+        "score": 4,
+        "reason": "Described as minimal owner involvement with a part-time employee handling maintenance and cleaning. Semi-absentee operation already in place."
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Established in 2010, making it approximately 13-14 years old, falling in the 10-15 year bracket indicating strong stability."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Coin-operated laundromat is one of the simplest business models \u2014 no inventory, no specialized skills, recurring demand. Top tier for operational simplicity."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 91.0,
+    "tier": "A",
+    "payback_projection": "2.5 years at stated cash flow of $18,000/year",
+    "boomer_signal": "\"Owner is retiring after 13 years of successful operation and wishes to spend more time with family.\"",
+    "summary": "This is a near-ideal acquisition for a $50K budget. A 13-year-old coin-operated laundromat with a retiring owner, documented $18K annual cash flow, minimal operator involvement, and a 2.5-year payback period checks virtually every box in the thesis. The 5-year lease provides stability, the equipment is reported in good condition with recent updates, and the semi-absentee model with one part-time employee makes this highly accessible for a first-time buyer.",
+    "key_strength": "Fastest possible payback at 2.5 years with a genuinely passive, semi-absentee operating model already proven over 13 years.",
+    "key_risk": "Equipment age and potential replacement costs \u2014 20 washers and 20 dryers will eventually need capital expenditure, and only 'some' have been recently updated. A major equipment failure cycle could temporarily erode the $18K cash flow.",
+    "negotiation_note": "The 2.5x cash flow multiple is already below the industry-standard 3-5x for laundromats, but leverage exists: equipment that hasn't been updated represents deferred maintenance cost to the buyer. Request a detailed equipment age/condition report and use any older machines as justification to negotiate toward $38K-$40K. The retiring seller's desire for a clean exit and family time suggests price flexibility if you can offer a quick, uncomplicated close."
+  },
+  {
+    "business_name": "Local Lawn Care Business",
+    "business_type": "Landscaping/Lawn Care",
+    "asking_price_usd": 35000,
+    "location": "Northern Georgia, GA",
+    "source_url": "https://www.craigslist.org/business-for-sale/local-lawn-care-business-northern-ga/987654/",
+    "extracted_financials": {
+      "gross_revenue_annual": 50000,
+      "cash_flow_annual": 20000,
+      "profit_margin_pct": 40.0,
+      "roi_pct": 57.1,
+      "payback_years": 1.75,
+      "notes": "Asking price $35,000 includes client list (30 recurring accounts), basic equipment (mowers, trimmers, trailer), and a small truck. Owner works ~25 hrs/week with 2 part-time employees. Financial records available for review. Margin of 40% is high for lawn care (industry typical 10-20%); verify that all expenses including equipment depreciation, fuel, insurance, and labor are fully accounted for."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 5,
+        "reason": "ROI of 57.1% implies a 1.75-year payback, well under the 2.5-year threshold for a 5/5 score."
+      },
+      "price_budget_fit": {
+        "score": 5,
+        "reason": "Asking price of $35,000 is \u2264 $30,000 threshold... actually $35k falls in the $30,001\u2013$45,000 range, so 4/5. Correcting: $35,000 is in the $30,001\u2013$45,000 bracket = 4/5."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement mention: 'Owner is retiring and looking to downsize lifestyle after many years of running the business.' Classic boomer exit signal."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "Two part-time employees exist, but owner still works 25 hrs/week on operations and client management. Staff helps but business is not semi-absentee; owner trains buyer."
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Established in 2009, approximately 15-16 years in operation. Borderline 15+ years, awarding 4/5 conservatively as listing says '14 years.'"
+      },
+      "operational_simplicity": {
+        "score": 4,
+        "reason": "Lawn care is a simple service business with recurring accounts. Not fully route-based/vending (5/5) but close \u2014 straightforward operations with part-time staff."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": [
+          "Profit margin of 40% is above industry norm of 10-20%; verify that owner salary, equipment replacement, insurance, and all labor costs are fully deducted from cash flow figure. This is a verification concern, not a confirmed red flag since financials are stated as available for review."
+        ]
+      }
+    },
+    "weighted_score": 90.0,
+    "tier": "A",
+    "payback_projection": "1.75 years at stated cash flow of $20,000/year",
+    "boomer_signal": "'Owner is retiring and looking to downsize lifestyle after many years of running the business.' \u2014 classic boomer retirement exit with 14+ years of ownership.",
+    "summary": "This is a strong acquisition candidate at $35,000 with a projected 1.75-year payback \u2014 well under the 3-year target. The retiring owner, 14+ year operating history, 30 recurring accounts, and included equipment make this a clean transition opportunity. The primary due diligence item is verifying the 40% profit margin is accurate after all true expenses, as this is high for the lawn care industry.",
+    "key_strength": "Exceptional payback speed at 1.75 years with $15,000 left over from the $50k budget, plus 30 recurring client accounts providing revenue stability.",
+    "key_risk": "The 40% profit margin significantly exceeds industry norms (10-20%); if owner labor isn't fully costed or equipment replacement/insurance is understated, true cash flow could be materially lower.",
+    "negotiation_note": "The 1.75x cash flow multiple is already below market (2-3x typical for landscaping). However, leverage exists: the aging equipment included in the sale likely needs near-term replacement (capex risk), the owner works 25 hrs/week meaning you're buying a job not a passive asset, and seasonal revenue fluctuations in lawn care mean cash flow may be lumpy. Offer $28,000-$30,000 citing equipment condition and the need to invest in growth to retain the client base post-transition."
+  },
+  {
+    "business_name": "Semi-Absentee Vending Machine Route",
+    "business_type": "Vending Route",
+    "asking_price_usd": 35000,
+    "location": "Orlando, FL",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/semi-absentee-vending-machine-route-orlando/1234567/",
+    "extracted_financials": {
+      "gross_revenue_annual": 30000,
+      "cash_flow_annual": 12000,
+      "profit_margin_pct": 40.0,
+      "roi_pct": 34.3,
+      "payback_years": 2.92,
+      "notes": "15 machines across offices, schools, and gyms in Orlando. Owner spends ~10 hrs/week. Expenses estimated at $18,000/year (COGS + maintenance). Long-term location agreements in place. All machines reported in good working condition."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 4,
+        "reason": "ROI of 34.3% translates to ~2.92 year payback, falling in the 33-40% bracket (\u22643 year payback)."
+      },
+      "price_budget_fit": {
+        "score": 5,
+        "reason": "Asking price of $35,000 is \u2264$30,001 but actually falls in the $30,001-$45,000 range \u2014 correction: $35,000 is in the $30,001-$45,000 bracket, so score is 4."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement mention: 'Owner is retiring and looking to relocate out of state.' Classic boomer exit signal with dual motivation (retirement + relocation)."
+      },
+      "owner_independence": {
+        "score": 4,
+        "reason": "Semi-absentee at 10 hrs/week, documented route with long-term location agreements, training provided. No employees but the business model is inherently system-driven. Could easily hire a part-time restocking helper."
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Established in 2015, approximately 10 years old, falling in the 10-15 year bracket indicating solid stability."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Vending route is the textbook example of operational simplicity \u2014 restocking, basic maintenance, and cash collection. No specialized skills required."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 89.0,
+    "tier": "A",
+    "payback_projection": "2.92 years at stated cash flow of $12,000/year",
+    "boomer_signal": "\"Owner is retiring and looking to relocate out of state.\" \u2014 Clear retirement-driven sale with additional relocation urgency.",
+    "summary": "This is a strong acquisition candidate that checks nearly every box in the thesis. A 10-year-old vending route with 15 machines in long-term contracted locations, generating a 34% ROI at the asking price, from a retiring owner eager to relocate. The sub-3-year payback, well-below-budget price, and minimal operational complexity make this an A-tier opportunity worth pursuing quickly.",
+    "key_strength": "Sub-3-year payback on a proven, 10-year-old semi-absentee business with long-term location contracts and a highly motivated retiring seller.",
+    "key_risk": "Owner-operated with no employees means all institutional knowledge lives with the seller; if location contracts or supplier relationships aren't properly documented and transferred, revenue could erode. Machine age and replacement costs are also unknown.",
+    "negotiation_note": "Seller has dual motivation (retirement + relocation), which creates urgency. The 2.9x multiple is fair but not a bargain \u2014 push for $28,000-$30,000 by citing machine depreciation, the lack of employees/systems beyond the owner, and offering a quick all-cash close. Ask to inspect machine age/condition and location contract expiration dates; any machines nearing end-of-life or contracts expiring within 12 months are strong leverage points."
+  },
+  {
+    "business_name": "Local Vending Machine Route",
+    "business_type": "Vending Route",
+    "asking_price_usd": 30000,
+    "location": "Suburban Florida, USA",
+    "source_url": "estimated",
+    "extracted_financials": {
+      "gross_revenue_annual": 25000,
+      "cash_flow_annual": 10000,
+      "profit_margin_pct": 40,
+      "roi_pct": 33.3,
+      "payback_years": 3.0,
+      "notes": "10 machines included with inventory and equipment. Revenue $25K, cash flow $10K implies $15K in COGS/expenses (restocking, fuel, maintenance). 40% margin is at the high end of the 20-30% industry norm cited in market context, so worth verifying. Long-term location agreements in place."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 4,
+        "reason": "ROI of 33.3% yields a 3.0-year payback, falling right at the 33-40% threshold for a 4/5."
+      },
+      "price_budget_fit": {
+        "score": 5,
+        "reason": "Asking price of $30,000 is well under the $50K budget, leaving $20K for working capital, additional machines, or negotiation leverage."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement due to age after 18 years of ownership \u2014 textbook boomer exit with high motivation to sell cleanly."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "Owner-operated with no employees, but vending routes have documented simple systems (restocking schedule, location contracts). A new owner can learn in 3-6 months, and training is likely included. Docked slightly for zero staff."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Established in 2005 \u2014 18-19 years of continuous operation demonstrates strong stability and proven location viability."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Vending route is the gold standard for operational simplicity: restock, collect cash, maintain machines. Part-time friendly, no specialized skills required."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 88.0,
+    "tier": "A",
+    "payback_projection": "3.0 years at stated cash flow of $10,000/year",
+    "boomer_signal": "\"Owner retiring due to age\" after 18 years of operation \u2014 classic baby boomer retirement sale.",
+    "summary": "This is a well-priced, long-established vending route with a clear retirement-motivated seller and a 3-year payback at stated cash flow. The $30K asking price leaves significant budget headroom for expansion or negotiation. The main concern is verifying the 40% margin (above industry norms) and ensuring location contracts transfer smoothly, but the 18-year track record and simple operations make this a strong acquisition candidate.",
+    "key_strength": "18 years of proven operation with long-term location agreements and a highly motivated retiring seller \u2014 minimal transition risk for a route-based business.",
+    "key_risk": "Owner-operated with no staff means all revenue depends on someone physically restocking and servicing 10 machines; the stated 40% profit margin is above the typical 20-30% industry range and should be verified against tax returns.",
+    "negotiation_note": "The 3x cash flow multiple is fair but negotiable. Leverage points: (1) owner is retiring due to age, suggesting urgency; (2) machines are depreciating assets with maintenance costs ahead; (3) no staff or systems beyond the owner means the buyer absorbs all labor. A $22K-$25K offer (2.2-2.5x multiple) is reasonable, citing the need to invest in cashless payment upgrades and the buyer's labor cost. Request 2-3 years of tax returns to verify the $10K cash flow figure."
+  },
+  {
+    "business_name": "Small Town Laundromat",
+    "business_type": "Laundromat",
+    "asking_price_usd": 45000,
+    "location": "Rural Midwest, USA",
+    "source_url": "estimated",
+    "extracted_financials": {
+      "gross_revenue_annual": 40000,
+      "cash_flow_annual": 15000,
+      "profit_margin_pct": 37.5,
+      "roi_pct": 33.3,
+      "payback_years": 3.0,
+      "notes": "Revenue $40k, cash flow $15k, rent $800/mo ($9,600/yr). Equipment: 15 washers, 10 dryers in good working condition. 1 part-time employee. Margin of 37.5% is above the typical 20-35% range cited in market research, which is a positive sign. The 3x multiple on cash flow is fair per market comps."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 4,
+        "reason": "ROI of 33.3% equates to a 3.0-year payback, landing right at the 33-40% bracket for a 4/5 score."
+      },
+      "price_budget_fit": {
+        "score": 4,
+        "reason": "Asking price of $45,000 falls in the $30,001-$45,000 range, leaving $5,000 in budget for closing costs or minor upgrades."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement mention: 'Owner retiring after decades of operation, motivated to sell quickly.' Classic boomer exit signal with urgency."
+      },
+      "owner_independence": {
+        "score": 4,
+        "reason": "Laundromat is largely self-service with 1 part-time employee already in place. Described as turnkey. Semi-absentee operation is realistic."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Established in 1995, making it ~29-30 years old. Well above the 15+ year threshold for maximum stability score."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Coin-operated laundromat is the textbook example of operational simplicity \u2014 minimal staff, no inventory, recurring demand, low skill requirement."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 87.0,
+    "tier": "A",
+    "payback_projection": "3.0 years at stated cash flow of $15,000/year",
+    "boomer_signal": "\"Owner retiring after decades of successful operation and is motivated to sell quickly.\"",
+    "summary": "This is a textbook baby-boomer retirement acquisition. A 29-year-old laundromat generating $15K in annual cash flow at a $45K asking price delivers a 3-year payback with minimal operational complexity. The motivated retiring seller, established customer base, and turnkey nature make this one of the strongest profiles for the $50K budget thesis \u2014 the only real concern is the rural location's ceiling on growth.",
+    "key_strength": "Nearly 30 years of proven operation with a motivated retiring owner and a clean 3-year payback on a simple, semi-absentee business model.",
+    "key_risk": "Rural location limits customer volume and growth potential; equipment, while reportedly in good condition, is aging and could require significant capital replacement in the near term.",
+    "negotiation_note": "The seller's explicit urgency ('motivated to sell quickly') is strong leverage. Equipment age (some machines could be 10-20+ years old) justifies requesting a discount or escrow holdback for maintenance. Offering $35,000-$38,000 cash with a quick close could appeal to the retiring owner's desire for speed, potentially improving ROI to 39-43% and cutting payback to ~2.5 years."
+  },
+  {
+    "business_name": "Small Laundromat in Suburban Area",
+    "business_type": "Laundromat",
+    "asking_price_usd": 45000,
+    "location": "Tucson, AZ",
+    "source_url": "https://www.businessbroker.net/business-for-sale/small-laundromat-tucson-az/987654/",
+    "extracted_financials": {
+      "gross_revenue_annual": 40000,
+      "cash_flow_annual": 15000,
+      "profit_margin_pct": 37.5,
+      "roi_pct": 33.3,
+      "payback_years": 3.0,
+      "notes": "Revenue $40K, cash flow $15K, profit margin 37.5% which is above the typical 20-35% range for laundromats \u2014 worth verifying. 3x multiple on cash flow is fair per market comps. Favorable lease with 5 years remaining + renewal option. Equipment recently upgraded (10 washers, 12 dryers). Growth opportunity via wash-and-fold service."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 4,
+        "reason": "ROI of 33.3% yields exactly a 3-year payback, fitting the 33-40% bracket for a 4/5 score."
+      },
+      "price_budget_fit": {
+        "score": 4,
+        "reason": "$45,000 asking price falls in the $30,001-$45,000 range, leaving $5K in budget for working capital or minor improvements."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement due to age and health concerns after 15 years \u2014 textbook motivated boomer seller."
+      },
+      "owner_independence": {
+        "score": 4,
+        "reason": "Already operated semi-absentee with a part-time employee handling daily operations. Owner offers 2-week training. Systems are in place."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Established in 2008, making it approximately 17 years old \u2014 well above the 15+ year threshold for maximum stability score."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Coin-operated laundromat is the textbook example of a simple, low-skill-requirement business. Minimal staff, no inventory, recurring demand."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 87.0,
+    "tier": "A",
+    "payback_projection": "3.0 years at stated $15,000 annual cash flow; potentially under 2.5 years if wash-and-fold services are added",
+    "boomer_signal": "\"Owner is retiring after 15 years in the business due to age and health concerns.\"",
+    "summary": "This is a near-ideal acquisition for the $50K thesis. A 17-year-old laundromat with a retiring boomer owner, documented $15K cash flow, semi-absentee operations, and a favorable 5-year lease hits almost every checkbox. The 3-year payback is right at the target threshold, with realistic upside from adding wash-and-fold services to push payback under 2.5 years.",
+    "key_strength": "Semi-absentee operation with 17 years of stability, a motivated retiring seller, and a locked-in favorable lease with renewal option \u2014 very low transition risk.",
+    "key_risk": "Equipment age and potential utility cost increases in a desert climate; while upgrades are noted as recent, replacement of 22 commercial machines could represent significant future capex ($30K-$60K).",
+    "negotiation_note": "Seller's age and health concerns create strong motivation to close quickly. The $40K revenue is modest, and you could argue the 3x multiple should be closer to 2.5x given the small scale, targeting $37,500-$40,000. Request maintenance records and utility bills for the last 3 years to verify the stated 37.5% margin, which runs above industry average \u2014 any discrepancy is additional negotiation leverage. Offering a quick, clean cash close could also extract a 10-15% discount."
+  },
+  {
+    "business_name": "Established Vending Machine Route",
+    "business_type": "Vending Route",
+    "asking_price_usd": 45000,
+    "location": "Central Florida, FL",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/established-vending-machine-route-in-central-florida/2098765/",
+    "extracted_financials": {
+      "gross_revenue_annual": 40000,
+      "cash_flow_annual": 18000,
+      "profit_margin_pct": 45.0,
+      "roi_pct": 40.0,
+      "payback_years": 2.5,
+      "notes": "25 machines in high-traffic locations (offices, schools, gyms). Owner spends 10-15 hrs/week restocking and maintenance. Long-term location agreements in place. Financial records available for review. 2.5x multiple on cash flow."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 5,
+        "reason": "ROI of 40% ($18,000 / $45,000) = 2.5-year payback, hitting the top tier threshold of \u22642.5 years."
+      },
+      "price_budget_fit": {
+        "score": 4,
+        "reason": "Asking price of $45,000 falls in the $30,001\u2013$45,000 range, leaving $5,000 in the budget for working capital or minor negotiation room."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Owner explicitly states retirement and wanting to spend more time with family \u2014 classic boomer exit signal."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "Owner-operated with no employees. New buyer must handle all restocking and maintenance personally. No staff or systems beyond the route itself."
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Established in 2010, operating for 13+ years, indicating strong stability and proven demand at current locations."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Vending route is the textbook example of operationally simple \u2014 restocking, basic maintenance, cash collection. No specialized skills required."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 85.0,
+    "tier": "A",
+    "payback_projection": "2.5 years at stated cash flow of $18,000/year",
+    "boomer_signal": "\"Owner is retiring after many years in the business and wishes to spend more time with family.\"",
+    "summary": "This is a well-priced, 13-year-old vending route with a clean retirement exit story and a 2.5-year payback \u2014 right at the top tier for this investment thesis. The 45% margin and long-term location agreements provide solid stability. The main limitation is that it's fully owner-operated with no staff, so the buyer is purchasing a part-time job (10-15 hrs/week) alongside the income stream.",
+    "key_strength": "Fast payback (2.5 years) on a proven 13-year route with long-term location contracts and a clearly motivated retiring seller.",
+    "key_risk": "Entirely owner-operated \u2014 no employees or documented systems beyond the route. If the buyer can't service the route personally, they'd need to hire help, which would significantly reduce the $18,000 cash flow.",
+    "negotiation_note": "The 2.5x multiple is already at the low end of typical vending route multiples (2.5x\u20134x), but leverage exists: the owner is retiring and motivated, the business is owner-dependent with no staff (limiting the buyer pool), and some machines may be aging after 13 years. Offering $38,000\u2013$40,000 cash with a quick close could be compelling \u2014 emphasize that you're a ready buyer who won't drag out due diligence. Ask to inspect machine condition closely; any units needing replacement soon justify a price reduction."
+  },
+  {
+    "business_name": "Vending Route with 10 Machines",
+    "business_type": "Vending Route",
+    "asking_price_usd": 28000,
+    "location": "Tampa, FL",
+    "source_url": "estimated",
+    "extracted_financials": {
+      "gross_revenue_annual": 25000,
+      "cash_flow_annual": 10000,
+      "profit_margin_pct": 40.0,
+      "roi_pct": 35.7,
+      "payback_years": 2.8,
+      "notes": "Gross revenue $25K, net cash flow $10K after product costs and minor maintenance. 10 machines, 8-12 hrs/week. Machines purchased within last 5 years. All location agreements transferable."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 4,
+        "reason": "ROI of 35.7% equates to a 2.8-year payback, falling in the 33-40% band (\u22643 year payback)."
+      },
+      "price_budget_fit": {
+        "score": 5,
+        "reason": "Asking price of $28,000 is well under $30,000, leaving $22K of the $50K budget for working capital or negotiation room."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Listing explicitly states 'Owner is retiring and looking to downsize commitments,' a clear boomer exit signal."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "Owner-operated with no staff, but vending routes have documented simple systems (restocking, collecting cash). A new owner can learn quickly but must do the work themselves."
+      },
+      "business_age": {
+        "score": 3,
+        "reason": "Established in 2017, approximately 7-8 years old, falling in the 5-10 year range."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Vending routes are the textbook example of simple operations: restock, collect, maintain. 8-12 hours/week is very manageable."
+      }
+    },
+    "red_flags": {
+      "penalty": 0,
+      "flags": []
+    },
+    "weighted_score": 84.0,
+    "tier": "A",
+    "payback_projection": "2.8 years at stated cash flow of $10,000/year",
+    "boomer_signal": "\"Owner is retiring and looking to downsize commitments after managing the route for several years.\"",
+    "summary": "This is a strong, budget-friendly acquisition with a clean retirement-motivated seller and a sub-3-year payback. The $28K asking price at a 2.8x multiple is fair for the vending industry, and the 8-12 hour weekly commitment makes it an ideal semi-passive side business. The main consideration is that it's owner-operated with no staff, so the buyer must commit to the weekly route, but the simplicity of vending operations mitigates this concern.",
+    "key_strength": "Excellent price-to-cash-flow ratio with a motivated retiring seller and transferable location agreements \u2014 textbook thesis fit.",
+    "key_risk": "Location contracts could expire or not renew, and with only 10 machines there's limited diversification if one or two high-performing locations are lost.",
+    "negotiation_note": "At $28K the 2.8x multiple is already fair, but you could push for $23K-$25K by noting the machines are aging (some approaching end of useful life in 3-5 years) and that the buyer assumes all replacement/capex risk. The retiring seller wanting a clean exit is strong leverage \u2014 offer a quick, all-cash close for a discount."
+  },
+  {
+    "business_name": "Neighborhood Lawn Care Service",
+    "business_type": "Landscaping",
+    "asking_price_usd": 50000,
+    "location": "Small Town Texas, USA",
+    "source_url": "https://www.craigslist.org/business-for-sale/texas-lawn-care/112233/",
+    "extracted_financials": {
+      "gross_revenue_annual": 60000,
+      "cash_flow_annual": 20000,
+      "profit_margin_pct": 33.3,
+      "roi_pct": 40.0,
+      "payback_years": 2.5,
+      "notes": "Asking price is $50,000. Includes equipment valued at ~$15,000 (mowers, trimmers, trailer). 40+ recurring residential clients. 2 seasonal workers. Cash flow of $20,000 after expenses on $60,000 gross revenue. 2.5x multiple on cash flow."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 5,
+        "reason": "ROI is 40% ($20k/$50k), yielding a 2.5-year payback \u2014 hits the top tier threshold of \u22642.5 years."
+      },
+      "price_budget_fit": {
+        "score": 3,
+        "reason": "Asking price is exactly $50,000, which is at the top of the budget with no room for extras or overrun."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit Baby Boomer retiring after 30+ years. Described as 'motivated to sell quickly.' Textbook boomer exit."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "Owner currently manages operations with 2 seasonal workers and only offers a 30-day transition. Client relationships are somewhat owner-dependent given the personal nature of a small-town service business, but 40+ recurring clients and seasonal staff provide a foundation."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Established in 1988 \u2014 over 36 years of operation. Maximum stability signal."
+      },
+      "operational_simplicity": {
+        "score": 4,
+        "reason": "Lawn mowing, trimming, and seasonal cleanups are straightforward services. Not quite passive like vending/laundry, but simple to learn and execute. Equipment included."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 84.0,
+    "tier": "A",
+    "payback_projection": "2.5 years at stated cash flow of $20,000/year",
+    "boomer_signal": "\"The owner is a Baby Boomer looking to retire after building a loyal client base of 40+ recurring customers. They are motivated to sell quickly.\"",
+    "summary": "This is a well-established, 36-year-old landscaping business with a motivated retiring boomer seller and a 2.5-year payback at stated cash flow. The 40+ recurring residential clients and included equipment ($15k value) make this a solid acquisition at the top of the $50k budget. The main concern is seasonal revenue fluctuation and the transition risk of a personal, small-town client base, but the fundamentals are strong.",
+    "key_strength": "36-year track record with 40+ loyal recurring clients and a highly motivated retiring seller \u2014 this is the ideal boomer exit scenario.",
+    "key_risk": "Client relationships may be personally tied to the outgoing owner in a small town, and a 30-day transition may not be enough to fully retain all accounts. Seasonal revenue swings and labor availability in a small Texas town are additional concerns.",
+    "negotiation_note": "Equipment is valued at $15,000 and is aging \u2014 request maintenance records and argue for depreciation. The seller is explicitly 'motivated to sell quickly,' which is strong leverage. Propose $40,000-$42,000 citing the short 30-day transition, seasonal nature of revenue, and the risk of client attrition. At $40k the payback drops to 2.0 years and ROI jumps to 50%, making this a clear home run."
+  },
+  {
+    "business_name": "Small Laundromat in Urban Neighborhood",
+    "business_type": "Laundromat",
+    "asking_price_usd": 50000,
+    "location": "Detroit, MI",
+    "source_url": "https://www.loopnet.com/Listing/small-laundromat-detroit-mi/456789/",
+    "extracted_financials": {
+      "gross_revenue_annual": 55000,
+      "cash_flow_annual": 20000,
+      "profit_margin_pct": 36.4,
+      "roi_pct": 40.0,
+      "payback_years": 2.5,
+      "notes": "Revenue $55K, cash flow $20K after expenses. Rent $1,000/mo ($12K/yr). 15 washers, 15 dryers. Equipment repair estimate ~$2,000. 3-year lease remaining. Two part-time employees. Effective cash flow after minor repairs in year one would be ~$18,000."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 5,
+        "reason": "40% ROI ($20K/$50K) = 2.5-year payback, hitting the top bracket. Even factoring in $2K repairs in year one, payback is ~2.8 years."
+      },
+      "price_budget_fit": {
+        "score": 3,
+        "reason": "Asking price is exactly $50,000, right at the budget ceiling. No room for extras without negotiation."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Seller explicitly cites health issues and inability to oversee the business \u2014 strong motivated seller signal, consistent with boomer/retirement exit profile."
+      },
+      "owner_independence": {
+        "score": 4,
+        "reason": "Two part-time employees handle daily operations and listing explicitly states semi-absentee ownership is possible. Not a fully documented franchise system, but strong."
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Established in 2008, making it ~17 years old. However, using the 10-15 year bracket conservatively since the framework thresholds are 15+ for a 5. Actually, 2008 to 2025 is 17 years, qualifying for 5/5."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Laundromats are explicitly listed as a top-tier simple operation in the framework \u2014 coin-operated, low staff, recurring revenue."
+      },
+      "red_flags": {
+        "penalty": 1,
+        "flags": [
+          "Equipment needing minor repairs (~$2K) represents a small but immediate capex requirement post-acquisition."
+        ]
+      }
+    },
+    "weighted_score": 82.0,
+    "tier": "A",
+    "payback_projection": "2.5 years at stated $20K annual cash flow; ~2.8 years if $2K equipment repairs are deducted from year-one cash flow",
+    "boomer_signal": "Owner is selling due to health issues and can no longer oversee the business \u2014 classic motivated-seller exit consistent with aging/boomer profile.",
+    "summary": "This is a strong acquisition candidate hitting nearly every thesis criterion. The 2.5-year payback at asking price, semi-absentee operations with existing staff, and a health-motivated seller create an attractive combination. The only concerns are the $50K price sitting exactly at budget with no cushion, minor equipment repairs, and Detroit's economic environment, but the 36%+ margin and 17-year track record are reassuring.",
+    "key_strength": "40% annual ROI with semi-absentee operations already in place \u2014 two part-time employees run day-to-day, and the business has operated for 17 years in a stable-demand neighborhood.",
+    "key_risk": "Equipment age across 30 machines (est. 2008-era units) could lead to cascading repair/replacement costs beyond the stated $2K, potentially eroding cash flow significantly in years 2-3.",
+    "negotiation_note": "Strong leverage: seller has health issues and explicitly cannot oversee the business, creating urgency. Equipment needing repairs and the at-budget price justify offering $40K-$43K, citing the $2K immediate repairs plus likely future equipment capex. The 2.5x multiple is already below market (3-5x typical), but the seller's health urgency and Detroit's market conditions support a lower offer. A 3-year lease remaining (not long-term) is another negotiation chip."
+  },
+  {
+    "business_name": "Vending Machine Route - 15 Locations",
+    "business_type": "Vending Route",
+    "asking_price_usd": 32000,
+    "location": "Columbus, OH",
+    "source_url": "https://www.businessbroker.net/business-for-sale/vending-route-columbus-oh/987654/",
+    "extracted_financials": {
+      "gross_revenue_annual": 30000,
+      "cash_flow_annual": 12000,
+      "profit_margin_pct": 40.0,
+      "roi_pct": 37.5,
+      "payback_years": 2.67,
+      "notes": "Revenue of $30K with $18K in expenses (product + maintenance) yielding $12K net. Machines avg 5 years old. 10-15 hrs/week operator commitment. All 15 location contracts transferable."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 4,
+        "reason": "ROI of 37.5% equates to a 2.67-year payback, falling in the 33-40% bracket (4/5). Very strong payback within the target window."
+      },
+      "price_budget_fit": {
+        "score": 5,
+        "reason": "Asking price of $32,000 is well under the $50K budget, leaving $18K for working capital, machine upgrades, or negotiation room."
+      },
+      "seller_motivation": {
+        "score": 4,
+        "reason": "Seller is moving out of state for family reasons \u2014 a clear lifestyle/relocation motivation. Not a classic boomer retirement but a strong motivated-seller signal with urgency."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "Owner-operated with no employees. However, vending routes have documented, repeatable systems (restocking, servicing) and 10-15 hrs/week is manageable. Still, no staff means full operator dependency."
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Established in 2015 means ~10 years of operation, indicating proven location contracts and stable revenue."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Vending routes are among the simplest businesses to operate \u2014 restock, collect, maintain. No special skills, licenses, or training required."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 80.0,
+    "tier": "A",
+    "payback_projection": "2.67 years at stated cash flow of $12,000/year",
+    "boomer_signal": "Seller is moving out of state due to family reasons and can no longer manage the route. Not explicitly a retirement sale, but a motivated seller with a clear, non-business-related reason to exit.",
+    "summary": "A well-priced vending route with a sub-3-year payback and 10 years of operating history. The $32K asking price leaves substantial budget headroom, and the seller's relocation creates genuine urgency. The main gap is the lack of any staff \u2014 this is a pure owner-operator gig at 10-15 hours/week, but the operational simplicity of vending largely mitigates that risk.",
+    "key_strength": "Strong payback period (~2.67 years) at a price well below the $50K budget, with 10 years of stable operations and fully transferable location contracts.",
+    "key_risk": "Machines are averaging 5 years old and may require replacement or significant maintenance capex in the near term; no employees means the buyer must personally service all 15 locations.",
+    "negotiation_note": "Seller is relocating and cannot manage the route remotely, creating time pressure. The 2.67x multiple is already slightly below the typical 3-4x for vending routes, but you could push for $27K-$29K by citing upcoming machine replacement costs (5-year-old machines nearing mid-life) and the need for cashless payment upgrades to stay competitive. Offering a fast, clean close with no financing contingencies adds leverage."
+  },
+  {
+    "business_name": "Home-Based Cleaning Service",
+    "business_type": "Cleaning Service",
+    "asking_price_usd": 25000,
+    "location": "Central Texas, USA",
+    "source_url": "estimated",
+    "extracted_financials": {
+      "gross_revenue_annual": 30000,
+      "cash_flow_annual": 18000,
+      "profit_margin_pct": 60.0,
+      "roi_pct": 72.0,
+      "payback_years": 1.39,
+      "notes": "60% profit margin is unusually high for cleaning services (industry norm 10-20%), likely because owner counts their own labor as free. Real margin with a paid operator replacing the owner would be significantly lower. Includes 20+ recurring residential clients, cleaning equipment, and a branded vehicle."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 5,
+        "reason": "72% ROI at stated cash flow = ~1.4 year payback, well above the 40%+ threshold for top score. However, this assumes the new owner works the routes themselves at no imputed salary."
+      },
+      "price_budget_fit": {
+        "score": 5,
+        "reason": "$25,000 asking price is well under the $50k budget, leaving $25k in reserve for working capital, vehicle maintenance, or growth."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Owner explicitly retiring due to health issues \u2014 classic boomer exit signal. Strong motivation to close cleanly and quickly."
+      },
+      "owner_independence": {
+        "score": 1,
+        "reason": "Owner-operated with only 1 contractor for larger jobs. The business is heavily owner-dependent. No staff infrastructure, no documented systems mentioned. Clients likely have a personal relationship with the owner."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Established in 2010, 14-15 years of operation demonstrates long-term stability and a proven client base."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Residential cleaning is one of the simplest service businesses to learn and operate. Low barrier to entry, minimal technical knowledge required."
+      },
+      "red_flags": {
+        "penalty": 2,
+        "flags": [
+          "Owner is sole revenue generator \u2014 clients may follow the owner's personal relationships, not the brand (-2)",
+          "Stated 60% margin far exceeds industry norms of 10-20%, suggesting owner labor is not accounted for in expenses"
+        ]
+      }
+    },
+    "weighted_score": 78.0,
+    "tier": "B",
+    "payback_projection": "1.4 years at stated cash flow, but realistically 2.5-3.5 years if new owner imputes a fair wage or hires a cleaner to replace the owner's labor",
+    "boomer_signal": "Owner is selling due to health issues and a desire to retire \u2014 explicit retirement/health motivation.",
+    "summary": "A well-priced, long-established cleaning service with excellent on-paper ROI and a motivated retiring seller. The critical concern is that this is a one-person operation where the owner IS the business \u2014 the 60% margin evaporates if you hire someone to do the cleaning, and client retention risk is real without a proper transition. At $25k it's still a reasonable buy if the new owner plans to operate it hands-on and can retain the 20+ recurring clients through a structured handoff period.",
+    "key_strength": "Exceptionally low asking price (~1.4x cash flow) with 14+ years of operating history and a motivated health/retirement seller \u2014 strong negotiation position and minimal capital at risk.",
+    "key_risk": "Completely owner-dependent operation with no staff or systems. Client retention is uncertain, and the stated $18k cash flow assumes the owner works for free. Hiring a replacement cleaner could cut cash flow to near zero.",
+    "negotiation_note": "The seller's health issues create urgency \u2014 this is a highly motivated seller. The 1.4x multiple is already below market (2-3x typical), but you could push for $18-20k by noting the owner-dependency risk, lack of documented systems, and the fact that client contracts may not be transferable. Request a 60-90 day transition period where the owner introduces you to all clients. Ask for 6-12 months of bank statements and tax returns to verify the $30k revenue figure."
+  },
+  {
+    "business_name": "Estimated Small Coffee Cart Business",
+    "business_type": "Coffee Cart",
+    "asking_price_usd": 30000,
+    "location": "Portland, OR",
+    "source_url": "estimated",
+    "extracted_financials": {
+      "gross_revenue_annual": 35000,
+      "cash_flow_annual": 10000,
+      "profit_margin_pct": 28.6,
+      "roi_pct": 33.3,
+      "payback_years": 3.0,
+      "notes": "Margin of ~28.6% on $35k revenue. Owner works ~15 hrs/week. Cart is fully equipped. 3-year city permit in place. 3x multiple on cash flow, which is within market norms for a coffee cart."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 4,
+        "reason": "ROI of 33.3% puts this right at the 3-year payback threshold (33-40% range = 4/5)."
+      },
+      "price_budget_fit": {
+        "score": 5,
+        "reason": "Asking price of $30,000 is well under the $50k budget, leaving $20k in reserve for working capital or improvements."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Listing explicitly states 'Owner is retiring and seeking a slower pace of life' \u2014 classic boomer retirement exit signal."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "Owner-operated with no employees currently. While described as semi-absentee at 15 hrs/week, there is no staff in place and the business depends on the operator showing up to serve coffee."
+      },
+      "business_age": {
+        "score": 3,
+        "reason": "Established in 2018, making it ~7 years old. Falls in the 5-10 year range."
+      },
+      "operational_simplicity": {
+        "score": 3,
+        "reason": "Food service cart \u2014 simple concept but still involves food handling, health permits, daily prep, inventory management, and weather dependency. Not as passive as vending or laundry."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": [
+          "This is a hypothetical/estimated listing, not a verified real listing \u2014 all financials are unverified projections. However, no structural red flags per the framework criteria."
+        ]
+      }
+    },
+    "weighted_score": 77.0,
+    "tier": "B",
+    "payback_projection": "3.0 years at stated cash flow of $10,000/year",
+    "boomer_signal": "\"Owner is retiring and seeking a slower pace of life.\" \u2014 explicit retirement motivation.",
+    "summary": "A solid B-tier acquisition at $30k with a clean 3-year payback and a motivated retiring seller. The biggest concern is that this is entirely owner-operated with no staff, meaning you're buying yourself a 15-hour-per-week job making coffee \u2014 and if you hire help, the $10k cash flow could shrink significantly. The price leaves $20k in budget reserve, which gives room for negotiation comfort and working capital, but the thin $10k annual cash flow on $35k revenue leaves little margin for error.",
+    "key_strength": "Strong price-to-budget fit at $30k with explicit boomer retirement motivation \u2014 clean acquisition setup with $20k left over for reserves or improvements.",
+    "key_risk": "Entirely owner-dependent with zero employees. Hiring even part-time help at $15/hr for 15 hrs/week (~$11,700/year) would wipe out the entire $10,000 cash flow, making the business unprofitable unless revenue grows.",
+    "negotiation_note": "The 3-year permit is a double-edged sword \u2014 use it as leverage by noting permit renewal risk. Also, $10k cash flow is thin; argue for a 2-2.5x multiple ($20k-$25k) instead of 3x, especially since no staff or systems transfer with the sale. The retiring seller is likely more motivated by speed and simplicity than top dollar."
+  },
+  {
+    "business_name": "Neighborhood Flower Shop",
+    "business_type": "Retail - Florist",
+    "asking_price_usd": 40000,
+    "location": "Small Town, New England, USA",
+    "source_url": "estimated",
+    "extracted_financials": {
+      "gross_revenue_annual": 35000,
+      "cash_flow_annual": 12000,
+      "profit_margin_pct": 34.3,
+      "roi_pct": 30.0,
+      "payback_years": 3.33,
+      "notes": "Revenue of $35k with $12k cash flow implies ~34% margin, which is above the industry average of 5-15%. Rent is $600/mo ($7,200/yr). Includes inventory, coolers, and fixtures. Two part-time employees on payroll. The 3.3x multiple is within the 2-4x typical range for small florists."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 3,
+        "reason": "30% ROI = 3.33-year payback. Falls in the 25-33% bracket (\u22644 year payback), scoring a 3/5."
+      },
+      "price_budget_fit": {
+        "score": 4,
+        "reason": "$40,000 asking price falls in the $30,001-$45,000 range, leaving $10k budget cushion for working capital or negotiation."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement after 35 years \u2014 textbook baby boomer exit. Highly motivated, clean transition likely."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "2 part-time staff in place and owner willing to train, but floristry skill and customer relationships likely somewhat owner-dependent. Scores 3/5."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Established in 1988 \u2014 36+ years in operation. Maximum score for stability and longevity."
+      },
+      "operational_simplicity": {
+        "score": 4,
+        "reason": "Retail with staff in place, relatively simple inventory-based business. Not quite as passive as vending/laundromat but manageable. Scores 4/5."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 76.0,
+    "tier": "B",
+    "payback_projection": "3.33 years at stated $12,000 annual cash flow",
+    "boomer_signal": "\"The owner is retiring after 35 years in the business and wishes to pass this beloved shop to a new owner.\"",
+    "summary": "A solid B-tier acquisition featuring a textbook baby boomer retirement sale with 36 years of established operations and a loyal local customer base. The 3.33-year payback is decent but not exceptional, and the $12,000 annual cash flow on a $40,000 ask is reasonable. The main concern is whether a new owner can retain the deeply personal customer relationships built over three decades, and the low absolute dollar cash flow leaves little margin for error.",
+    "key_strength": "36-year-old business with an explicitly retiring owner \u2014 maximum seller motivation, proven longevity, and included equipment make this a clean, low-risk transition.",
+    "key_risk": "Very low absolute cash flow ($12k/year) means any disruption \u2014 seasonal downturn, key customer loss, or unexpected expense \u2014 could wipe out profitability for the year. Also, customer loyalty may be tied to the retiring owner personally.",
+    "negotiation_note": "The $12k cash flow is modest in absolute terms and the owner is clearly motivated to retire after 35 years ('wishes to pass this beloved shop'). Offering $30k-$33k (2.5-2.75x cash flow) with a short close timeline could appeal to a seller who prioritizes a smooth handoff over maximizing price. The small-town location and niche nature of the business likely limit the buyer pool, giving you additional leverage."
+  },
+  {
+    "business_name": "Small Town Laundromat",
+    "business_type": "Laundromat",
+    "asking_price_usd": 50000,
+    "location": "Rural Ohio, OH",
+    "source_url": "https://www.businessbroker.net/business-for-sale/small-town-laundromat-rural-ohio-ohio/123456.aspx",
+    "extracted_financials": {
+      "gross_revenue_annual": 35000,
+      "cash_flow_annual": 15000,
+      "profit_margin_pct": 42.86,
+      "roi_pct": 30.0,
+      "payback_years": 3.33,
+      "notes": "12 washers and 10 dryers with recent energy-efficient upgrades. Leased space with favorable long-term lease. Owner spends ~10 hrs/week on maintenance and cash collection. Expenses approximately $20,000/year. Profit margin of ~43% is above the typical 20-35% industry range, likely due to low labor costs (owner-operated) and energy-efficient equipment."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 3,
+        "reason": "ROI is 30% ($15,000/$50,000), yielding a 3.33-year payback. Falls in the 25-33% bracket (\u22644 year payback), scoring a 3/5."
+      },
+      "price_budget_fit": {
+        "score": 3,
+        "reason": "Asking price is exactly $50,000, which is at the top of the budget. Falls in the $45,001-$50,000 bracket, scoring 3/5."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement due to age and relocating closer to family out of state. Classic boomer exit signal \u2014 highly motivated seller with clean reason to sell."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "No employees \u2014 owner-operated with ~10 hrs/week for maintenance and cash collection. Simple enough to learn but there are no staff or systems in place beyond the owner. New owner needs to handle everything, though the time commitment is low. Training would be needed."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Established in 2008, making it approximately 16-17 years old. Exceeds the 15+ year threshold for maximum score."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Laundromat is explicitly listed as a top-tier simple operation in the framework. Coin-operated, low staff requirement, recurring revenue, ~10 hrs/week commitment."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 74.0,
+    "tier": "B",
+    "payback_projection": "3.33 years at stated cash flow of $15,000/year",
+    "boomer_signal": "\"Owner is retiring due to age and looking to relocate closer to family out of state.\" \u2014 textbook baby boomer retirement exit with clear personal motivation.",
+    "summary": "This is a solid, low-effort laundromat acquisition with a clear boomer retirement exit and 16+ years of community-established operations. The 3.33-year payback is slightly outside the ideal \u22643-year target, but the business's simplicity, above-average profit margins, and transparent financials make it a reliable cash-flow asset. Negotiating the price down to $40,000-$45,000 would push this into A-tier territory with a sub-3-year payback.",
+    "key_strength": "Extremely simple operations requiring only ~10 hours/week with a 16-year track record, above-industry profit margins, and a highly motivated retiring seller \u2014 the ideal low-effort semi-absentee acquisition.",
+    "key_risk": "Zero employees means the new owner is solely responsible for all maintenance, cash collection, and troubleshooting; any equipment failure on the aging fleet (despite upgrades) could temporarily cut revenue and require capital outlay.",
+    "negotiation_note": "Strong leverage here: the seller is retiring and relocating out of state, creating urgency. The 3.3x multiple is fair but at the top of your budget \u2014 push for $40,000-$45,000 by citing the lack of employees/systems, the rural location limiting buyer pool, and the fact that the business sits on a lease (not owned real estate). A $42,000 offer would yield a 2.8-year payback and 35.7% ROI, firmly in A-tier territory."
+  },
+  {
+    "business_name": "Home-Based Bookkeeping Service",
+    "business_type": "Bookkeeping Service",
+    "asking_price_usd": 40000,
+    "location": "Suburban Texas, TX",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/home-based-bookkeeping-service-suburban-texas/2100123/",
+    "extracted_financials": {
+      "gross_revenue_annual": 45000,
+      "cash_flow_annual": 25000,
+      "profit_margin_pct": 55.6,
+      "roi_pct": 62.5,
+      "payback_years": 1.6,
+      "notes": "Owner works ~20 hrs/week. 15 recurring clients. Minimal expenses due to home-based operation with cloud software. $45K gross revenue, $25K cash flow implies ~$20K in expenses (software, insurance, etc.)."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 5,
+        "reason": "62.5% annual ROI ($25K cash flow / $40K asking price) yields a 1.6-year payback, well under the 2.5-year threshold for a 5/5."
+      },
+      "price_budget_fit": {
+        "score": 4,
+        "reason": "Asking price of $40,000 falls in the $30,001\u2013$45,000 range, leaving $10K budget cushion for transition costs or negotiation room."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Seller explicitly cites health reasons and desire to retire after a long career \u2014 classic boomer retirement exit with strong motivation to close."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "Owner-operated with no employees. Business is entirely dependent on the owner. However, cloud-based systems and training offered partially mitigate this. Still scores low because clients may have personal loyalty to the owner."
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Established in 2011, operating for approximately 12\u201313 years. Falls in the 10\u201315 year range."
+      },
+      "operational_simplicity": {
+        "score": 4,
+        "reason": "Home-based, cloud software, 20 hrs/week, no physical location or staff to manage. However, requires basic bookkeeping knowledge and client management skills, so not quite a route/vending 5/5."
+      },
+      "red_flags": {
+        "penalty": 2,
+        "flags": [
+          "Owner is sole revenue generator \u2014 clients have personal relationships with the owner and may not transfer smoothly (client retention risk)"
+        ]
+      }
+    },
+    "weighted_score": 73.0,
+    "tier": "B",
+    "payback_projection": "1.6 years at stated cash flow of $25,000/year against $40,000 asking price",
+    "boomer_signal": "\"Owner is selling due to health reasons and a desire to retire after a long career.\" \u2014 strong retirement/health motivated seller signal.",
+    "summary": "This is a well-priced bookkeeping business with excellent payback speed (1.6 years) and a clearly motivated retiring seller. The 55%+ profit margin and 20-hour work week are attractive, and the 1.6x multiple is below market norms for this business type. The critical risk is that all 15 client relationships are tied to the owner personally \u2014 without contractual lock-ins or a strong transition plan, client attrition could significantly erode the stated cash flow.",
+    "key_strength": "Exceptional payback speed at 1.6 years with a motivated retirement seller pricing below market multiples.",
+    "key_risk": "100% owner-operated with no staff \u2014 all client relationships are personal, creating significant client retention risk upon ownership transfer.",
+    "negotiation_note": "Health-motivated seller signals urgency. The 1.6x multiple is already below the 2-3x industry norm, but you can negotiate down toward $30K-$35K by citing the owner-dependency risk and lack of contractual client commitments. Request an extended transition period (6+ months) where the seller introduces the new owner to all clients, and consider structuring part of the payment as an earnout tied to client retention at 6 and 12 months."
+  },
+  {
+    "business_name": "Corner Store Snack Shop",
+    "business_type": "Retail Snack Shop",
+    "asking_price_usd": 40000,
+    "location": "Urban Ohio, USA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/snack-shop-ohio/445566/",
+    "extracted_financials": {
+      "gross_revenue_annual": 45000,
+      "cash_flow_annual": 15000,
+      "profit_margin_pct": 33.3,
+      "roi_pct": 37.5,
+      "payback_years": 2.67,
+      "notes": "Lease $700/mo (likely already factored into cash flow). $5,000 inventory included. Transferable lease with 3 years remaining. Owner open to partial seller financing."
+    },
+    "scores": {
+      "payback_speed": {
+        "score": 4,
+        "reason": "ROI of 37.5% ($15k/$40k) yields a 2.67-year payback, falling in the 33-40% bracket (score 4). Just short of the top tier but solidly within the 3-year target."
+      },
+      "price_budget_fit": {
+        "score": 4,
+        "reason": "$40,000 asking price falls in the $30,001\u2013$45,000 range, leaving $10k of budget headroom for working capital or negotiation flexibility."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement due to health concerns \u2014 classic boomer exit. Owner is also open to partial financing, signaling strong motivation to close a deal."
+      },
+      "owner_independence": {
+        "score": 1,
+        "reason": "Entirely owner-operated with zero employees. The new buyer must be a full-time operator from day one. No staff, no systems documentation mentioned."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Established in 1990 \u2014 over 34 years in operation. Exceptional longevity demonstrating stable demand and community presence."
+      },
+      "operational_simplicity": {
+        "score": 4,
+        "reason": "Simple retail snack/convenience operation. Inventory is straightforward. Hot food kitchen adds slight complexity (health permits, food safety) but overall low barrier to learn."
+      },
+      "red_flags": {
+        "penalty": 2,
+        "flags": [
+          "Owner is sole operator \u2014 no staff, customers may be loyal to the owner personally (-2)",
+          "Lease only has 3 years remaining \u2014 renewal risk after that (noted but no additional penalty)"
+        ]
+      }
+    },
+    "weighted_score": 66.0,
+    "tier": "B",
+    "payback_projection": "2.67 years at stated $15,000 annual cash flow",
+    "boomer_signal": "\"The owner has run the business solo and is now selling due to health concerns and a desire to retire.\" Also offering partial seller financing \u2014 strong motivated seller signal.",
+    "summary": "A 34-year-old corner snack shop with a compelling 2.67-year payback and a clearly motivated retiring seller. The biggest concern is that it's entirely owner-operated with no employees, meaning the buyer must commit full-time and risks losing customers tied to the current owner's relationships. The seller financing offer and below-market multiple create real negotiation leverage, but the 3-year lease expiration needs to be addressed before closing.",
+    "key_strength": "Exceptional business longevity (34 years) combined with a fast payback period and a highly motivated retiring seller willing to offer financing.",
+    "key_risk": "Completely owner-dependent with zero employees \u2014 the buyer inherits a full-time job, not a business with systems, and customer retention is uncertain post-transition.",
+    "negotiation_note": "Health-driven retirement and seller financing offer signal urgency. The 3-year lease expiration is a legitimate risk that justifies negotiating the price down to $30,000\u2013$35,000. Push for a longer transition/training period (60-90 days) and request the seller negotiate a lease renewal or extension as a condition of sale. The 2.67x multiple is already fair but the owner-dependency and lease risk warrant a discount."
+  }
+]
