@@ -21,7 +21,8 @@ from pathlib import Path
 from typing import Optional
 
 import anthropic
-from openai import OpenAI
+from xai_sdk import Client as XaiClient
+from xai_sdk.chat import user as xai_user
 
 # ---------------------------------------------------------------------------
 # Config
@@ -29,8 +30,7 @@ from openai import OpenAI
 
 PROGRAM_MD = Path(__file__).parent / "program.md"
 MODEL = "claude-opus-4-6"
-GROK_MODEL = "grok-3"
-XAI_BASE_URL = "https://api.x.ai/v1"
+GROK_MODEL = "grok-4"
 MAX_RETRIES = 3
 RETRY_DELAY = 2  # seconds between retries on rate limit
 
@@ -38,13 +38,12 @@ RETRY_DELAY = 2  # seconds between retries on rate limit
 # Grok web search enrichment
 # ---------------------------------------------------------------------------
 
-def grok_enrich(grok_client: OpenAI, business: dict) -> str:
+def grok_enrich(grok_client: XaiClient, business: dict) -> str:
     """Ask Grok (with live web search) for current market context on this business type."""
     name = business.get("business_name", "")
     location = business.get("location", "")
     description = business.get("description", "")[:400]
 
-    # Infer business type from name/description for a focused search
     query = (
         f"I'm evaluating a small business acquisition. The business is: '{name}' located in {location}. "
         f"Brief description: {description}\n\n"
@@ -57,12 +56,9 @@ def grok_enrich(grok_client: OpenAI, business: dict) -> str:
     )
 
     try:
-        response = grok_client.chat.completions.create(
-            model=GROK_MODEL,
-            messages=[{"role": "user", "content": query}],
-            max_tokens=300,
-        )
-        return response.choices[0].message.content.strip()
+        chat = grok_client.chat.create(model=GROK_MODEL)
+        chat.append(xai_user(query))
+        return chat.sample().content
     except Exception as e:
         return f"[Grok enrichment unavailable: {e}]"
 
@@ -387,7 +383,7 @@ def main():
         if not xai_key:
             print("Error: XAI_API_KEY environment variable not set (required for --grok).")
             sys.exit(1)
-        grok_client = OpenAI(api_key=xai_key, base_url=XAI_BASE_URL)
+        grok_client = XaiClient(api_key=xai_key)
         print("Grok web search enrichment: ENABLED")
 
     program = load_program()

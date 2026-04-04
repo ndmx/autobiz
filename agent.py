@@ -31,7 +31,7 @@ from datetime import datetime
 from pathlib import Path
 
 import anthropic
-from openai import OpenAI
+from xai_sdk import Client as XaiClient
 
 # Re-use all logic from research.py
 from research import (
@@ -46,7 +46,6 @@ from research import (
     score_to_tier,
     CLAUDE_MODEL,
     GROK_MODEL,
-    XAI_BASE_URL,
     MAX_RETRIES,
     RETRY_DELAY,
     get_industry_margin_norm,
@@ -208,7 +207,7 @@ def apply_hard_rules(results: list[dict]) -> list[dict]:
 # URL verification (fix #5)
 # ---------------------------------------------------------------------------
 
-def verify_listings(grok: OpenAI, results: list[dict], top_n: int = 5) -> list[dict]:
+def verify_listings(grok: XaiClient, results: list[dict], top_n: int = 5) -> list[dict]:
     """Ask Grok to verify whether top candidate listings appear to be real."""
     candidates = [
         r for r in results
@@ -234,13 +233,8 @@ def verify_listings(grok: OpenAI, results: list[dict], top_n: int = 5) -> list[d
             f"Then one sentence explaining why."
         )
         try:
-            resp = grok.chat.completions.create(
-                model=GROK_MODEL,
-                messages=[{"role": "user", "content": prompt}],
-                max_tokens=80,
-                temperature=0.1,
-            )
-            verdict = resp.choices[0].message.content.strip()
+            from research import grok_call
+            verdict = grok_call(grok, prompt)
             if verdict.startswith("VERIFIED"):
                 candidate["_verified"] = "VERIFIED"
             elif verdict.startswith("LIKELY_REAL"):
@@ -502,7 +496,7 @@ def show_run(sha: str) -> str:
 # Parallel search agent
 # ---------------------------------------------------------------------------
 
-def search_agent(grok: OpenAI, query: str, agent_id: int) -> tuple[int, list[dict]]:
+def search_agent(grok: XaiClient, query: str, agent_id: int) -> tuple[int, list[dict]]:
     """A single search agent. Returns (agent_id, listings)."""
     listings = discover_listings(grok, query, verbose=False)
     return agent_id, listings
@@ -514,7 +508,7 @@ def search_agent(grok: OpenAI, query: str, agent_id: int) -> tuple[int, list[dic
 
 def scoring_agent(
     claude: anthropic.Anthropic,
-    grok: OpenAI,
+    grok: XaiClient,
     business: dict,
     program: str,
     budget: int,
@@ -565,7 +559,7 @@ def scoring_agent(
 
 def orchestrate(
     claude: anthropic.Anthropic,
-    grok: OpenAI,
+    grok: XaiClient,
     budget: int,
     rounds: int,
     biz_type: str,
@@ -801,7 +795,7 @@ def main():
         sys.exit(1)
 
     claude = anthropic.Anthropic(api_key=anthropic_key)
-    grok = OpenAI(api_key=xai_key, base_url=XAI_BASE_URL)
+    grok = XaiClient(api_key=xai_key)
 
     orchestrate(
         claude=claude,

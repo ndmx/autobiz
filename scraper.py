@@ -27,10 +27,10 @@ from urllib.parse import urlencode, quote_plus
 
 import requests
 from bs4 import BeautifulSoup
-from openai import OpenAI
+from xai_sdk import Client as XaiClient
+from xai_sdk.chat import user as xai_user
 
-XAI_BASE_URL = "https://api.x.ai/v1"
-GROK_MODEL = "grok-3"
+GROK_MODEL = "grok-4"
 
 HEADERS = {
     "User-Agent": (
@@ -305,20 +305,14 @@ Do NOT generate hypothetical listings — only return what you actually see on t
 """
 
 
-def grok_scrape_url(grok: OpenAI, url: str, label: str, verbose: bool) -> list[dict]:
+def grok_scrape_url(grok: XaiClient, url: str, label: str, verbose: bool) -> list[dict]:
     """Use Grok's live web access to scrape a listing page that blocks direct requests."""
     if verbose:
         print(f"  [Grok→{label}] {url[:80]}")
     try:
-        resp = grok.chat.completions.create(
-            model=GROK_MODEL,
-            messages=[
-                {"role": "user", "content": GROK_SCRAPE_PROMPT.format(url=url)}
-            ],
-            max_tokens=4000,
-            temperature=0.1,
-        )
-        raw = resp.choices[0].message.content.strip()
+        chat = grok.chat.create(model=GROK_MODEL)
+        chat.append(xai_user(GROK_SCRAPE_PROMPT.format(url=url)))
+        raw = chat.sample().content.strip()
         if raw.startswith("```"):
             raw = raw.split("```")[1]
             if raw.startswith("json"):
@@ -474,7 +468,7 @@ def main():
         if not xai_key:
             print("Warning: XAI_API_KEY not set — skipping Grok-proxied sources (use --no-grok to suppress)")
         else:
-            grok = OpenAI(api_key=xai_key, base_url=XAI_BASE_URL)
+            grok = XaiClient(api_key=xai_key)
 
     print("=" * 64)
     print(f"  autobiz scraper")

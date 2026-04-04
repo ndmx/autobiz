@@ -20,7 +20,8 @@ from pathlib import Path
 from typing import Optional
 
 import anthropic
-from openai import OpenAI
+from xai_sdk import Client as XaiClient
+from xai_sdk.chat import user as xai_user, system as xai_system
 
 # ---------------------------------------------------------------------------
 # Config
@@ -28,10 +29,19 @@ from openai import OpenAI
 
 PROGRAM_MD = Path(__file__).parent / "program.md"
 CLAUDE_MODEL = "claude-opus-4-6"
-GROK_MODEL = "grok-3"
-XAI_BASE_URL = "https://api.x.ai/v1"
+GROK_MODEL = "grok-4"
 MAX_RETRIES = 3
 RETRY_DELAY = 2
+
+
+def grok_call(grok: XaiClient, prompt: str, system_msg: str = None, max_tokens: int = 3000) -> str:
+    """Unified xai_sdk chat call. Returns text content."""
+    chat = grok.chat.create(model=GROK_MODEL)
+    if system_msg:
+        chat.append(xai_system(system_msg))
+    chat.append(xai_user(prompt))
+    response = chat.sample()
+    return response.content
 
 
 # ---------------------------------------------------------------------------
@@ -97,7 +107,7 @@ Rules:
 """
 
 
-def discover_listings(grok: OpenAI, query: str, verbose: bool = False) -> list[dict]:
+def discover_listings(grok: XaiClient, query: str, verbose: bool = False) -> list[dict]:
     """Use Grok to search the web for business listings matching the query."""
     if verbose:
         print(f"  Searching: {query[:80]}...")
@@ -105,16 +115,8 @@ def discover_listings(grok: OpenAI, query: str, verbose: bool = False) -> list[d
     prompt = DISCOVERY_PROMPT_TEMPLATE.format(query=query)
 
     try:
-        response = grok.chat.completions.create(
-            model=GROK_MODEL,
-            messages=[
-                {"role": "system", "content": DISCOVERY_SYSTEM},
-                {"role": "user", "content": prompt},
-            ],
-            max_tokens=3000,
-            temperature=0.3,
-        )
-        raw = response.choices[0].message.content.strip()
+        raw = grok_call(grok, prompt, system_msg=DISCOVERY_SYSTEM)
+        raw = raw.strip()
 
         # Strip markdown fences if present
         if raw.startswith("```"):
@@ -142,7 +144,7 @@ def discover_listings(grok: OpenAI, query: str, verbose: bool = False) -> list[d
 # For each candidate, get current market benchmarks
 # ---------------------------------------------------------------------------
 
-def market_enrich(grok: OpenAI, business: dict) -> str:
+def market_enrich(grok: XaiClient, business: dict) -> str:
     """Get current market context for this business type."""
     btype = business.get("business_type", "small business")
     location = business.get("location", "United States")
@@ -167,13 +169,7 @@ def market_enrich(grok: OpenAI, business: dict) -> str:
     )
 
     try:
-        response = grok.chat.completions.create(
-            model=GROK_MODEL,
-            messages=[{"role": "user", "content": query}],
-            max_tokens=250,
-            temperature=0.2,
-        )
-        return response.choices[0].message.content.strip()
+        return grok_call(grok, query)
     except Exception as e:
         return f"[market data unavailable: {e}]"
 
@@ -395,7 +391,7 @@ def score_business(
 # Phase 4 — Deep Dive on Top Candidates
 # ---------------------------------------------------------------------------
 
-def deep_dive(grok: OpenAI, candidate: dict) -> str:
+def deep_dive(grok: XaiClient, candidate: dict) -> str:
     """Ask Grok for a detailed due diligence brief on the top candidate."""
     name = candidate.get("business_name", "this business")
     btype = candidate.get("business_type", "small business")
@@ -421,13 +417,7 @@ def deep_dive(grok: OpenAI, candidate: dict) -> str:
     )
 
     try:
-        response = grok.chat.completions.create(
-            model=GROK_MODEL,
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=500,
-            temperature=0.2,
-        )
-        return response.choices[0].message.content.strip()
+        return grok_call(grok, prompt)
     except Exception as e:
         return f"[deep dive unavailable: {e}]"
 
@@ -606,7 +596,7 @@ def main():
         sys.exit(1)
 
     claude = anthropic.Anthropic(api_key=anthropic_key)
-    grok = OpenAI(api_key=xai_key, base_url=XAI_BASE_URL)
+    grok = XaiClient(api_key=xai_key)
     program = load_program()
 
     print("=" * 72)
