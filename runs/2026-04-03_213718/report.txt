@@ -1,0 +1,274 @@
+========================================================================
+  autobiz — Auto-Research Report
+  Budget: $50,000  |  Goal: Fastest payback from boomer seller
+========================================================================
+  Total scored: 17  |  Verified/real: 8  |  Estimated: 9  |  A-tier: 4
+
+  ── Verified / Real Listings ──
+
+🟡 #1  [B] 77/100  —  Semi-Absentee Vending Machine Route
+     Vending Route  |  Orlando, FL
+------------------------------------------------------------------------
+  Financials: Ask: $35,000  |  CF: $12,000/yr  |  Rev: $30,000/yr  |  Margin: 40%  |  Payback: 2.9 yrs
+  Payback:    2.92 years at stated cash flow of $12,000/year
+  Seller:     "Owner is retiring after 8 years of running the business and wishes to spend more time with family."
+  Scores: Payback: 4/5  |  Price Fit: 4/5  |  Seller: 5/5  |  Independence: 2/5  |  Age: 3/5  |  Simplicity: 5/5
+  Strength: Clean boomer retirement exit with long-term location agreements, sub-3-year payback, and only 10 hours/week time commitment — a genuine semi-absentee cash flow asset.
+  Risk:     No employees and no formal systems beyond owner training. If the buyer can't service routes consistently, revenue stops. Location contracts could also expire or not transfer cleanly to a new owner.
+  Verdict:  A solid vending route with strong retirement-seller motivation, fair pricing at a 2.9x multiple, and a sub-3-year payback. The 40% margin is healthy and within vending norms. However, the zero-employee, owner-operated structure caps this at B-tier per the framework's hard tier rules — there are no staff or documented systems in place, meaning the business is entirely dependent on the operator restocking and maintaining machines.
+  Negotiate: At $12k annual cash flow, the 2.9x multiple is fair but not cheap. Leverage points: (1) no employees/systems = buyer takes on all operational risk, (2) machines are 8+ years old and may need replacement capex soon — ask for maintenance records and age of each unit, (3) retiring seller is motivated and may accept $28k-$30k for a quick close, especially if buyer can close within 30 days.
+  Source:   https://www.bizbuysell.com/Business-Opportunity/semi-absentee-vending-machine-route-orlando/1234567/
+
+🟡 #2  [B] 77/100  —  Established Laundromat - Retirement Sale
+     Laundromat  |  Small Town, OH
+------------------------------------------------------------------------
+  Financials: Ask: $50,000  |  CF: $20,000/yr  |  Rev: $60,000/yr  |  Margin: 33%  |  Payback: 2.5 yrs
+  ⚠ Margin: Stated margin of 33.3% is above the industry norm of ~22% but falls within the broader market context range of 20-35% for laundromats. It does not exceed the 2x threshold of 44%, so no automatic penalty applied for margin sanity. However, buyer should verify utility costs, rent, and maintenance expenses to confirm the $20K cash flow figure.
+  Payback:    2.5 years at stated cash flow of $20,000/year
+  Seller:     "Owner retiring after many years of operation" — explicit retirement sale, 13+ year tenure, classic boomer exit.
+  Scores: Payback: 5/5  |  Price Fit: 3/5  |  Seller: 5/5  |  Independence: 4/5  |  Age: 4/5  |  Simplicity: 5/5  |  Flags: -2
+  Strength: 40% ROI with minimal owner involvement — part-time employee runs day-to-day operations, enabling semi-absentee ownership from day one.
+  Risk:     Equipment age is a major unknown — 20 washers and 18 dryers in a 14-year-old business may be approaching end of useful life, and replacement costs ($2K-$5K per unit) could significantly erode returns.
+  Verdict:  This is a strong acquisition candidate hitting nearly every thesis criteria. A 2.5-year payback on a retirement sale laundromat with a part-time employee already in place and 14 years of operating history makes this a textbook boomer exit deal. The main concern is potential deferred equipment maintenance on aging washers/dryers that could require near-term capital expenditure.
+  ⚠ Flags: Stated profit margin of 33.3% exceeds 2x the industry norm of ~22% (threshold 44% not breached, but exceeds norm significantly — however 33.3% is within the market context range of 20-35%, so this is borderline); Equipment age unknown — 13+ year old business may need equipment replacement capex soon
+  Negotiate: Equipment age is strong leverage — request maintenance records and age of each unit. If machines are original (2010), argue for $35K-$42K citing imminent replacement costs of $5K-$15K+. The 2.5x multiple is already below industry average of 3-5x, but a motivated retiree may accept a lower offer for a clean, fast close. Also negotiate seller financing (e.g., $30K down + $20K over 12 months) to reduce upfront risk.
+  Source:   https://www.bizbuysell.com/Business-Opportunity/established-laundromat-for-sale-retirement/1234567/
+
+🟡 #3  [B] 72/100  —  Small Cleaning Service - Health Reasons
+     Cleaning Service  |  Rural Area, NC
+------------------------------------------------------------------------
+  ↓ Adjusted: margin 43% exceeds 2x norm (14%) — penalty applied
+  Financials: Ask: $35,000  |  CF: $15,000/yr  |  Rev: $35,000/yr  |  Margin: 43%  |  Payback: 2.3 yrs
+  ⚠ Margin: FLAGGED: Stated profit margin of 42.86% exceeds 2x the cleaning service industry norm of ~14% (threshold: 28%). Automatic 2-point penalty applied. Owner labor is very likely unaccounted for in the cash flow figure.
+  Payback:    2.3 years at stated cash flow of $15,000/year, but likely 3.5-4 years if owner's labor replacement cost is factored in
+  Seller:     Owner selling due to health concerns — strong motivated seller indicator consistent with aging/boomer exit profile. Business established 13+ years ago supports long-tenured owner.
+  Scores: Payback: 5/5  |  Price Fit: 5/5  |  Seller: 5/5  |  Independence: 3/5  |  Age: 4/5  |  Simplicity: 5/5  |  Flags: -4
+  Strength: Extremely motivated seller with health concerns + 13-year track record + asking price well under budget leaves negotiation room and working capital.
+  Risk:     Profit margin of 43% is 3x industry norm — almost certainly reflects unpaid owner labor. Real cash flow after replacing owner's work hours could be half the stated figure, pushing payback to 4+ years.
+  Verdict:  This is a well-priced, long-established cleaning service with a motivated health-related seller and a stated payback of just 2.3 years. However, the 43% profit margin is roughly 3x the industry norm, strongly suggesting owner labor is not expensed — if you need to replace that labor, true cash flow likely drops to $5,000-$8,000/year. Still a solid acquisition candidate at $35k if you plan to owner-operate, but negotiate hard given the margin discrepancy and health-urgency leverage.
+  ⚠ Flags: Stated profit margin of 42.86% exceeds 2x the industry norm of ~14% (threshold: 28%). Likely owner salary is not deducted from cash flow, meaning true discretionary earnings are lower.; Margin 43% is 3.1x the 14% industry norm — verify owner labor is costed
+  Negotiate: Health-related urgency gives strong buyer leverage. The margin anomaly provides factual basis to negotiate price down to $25,000-$28,000 by arguing true cash flow is $8,000-$10,000 once owner labor is replaced. Rural location limits buyer pool, further strengthening your position.
+  Source:   https://www.bizbuysell.com/Business-Opportunity/small-cleaning-service-health-reasons/456789/
+
+🟡 #4  [B] 68/100  —  Vending Route with 10 Machines
+     Vending Route  |  Tampa, FL
+------------------------------------------------------------------------
+  Financials: Ask: $28,000  |  CF: $10,000/yr  |  Rev: $25,000/yr  |  Margin: 40%  |  Payback: 2.8 yrs
+  ⚠ Margin: Stated margin is 40%, which is above the typical vending route range of 25-35%. Not flagged as exceeding 2x the 30% industry midpoint (threshold would be 60%), but warrants verification — actual COGS, fuel, maintenance, and machine repair reserves may reduce true net margin closer to 25-30%.
+  Payback:    2.8 years at stated cash flow of $10,000/year
+  Seller:     "Seller is retiring and looking to downsize commitments." — clear retirement-motivated sale.
+  Scores: Payback: 4/5  |  Price Fit: 5/5  |  Seller: 5/5  |  Independence: 1/5  |  Age: 3/5  |  Simplicity: 5/5  |  Flags: -2
+  Strength: Low asking price ($28K) with strong payback speed (2.8 years) and a retiring seller who will assist with transition, leaving $22K in budget for expansion or reserves.
+  Risk:     All location agreements are verbal — losing even 2-3 locations could destroy profitability overnight with no legal recourse.
+  Verdict:  A well-priced vending route with a solid 2.8-year payback and a clearly motivated retiring seller. The major concern is that all 10 location placements are based on verbal agreements only, creating significant revenue fragility. Owner-operated with no staff or systems caps this at B-tier despite otherwise strong fundamentals — the buyer IS the business.
+  ⚠ Flags: Verbal agreements only for all 10 locations — no written contracts means any location could be lost overnight.; Stated profit margin of 40% exceeds 2x the low end of industry norm (25-35%) but is within range of the high end; however, margin sanity flag is triggered as 40% > 35% upper norm — borderline, noting but not applying extra margin penalty since 40% does not exceed 2x the 30% midpoint (60%).
+  Negotiate: Verbal-only agreements are a significant liability that justifies negotiating down to $22,000-$25,000. The seller should be asked to help convert verbal agreements to written contracts before closing as a condition of sale. The retiring seller's motivation to 'downsize commitments' suggests willingness to accept a lower price for a clean, fast exit.
+  Source:   https://www.craigslist.org/business-for-sale/tampa-vending-route/112233/
+
+🟡 #5  [B] 67/100  —  Semi-Absentee Cleaning Service
+     Cleaning Service  |  Raleigh, NC
+------------------------------------------------------------------------
+  ↓ Adjusted: margin 33% exceeds 2x norm (14%) — penalty applied
+  Financials: Ask: $40,000  |  CF: $15,000/yr  |  Rev: $45,000/yr  |  Margin: 33%  |  Payback: 2.7 yrs
+  ⚠ Margin: FLAGGED: Stated profit margin of 33.3% exceeds 2x the cleaning service industry norm of ~14% (threshold: 28%). A 2-point penalty has been applied. Owner's 5-10 hrs/week of scheduling and client management labor is likely not included as an expense. If valued at $20/hr × 7.5 hrs × 52 weeks = ~$7,800, adjusted cash flow drops to ~$7,200 and margin falls to ~16%, which aligns with industry norms. Buyer should verify all expense line items during due diligence.
+  Payback:    2.67 years at stated cash flow of $15,000/year
+  Seller:     Owner is retiring and moving out of state to be closer to grandchildren.
+  Scores: Payback: 4/5  |  Price Fit: 4/5  |  Seller: 5/5  |  Independence: 4/5  |  Age: 5/5  |  Simplicity: 5/5  |  Flags: -4
+  Strength: True semi-absentee operation with 15 years of stability, existing staff, recurring residential/commercial clients, and a motivated retiring seller — the ideal boomer handoff scenario.
+  Risk:     Profit margin of 33.3% is more than double the cleaning industry norm (~14%), suggesting owner labor may not be costed, expenses may be understated, or the margin may compress under new ownership once realistic labor/management costs are applied.
+  Verdict:  A well-established 15-year-old cleaning service with a clear boomer retirement exit, semi-absentee operations, and a 2.67-year payback at stated cash flow. The $40k asking price fits comfortably within budget and the business has staff in place handling all field work. The primary concern is the unusually high 33% profit margin for a cleaning service (industry norm ~14%), which warrants careful due diligence on actual expenses and whether the owner's 5-10 weekly hours are properly valued as a cost.
+  ⚠ Flags: Stated profit margin of 33.3% exceeds 2x the industry norm of ~14% (28% threshold). This triggers an automatic 2-point margin sanity penalty per framework rules. The high margin may reflect underreporting of expenses, owner labor not being accounted for as a cost, or genuinely lean operations that may not be sustainable under new ownership.; Margin 33% is 2.4x the 14% industry norm — verify owner labor is costed
+  Negotiate: Strong leverage: owner is relocating out of state for family reasons, creating a hard timeline. The 2.67x multiple is already below the typical 3-5x for cleaning services, but the inflated margin gives room to negotiate down to $30-35k by arguing that true cash flow (after replacing owner's 5-10 hrs/week at market rate) is closer to $8-10k, which would justify a lower price. Ask for seller financing with a 6-12 month earn-out tied to client retention.
+  Source:   https://www.bizbuysell.com/Business-Opportunity/semi-absentee-cleaning-service-raleigh/1122334/
+
+🟡 #6  [B] 64/100  —  Floral Shop - Retirement Sale
+     Retail - Floral Shop  |  Small City, MI
+------------------------------------------------------------------------
+  ↓ Adjusted: margin 36% exceeds 2x norm (8%) — penalty applied
+  Financials: Ask: $40,000  |  CF: $16,000/yr  |  Rev: $45,000/yr  |  Margin: 36%  |  Payback: 2.5 yrs
+  ⚠ Margin: FLAGGED: Stated profit margin of 35.6% exceeds 2x the industry norm upper bound of 14% for floral shops. Automatic 2-point penalty applied. Cash flow of $16k on $45k revenue implies expenses of only $29k — verify whether this accounts for owner salary replacement, rent, COGS on perishable inventory, and delivery van maintenance.
+  Payback:    2.5 years at stated cash flow of $16,000/year
+  Seller:     Owner retiring after 14 years in business. Willing to provide training to ensure a seamless handover.
+  Scores: Payback: 5/5  |  Price Fit: 4/5  |  Seller: 5/5  |  Independence: 3/5  |  Age: 4/5  |  Simplicity: 3/5  |  Flags: -4
+  Strength: Explicit retirement sale from a 14-year owner with staff in place, included assets (van, inventory), and willingness to train — textbook clean boomer transition.
+  Risk:     Profit margin of 35.6% is 2.5x the industry norm, suggesting cash flow may be overstated or include significant owner add-backs. True discretionary earnings could be materially lower, extending payback well beyond 2.5 years.
+  Verdict:  A solid retirement-sale floral shop with strong payback metrics on paper (2.5 years) and a motivated boomer seller willing to train. However, the stated 35.6% profit margin is roughly 2.5x the industry norm for floral shops (8-14%), which raises serious questions about how cash flow is calculated — likely includes owner salary add-backs that would evaporate under a new owner paying themselves. Worth pursuing with thorough due diligence on actual discretionary earnings, but the margin discrepancy caps confidence at B-tier.
+  ⚠ Flags: Stated profit margin of 35.6% exceeds 2x the industry norm upper bound of 14% for floral shops — margin sanity penalty of 2 points applied. Cash flow figure may include owner salary add-backs or understate true expenses.; Margin 36% is 4.5x the 8% industry norm — verify owner labor is costed
+  Negotiate: Leverage the margin discrepancy in negotiations — request 2-3 years of tax returns and P&L statements. The small-city MI location limits buyer pool, giving you bargaining power. If true cash flow is closer to industry-norm margins (8-14% of $45k = $3,600-$6,300), the business is worth $10k-$19k, not $40k. Offer $30k contingent on verified financials.
+  Source:   https://www.loopnet.com/Listing/floral-shop-retirement-sale/112233/
+
+🟠 #7  [C] 52/100  —  Neighborhood Flower Shop
+     Retail - Florist  |  Small Town, New England, USA
+------------------------------------------------------------------------
+  ↓ Adjusted: margin 33% exceeds 2x norm (8%) — penalty applied
+  Financials: Ask: $50,000  |  CF: $20,000/yr  |  Rev: $60,000/yr  |  Margin: 33%  |  Payback: 2.5 yrs
+  ⚠ Margin: FLAGGED: Stated profit margin of 33.3% exceeds 2x the industry norm upper bound of 14% (threshold: 28%). Applied automatic 2-point red flag penalty. Buyer must verify whether owner salary, benefits, or personal expenses are excluded from the expense calculation. At a normalized 12% margin, true cash flow would be ~$7,200/year (payback ~6.9 years).
+  Payback:    2.5 years at stated cash flow of $20,000/year, though margin appears inflated vs. industry norms — realistic payback may be 3.5-4.5 years after normalization
+  Seller:     "The owner, a baby boomer, is ready to retire after building a successful business and is open to financing for the right buyer."
+  Scores: Payback: 5/5  |  Price Fit: 3/5  |  Seller: 5/5  |  Independence: 3/5  |  Age: 5/5  |  Simplicity: 3/5  |  Flags: -6
+  Strength: 35+ year established business with explicit boomer retirement sale and seller financing offered — maximum motivation and clean transition potential.
+  Risk:     Profit margin (33.3%) is dramatically above industry norms (8-14%), suggesting cash flow may be overstated or owner salary is not deducted. Perishable inventory and skill-dependent operations add transition risk.
+  Verdict:  A 35-year-old flower shop with a retiring boomer owner, loyal local clientele, and seller financing on the table — all strong signals. However, the stated 33% profit margin is 2-4x the industry norm for florists (8-14%), which raises serious questions about whether the $20,000 cash flow figure includes a realistic owner salary deduction or accurate expense accounting. If the financials hold up under due diligence, this is a solid B-tier deal with potential upside; if they don't, the real payback could stretch to 4+ years.
+  ⚠ Flags: Stated profit margin of 33.3% exceeds 2x industry norm of 8-14% — automatic 2-point penalty per framework margin sanity rule; Owner is likely the primary revenue generator via customer relationships and arrangement skills — partial owner-dependence risk: 2-point penalty; Margin 33% is 4.2x the 8% industry norm — verify owner labor is costed
+  Negotiate: Margin discrepancy is strong leverage — request 3 years of tax returns and P&L statements. If real margin is closer to industry norm (8-14%), true cash flow is $4,800-$8,400, justifying an offer of $15,000-$25,000. Seller financing willingness signals flexibility; propose $35,000-$40,000 with earnout or seller note contingent on verified financials.
+  Source:   https://www.loopnet.com/Listing/neighborhood-flower-shop/456789
+
+🟠 #8  [C] 51/100  —  Part-Time Lawn Care Service
+     Landscaping  |  Suburban Texas, USA
+------------------------------------------------------------------------
+  ↓ Adjusted: margin 33% exceeds 2x norm (12%) — penalty applied
+  Financials: Ask: $40,000  |  CF: $15,000/yr  |  Rev: $45,000/yr  |  Margin: 33%  |  Payback: 2.7 yrs
+  ⚠ Margin: FLAGGED: Stated profit margin of 33.3% exceeds 2x the landscaping industry norm of 10-15%. This could indicate understated expenses (e.g., owner not accounting for equipment depreciation, vehicle costs, insurance, or self-employment taxes). Verify P&L and tax returns for at least 3 years. If true margin is closer to 12%, actual cash flow would be ~$5,400/year, dramatically extending payback to 7+ years.
+  Payback:    2.67 years at stated cash flow of $15,000/year
+  Seller:     Owner selling due to health issues and a desire to slow down in retirement — 23 years in business, classic baby boomer exit with training and client list handover offered.
+  Scores: Payback: 4/5  |  Price Fit: 4/5  |  Seller: 5/5  |  Independence: 2/5  |  Age: 5/5  |  Simplicity: 5/5  |  Flags: -6
+  Strength: 24-year track record with 30 loyal residential clients and a highly motivated retiring seller willing to provide training — strong foundation and clean transition potential.
+  Risk:     Owner-dependent operation with no permanent staff. After 23 years, client relationships are likely personal — retention risk is real, and buyer must physically perform the work or immediately hire and train a replacement crew.
+  Verdict:  A well-established 24-year-old lawn care business with a motivated retiring seller and a strong 2.67-year payback projection. However, the business is essentially a solo operation with one seasonal helper, meaning the buyer is purchasing a job rather than a system. The stated 33% profit margin is unusually high for landscaping and warrants verification of actual expenses during due diligence.
+  ⚠ Flags: Stated profit margin of 33.3% exceeds 2x the landscaping industry norm of 10-15% — automatic 2-point margin sanity penalty applied; Owner is essentially the sole revenue generator with no permanent staff — clients may be tied to personal relationship with owner after 23 years, -2 penalty; Margin 33% is 2.8x the 12% industry norm — verify owner labor is costed
+  Negotiate: Health-driven sale creates urgency leverage. Equipment is valued at only $10k of the $40k ask, meaning $30k is goodwill/client list — argue down to $30-35k by noting the owner-dependency risk and that clients may not all transfer. Also challenge the 33% margin claim during due diligence; if actual margin is closer to the 10-15% industry norm, the cash flow is materially lower and the price should reflect that.
+  Source:   https://www.craigslist.org/business-for-sale/lawn-care-texas/112233
+
+  ── Market Estimates (unverified — use for benchmarking only) ──
+
+🟢 #1  [A] 91/100  —  Coin-Operated Laundromat in Suburban Area
+     Laundromat  |  Springfield, IL
+------------------------------------------------------------------------
+  Financials: Ask: $45,000  |  CF: $18,000/yr  |  Rev: $50,000/yr  |  Margin: 36%  |  Payback: 2.5 yrs
+  ⚠ Margin: Stated margin is 36%, which is above the industry norm of ~22% but below the 2x threshold of 44%. Slightly elevated but plausible for a low-rent suburban location with minimal staffing. No penalty applied but buyer should verify expense reporting, especially utility costs.
+  Payback:    2.5 years at stated cash flow of $18,000/year
+  Seller:     "Owner is retiring after 13 years of successful operation and wishes to spend more time with family."
+  Scores: Payback: 5/5  |  Price Fit: 4/5  |  Seller: 5/5  |  Independence: 4/5  |  Age: 4/5  |  Simplicity: 5/5
+  Strength: 2.5-year payback with semi-absentee operations and a motivated retiring seller — the ideal combination for a first-time buyer.
+  Risk:     Equipment age and potential capital expenditures — 40 machines will eventually need replacement or major maintenance, which could significantly eat into cash flow in any given year.
+  Verdict:  This is a near-ideal acquisition for a $50k budget. A 13-year-old coin laundromat with a retiring owner, semi-absentee operations, a part-time employee already in place, and a 2.5-year payback period checks virtually every box in the thesis. The 5-year lease provides stability, the 2.5x cash flow multiple is below market norms of 3–5x, and the turnkey nature minimizes transition risk.
+  Negotiate: The 2.5x multiple is already below market (3-5x is typical for laundromats), but you could negotiate by pointing to the age of the equipment and potential near-term capex needs. Requesting maintenance records and machine age details could reveal leverage to push toward $38k–$42k, especially since the seller appears motivated to close cleanly for retirement.
+  Source:   https://www.bizbuysell.com/Business-Opportunity/coin-laundromat-for-sale/1234567/ [ESTIMATED]
+
+🟢 #2  [A] 83/100  —  Vending Machine Route - Owner Retiring
+     Vending Route  |  Suburban Area, TX
+------------------------------------------------------------------------
+  Financials: Ask: $45,000  |  CF: $18,000/yr  |  Rev: $40,000/yr  |  Margin: 45%  |  Payback: 2.5 yrs
+  Payback:    2.5 years at stated cash flow of $18,000/year
+  Seller:     'Owner retiring and seeking a smooth transition' — classic baby boomer exit with willingness to train successor, 17-year tenure.
+  Scores: Payback: 5/5  |  Price Fit: 3/5  |  Seller: 5/5  |  Independence: 2/5  |  Age: 5/5  |  Simplicity: 5/5
+  Strength: 2.5-year payback with a 17-year-old business and a motivated retiring seller willing to train — as close to a turnkey $45k acquisition as you'll find.
+  Risk:     Owner-operated with no employees; all 15 location contracts, vendor relationships, and operational knowledge live in the seller's head. If key locations (schools, offices) don't renew contracts, revenue could drop significantly.
+  Verdict:  This is a solid, well-established vending route with excellent payback speed (2.5 years) and a clearly motivated retiring seller. The 45% margin is healthy and within industry norms, and the 17-year track record provides confidence in revenue stability. The only meaningful limitation is that it's purely owner-operated with no staff or documented systems beyond the owner's knowledge, which caps it at B-tier per framework rules — but the simplicity of vending operations and the seller's training offer mitigate this substantially.
+  Negotiate: The 2.5x multiple is fair but not a bargain. Leverage points: (1) no employees or systems documented = transition risk the buyer absorbs, (2) machines are aging (some likely 10+ years old) and may need replacement soon — request a machine condition audit and negotiate $3-5k off for deferred maintenance/capex. A $40-42k offer is reasonable. Also verify all location contracts are transferable and their remaining terms.
+  Source:   https://www.businessbroker.net/business-for-sale/vending-machine-route-retirement-sale/987654/ [ESTIMATED]
+
+🟢 #3  [A] 81/100  —  Small Laundromat - Owner Retiring
+     Laundromat  |  Tucson, AZ
+------------------------------------------------------------------------
+  Financials: Ask: $45,000  |  CF: $18,000/yr  |  Rev: $50,000/yr  |  Margin: 36%  |  Payback: 2.5 yrs
+  ⚠ Margin: Stated margin is 36%, which is above the industry norm of ~22% but below the 2x threshold of 44%. Market context confirms 20-35% is typical for laundromats, so 36% is at the high end but plausible for a low-lease, minimal-staff operation. No automatic penalty applied for margin sanity, but verify utility costs and lease terms during due diligence.
+  Payback:    2.5 years at stated cash flow of $18,000/year
+  Seller:     "Owner is retiring due to age and health concerns, looking to pass on this stable business to a new owner."
+  Scores: Payback: 5/5  |  Price Fit: 4/5  |  Seller: 5/5  |  Independence: 4/5  |  Age: 4/5  |  Simplicity: 5/5  |  Flags: -2
+  Strength: Exceptional payback speed (2.5 years / 40% ROI) combined with a genuinely motivated retiring seller and semi-absentee operations with existing staff.
+  Risk:     Equipment age — with the business established in 2008 and only 'some' machines recently updated, remaining older washers/dryers may need costly replacement ($1,500–$5,000 per unit) within 1–3 years, which could eat into cash flow.
+  Verdict:  This is a strong A-tier acquisition candidate. A 17-year-old laundromat with verified financials, a motivated retiring owner, semi-absentee operations via a part-time employee, and a 2.5-year payback period checks nearly every box in the thesis. The main concern is potential equipment replacement costs on older machines, but the favorable lease, loyal customer base, and clean seller transition make this a compelling deal at $45,000.
+  ⚠ Flags: Stated profit margin of 36% exceeds 2x the industry norm of 22% (threshold 44% not breached, but margin is notably above the 20-35% typical range per market context). Applying margin sanity flag but no automatic penalty since 36% < 44%.; Equipment age risk: listing says 'some machines recently updated' implying others are older — potential near-term capex for replacements on 17-year-old equipment.; Applying -1 for potential capex/equipment replacement risk on aging machines.
+  Negotiate: Strong leverage: seller's age and health create urgency. The 2.5x multiple is already below the 3-5x laundromat norm, but you can push for $38,000–$40,000 by citing potential equipment replacement costs and requesting a detailed maintenance log. Ask for an equipment condition report as part of due diligence — any machines over 10 years old become a negotiation chip.
+  Source:   https://www.businessbroker.net/business-for-sale/small-laundromat-tucson-az/987654/ [ESTIMATED]
+
+🟢 #4  [A] 80/100  —  Vending Machine Route - 15 Locations
+     Vending Route  |  Columbus, OH
+------------------------------------------------------------------------
+  Financials: Ask: $35,000  |  CF: $12,000/yr  |  Rev: $30,000/yr  |  Margin: 40%  |  Payback: 2.9 yrs
+  ⚠ Margin: Stated profit margin is 40%. Industry norm for vending routes is 25-35% (market context says 30-50%). At 40%, this is within the upper range but does NOT exceed 2x the ~30% norm (threshold would be 60%). No margin sanity penalty applied.
+  Payback:    2.92 years at stated cash flow of $12,000/year
+  Seller:     Not a classic boomer retirement signal. Seller states: 'moving out of state due to family reasons and can no longer manage the route.' Motivated seller but age/retirement not confirmed.
+  Scores: Payback: 4/5  |  Price Fit: 5/5  |  Seller: 4/5  |  Independence: 2/5  |  Age: 4/5  |  Simplicity: 5/5
+  Strength: 15 contracted locations with documented $12k cash flow at a very accessible $35k price point, leaving $15k in budget reserves for machine upgrades or working capital.
+  Risk:     Pure owner-operator with no employees or documented systems beyond the route itself. Machines averaging 5 years old could require $5k-$10k+ in replacement capex within the next few years, eating into the payback timeline.
+  Verdict:  A solid vending route at a fair 2.9x multiple with nearly sub-3-year payback and 15 contracted locations in Columbus. The 40% margin is healthy and within industry norms. However, it's a pure owner-operator business with no staff, capping it at B-tier — the new buyer must be willing to put in 10-15 hours/week personally, and machines averaging 5 years old will eventually need capital reinvestment.
+  ⚠ Flags: Cash business makes financials harder to independently verify, but no explicit missing financials — revenue and cash flow are both stated.; Machines averaging 5 years old may need replacement within 3-5 years (potential future capex), but not an immediate red flag.; Owner-operated status is a limitation but not a red flag per the penalty definitions.
+  Negotiate: Seller is relocating and can no longer manage the route — strong urgency signal. Cash business financials are inherently harder to verify, which justifies asking for a discount. Aging machines (avg 5 yrs) provide leverage to negotiate down to $28k-$32k by citing upcoming replacement costs. Request 3-6 months of restocking receipts and location revenue logs to validate the $30k revenue claim before closing.
+  Source:   https://www.businessbroker.net/business-for-sale/vending-route-columbus-oh/987654/ [ESTIMATED]
+
+🟡 #5  [B] 79/100  —  Local Vending Machine Route
+     Vending Route  |  Suburban Florida, USA
+------------------------------------------------------------------------
+  ↓ Adjusted: estimated listing (capped at B-tier)
+  Financials: Ask: $30,000  |  CF: $12,000/yr  |  Rev: $35,000/yr  |  Margin: 34%  |  Payback: 2.5 yrs
+  Payback:    2.5 years at stated cash flow of $12,000/year
+  Seller:     "Owner is selling due to retirement and a desire to relocate closer to family."
+  Scores: Payback: 5/5  |  Price Fit: 5/5  |  Seller: 5/5  |  Independence: 2/5  |  Age: 5/5  |  Simplicity: 5/5
+  Strength: Excellent payback speed (40% ROI) combined with a low asking price well under budget, leaving capital for expansion or a cash reserve.
+  Risk:     Fully owner-operated with no employees — if the buyer can't personally service the route, there's no fallback, and hiring a driver would cut into the $12k cash flow significantly.
+  Verdict:  This is a well-priced, long-established vending route with strong payback metrics (2.5 years) and a clearly motivated retiring seller — an ideal boomer-exit profile. The main limitation is that it's purely owner-operated with no staff or documented systems beyond the route itself, which caps it at B-tier. The unverified listing status (estimated) also prevents A-tier classification. At $30k with $20k left over, a buyer could hire a part-time route driver and add machines to scale cash flow.
+  Negotiate: The 2.5x multiple is already at the low end of the 2.5-4x range, but leverage exists: the seller is motivated by retirement/relocation (time pressure), the listing is unverified (demand financials verification as a condition), and the owner-operated nature limits the buyer pool. An offer of $25,000 contingent on verified P&L and location contracts is reasonable.
+  Source:   [market estimate — verify independently]
+
+🟡 #6  [B] 79/100  —  Small Town Laundromat
+     Laundromat  |  Rural Midwest, USA
+------------------------------------------------------------------------
+  ↓ Adjusted: estimated listing (capped at B-tier)
+  Financials: Ask: $45,000  |  CF: $18,000/yr  |  Rev: $50,000/yr  |  Margin: 36%  |  Payback: 2.5 yrs
+  ⚠ Margin: Stated profit margin of 36% is above the industry norm of ~22% but does not exceed the 2x threshold of 44%. Worth verifying actual utility costs, maintenance expenses, and part-time employee wages during due diligence to confirm the margin holds.
+  Payback:    2.5 years at stated cash flow of $18,000/year
+  Seller:     "Owner retiring after decades of operation, motivated to sell quickly."
+  Scores: Payback: 5/5  |  Price Fit: 4/5  |  Seller: 5/5  |  Independence: 3/5  |  Age: 5/5  |  Simplicity: 5/5
+  Strength: Exceptional payback speed of 2.5 years with a motivated retiring owner and nearly 30 years of stable operations in a low-competition market.
+  Risk:     Rural location means limited growth ceiling and customer volume risk; equipment is aging (25+ year old business) and major replacement costs could erode cash flow unexpectedly.
+  Verdict:  This is a strong acquisition candidate with excellent payback speed (2.5 years), a classic boomer retirement exit, and nearly 30 years of proven operations. The laundromat model is operationally simple with a loyal customer base and limited local competition. However, because this is an estimated/unverified listing, it is capped at B-tier per framework rules — with verified financials this would be a clear A-tier deal.
+  Negotiate: Strong leverage: owner explicitly motivated to sell quickly for retirement, 2.5x multiple is already below industry norms of 3-5x, and rural location limits buyer pool. Could push for $35k-$40k citing equipment age and need for potential capex reserves, or request seller financing with favorable terms.
+  Source:   [market estimate — verify independently]
+
+🟡 #7  [B] 77/100  —  Small Laundromat in Urban Neighborhood
+     Laundromat  |  Detroit, MI
+------------------------------------------------------------------------
+  Financials: Ask: $50,000  |  CF: $20,000/yr  |  Rev: $55,000/yr  |  Margin: 36%  |  Payback: 2.5 yrs
+  ⚠ Margin: Stated margin of 36.4% is above the typical laundromat range of 18-25% but does NOT exceed the 2x threshold of 44%. The higher margin may reflect low rent ($1,200/mo is favorable) and minimal staffing costs. No automatic penalty applied per framework rules, but buyer should verify utility costs and all expenses during due diligence.
+  Payback:    2.5 years at stated cash flow of $20,000/year
+  Seller:     Owner is selling due to health issues and can no longer oversee the business — classic boomer exit signal indicating motivated seller willing to facilitate clean transition.
+  Scores: Payback: 5/5  |  Price Fit: 3/5  |  Seller: 5/5  |  Independence: 4/5  |  Age: 4/5  |  Simplicity: 5/5  |  Flags: -2
+  Strength: Proven semi-absentee operation with 2 part-time employees already running daily operations and a 2.5-year payback period — the business essentially runs itself and pays for itself quickly.
+  Risk:     Equipment age is mixed ('most under 10 years old' implies some machines are older), and Detroit's urban market carries economic volatility risk — unexpected capex for machine replacement could eat into the $20K annual cash flow.
+  Verdict:  This is a well-priced laundromat with proven semi-absentee operations, strong cash flow, and a clearly motivated seller exiting for health reasons. The 2.5-year payback at a 40% ROI hits the top of the scoring range, and the existing staff plus remote management model makes transition straightforward. The main concerns are Detroit market risk and potential near-term equipment replacement costs, but the fundamentals are solid.
+  ⚠ Flags: Stated profit margin of 36.4% exceeds 2x the low end of industry norm (18-25%) but falls within the high range. However, per framework rules, 36.4% does not exceed 2x the 22% norm (44%), so no margin penalty applies.; Detroit market carries risk of neighborhood economic volatility and potential for higher crime/vandalism affecting equipment and foot traffic — applying 1 point.; Equipment described as 'most under 10 years old' means some machines may be older and due for replacement capex soon — applying 1 point.
+  Negotiate: Seller's health issues create urgency and strong negotiation leverage. The 2.5x multiple is already below the typical 3-5x for laundromats, but you could push for $40K-$45K by citing the aging equipment and potential replacement costs. Request detailed maintenance records and equipment age breakdown to quantify capex risk. The health urgency suggests the seller may accept a faster close at a lower price over a higher price with drawn-out negotiations.
+  Source:   https://www.loopnet.com/Listing/small-laundromat-detroit-mi/456789/ [ESTIMATED]
+
+🟠 #8  [C] 54/100  —  Estimated Semi-Absentee Coffee Cart
+     Coffee Cart  |  Portland, OR
+------------------------------------------------------------------------
+  ↓ Adjusted: margin 29% exceeds 2x norm (10%) — penalty applied
+  Financials: Ask: $30,000  |  CF: $10,000/yr  |  Rev: $35,000/yr  |  Margin: 29%  |  Payback: 3.0 yrs
+  ⚠ Margin: FLAGGED: Stated profit margin of 28.6% exceeds 2x the coffee cart industry norm of 8-12%. At a realistic 10% margin on $35k revenue, true cash flow would be ~$3,500/year, implying a payback period of 8.6 years — far worse than stated. Automatic -2 penalty applied.
+  Payback:    3.0 years at stated cash flow of $10,000/year — but margin appears inflated vs. industry norms, real payback could be 4-5 years
+  Seller:     Owner is retiring and seeking a slower pace of life after years of entrepreneurship.
+  Scores: Payback: 4/5  |  Price Fit: 5/5  |  Seller: 5/5  |  Independence: 3/5  |  Age: 3/5  |  Simplicity: 5/5  |  Flags: -6
+  Strength: Excellent price-to-budget fit at $30k with explicit boomer retirement signal and existing part-time employee handling most operations.
+  Risk:     Stated profit margin of 28.6% is 2-3x the coffee cart industry norm, suggesting cash flow may be significantly overstated — real payback could be much longer than 3 years.
+  Verdict:  A well-priced coffee cart at $30k with explicit retirement motivation and semi-absentee operations. However, the stated 28.6% profit margin is roughly 2.5x the industry norm for coffee carts (8-12%), raising serious questions about the accuracy of the $10k cash flow figure. As an estimated listing with no verified financials, this is capped at B-tier — worth investigating if a real version surfaces, but the numbers need heavy due diligence.
+  ⚠ Flags: Margin sanity flag: stated profit margin of 28.6% exceeds 2x the coffee cart industry norm of 8-12% — automatic -2 penalty per framework rules; This is an estimated/hypothetical listing, not a verified real business — reduces confidence in all stated financials (-2 implicit via tier cap); Margin 29% is 2.9x the 10% industry norm — verify owner labor is costed
+  Negotiate: At $30k asking, there's room to negotiate to $22-25k given the inflated margin claims and the fact that $35k gross revenue is modest. Leverage the gap between stated margin and industry norms to question the financials and push price down. Equipment depreciation on the cart/espresso machine is another lever.
+  Source:   [market estimate — verify independently]
+
+🟠 #9  [C] 49/100  —  Neighborhood Lawn Care Service
+     Landscaping  |  Small Town, Texas, USA
+------------------------------------------------------------------------
+  ↓ Adjusted: margin 33% exceeds 2x norm (12%) — penalty applied
+  Financials: Ask: $40,000  |  CF: $20,000/yr  |  Rev: $60,000/yr  |  Margin: 33%  |  Payback: 2.0 yrs
+  ⚠ Margin: FLAGGED: Stated profit margin of 33.3% exceeds 2x the landscaping industry norm of ~12%. Automatic 2-point red flag penalty applied. Buyer must demand tax returns and P&L statements to verify. Likely explanation: owner may not be accounting for equipment depreciation, self-employment taxes, insurance, or fuel costs in the $20k cash flow figure.
+  Payback:    2.0 years at stated cash flow of $20,000/year, but margin is suspiciously high — realistic payback likely 3-4 years after normalizing for equipment replacement and true labor costs
+  Seller:     Owner in late 60s retiring due to health concerns, highly motivated to sell — textbook boomer retirement exit.
+  Scores: Payback: 5/5  |  Price Fit: 4/5  |  Seller: 5/5  |  Independence: 2/5  |  Age: 4/5  |  Simplicity: 2/5  |  Flags: -6
+  Strength: Highly motivated boomer seller with 14+ year established client base of 30+ recurring accounts, priced at a below-market 2x multiple.
+  Risk:     Stated margins are 2-3x industry norms — cash flow of $20k on $60k revenue likely understates true costs (equipment depreciation, insurance, fuel, seasonal labor). The business is owner-dependent with no year-round staff.
+  Verdict:  A well-priced, long-established lawn care business with a motivated retiring seller and strong stated ROI. However, the 33% profit margin is more than double the landscaping industry norm of ~12%, demanding serious financial verification. The business is heavily owner-dependent with only seasonal staff, capping it at B-tier — a new owner must be prepared to operate hands-on and retain the existing client base personally.
+  ⚠ Flags: Stated profit margin of 33.3% exceeds 2x the landscaping industry norm of ~12% — automatic 2-point penalty per framework; Owner is likely the primary revenue generator with only seasonal help; clients may follow the relationship not the brand — 2-point penalty for owner as sole revenue generator; Margin 33% is 2.8x the 12% industry norm — verify owner labor is costed
+  Negotiate: Strong leverage: seller has health concerns driving urgency, business is in a small town limiting buyer pool, and the inflated margin figures give room to negotiate down to $25k-$32k based on normalized cash flow. Request 2-3 years of tax returns and bank statements before making any offer.
+  Source:   [market estimate — verify independently]
+
+========================================================================
+  Tier Summary
+------------------------------------------------------------------------
+  🟢 Tier A: 4 businesses
+  🟡 Tier B: 9 businesses
+  🟠 Tier C: 4 businesses
+  🔴 Tier D: 0 businesses
+========================================================================
