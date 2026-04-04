@@ -30,7 +30,7 @@ from xai_sdk.chat import user as xai_user
 
 PROGRAM_MD = Path(__file__).parent / "program.md"
 MODEL = "claude-opus-4-6"
-GROK_MODEL = "grok-4"
+GROK_MODEL = "grok-4.20-multi-agent-latest"
 MAX_RETRIES = 3
 RETRY_DELAY = 2  # seconds between retries on rate limit
 

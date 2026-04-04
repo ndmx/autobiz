@@ -30,7 +30,7 @@ from bs4 import BeautifulSoup
 from xai_sdk import Client as XaiClient
 from xai_sdk.chat import user as xai_user
 
-GROK_MODEL = "grok-4"
+GROK_MODEL = "grok-4.20-multi-agent-latest"
 
 HEADERS = {
     "User-Agent": (
