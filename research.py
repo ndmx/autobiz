@@ -193,12 +193,42 @@ WEIGHTS = {
 
 RED_FLAG_WEIGHT = 5  # multiplier per penalty point
 
+# Industry profit margin norms (realistic %) used for sanity checking
+INDUSTRY_MARGIN_NORMS = {
+    "laundromat": 22,
+    "coin laundry": 22,
+    "vending": 30,
+    "vending route": 30,
+    "cleaning": 14,
+    "cleaning service": 14,
+    "landscaping": 12,
+    "lawn care": 12,
+    "bookkeeping": 38,
+    "coffee": 10,
+    "coffee cart": 10,
+    "retail": 8,
+    "snack": 8,
+    "flower": 11,
+    "florist": 11,
+}
+
+def get_industry_margin_norm(biz_type: str) -> int:
+    """Return typical profit margin % for a business type. Default 15."""
+    bt = biz_type.lower()
+    for key, norm in INDUSTRY_MARGIN_NORMS.items():
+        if key in bt:
+            return norm
+    return 15
+
 
 def load_program() -> str:
     return PROGRAM_MD.read_text()
 
 
 def build_scoring_prompt(business: dict, program: str, market_context: str, budget: int) -> str:
+    margin_norm = get_industry_margin_norm(business.get('business_type', ''))
+    source_url = business.get('source_url', '')
+    is_estimated = source_url == 'estimated' or source_url == ''
     return f"""You are a business acquisition analyst focused on one goal:
 Find businesses a person can buy for ~${budget:,} that pay for themselves as fast as possible,
 ideally from a retiring baby boomer who is motivated to sell.
@@ -227,6 +257,8 @@ Description:
 {business.get('description', 'No description provided')}
 
 Investment budget: ${budget:,}
+Industry margin norm for this business type: ~{margin_norm}% (flag if stated margin > {margin_norm * 2}%)
+Listing verified: {"NO — treat as market estimate" if is_estimated else "YES — real source URL provided"}
 
 Your tasks:
 1. Extract all financials from the description
@@ -268,7 +300,9 @@ Respond ONLY with a valid JSON object:
   "summary": "2-3 sentence verdict",
   "key_strength": "string",
   "key_risk": "string",
-  "negotiation_note": "string — any leverage for negotiating the price down"
+  "negotiation_note": "string — any leverage for negotiating the price down",
+  "is_estimated": true or false (true if source_url is "estimated" or empty),
+  "margin_sanity_flag": "string or null — note if stated margin exceeds 2x industry norm"
 }}
 """
 

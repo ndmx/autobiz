@@ -43,16 +43,19 @@ from research import (
     discover_listings,
     load_program,
     market_enrich,
-    render_report,
     score_to_tier,
     CLAUDE_MODEL,
     GROK_MODEL,
     XAI_BASE_URL,
     MAX_RETRIES,
     RETRY_DELAY,
+    get_industry_margin_norm,
+    RED_FLAG_WEIGHT,
 )
 
 RUNS_DIR = Path(__file__).parent / "runs"
+SEEN_FILE = RUNS_DIR / "seen.json"
+FINDINGS_FILE = RUNS_DIR / "findings.md"
 
 # ---------------------------------------------------------------------------
 # Git helpers
@@ -81,6 +84,390 @@ def git_commit_run(run_dir: Path, message: str) -> str:
 
 def git_tag(tag: str, message: str):
     git("tag", "-a", tag, "-m", message, "--no-sign")
+
+
+# ---------------------------------------------------------------------------
+# Cross-run memory
+# ---------------------------------------------------------------------------
+
+def load_seen() -> dict:
+    """Load the cross-run seen type:location fingerprints."""
+    if SEEN_FILE.exists():
+        try:
+            return json.loads(SEEN_FILE.read_text())
+        except Exception:
+            return {}
+    return {}
+
+
+def update_seen(seen: dict, results: list[dict]) -> dict:
+    """Add scored results to the seen fingerprint map."""
+    from datetime import date
+    today = str(date.today())
+    for r in results:
+        btype = r.get("business_type", "unknown").lower().strip()[:30]
+        loc = r.get("location", "unknown").lower().strip()[:25]
+        key = f"{btype}:{loc}"
+        entry = seen.get(key, {"count": 0})
+        entry["count"] = entry.get("count", 0) + 1
+        entry["last_seen"] = today
+        seen[key] = entry
+    return seen
+
+
+def save_seen(seen: dict):
+    RUNS_DIR.mkdir(parents=True, exist_ok=True)
+    SEEN_FILE.write_text(json.dumps(seen, indent=2))
+
+
+def load_findings() -> str:
+    """Load the findings log from past runs."""
+    if FINDINGS_FILE.exists():
+        return FINDINGS_FILE.read_text()
+    return ""
+
+
+def save_findings(results: list[dict], run_id: str, budget: int):
+    """Append top findings from this run to the persistent findings log."""
+    RUNS_DIR.mkdir(parents=True, exist_ok=True)
+    top = [r for r in results if r.get("tier") in ("A", "B") and "error" not in r][:5]
+    if not top:
+        return
+    lines = [f"\n## Run {run_id} (budget ${budget:,})\n"]
+    for r in top:
+        fin = r.get("extracted_financials", {})
+        payback = fin.get("payback_years")
+        pb_str = f"{payback:.1f}yr payback" if payback else "payback unknown"
+        lines.append(
+            f"- [{r.get('tier')}] {r.get('weighted_score', 0):.0f}/100 | "
+            f"{r.get('business_type', 'unknown')} | {r.get('location', 'unknown')} | "
+            f"Ask ${r.get('asking_price_usd') or 0:,.0f} | {pb_str} | "
+            f"Verified: {'yes' if not r.get('is_estimated') else 'no'}"
+        )
+    with open(FINDINGS_FILE, "a") as f:
+        f.write("\n".join(lines) + "\n")
+
+
+# ---------------------------------------------------------------------------
+# Hard rules post-processor (fix #1 — score inflation)
+# ---------------------------------------------------------------------------
+
+def apply_hard_rules(results: list[dict]) -> list[dict]:
+    """Apply tier caps and margin sanity checks after Claude scoring."""
+    from research import get_industry_margin_norm, compute_weighted_score, score_to_tier, RED_FLAG_WEIGHT
+
+    for r in results:
+        if "error" in r:
+            continue
+
+        scores = r.get("scores", {})
+        fin = r.get("extracted_financials", {})
+        downgrades = []
+
+        # Rule 1: owner-only (independence 1/5) → cap weighted_score at 74
+        independence = scores.get("owner_independence", {}).get("score", 3)
+        if independence <= 1:
+            if r.get("weighted_score", 0) > 74:
+                r["weighted_score"] = 74.0
+                downgrades.append("owner-only: no staff (score capped at 74)")
+
+        # Rule 2: estimated listing → cap at B-tier
+        if r.get("is_estimated") or r.get("source_url", "") in ("estimated", ""):
+            r["is_estimated"] = True
+            if r.get("weighted_score", 0) >= 80:
+                r["weighted_score"] = min(r["weighted_score"], 79.0)
+                downgrades.append("estimated listing (capped at B-tier)")
+
+        # Rule 3: margin > 2x industry norm → extra -2 penalty
+        margin = fin.get("profit_margin_pct") or 0
+        btype = r.get("business_type", "")
+        norm = get_industry_margin_norm(btype)
+        if margin and margin > (norm * 2):
+            rf = scores.get("red_flags", {})
+            existing_penalty = rf.get("penalty", 0)
+            rf["penalty"] = existing_penalty + 2
+            rf["flags"] = rf.get("flags", []) + [
+                f"Margin {margin:.0f}% is {margin/norm:.1f}x the {norm}% industry norm — verify owner labor is costed"
+            ]
+            scores["red_flags"] = rf
+            r["scores"] = scores
+            new_score = compute_weighted_score(scores)
+            r["weighted_score"] = new_score
+            downgrades.append(f"margin {margin:.0f}% exceeds 2x norm ({norm}%) — penalty applied")
+
+        # Recompute tier from final score
+        r["tier"] = score_to_tier(r["weighted_score"])
+
+        if downgrades:
+            r["_rule_adjustments"] = downgrades
+
+    return results
+
+
+# ---------------------------------------------------------------------------
+# URL verification (fix #5)
+# ---------------------------------------------------------------------------
+
+def verify_listings(grok: OpenAI, results: list[dict], top_n: int = 5) -> list[dict]:
+    """Ask Grok to verify whether top candidate listings appear to be real."""
+    candidates = [
+        r for r in results
+        if "error" not in r and r.get("source_url", "") not in ("", "estimated")
+    ][:top_n]
+
+    for candidate in candidates:
+        url = candidate.get("source_url", "")
+        name = candidate.get("business_name", "")
+        btype = candidate.get("business_type", "")
+        loc = candidate.get("location", "")
+
+        prompt = (
+            f"Search the web to verify: is there a currently active for-sale business listing matching this?\n"
+            f"Business: '{name}' — a {btype} in {loc}\n"
+            f"URL provided: {url}\n\n"
+            f"Check if this URL exists and is an active listing, OR if a real listing matching this "
+            f"description appears in current search results.\n"
+            f"Reply with exactly one of:\n"
+            f"VERIFIED — real active listing confirmed\n"
+            f"LIKELY_REAL — similar real listings found, this appears genuine\n"
+            f"UNVERIFIED — could not confirm, URL may be generated\n"
+            f"Then one sentence explaining why."
+        )
+        try:
+            resp = grok.chat.completions.create(
+                model=GROK_MODEL,
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=80,
+                temperature=0.1,
+            )
+            verdict = resp.choices[0].message.content.strip()
+            if verdict.startswith("VERIFIED"):
+                candidate["_verified"] = "VERIFIED"
+            elif verdict.startswith("LIKELY_REAL"):
+                candidate["_verified"] = "LIKELY_REAL"
+            else:
+                candidate["_verified"] = "UNVERIFIED"
+                candidate["is_estimated"] = True
+            candidate["_verify_note"] = verdict
+        except Exception as e:
+            candidate["_verified"] = "UNKNOWN"
+
+    return results
+
+
+# ---------------------------------------------------------------------------
+# Context-aware search query builder (fix #3 + #6)
+# ---------------------------------------------------------------------------
+
+def build_search_queries_with_context(
+    budget: int,
+    biz_type: str,
+    location: str,
+    seen: dict,
+    findings: str,
+    rounds: int,
+) -> list[str]:
+    """Build search queries steered by cross-run memory and past findings."""
+    loc = f" in {location}" if location else ""
+    btype = f" {biz_type}" if biz_type else ""
+    budget_k = budget // 1000
+
+    # Base queries
+    queries = [
+        f"baby boomer retiring small{btype} business for sale under ${budget_k}000{loc} established cash flow",
+        f"owner retiring{btype} business sale{loc} asking price under ${budget_k}000 motivated seller",
+        f"retirement sale{btype} business{loc} under ${budget_k}k cash flow positive established 10 years",
+        f"small{btype} business for sale{loc} ${budget_k//2}000 to ${budget_k}000 owner retiring semi-absentee",
+        f"buy a{btype} business{loc} under ${budget_k}000 payback period cash flow route vending laundromat",
+        f"motivated seller{btype} business{loc} under ${budget_k}000 retiring boomer health reasons lifestyle",
+        f"semi-absentee{btype} business{loc} under ${budget_k}000 existing staff recurring revenue retirement sale",
+    ]
+
+    # Steer away from over-explored type:location combos
+    overexplored = [k for k, v in seen.items() if v.get("count", 0) >= 2]
+    if overexplored:
+        avoid_str = ", ".join(overexplored[:8])
+        queries.append(
+            f"small business for sale under ${budget_k}000{loc} owner retiring — "
+            f"NOT these already-explored types/locations: {avoid_str} — find something different"
+        )
+
+    # Learn from best past findings
+    if findings:
+        # Extract the most recent 10 lines of findings for context
+        recent = "\n".join(findings.strip().splitlines()[-12:])
+        queries.append(
+            f"small business for sale under ${budget_k}000 owner retiring — "
+            f"similar to these successful past finds but in different locations or types:\n{recent}"
+        )
+
+    return queries[:rounds]
+
+
+# ---------------------------------------------------------------------------
+# Report rendering (local override with verified badges + estimated section)
+# ---------------------------------------------------------------------------
+
+TIER_ICONS = {"A": "🟢", "B": "🟡", "C": "🟠", "D": "🔴"}
+
+
+def render_report(results: list[dict], deep_dives: dict, budget: int) -> str:
+    good = [r for r in results if "error" not in r]
+
+    # Split verified-capable from pure estimates for separate display
+    verified = [r for r in good if not r.get("is_estimated")]
+    estimated = [r for r in good if r.get("is_estimated")]
+
+    verified.sort(key=lambda x: x.get("weighted_score", 0), reverse=True)
+    estimated.sort(key=lambda x: x.get("weighted_score", 0), reverse=True)
+
+    lines = []
+    lines.append("=" * 72)
+    lines.append("  autobiz — Auto-Research Report")
+    lines.append(f"  Budget: ${budget:,}  |  Goal: Fastest payback from boomer seller")
+    lines.append("=" * 72)
+    lines.append(
+        f"  Total scored: {len(good)}  |  "
+        f"Verified/real: {len(verified)}  |  "
+        f"Estimated: {len(estimated)}  |  "
+        f"A-tier: {sum(1 for r in good if r.get('tier')=='A')}"
+    )
+    lines.append("")
+
+    def format_entry(i, r, show_dd=True):
+        tier = r.get("tier", "?")
+        score = r.get("weighted_score", 0)
+        icon = TIER_ICONS.get(tier, "⚪")
+        name = r.get("business_name", "Unknown")[:50]
+        btype = r.get("business_type", "")
+        loc = r.get("location", "")
+        fin = r.get("extracted_financials", {})
+
+        lines.append(f"{icon} #{i}  [{tier}] {score:.0f}/100  —  {name}")
+        if btype or loc:
+            lines.append(f"     {btype}  |  {loc}")
+        lines.append("-" * 72)
+
+        # Rule adjustments note
+        adjustments = r.get("_rule_adjustments", [])
+        if adjustments:
+            lines.append(f"  ↓ Adjusted: {'; '.join(adjustments)}")
+
+        ap = r.get("asking_price_usd")
+        cf = fin.get("cash_flow_annual")
+        rev = fin.get("gross_revenue_annual")
+        margin = fin.get("profit_margin_pct")
+        payback = fin.get("payback_years")
+
+        fin_parts = []
+        if ap:
+            fin_parts.append(f"Ask: ${ap:,.0f}")
+        if cf:
+            fin_parts.append(f"CF: ${cf:,.0f}/yr")
+        if rev:
+            fin_parts.append(f"Rev: ${rev:,.0f}/yr")
+        if margin:
+            fin_parts.append(f"Margin: {margin:.0f}%")
+        if payback:
+            fin_parts.append(f"Payback: {payback:.1f} yrs")
+        if fin_parts:
+            lines.append("  Financials: " + "  |  ".join(fin_parts))
+
+        margin_flag = r.get("margin_sanity_flag")
+        if margin_flag:
+            lines.append(f"  ⚠ Margin: {margin_flag}")
+
+        pb = r.get("payback_projection", "")
+        if pb:
+            lines.append(f"  Payback:    {pb}")
+
+        bs = r.get("boomer_signal", "")
+        if bs and bs != "None detected":
+            lines.append(f"  Seller:     {bs}")
+
+        scores = r.get("scores", {})
+        score_parts = []
+        labels = {
+            "payback_speed": "Payback",
+            "price_budget_fit": "Price Fit",
+            "seller_motivation": "Seller",
+            "owner_independence": "Independence",
+            "business_age": "Age",
+            "operational_simplicity": "Simplicity",
+        }
+        for key, label in labels.items():
+            s = scores.get(key, {}).get("score", "?")
+            score_parts.append(f"{label}: {s}/5")
+        flags = scores.get("red_flags", {})
+        if flags.get("penalty", 0) > 0:
+            score_parts.append(f"Flags: -{flags['penalty']}")
+        lines.append("  Scores: " + "  |  ".join(score_parts))
+
+        lines.append(f"  Strength: {r.get('key_strength', 'N/A')}")
+        lines.append(f"  Risk:     {r.get('key_risk', 'N/A')}")
+        lines.append(f"  Verdict:  {r.get('summary', 'N/A')}")
+
+        flag_list = flags.get("flags", [])
+        if flag_list:
+            lines.append(f"  ⚠ Flags: {'; '.join(flag_list)}")
+
+        neg = r.get("negotiation_note", "")
+        if neg:
+            lines.append(f"  Negotiate: {neg}")
+
+        url = r.get("source_url", "")
+        verified_badge = r.get("_verified", "")
+        badge_str = ""
+        if verified_badge == "VERIFIED":
+            badge_str = " [VERIFIED ✓]"
+        elif verified_badge == "LIKELY_REAL":
+            badge_str = " [LIKELY_REAL]"
+        elif r.get("is_estimated"):
+            badge_str = " [ESTIMATED]"
+
+        if url and url not in ("", "estimated"):
+            lines.append(f"  Source:   {url}{badge_str}")
+        else:
+            lines.append(f"  Source:   [market estimate — verify independently]")
+
+        if show_dd and r.get("business_name") in deep_dives:
+            dd = deep_dives[r["business_name"]]
+            lines.append("")
+            lines.append("  --- Due Diligence Brief (Grok) ---")
+            for ddline in dd.split("\n"):
+                lines.append(f"  {ddline}")
+
+        lines.append("")
+
+    # Main section: verified/real listings
+    if verified:
+        lines.append("  ── Verified / Real Listings ──")
+        lines.append("")
+        for i, r in enumerate(verified, 1):
+            format_entry(i, r, show_dd=(i <= 3))
+
+    # Estimated section
+    if estimated:
+        lines.append("  ── Market Estimates (unverified — use for benchmarking only) ──")
+        lines.append("")
+        for i, r in enumerate(estimated, 1):
+            format_entry(i, r, show_dd=False)
+
+    # Tier summary
+    tier_counts = {"A": 0, "B": 0, "C": 0, "D": 0}
+    for r in good:
+        t = r.get("tier", "D")
+        if t in tier_counts:
+            tier_counts[t] += 1
+
+    lines.append("=" * 72)
+    lines.append("  Tier Summary")
+    lines.append("-" * 72)
+    for t, icon in TIER_ICONS.items():
+        lines.append(f"  {icon} Tier {t}: {tier_counts[t]} businesses")
+    lines.append("=" * 72)
+
+    return "\n".join(lines)
 
 
 def list_runs() -> list[dict]:
@@ -187,7 +574,9 @@ def orchestrate(
     run_dir.mkdir(parents=True, exist_ok=True)
 
     program = load_program()
-    queries = build_search_queries(budget, biz_type, location)[:rounds]
+    seen = load_seen()
+    findings = load_findings()
+    queries = build_search_queries_with_context(budget, biz_type, location, seen, findings, rounds)
 
     print("=" * 72)
     print("  autobiz — Multi-Agent Research Orchestrator")
@@ -247,8 +636,17 @@ def orchestrate(
     results = [r for r in results if r is not None]
     results.sort(key=lambda x: x.get("weighted_score", 0), reverse=True)
 
+    # Apply hard rules (score inflation fix)
+    results = apply_hard_rules(results)
+    results.sort(key=lambda x: x.get("weighted_score", 0), reverse=True)
+
     top_ab = [r for r in results if r.get("tier") in ("A", "B")]
-    print(f"\n  Tier A/B candidates: {len(top_ab)}\n")
+    print(f"\n  After hard rules — Tier A/B: {len(top_ab)}\n")
+
+    # Verify top candidate URLs
+    print("[ VerifyAgent ] Checking top candidate URLs via Grok...")
+    results = verify_listings(grok, results, top_n=5)
+    print()
 
     # Save scored results
     with open(run_dir / "scored.json", "w") as f:
@@ -278,6 +676,11 @@ def orchestrate(
 
     with open(run_dir / "report.txt", "w") as f:
         f.write(report)
+
+    # Update cross-run memory
+    seen = update_seen(seen, results)
+    save_seen(seen)
+    save_findings(results, timestamp, budget)
 
     # Save run metadata
     meta = {
@@ -314,6 +717,7 @@ def orchestrate(
             f"Budget: ${budget:,} | Type: {biz_type or 'any'} | Location: {location or 'any'}\n"
             f"Found: {len(listings)} listings | Scored: {len(results)} | A/B: {len(top_ab)}\n"
             f"Top pick: [{top_tier}] {top_score:.0f}/100 — {top_name} ({payback_str})"
+            f"\nSeen fingerprints total: {len(seen)}"
         )
 
         sha = git_commit_run(run_dir, commit_msg)

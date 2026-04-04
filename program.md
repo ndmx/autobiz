@@ -96,6 +96,18 @@ How easy is it for a new owner to step in?
 
 ---
 
+## Hard Tier Rules (applied after scoring)
+
+These rules override the weighted score:
+
+- **A-tier requires**: `owner_independence` score ≥ 3/5 (some staff or documented systems). Pure solo owner-operators are capped at B-tier no matter the score.
+- **A-tier requires**: Asking price ≤ $55,000 (hard ceiling — no exceptions).
+- **Estimated listings** (source_url = "estimated") are capped at B-tier. Real verified URLs can reach A-tier.
+- **Margin sanity**: If stated profit margin exceeds 2× the industry norm for this business type, apply an automatic extra red flag penalty of 2 points and note the discrepancy. Industry norms: laundromat 18-25%, vending route 25-35%, cleaning service 10-18%, landscaping/lawn care 10-15%, bookkeeping 30-45%, coffee cart 8-12%, retail/snack 5-12%, flower shop 8-14%.
+- **Score cap for owner-only**: If `owner_independence = 1/5`, cap `weighted_score` at 74 (forces B-tier max).
+
+---
+
 ## Output Format
 
 For each business produce:
