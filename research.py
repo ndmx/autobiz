@@ -183,8 +183,8 @@ def market_enrich(grok: OpenAI, business: dict) -> str:
 # ---------------------------------------------------------------------------
 
 WEIGHTS = {
-    "payback_speed": 30,
-    "price_budget_fit": 20,
+    "dscr_score": 30,
+    "seller_finance_likelihood": 20,
     "seller_motivation": 15,
     "owner_independence": 15,
     "business_age": 10,
@@ -229,9 +229,12 @@ def build_scoring_prompt(business: dict, program: str, market_context: str, budg
     margin_norm = get_industry_margin_norm(business.get('business_type', ''))
     source_url = business.get('source_url', '')
     is_estimated = source_url == 'estimated' or source_url == ''
-    return f"""You are a business acquisition analyst focused on one goal:
-Find businesses a person can buy for ~${budget:,} that pay for themselves as fast as possible,
-ideally from a retiring baby boomer who is motivated to sell.
+    down_payment = min(budget, 50000)  # assumed down payment
+    return f"""You are a business acquisition analyst. The buyer's model is:
+- Down payment: ~${down_payment:,} (flexible $30k–$80k)
+- Seller carries a note for the balance over 5–7 years at 6–8% interest
+- Goal: cash flow must comfortably cover the annual note payment (DSCR ≥ 1.5) AND leave monthly income
+- Target businesses: $75k–$250k asking price, boomer seller willing to finance, staff in place
 
 Scoring framework:
 <framework>
@@ -256,18 +259,22 @@ Seller Motivation: {business.get('seller_motivation', 'Not stated')}
 Description:
 {business.get('description', 'No description provided')}
 
-Investment budget: ${budget:,}
+Assumed down payment: ${down_payment:,}
 Industry margin norm for this business type: ~{margin_norm}% (flag if stated margin > {margin_norm * 2}%)
 Listing verified: {"NO — treat as market estimate" if is_estimated else "YES — real source URL provided"}
 
 Your tasks:
 1. Extract all financials from the description
-2. Score on each parameter from the framework (1–5)
-3. Apply red flag penalties
-4. Compute weighted score
-5. Calculate projected payback period in years (asking_price / annual_cash_flow)
+2. Calculate the seller-finance deal structure:
+   - Note amount = asking_price - {down_payment:,}
+   - Annual note payment ≈ note_amount × 0.07 / (1 - 1.07^-6)  [7% / 6yr amortization]
+   - DSCR = annual_cash_flow / annual_note_payment
+   - Monthly net = (annual_cash_flow - annual_note_payment) / 12
+3. Score on each parameter from the framework (1–5)
+4. Apply red flag penalties
+5. Compute weighted score
 6. Assign tier: A (80–100), B (60–79), C (40–59), D (<40)
-7. Write 2–3 sentence verdict
+7. Write 2–3 sentence verdict focused on whether the deal cash-flows after debt service
 
 Respond ONLY with a valid JSON object:
 {{
@@ -284,9 +291,17 @@ Respond ONLY with a valid JSON object:
     "payback_years": number or null,
     "notes": "string"
   }},
+  "deal_structure": {{
+    "down_payment": {down_payment},
+    "note_amount": number or null,
+    "annual_note_payment": number or null,
+    "dscr": number or null,
+    "monthly_net_after_debt": number or null,
+    "structure_summary": "string — e.g. '$50k down, $100k note at 7%/6yr = $1,950/mo payment, $1,200/mo net'"
+  }},
   "scores": {{
-    "payback_speed": {{"score": 1-5, "reason": "string"}},
-    "price_budget_fit": {{"score": 1-5, "reason": "string"}},
+    "dscr_score": {{"score": 1-5, "reason": "string"}},
+    "seller_finance_likelihood": {{"score": 1-5, "reason": "string"}},
     "seller_motivation": {{"score": 1-5, "reason": "string"}},
     "owner_independence": {{"score": 1-5, "reason": "string"}},
     "business_age": {{"score": 1-5, "reason": "string"}},
@@ -295,14 +310,14 @@ Respond ONLY with a valid JSON object:
   }},
   "weighted_score": number,
   "tier": "A" or "B" or "C" or "D",
-  "payback_projection": "string — e.g. '2.8 years at stated cash flow'",
+  "seller_finance_signal": "string — evidence seller would carry a note, or 'None detected'",
   "boomer_signal": "string — evidence of retirement/motivated seller or 'None detected'",
-  "summary": "2-3 sentence verdict",
+  "summary": "2-3 sentence verdict focused on deal viability after debt service",
   "key_strength": "string",
   "key_risk": "string",
-  "negotiation_note": "string — any leverage for negotiating the price down",
-  "is_estimated": true or false (true if source_url is "estimated" or empty),
-  "margin_sanity_flag": "string or null — note if stated margin exceeds 2x industry norm"
+  "negotiation_note": "string — leverage for price or terms",
+  "is_estimated": true or false,
+  "margin_sanity_flag": "string or null"
 }}
 """
 

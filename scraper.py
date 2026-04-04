@@ -74,6 +74,12 @@ EXCLUDE_KEYWORDS = [
 # Map common city names to Craigslist subdomains + nearby cities to include
 CRAIGSLIST_SITES = {
     "philadelphia": ["philadelphia", "southjersey", "delaware"],
+    "pennsylvania": [
+        "philadelphia", "pittsburgh", "allentown", "harrisburg",
+        "lancaster", "reading", "scranton", "statecollegepenn",
+        "lehighvalley", "poconos", "williamsport", "york",
+        "southjersey", "delaware",  # Philly metro overflow
+    ],
     "default": ["philadelphia"],
 }
 
@@ -338,18 +344,13 @@ def grok_scrape_url(grok: OpenAI, url: str, label: str, verbose: bool) -> list[d
 
 
 def build_bizbuysell_urls(location: str, max_price: int) -> list[tuple[str, str]]:
-    """Generate BizBuySell search URLs for Philadelphia area."""
-    city = location.split(",")[0].strip().replace(" ", "-").lower()
-    state = "pennsylvania"
-    budget_k = max_price // 1000
+    """Generate BizBuySell + BusinessBroker search URLs for the target location."""
+    loc_enc = quote_plus(location)
+    is_statewide = "pennsylvania" in location.lower() and "," not in location.lower()
 
-    return [
+    base_urls = [
         (
-            "BizBuySell-Philly",
-            f"https://www.bizbuysell.com/businesses-for-sale/?q={quote_plus(location)}&max_price={max_price}",
-        ),
-        (
-            "BizBuySell-PA",
+            "BizBuySell-PA-retiring",
             f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?max_price={max_price}&q=retiring",
         ),
         (
@@ -357,14 +358,39 @@ def build_bizbuysell_urls(location: str, max_price: int) -> list[tuple[str, str]
             f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?max_price={max_price}&q=route+vending+laundromat",
         ),
         (
+            "BizBuySell-PA-service",
+            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?max_price={max_price}&q=cleaning+service+established",
+        ),
+        (
+            "BizBuySell-PA-food",
+            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?max_price={max_price}&q=restaurant+deli+cafe+retiring",
+        ),
+        (
+            "BizBuySell-PA-retail",
+            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?max_price={max_price}&q=retail+store+established+owner",
+        ),
+        (
             "BusinessBroker-PA",
             f"https://www.businessbroker.net/businesses-for-sale/pennsylvania/?MaxPrice={max_price}",
         ),
         (
-            "BizBuySell-retiring",
-            f"https://www.bizbuysell.com/businesses-for-sale/?q=retiring+Philadelphia+Pennsylvania&max_price={max_price}",
+            "BusinessBroker-PA-p2",
+            f"https://www.businessbroker.net/businesses-for-sale/pennsylvania/?MaxPrice={max_price}&Page=2",
+        ),
+        (
+            "BizBuySell-PA-all",
+            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?max_price={max_price}",
         ),
     ]
+
+    if not is_statewide:
+        # Add location-specific searches
+        base_urls.insert(0, (
+            f"BizBuySell-{location.split()[0]}",
+            f"https://www.bizbuysell.com/businesses-for-sale/?q={loc_enc}&max_price={max_price}",
+        ))
+
+    return base_urls
 
 
 # ---------------------------------------------------------------------------

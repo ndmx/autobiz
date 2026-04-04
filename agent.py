@@ -272,15 +272,20 @@ def build_search_queries_with_context(
     btype = f" {biz_type}" if biz_type else ""
     budget_k = budget // 1000
 
-    # Base queries
+    # Seller-finance acquisition thesis: ~$50k down, seller carries note, CF services debt
+    down_k = 50  # assumed down payment in $k
+    max_k = budget_k  # max total asking price
+
+    # Base queries targeting seller-finance-friendly deals
     queries = [
-        f"baby boomer retiring small{btype} business for sale under ${budget_k}000{loc} established cash flow",
-        f"owner retiring{btype} business sale{loc} asking price under ${budget_k}000 motivated seller",
-        f"retirement sale{btype} business{loc} under ${budget_k}k cash flow positive established 10 years",
-        f"small{btype} business for sale{loc} ${budget_k//2}000 to ${budget_k}000 owner retiring semi-absentee",
-        f"buy a{btype} business{loc} under ${budget_k}000 payback period cash flow route vending laundromat",
-        f"motivated seller{btype} business{loc} under ${budget_k}000 retiring boomer health reasons lifestyle",
-        f"semi-absentee{btype} business{loc} under ${budget_k}000 existing staff recurring revenue retirement sale",
+        f"baby boomer retiring{btype} business for sale{loc} seller financing ${down_k}k down established cash flow",
+        f"owner retiring{btype} business{loc} asking price ${down_k*2}000 to ${max_k}000 seller will finance motivated",
+        f"retirement sale{btype} business{loc} seller carry note ${max_k}k cash flow positive 10 years established",
+        f"{btype} business for sale{loc} ${down_k}000 down seller financing 5 year note boomer owner retiring",
+        f"buy{btype} business{loc} under ${max_k}000 seller financing accepted motivated seller semi-absentee staff",
+        f"motivated seller{btype} business{loc} under ${max_k}000 retiring health reasons will carry paper financing",
+        f"semi-absentee{btype} business{loc} ${down_k*2}000 to ${max_k}000 existing staff recurring revenue seller finance",
+        f"{btype} business for sale{loc} under ${max_k}000 established route vending laundromat cleaning contracts seller note",
     ]
 
     # Steer away from over-explored type:location combos
@@ -288,17 +293,16 @@ def build_search_queries_with_context(
     if overexplored:
         avoid_str = ", ".join(overexplored[:8])
         queries.append(
-            f"small business for sale under ${budget_k}000{loc} owner retiring — "
+            f"business for sale{loc} under ${max_k}000 owner retiring seller financing — "
             f"NOT these already-explored types/locations: {avoid_str} — find something different"
         )
 
     # Learn from best past findings
     if findings:
-        # Extract the most recent 10 lines of findings for context
         recent = "\n".join(findings.strip().splitlines()[-12:])
         queries.append(
-            f"small business for sale under ${budget_k}000 owner retiring — "
-            f"similar to these successful past finds but in different locations or types:\n{recent}"
+            f"business for sale under ${max_k}000 owner retiring seller financing — "
+            f"similar to these successful past finds but different locations or types:\n{recent}"
         )
 
     return queries[:rounds]
@@ -740,7 +744,7 @@ def orchestrate(
 
 def main():
     parser = argparse.ArgumentParser(description="autobiz agent — autonomous multi-agent business research")
-    parser.add_argument("--budget", type=int, default=50000)
+    parser.add_argument("--budget", type=int, default=200000, help="Max asking price to consider (default: 200000). Down payment ~$50k, seller finances balance.")
     parser.add_argument("--rounds", type=int, default=3, help="Parallel search agents to run (default: 3)")
     parser.add_argument("--type", type=str, default="", dest="biz_type")
     parser.add_argument("--location", type=str, default="")
