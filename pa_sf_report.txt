@@ -1,0 +1,273 @@
+======================================================================
+  autobiz — Business Viability Report
+======================================================================
+  Analyzed: 29 businesses  |  Showing: 29
+
+🟡 #1  [B] 76/100  —  Established Pizzeria in Delaware County
+----------------------------------------------------------------------
+  Financials: Ask: $225,000  |  Revenue: $650,000  |  CF: $120,000  |  ROI: 53.3%  |  Margin: 18.5%
+  Scores:  ROI: 5/5  |  RevMult: 4/5  |  Margin: 4/5  |  Age: 5/5  |  Independence: 3/5  |  Market: 4/5  |  Flags: -1
+  Strength: Exceptional DSCR of ~3.27 combined with explicit seller financing and 20+ years of stable operations — textbook boomer retirement acquisition target.
+  Risk:     Profit margin (18.5%) is above industry norms for pizzerias (7-15%), and employee/staffing details are not disclosed — both require due diligence verification to confirm cash flow accuracy and operational independence.
+  Verdict:  This is a strong acquisition candidate with excellent debt service coverage (DSCR ~3.27), explicit seller financing availability, and 20+ years of proven operations. The cash flow of $120,000 comfortably services an estimated ~$36,700 annual note payment while leaving ~$83,000/year in positive income. The main concerns are verifying the above-average profit margin and confirming staff are in place to ensure operational continuity.
+  ⚠ Flags: Profit margin of 18.5% exceeds the upper end of typical pizzeria range (7-15%) by more than a few points but does not quite hit 2x the industry norm upper bound of 15% (2x = 30%). However, market research specifically flags this as above average. Applying -1 for margin being notably above industry norm without detailed cost breakdown. Employee count not stated — mild concern for due diligence but not a hard penalty.
+
+🟡 #2  [B] 73/100  —  Profitable Pizzeria with Growth Potential
+----------------------------------------------------------------------
+  Financials: Ask: $150,000  |  Revenue: $500,000  |  CF: $80,000  |  ROI: 53.3%  |  Margin: 16.0%
+  Scores:  ROI: 5/5  |  RevMult: 4/5  |  Margin: 3/5  |  Age: 4/5  |  Independence: 3/5  |  Market: 3/5
+  Strength: Exceptional DSCR of ~3.8x — cash flow of $80,000 easily covers estimated annual note payments of ~$21,000, leaving ~$59,000/year in positive cash flow after debt service.
+  Risk:     No explicit seller financing signal or retirement motivation — seller willingness to carry a note is unconfirmed, and staffing/operational details are vague for a $500K revenue food operation.
+  Verdict:  This pizzeria presents a strong cash-flow-to-debt-service ratio (DSCR ~3.8) with a fair asking price at 1.875x cash flow and 0.3x revenue. The 10-year operating history and turnkey positioning are positive, but the lack of explicit retirement motivation, unclear staffing details, and food-service complexity cap this at B-tier. With confirmed seller financing willingness and verified staff, this could be a solid acquisition.
+  ⚠ Flags: Employee count not explicitly stated but implied by revenue level; Reason for selling not clearly stated — mitigated by 10-year tenure; 16% margin slightly above 7-15% norm but within range per market research, no penalty applied
+
+🟡 #3  [B] 66/100  —  Established Pizzeria in Prime Location
+----------------------------------------------------------------------
+  Financials: Ask: $199,000  |  Revenue: $650,000  |  CF: $100,000  |  ROI: 50.2%  |  Margin: 15.4%
+  Scores:  ROI: 5/5  |  RevMult: 5/5  |  Margin: 3/5  |  Age: 4/5  |  Independence: 3/5  |  Market: 3/5  |  Flags: -2
+  Strength: Outstanding DSCR of 3.2x — cash flow of $100K/yr easily services the estimated $31K/yr note payment, leaving roughly $69K/yr ($5,750/mo) in positive income after debt service.
+  Risk:     No stated reason for selling and no details on employees — unclear if seller would accept financing, and unknown labor dependency creates transition risk for a food service business.
+  Verdict:  This is a well-established pizzeria with strong cash flow ($100K/yr) and an excellent DSCR of 3.2x, meaning debt service is very comfortably covered. However, there is no stated reason for selling and no explicit mention of staff, which weakens the seller-finance likelihood and owner-independence scores. The deal structure works financially, but the lack of boomer-exit signals and staffing details keeps this in B-tier — a solid opportunity if due diligence confirms the financials and reveals a motivated seller.
+  ⚠ Flags: Reason for selling is not stated — no retirement or boomer exit signal mentioned; Employee count not disclosed despite being a $650K revenue food business
+
+🟡 #4  [B] 65/100  —  Successful Landscaping Business
+----------------------------------------------------------------------
+  Financials: Ask: $200,000  |  Revenue: $350,000  |  CF: $85,000  |  ROI: 42.5%  |  Margin: 24.3%
+  Scores:  ROI: 5/5  |  RevMult: 4/5  |  Margin: 3/5  |  Age: 3/5  |  Independence: 4/5  |  Market: 4/5  |  Flags: -2
+  Strength: Excellent debt service coverage ratio of 2.67 with a retiring owner and trained staff already in place — textbook seller-finance acquisition target.
+  Risk:     Profit margin at 24.3% is roughly double the landscaping industry norm of 10-15%, raising questions about whether cash flow figures are accurate or sustainable. Thorough due diligence on financials is essential.
+  Verdict:  This landscaping business offers strong DSCR of 2.67 with $85,000 annual cash flow against a $200,000 asking price, making seller-financed acquisition very viable. The retiring owner with a trained team in place is an ideal seller-finance candidate. However, the stated 24.3% profit margin is unusually high for landscaping (norm 10-15%), so financials should be carefully verified before proceeding.
+  ⚠ Flags: Profit margin (24.3%) exceeds 2× the landscaping industry norm of 10-15% — automatic 2-point penalty per framework margin sanity rule
+
+🟡 #5  [B] 63/100  —  Family-Owned Restaurant with Loyal Customers
+----------------------------------------------------------------------
+  Financials: Ask: $225,000  |  Revenue: $500,000  |  CF: $90,000  |  ROI: 40.0%  |  Margin: 18.0%
+  Scores:  ROI: 4/5  |  RevMult: 4/5  |  Margin: 3/5  |  Age: 5/5  |  Independence: 3/5  |  Market: 4/5  |  Flags: -2
+  Strength: Retiring owner of 15+ year established restaurant in affluent Bucks County with loyal customer base — ideal seller-finance candidate with strong DSCR of ~2.45x.
+  Risk:     Stated 18% profit margin is 3-4x the industry norm for family restaurants (3-6%), raising serious questions about whether cash flow figures are accurate or include unsustainable owner adjustments.
+  Verdict:  This is a solid acquisition candidate with strong DSCR (~2.45x), a retiring owner motivated to sell, and 15+ years of community presence in an affluent market. The main concern is the unusually high 18% profit margin versus the 3-6% restaurant industry norm — the $90K cash flow figure needs careful verification through tax returns and P&L statements. If financials hold up under due diligence, this could be a strong seller-financed deal with ~$3,100/mo note payment and ~$4,400/mo net cash flow after debt service.
+  ⚠ Flags: Profit margin of 18% exceeds 2x industry norm for restaurants (3-6%): automatic -2 penalty per framework margin sanity rule. Cash flow figure may include owner salary or be overstated.
+
+🟡 #6  [B] 63/100  —  Profitable Dry Cleaning Business
+----------------------------------------------------------------------
+  Financials: Ask: $150,000  |  Revenue: $200,000  |  CF: $75,000  |  ROI: 50.0%  |  Margin: 37.5%
+  Scores:  ROI: 5/5  |  RevMult: 4/5  |  Margin: 4/5  |  Age: 2/5  |  Independence: 4/5  |  Market: 3/5  |  Flags: -2
+  Strength: Outstanding DSCR of ~3.57 — cash flow of $75,000 easily covers estimated annual debt payments of ~$20,980, leaving ~$54,000/year in positive cash flow after debt service.
+  Risk:     No verified business age and seller is not retiring — 'other business interests' is a vague reason that reduces seller financing likelihood and raises questions about why a profitable business is being sold.
+  Verdict:  This dry cleaning business offers excellent debt service coverage (DSCR ~3.57) with $75,000 annual cash flow against a manageable $150,000 asking price. However, the lack of verified business age, the vague selling reason ('other business interests' rather than retirement), and absence of a source URL cap this at B-tier. It's a solid cash flow play if financials verify, but seller financing likelihood is lower without a retirement-motivated seller.
+  ⚠ Flags: Year established not provided — cannot verify business age or stability; Reason for selling is 'other business interests' which is vague — not a boomer retirement signal, combined with unknown business age raises concern
+
+🟡 #7  [B] 60/100  —  Popular Fitness Center
+----------------------------------------------------------------------
+  Financials: Ask: $175,000  |  Revenue: $300,000  |  CF: $80,000  |  ROI: 45.7%  |  Margin: 26.7%
+  Scores:  ROI: 5/5  |  RevMult: 4/5  |  Margin: 4/5  |  Age: 2/5  |  Independence: 3/5  |  Market: 3/5  |  Flags: -2
+  Strength: Excellent DSCR of ~3.0 — cash flow comfortably covers debt service with significant margin, leaving ~$53,500/yr net income after note payments.
+  Risk:     Seller is not retiring (pursuing other ventures) which reduces seller-finance likelihood and raises questions about why they're exiting a profitable business.
+  Verdict:  This fitness center offers strong cash flow ($80,000/yr) with an excellent DSCR of ~3.0, making debt service very comfortable under a seller-finance structure. However, the lack of a clear retirement-driven seller, unknown business age, and competitive fitness market temper the opportunity. The deal is financially attractive but carries uncertainty around seller financing willingness and long-term stability.
+  ⚠ Flags: No year established provided — business age unknown; Reason for selling is 'pursue other ventures' — not retirement, unclear motivation, and business age appears < 5 years (penalty: -2)
+
+🟠 #8  [C] 57/100  —  Auto Repair Shop with Seller Financing
+----------------------------------------------------------------------
+  Financials: Ask: $200,000  |  Revenue: $400,000  |  CF: $90,000  |  ROI: 45.0%  |  Margin: 22.5%
+  Scores:  ROI: 5/5  |  RevMult: 4/5  |  Margin: 4/5  |  Age: 2/5  |  Independence: 2/5  |  Market: 3/5  |  Flags: -2
+  Strength: Exceptional debt service coverage ratio of 2.86x with seller financing explicitly offered, meaning cash flow comfortably covers note payments and leaves ~$58,500/year in positive income after debt service.
+  Risk:     No information about employees, business age, or reason for selling — the business may be entirely owner-dependent, and without staff in place, a new owner with automotive experience would need to be a full-time operator from day one.
+  Verdict:  This auto repair shop has excellent cash flow ($90,000) relative to its $200,000 asking price, producing a strong DSCR of ~2.86 with seller financing explicitly offered. However, the listing lacks critical details — no business age, no employee information, no reason for selling — which creates significant uncertainty about sustainability and transition risk. The owner-independence score of 2/5 caps this at B-tier, and the missing details warrant caution despite the attractive financial profile.
+  ⚠ Flags: No year established provided — business age completely unknown (-0 direct but contributes to uncertainty); No employee information — unclear if staff exists or if owner is sole operator; Reason for selling is unclear combined with unknown business age (-2 penalty per framework: reason unclear + possibly < 5 years)
+
+🟠 #9  [C] 57/100  —  Auto Repair Shop with Great Reputation
+----------------------------------------------------------------------
+  Financials: Ask: $225,000  |  Revenue: $400,000  |  CF: $90,000  |  ROI: 40.0%  |  Margin: 22.5%
+  Scores:  ROI: 4/5  |  RevMult: 4/5  |  Margin: 3/5  |  Age: 4/5  |  Independence: 2/5  |  Market: 4/5  |  Flags: -2
+  Strength: Strong DSCR of ~2.45 with $90K annual cash flow on a well-established 10+ year business in an affluent market with modern equipment included.
+  Risk:     No employees mentioned — likely a pure owner-operator skilled trade business requiring automotive expertise, making it hard to run semi-absentee and reducing attractiveness for seller-financed acquisition.
+  Verdict:  This auto repair shop offers solid cash flow ($90K) against a reasonable asking price ($225K), yielding a DSCR of ~2.45 which comfortably covers seller-financed debt. However, the lack of mentioned employees suggests an owner-operator model, the seller is relocating rather than retiring (reducing seller finance likelihood), and auto repair requires skilled trade knowledge — all of which limit upside. It's a decent deal if you have automotive experience and can step in as operator, but it doesn't fit the semi-absentee, boomer-exit seller-finance thesis well.
+  ⚠ Flags: No employees mentioned — likely owner-operator dependent (-0 explicit but caps tier); Reason for selling is 'relocating' not retirement — reduces seller finance likelihood; Cash flow and revenue only in description, not in structured fields — minor data quality concern
+
+🟠 #10  [C] 55/100  —  Established Cleaning Service in PA
+----------------------------------------------------------------------
+  Financials: Ask: $199,000  |  Revenue: $220,000  |  CF: $82,000  |  ROI: 41.2%  |  Margin: 37.3%
+  Scores:  ROI: 5/5  |  RevMult: 4/5  |  Margin: 3/5  |  Age: 3/5  |  Independence: 4/5  |  Market: 4/5  |  Flags: -4
+  Strength: Excellent debt service coverage ratio of ~2.6x with trained staff and systems already in place, creating a viable semi-absentee acquisition target.
+  Risk:     Profit margin at 37% is ~2x industry norms for cleaning services, suggesting possible underreported expenses, owner labor not accounted for, or unsustainable cost structure that a new owner may not replicate.
+  Verdict:  This cleaning service has strong cash flow ($82,000) relative to a reasonable asking price ($199,000), yielding an excellent DSCR of ~2.6x. However, the 37% profit margin is roughly double the cleaning industry norm (10-18%), raising questions about whether expenses are fully reported or sustainable. The vague seller motivation and unspecified business age reduce confidence in structuring a seller-financed deal, capping this at B-tier despite otherwise solid fundamentals.
+  ⚠ Flags: Profit margin of 37.3% is approximately 2x the industry norm of 10-18% for cleaning services — automatic 2-point penalty per framework margin sanity rule; Reason for selling is unclear and business age is vague — 2-point penalty for unclear reason + potentially < 5 years
+
+🟠 #11  [C] 53/100  —  Established Deli in Great Location
+----------------------------------------------------------------------
+  Financials: Ask: $199,000  |  Revenue: $450,000  |  CF: $100,000  |  ROI: 50.2%  |  Margin: 22.2%
+  Scores:  ROI: 5/5  |  RevMult: 4/5  |  Margin: 3/5  |  Age: 5/5  |  Independence: 2/5  |  Market: 3/5  |  Flags: -4
+  Strength: Exceptional DSCR of 3.2x — cash flow of $100,000 comfortably services the estimated $31,258 annual note payment with significant margin, leaving roughly $5,700/month net after debt service.
+  Risk:     Reported 22% profit margin is roughly double the industry norm for delis (5-15%), suggesting financials may be overstated or include owner salary add-backs that won't transfer to a new owner. Combined with no mention of staff, this could be a heavily owner-dependent operation where cash flow drops significantly post-acquisition.
+  Verdict:  This 20+ year old deli in Montgomery County offers an attractive DSCR of 3.2x with $100,000 annual cash flow against a reasonable $199,000 asking price. However, the stated 22% profit margin significantly exceeds typical deli margins (5-15%), raising concerns about the accuracy of reported financials. The lack of mentioned employees and the 'owner-operator' framing suggest high owner-dependency, which caps this at B-tier even before considering the estimated listing status.
+  ⚠ Flags: Profit margin of 22% exceeds 2x the deli industry norm of 5-15% — automatic 2-point penalty per margin sanity rule; Source appears to be estimated/no verified URL — caps at B-tier; No employees mentioned — potential owner-dependency concern — but not penalized separately as captured in owner_independence score; No explicit financials in the structured fields (only in description) — 2-point penalty for missing financials in structured data
+
+🟠 #12  [C] 47/100  —  Profitable Pizzeria in Montgomery County
+----------------------------------------------------------------------
+  Financials: Ask: $175,000  |  Revenue: $500,000  |  CF: $100,000  |  ROI: 57.1%  |  Margin: 20.0%
+  Scores:  ROI: 5/5  |  RevMult: 4/5  |  Margin: 3/5  |  Age: 2/5  |  Independence: 3/5  |  Market: 3/5  |  Flags: -4
+  Strength: Exceptional DSCR of 3.81 with explicit seller financing available — cash flow would very comfortably cover debt service with significant monthly income remaining (~$6,100/month net after debt service).
+  Risk:     Stated 20% profit margin significantly exceeds industry norms for pizzerias (7-15%), and no verifiable business age, employee details, or seller motivation are provided — financials need thorough verification.
+  Verdict:  This pizzeria shows strong cash flow numbers with a very healthy DSCR of 3.81, and seller financing is explicitly offered — both major positives for a seller-financed acquisition. However, the 20% profit margin exceeds typical pizzeria norms (7-15%), raising questions about financial accuracy, and the listing lacks critical details like business age, employee count, and reason for selling. This is a solid B-tier deal worth investigating further with verified financials and due diligence on the margin claims.
+  ⚠ Flags: Profit margin (20%) exceeds 2x low-end industry norm for pizzerias (7-15%) — automatic 2-point penalty per margin sanity rule; No year established — business age unknown, reason for selling unclear combined with unknown tenure = 2-point penalty
+
+🟠 #13  [C] 46/100  —  Profitable Cafe in Busy Area
+----------------------------------------------------------------------
+  Financials: Ask: $150,000  |  Revenue: $300,000  |  CF: $75,000  |  ROI: 50.0%  |  Margin: 25.0%
+  Scores:  ROI: 5/5  |  RevMult: 4/5  |  Margin: 3/5  |  Age: 2/5  |  Independence: 2/5  |  Market: 4/5  |  Flags: -4
+  Strength: Exceptional debt service coverage ratio of ~3.57 with a very reasonable asking price at 0.5x revenue — strong cash-on-cash return potential under seller financing.
+  Risk:     Stated 25% profit margin is roughly double the industry norm for cafes, and no staff are mentioned — both suggest the financials may be overstated or the business is entirely owner-dependent.
+  Verdict:  This Philadelphia cafe shows strong cash flow numbers with an excellent DSCR of ~3.57, and the owner's retirement creates a favorable seller-financing opportunity. However, the reported 25% net margin is well above the typical 5-15% cafe range, raising questions about financial accuracy, and the lack of any mention of staff suggests an owner-dependent operation. This deal is worth investigating further, but financials must be verified and staffing situation clarified before proceeding.
+  ⚠ Flags: Profit margin of 25% exceeds 2x the industry norm for cafes (5-15%), triggering automatic -2 penalty per framework margin sanity rule; No employee information provided — possible owner-dependent operation (-2 penalty for owner as sole revenue generator risk)
+
+🔴 #14  [D] 35/100  —  Landscaping Business in Lancaster County
+----------------------------------------------------------------------
+  Financials: Ask: $120,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 4/5  |  Independence: 2/5  |  Market: 3/5
+  Strength: 10+ years in operation with loyal residential and commercial client base, plus all equipment and vehicles included in the sale.
+  Risk:     Zero financial data provided — no revenue, no cash flow, no profit figures — making it impossible to verify the business is profitable or can service any debt.
+  Verdict:  This listing is disqualified due to no verifiable revenue or cash flow anywhere in the description, which is a hard filter failure. While the 10+ year history and included equipment/vehicles are positives, the complete absence of financials makes it impossible to assess debt service coverage or deal viability. The lack of mentioned employees suggests an owner-operator model, further limiting upside under a seller-finance structure.
+
+🔴 #15  [D] 33/100  —  Established Pizzeria in Delaware County, PA
+----------------------------------------------------------------------
+  Financials: Ask: $225,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 5/5  |  Independence: 3/5  |  Market: 4/5  |  Flags: -2
+  Strength: 20+ year community staple with a retiring owner — ideal seller-finance candidate profile if financials check out.
+  Risk:     Zero financial disclosure — no revenue, cash flow, or profit figures provided, making deal structuring and debt service analysis impossible.
+  Verdict:  This 20+ year pizzeria with a retiring owner hits several strong signals for a seller-financed acquisition — long tenure, retirement motivation, turnkey claim, and community loyalty. However, the complete absence of any financial data (revenue, cash flow, profit) is a critical gap that makes it impossible to evaluate deal viability or DSCR. Without verified financials, this is a promising lead to investigate but cannot be scored higher than C-tier.
+  ⚠ Flags: Missing financials entirely — no revenue, cash flow, net income, or rent disclosed anywhere in the listing (-2)
+
+🔴 #16  [D] 23/100  —  Vending Machine Route in Allegheny County, PA
+----------------------------------------------------------------------
+  Financials: Ask: $150,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 3/5  |  Independence: 4/5  |  Market: 3/5  |  Flags: -3
+  Strength: Vending routes are inherently semi-absentee with simple operations and 50 machines in high-traffic locations provides a reasonable base if financials can be verified.
+  Risk:     Complete absence of financial data — no revenue, no cash flow, no profit figures — combined with an asking price that appears 50-100% above market comps for similar routes makes this a high-risk deal that cannot be underwritten.
+  Verdict:  This vending route listing fails the hard filter for no verifiable revenue or cash flow anywhere in the listing, which is an automatic D-tier disqualification. The $150,000 asking price appears inflated relative to market research showing comparable 50-machine routes selling for $50,000-$100,000. Without any financial documentation, it is impossible to calculate DSCR or confirm the business can service a seller note while generating positive income.
+  ⚠ Flags: Missing financials entirely (-2): No revenue, cash flow, or net income stated anywhere; Asking price appears significantly above market comps for 50-machine route ($150k vs $50k-$100k typical) (-1)
+
+🔴 #17  [D] 21/100  —  Laundromat in Philadelphia County, PA
+----------------------------------------------------------------------
+  Financials: Ask: $250,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 4/5  |  Independence: 4/5  |  Market: 3/5  |  Flags: -4
+  Strength: Retirement seller with 10+ year tenure in a shopping center location — strong seller-finance candidate if financials check out.
+  Risk:     Zero financial data provided — no revenue, cash flow, or profit figures to verify whether the business can service any debt at all.
+  Verdict:  This laundromat listing fails hard filters due to no verifiable revenue or cash flow data anywhere in the listing, making it impossible to assess debt service coverage or profitability. While the retirement seller signal and 10+ year tenure are positive for a seller-finance deal, the complete absence of financials at a $250,000 asking price (the maximum threshold) makes this too risky to pursue without significant due diligence. The listing reads more like a placeholder than a serious offering — request detailed financials before any further evaluation.
+  ⚠ Flags: Missing financials entirely (-2): No revenue, cash flow, or profit stated anywhere; No verifiable revenue or cash flow — hard filter trigger (-2): listing provides zero financial data to verify business viability
+
+🔴 #18  [D] 18/100  —  Thriving Hardware Store
+----------------------------------------------------------------------
+  Financials: Ask: $225,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 5/5  |  Independence: 2/5  |  Market: 3/5  |  Flags: -4
+  Strength: 15+ years established with a loyal customer base in a growing Allentown market — longevity suggests real underlying value if financials can be verified.
+  Risk:     Zero financial disclosure — no revenue, no cash flow, no profit figures. Cannot determine if the business can service any debt, making a seller-financed acquisition impossible to structure or evaluate.
+  Verdict:  This listing fails the hard filter for having no verifiable revenue or cash flow anywhere in the description. Despite 15+ years of operation and a growing Allentown market, the complete absence of financial data makes it impossible to assess debt service coverage, profitability, or deal viability. The vague 'strong financials' claim without any numbers is a significant red flag that disqualifies this from serious consideration.
+  ⚠ Flags: Missing financials entirely (-2): No revenue, cash flow, or any financial figure provided; No verifiable revenue or cash flow anywhere in listing — triggers hard filter for disqualification (-2)
+
+🔴 #19  [D] 18/100  —  Established Pizza Shop
+----------------------------------------------------------------------
+  Financials: Ask: $199,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 5/5  |  Independence: 2/5  |  Market: 3/5  |  Flags: -4
+  Strength: 20+ years in operation in a high-traffic PA location with a loyal customer base — strong tenure signal for potential seller financing from a likely boomer owner.
+  Risk:     Zero financial data provided — no revenue, cash flow, or profitability figures, making it impossible to underwrite the deal or verify the business can service a ~$149k seller note.
+  Verdict:  This listing fails the hard filter for having no verifiable revenue or cash flow anywhere in the description, which is an automatic D-tier disqualification. While the 20+ year tenure and high-traffic location are positives, the complete absence of financials makes it impossible to assess DSCR, profitability, or whether the business can service any debt. The 'owner-operator' framing also suggests no staff, further limiting its appeal for a semi-absentee acquisition strategy.
+  ⚠ Flags: Missing financials entirely (-2): no revenue, cash flow, or profit stated; No verifiable revenue or cash flow anywhere in listing — triggers hard filter for disqualification (-2)
+
+🔴 #20  [D] 18/100  —  Family-Owned Bakery
+----------------------------------------------------------------------
+  Financials: Ask: $175,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 5/5  |  Independence: 2/5  |  Market: 3/5  |  Flags: -4
+  Strength: 15+ years of established operations with a loyal community customer base suggests real underlying business value if financials can be verified.
+  Risk:     Complete absence of financial data — no revenue, cash flow, or profitability figures — makes it impossible to structure a seller-financed deal or assess whether the $175k asking price is justified.
+  Verdict:  This listing fails the hard filter for having no verifiable revenue or cash flow anywhere in the description. While the 15+ year operating history and loyal customer base are positives, the complete absence of financial data makes it impossible to assess debt service coverage, ROI, or deal viability. Without financials, this cannot be evaluated as a serious seller-finance acquisition candidate.
+  ⚠ Flags: Missing financials entirely (-2): No revenue, cash flow, or profit stated anywhere; No verifiable revenue or cash flow in listing — triggers hard filter disqualification (-2)
+
+🔴 #21  [D] 18/100  —  Profitable Dry Cleaning Business in Montgomery County
+----------------------------------------------------------------------
+  Financials: Ask: $150,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 5/5  |  Independence: 2/5  |  Market: 3/5  |  Flags: -4
+  Strength: 15+ years established in an affluent Montgomery County shopping center with repeat customers and included equipment/delivery van.
+  Risk:     Zero financial data provided — no revenue, cash flow, or profit figures anywhere, making it impossible to verify the 'profitable' claim or structure a seller-financed deal with confidence.
+  Verdict:  This listing fails the hard filter for having no verifiable revenue or cash flow stated anywhere. Despite 15+ years of operation in a good location, the complete absence of financials makes it impossible to assess DSCR, profitability, or deal viability. The seller is relocating (not retiring), reducing seller-finance likelihood, and the lack of any mention of staff suggests owner-dependence.
+  ⚠ Flags: Missing financials entirely (-2): No revenue, cash flow, or net income stated anywhere in the listing; Reason for selling is relocation, not retirement — less likely to accept seller financing (-0); No employee count mentioned — likely owner-dependent, raising transition risk; No verifiable revenue or cash flow anywhere in listing — triggers hard filter disqualification (-2)
+
+🔴 #22  [D] 18/100  —  Auto Repair Shop in Bucks County
+----------------------------------------------------------------------
+  Financials: Ask: $200,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 5/5  |  Independence: 2/5  |  Market: 3/5  |  Flags: -4
+  Strength: 25+ year operating history with a loyal customer base on a high-visibility location, combined with a retiring owner willing to provide training — strong seller-finance candidate if financials check out.
+  Risk:     Zero financial data provided (no revenue, no cash flow, no profit) and no employees mentioned — impossible to underwrite the deal or confirm it can service debt, and the business appears entirely owner-dependent.
+  Verdict:  This listing fails the hard filter for having no verifiable revenue or cash flow stated anywhere. Despite a strong 25+ year operating history and a retiring owner who signals seller-finance potential, the complete absence of financial data makes it impossible to evaluate DSCR, ROI, or deal viability. Without financials and with no staff mentioned, this is a high-risk acquisition that cannot be recommended without significantly more due diligence.
+  ⚠ Flags: Missing financials entirely (-2); No verifiable revenue or cash flow in listing — hard filter trigger (-2); No employees mentioned — likely sole operator, clients may follow owner's reputation
+
+🔴 #23  [D] 15/100  —  Established Retail Store in Prime Location
+----------------------------------------------------------------------
+  Financials: Ask: $199,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 4/5  |  Independence: 2/5  |  Market: 3/5  |  Flags: -4
+  Strength: 10+ years in operation in a high-traffic Philadelphia location suggests some underlying business stability.
+  Risk:     Complete absence of any financial data — no revenue, no cash flow, no profit figures — makes this un-underwritable and likely indicates the seller is hiding poor performance or has no organized books.
+  Verdict:  This listing is disqualified under the hard filter for having no verifiable revenue or cash flow figures anywhere in the description. At $199,000 asking price with zero financial documentation, there is no way to assess debt service coverage, profitability, or deal viability. The vague marketing language about 'consistent revenue' and 'room for growth' without a single number is a major red flag for any acquisition under a seller-finance structure.
+  ⚠ Flags: Missing financials entirely (-2); No verifiable revenue or cash flow — triggers hard filter disqualification (-2)
+
+🔴 #24  [D] 12/100  —  Laundromat in Montgomery County, PA
+----------------------------------------------------------------------
+  Financials: Ask: $200,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 3/5  |  Independence: 2/5  |  Market: 3/5  |  Flags: -4
+  Strength: Located in a densely populated area of Montgomery County with high foot traffic and modern equipment — laundromats in such locations typically enjoy stable demand.
+  Risk:     Zero financial transparency: no revenue, no cash flow, no profit data. This is a hard filter failure — cannot verify the business generates the minimum $20,000/year cash flow required to service any debt.
+  Verdict:  This laundromat listing is a hard pass due to the complete absence of financial data — no revenue, cash flow, or profit figures are provided anywhere. Without verifiable financials, it is impossible to calculate DSCR or confirm the business can service seller-financed debt. The vague selling reason ('other business interests') at only 8 years of operation and the 'hands-on owner' language further undermine confidence in this as a viable seller-finance acquisition.
+  ⚠ Flags: Missing financials entirely (-2): No revenue, cash flow, or any financial data provided; Reason for selling is vague 'pursue other business interests' + business < 10 years old (-2): Not a retirement sale, unclear motivation
+
+🔴 #25  [D] 9/100  —  Profitable Retail Boutique
+----------------------------------------------------------------------
+  Financials: Ask: $150,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 3/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -4
+  Strength: 8 years of operation in a high foot traffic Pittsburgh location with a dedicated customer base suggests some underlying business stability.
+  Risk:     Absolutely no financial data provided — no revenue, no cash flow, no profit figures. Combined with an owner-operator model and no stated reason for selling, this listing cannot be evaluated for debt service coverage and is essentially uninvestable without significant due diligence.
+  Verdict:  This listing is a red flag factory — no financials whatsoever despite calling itself 'Profitable,' no employees mentioned, no reason for selling, and it's explicitly positioned as an owner-operator deal. With zero verifiable cash flow, it's impossible to calculate DSCR or determine whether the $150k asking price is justified. The 8-year operating history and Pittsburgh location are modest positives, but they cannot overcome the complete absence of financial data and the solo-operator dependency.
+  ⚠ Flags: Missing financials entirely (-2): No revenue, cash flow, or profit figures anywhere in listing; Reason for selling unclear + business < 10 years old (-2): No seller motivation or context provided, business is 8 years old
+
+🔴 #26  [D] 6/100  —  Fitness Center in Chester County
+----------------------------------------------------------------------
+  Financials: Ask: $175,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 1/5  |  Independence: 2/5  |  Market: 3/5  |  Flags: -4
+  Strength: Located in Chester County, PA — a wealthy, health-conscious demographic with strong population growth that supports fitness businesses.
+  Risk:     Complete absence of financial data — no revenue, cash flow, profit, or business age disclosed. This is a disqualifying deficiency that makes any deal structuring or valuation impossible.
+  Verdict:  This listing fails multiple hard filters: no verifiable revenue or cash flow is stated anywhere, business age is unknown, and no employee information is provided. The $175,000 asking price cannot be evaluated against any financial performance data. Without any financial transparency, this is not a viable seller-finance acquisition candidate and should be passed on entirely.
+  ⚠ Flags: Missing financials entirely (-2); Reason for selling unclear + unknown business age — could be very young (-2); No verifiable revenue or cash flow anywhere in listing (hard filter trigger)
+
+🔴 #27  [D] 1/100  —  Profitable Auto Repair Shop
+----------------------------------------------------------------------
+  Financials: Ask: $150,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 2/5  |  Flags: -4
+  Strength: Auto repair is a stable, recession-resistant industry in PA with consistent demand from an aging vehicle fleet.
+  Risk:     Zero financial transparency — no revenue, cash flow, profit, business age, or staffing information provided, making any investment analysis impossible and suggesting the seller either has something to hide or is not serious.
+  Verdict:  This listing is a hard disqualify under multiple criteria. There are no verifiable revenue or cash flow figures anywhere in the listing, which is a hard filter failure. The description is pure marketing fluff — no financials, no business age, no employee information, and no seller context — making it impossible to evaluate as an acquisition target. Avoid entirely.
+  ⚠ Flags: Missing financials entirely (-2): No revenue, cash flow, or profit stated anywhere; Reason for selling unclear + business age unknown (-2): No seller motivation or tenure information provided
+
+🔴 #28  [D] 1/100  —  Local Convenience Store
+----------------------------------------------------------------------
+  Financials: Ask: $120,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 2/5  |  Flags: -4
+  Strength: Residential neighborhood location with reported steady foot traffic provides a basic customer base.
+  Risk:     Complete absence of any financial data — no revenue, no cash flow, no profit figures — makes this impossible to underwrite and triggers an automatic disqualification.
+  Verdict:  This listing is a hard disqualification. There are no verifiable revenue or cash flow figures anywhere in the description, which is a hard filter failure under the framework. Additionally, no business age, employee count, or seller motivation is provided, making it impossible to assess debt service coverage, seller financing likelihood, or operational viability. This is an information-barren listing that presents unacceptable risk for a seller-financed acquisition.
+  ⚠ Flags: Missing financials entirely (-2); Reason for selling unclear + unknown business age (-2)
+
+🔴 #29  [D] 1/100  —  Fitness Center with Growth Potential
+----------------------------------------------------------------------
+  Financials: Ask: $225,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 2/5  |  Flags: -4
+  Strength: High-visibility location in Pennsylvania with a reportedly growing membership base
+  Risk:     Complete absence of any financial data — no revenue, cash flow, profit margin, or business age — making it impossible to underwrite a seller-financed deal
+  Verdict:  This listing fails multiple hard filters: no verifiable revenue or cash flow anywhere in the description, no business age provided, and no employee or staffing information. At $225,000 with zero financial transparency, this is an unscoreable deal that presents extreme risk for a seller-financed acquisition. Walk away unless the seller provides full financials and demonstrates clear retirement motivation with willingness to carry a note.
+  ⚠ Flags: Missing financials entirely (-2); Reason for selling unclear + business age unknown (-2); No employees mentioned — potential sole operator; No verifiable revenue or cash flow — hard filter fail
+
+======================================================================
+  Tier Summary
+----------------------------------------------------------------------
+  🟢 Tier A: 0 businesses
+  🟡 Tier B: 7 businesses
+  🟠 Tier C: 6 businesses
+  🔴 Tier D: 16 businesses
+======================================================================

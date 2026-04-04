@@ -3,200 +3,200 @@
 ======================================================================
   Analyzed: 21 businesses  |  Showing: 21
 
-🟡 #1  [B] 61/100  —  Profitable Deli in Great Location
+🟡 #1  [B] 63/100  —  Profitable Deli in Great Location
 ----------------------------------------------------------------------
   Financials: Ask: $45,000  |  Revenue: $150,000  |  CF: $30,000  |  ROI: 66.7%  |  Margin: 20.0%
-  Scores:  ROI: 5/5  |  RevMult: 5/5  |  Margin: 3/5  |  Age: 5/5  |  Independence: 3/5  |  Market: 4/5  |  Flags: -4
-  Strength: Exceptional DSCR and pricing — 20-year-old business at only 1.5x cash flow with a motivated retiring owner, making seller financing highly likely.
-  Risk:     Stated 20% profit margin is 2-4x the typical deli margin of 5-10%, suggesting possible underreported expenses, owner labor not being accounted for, or unsustainable cost structure that may not transfer to a new owner.
-  Verdict:  This is a well-priced, long-established deli with a retiring owner — a classic boomer exit opportunity ideal for seller financing. The $45,000 asking price with $30,000 annual cash flow provides excellent debt service coverage, but the 20% profit margin is roughly double the industry norm for delis (5-10%), which raises questions about expense reporting or sustainability. The lack of explicit employee information and the suspiciously high margin keep this at B-tier despite otherwise strong fundamentals.
-  ⚠ Flags: Profit margin of 20% exceeds 2x industry norm of 5-10% for delis — automatic 2-point penalty per margin sanity rule; No employees explicitly mentioned — unclear staffing situation, risk of owner-dependency (-2 potential, applied as part of margin concern); Cash flow and revenue fields marked 'Not stated' in structured data, only found in description text — minor verification concern
+  Scores:  ROI: 5/5  |  RevMult: 5/5  |  Margin: 3/5  |  Age: 5/5  |  Independence: 2/5  |  Market: 4/5  |  Flags: -3
+  Strength: Extremely low asking price (0.3x revenue, 1.5x cash flow) on a 20-year established business with a retiring owner — ideal seller-finance candidate despite small deal size.
+  Risk:     No employees mentioned and 20% profit margin is 2x the deli industry norm — cash flow figures may overstate true earnings or rely entirely on owner labor, making transition risky.
+  Verdict:  This 20-year-old Philadelphia deli priced at $45,000 with $30,000 stated cash flow offers an attractive entry point with fast payback. However, the 20% profit margin is double the industry norm, no employees are mentioned suggesting it's owner-operated, and the asking price falls below the $50,000 minimum for a proper seller-finance note structure. It's a solid small deal but capped at B-tier due to owner-dependence, margin concerns, and price below A-tier threshold.
+  ⚠ Flags: Profit margin (20%) exceeds 2x industry norm for delis (5-10%) — automatic 2-point penalty per framework margin sanity rule; No employees mentioned — possible sole operator risk, -1 implicit concern factored into owner_independence score; Cash flow and revenue fields marked 'Not stated' in structured data though mentioned in description — mild data reliability concern
 
-🟠 #2  [C] 52/100  —  Established Hair Salon
-----------------------------------------------------------------------
-  Financials: Ask: $35,000  |  Revenue: $120,000  |  CF: $40,000  |  ROI: 114.3%  |  Margin: 33.3%
-  Scores:  ROI: 5/5  |  RevMult: 5/5  |  Margin: 3/5  |  Age: 3/5  |  Independence: 2/5  |  Market: 4/5  |  Flags: -4
-  Strength: Extremely low asking price relative to reported cash flow ($35K price vs. $40K annual cash flow) with a motivated retirement seller in a high-traffic location.
-  Risk:     Owner-operator dependency — no staff mentioned, and the business likely depends on the current owner's personal client relationships, meaning revenue could drop significantly after the sale.
-  Verdict:  This hair salon is priced attractively at just $35,000 with reported $40,000 annual cash flow and a retiring owner — ideal seller motivation. However, the 33% profit margin is suspiciously high for a hair salon (industry norm 8-20%), and the business appears to be owner-operator dependent with no mentioned staff, meaning the loyal customer base may not transfer to a new owner. The asking price is below the ideal range for a seller-finance structure, but it could be a solid cash purchase for a licensed stylist willing to be hands-on.
-  ⚠ Flags: Profit margin (33%) exceeds 2x industry norm (8-20%) — automatic 2-point penalty per framework; Owner likely sole revenue generator / primary stylist — clients may follow owner, not business — 2-point penalty
-
-🟠 #3  [C] 50/100  —  Drop store(dry cleaner) for sale
+🟠 #2  [C] 50/100  —  Drop store(dry cleaner) for sale
 ----------------------------------------------------------------------
   Financials: Ask: $60,000  |  CF: $60,000  |  ROI: 100.0%
   Scores:  ROI: 5/5  |  RevMult: 3/5  |  Margin: 3/5  |  Age: 5/5  |  Independence: 2/5  |  Market: 3/5  |  Flags: -4
-  Strength: 20-year operating history with loyal customer base at a very low asking price of $60,000 — if financials verify, this could be an excellent cash-flowing deal with minimal debt service risk.
-  Risk:     No verifiable financials whatsoever — the 'less than a year payback' claim is unsubstantiated, and the business appears to be a solo owner-operator with no documented staff or systems, meaning the customer base may not transfer.
-  Verdict:  This 20-year dry cleaning drop store at $60k is attractively priced and claims strong cash flow with sub-1-year payback, but provides zero verifiable financial data. The absence of documented revenue, expenses, staff, or any hard numbers is a major red flag. The business age and low price are appealing, but without financials and with likely owner-dependence, this listing requires significant due diligence before any serious consideration.
-  ⚠ Flags: Missing financials entirely — no verifiable revenue or cash flow numbers (-2); No employees mentioned — likely sole owner-operator, clients may follow owner (-2); Payback claim of <1 year on $60k is aggressive and unsubstantiated; No year established field filled despite claiming 20 years
+  Strength: 20-year operating history with claimed strong cash flow at a very low $60k asking price — minimal seller financing needed, making the deal structure almost trivially easy.
+  Risk:     Zero verifiable financials and no mention of staff — the 'recoup in a year' claim is unsubstantiated marketing language, and this may be a pure owner-operator business where customers follow the person, not the brand.
+  Verdict:  This 20-year-old dry cleaning drop store at $60k is attractively priced and claims strong cash flow, but provides zero verifiable financial data — no revenue, no documented cash flow, no employee information. The long operating history and low price point are genuinely appealing for a seller-finance deal (the note would be tiny at ~$10k after a $50k down payment), but the complete absence of financials and likely owner-operator status are significant concerns. Worth investigating further with a request for P&L statements and tax returns, but cannot be rated higher without verified numbers.
+  ⚠ Flags: Missing financials entirely: no verifiable revenue or specific cash flow figures (-2); No employee information — likely sole operator, clients may follow owner (-2); Cash flow claim of 'recoup in less than a year' is vague marketing language, not verified financials
 
-🟠 #4  [C] 44/100  —  Small Cafe with Growth Potential
-----------------------------------------------------------------------
-  Financials: Ask: $30,000  |  Revenue: $100,000  |  CF: $20,000  |  ROI: 66.7%  |  Margin: 20.0%
-  Scores:  ROI: 5/5  |  RevMult: 5/5  |  Margin: 4/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -4
-  Strength: Very low asking price relative to revenue (0.3x multiple) means minimal capital at risk and potential for quick payback.
-  Risk:     Completely owner-dependent operation with no staff, no documented business age, and cash flow at the bare minimum threshold — high risk the business cannot survive an ownership transition.
-  Verdict:  This cafe fails multiple hard filters: the asking price of $30,000 is below the $50,000 minimum needed to structure a meaningful seller-finance deal, no business age is provided, and it is entirely owner-dependent with no staff. While the DSCR and price are attractive on paper, the $20,000 annual cash flow sits at the absolute minimum threshold and the pure owner-operator model with no employees makes this unsuitable for the target acquisition strategy. This is a lifestyle micro-business, not a viable seller-financed acquisition.
-  ⚠ Flags: No business age/year established provided (-2 component: reason unclear + potentially young business); Owner is sole operator with no staff — clients may follow owner (-2); Annual cash flow exactly $20,000 — at the absolute minimum threshold of the hard filter
-
-🔴 #5  [D] 39/100  —  Profitable Pizza Shop - Great Location
+🟠 #3  [C] 47/100  —  Profitable Pizza Shop - Great Location
 ----------------------------------------------------------------------
   Financials: Ask: $45,000  |  Revenue: $150,000  |  CF: $30,000  |  ROI: 66.7%  |  Margin: 20.0%
-  Scores:  ROI: 5/5  |  RevMult: 5/5  |  Margin: 3/5  |  Age: 2/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -5
-  Strength: Extremely low asking price relative to stated cash flow — 1.5-year payback and 0.3x revenue multiple make the financial entry point very attractive.
-  Risk:     Pure owner-operator with no staff or systems — the business likely depends entirely on the current owner's labor, and the above-average margin claims are unverified with no structured financials provided.
-  Verdict:  This pizza shop has an attractive price point at $45,000 with $30,000 in stated cash flow, making the financial returns look strong on paper. However, it is explicitly an owner-operator business with no staff, no clear reason for selling, vague business age, and a profit margin above industry norms — all significant concerns. The deal is too small to meaningfully structure seller financing, and the lack of operational independence and transparency drops it below the B-tier threshold.
-  ⚠ Flags: No employees mentioned — owner is sole operator (-2); Reason for selling not stated and business age unclear/possibly <5 years (-2); Profit margin (20%) exceeds typical pizza shop range (7-15%) — not quite 2x the high end but suspicious, applying -1 for margin concern
+  Scores:  ROI: 5/5  |  RevMult: 5/5  |  Margin: 4/5  |  Age: 2/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -4
+  Strength: Exceptional price-to-cash-flow ratio at 1.5x with a 66.7% ROI — the business could be acquired entirely with a $45k cash payment, eliminating debt service risk altogether.
+  Risk:     Complete owner-operator dependency with zero employees mentioned — the business likely cannot run without the owner present, making transition extremely risky and semi-absentee operation impossible.
+  Verdict:  This pizza shop has attractive pricing at $45,000 with $30,000 annual cash flow and a 0.3x revenue multiple, making the raw numbers compelling. However, it is a pure owner-operator business with no employees, no clear reason for selling, and vague business age — all significant red flags for a seller-financed acquisition. The asking price falls below the ideal $50k-$250k seller note structuring range, and the total owner-dependence caps upside and increases transition risk.
+  ⚠ Flags: No employees listed — owner is sole operator and likely sole revenue generator (-2); Reason for selling unclear + business age vague/possibly < 5 years (-2); Cash flow and revenue only stated in description, not in structured fields — potential verification concern; No year established provided — lack of transparency on business age
+
+🔴 #4  [D] 39/100  —  Established Hair Salon
+----------------------------------------------------------------------
+  Financials: Ask: $35,000  |  Revenue: $120,000  |  CF: $40,000  |  ROI: 114.3%  |  Margin: 33.3%
+  Scores:  ROI: 5/5  |  RevMult: 5/5  |  Margin: 2/5  |  Age: 3/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -5
+  Strength: Very low asking price ($35k) relative to stated cash flow ($40k) creates minimal financial risk — even if cash flow drops 50%, the investment recovers quickly.
+  Risk:     Hair salons are highly owner-dependent; with no staff mentioned and the owner retiring, the loyal customer base may not transfer to a new owner, potentially collapsing revenue.
+  Verdict:  This hair salon offers an extremely low asking price with strong stated cash flow, but the 33% profit margin is more than double industry norms (8-15%), raising serious questions about the accuracy of reported financials. The business appears to be entirely owner-dependent with no staff mentioned, meaning the loyal customer base may leave when the retiring owner departs. At $35,000 it's a low-risk entry point, but the true value depends entirely on customer retention post-sale and whether financials hold up under scrutiny.
+  ⚠ Flags: Profit margin (33%) exceeds 2× industry norm (8-15%) — automatic 2-point penalty per framework; Owner is likely sole revenue generator as primary stylist — clients may follow owner — 2-point penalty; No employees mentioned, no staff in place — high owner dependence — 1-point implicit in scoring
+
+🔴 #5  [D] 34/100  —  Established Dog Walking Business
+----------------------------------------------------------------------
+  Financials: Ask: $35,000  |  Revenue: $40,000  |  CF: $20,000  |  ROI: 57.1%  |  Margin: 50.0%
+  Scores:  ROI: 3/5  |  RevMult: 4/5  |  Margin: 4/5  |  Age: 2/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -4
+  Strength: Favorable valuation at 0.875x revenue with a 50% profit margin that aligns with industry norms in a growing pet care market.
+  Risk:     Completely owner-dependent — dog walking clients are loyal to the person, not the business, creating high customer attrition risk upon ownership transfer.
+  Verdict:  This dog walking business has reasonable pricing and industry-standard margins, but it fails the investment thesis on multiple fronts. The $35,000 asking price is too small for a structured seller-finance deal, the business is entirely owner-dependent with no staff, and there are no details on business age or reason for selling. The new owner would essentially be buying a client list that may not transfer when the walker changes.
+  ⚠ Flags: Owner is sole revenue generator — clients follow the dog walker personally (-2); Reason for selling is unclear and business age is unknown (-2); No employees or staff mentioned; No year established provided; Asking price below $50,000 — too small for meaningful seller-finance structure
 
 🔴 #6  [D] 31/100  —  Mobile Car Detailing Business
 ----------------------------------------------------------------------
   Financials: Ask: $40,000  |  Revenue: $60,000  |  CF: $22,000  |  ROI: 55.0%  |  Margin: 36.7%
   Scores:  ROI: 3/5  |  RevMult: 4/5  |  Margin: 4/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -4
-  Strength: Low asking price with solid profit margins aligned to industry norms and a mix of individual and corporate clients.
-  Risk:     Completely owner-dependent with no staff, no established business age, and no reason for selling — high risk that revenue walks out the door with the current owner.
-  Verdict:  This mobile car detailing business has reasonable financials with a 36.7% margin and a low asking price of $40,000, but it fails key acquisition criteria. The business appears to be a pure owner-operator model with no employees, no documented systems, and no information on business age or reason for selling — making it a poor fit for a seller-financed semi-absentee acquisition. Cash flow of $22,000 barely meets the minimum threshold but leaves little room after debt service if any financing is used.
-  ⚠ Flags: No year established — unknown business age, possible < 1 year (hard filter risk but giving benefit of doubt since 'solid customer base' implies some tenure); Reason for selling unclear + unknown business age = -2 penalty; Owner is sole revenue generator / completely owner-dependent = -2 penalty
+  Strength: Low asking price at 0.67x revenue with industry-aligned 37% profit margin and inclusion of all equipment.
+  Risk:     Completely owner-dependent with no employees or documented systems — customer relationships likely follow the owner, and no business age or selling reason is provided.
+  Verdict:  This mobile car detailing business is priced attractively at 0.67x revenue with margins in line with industry norms, but critical information is missing. No business age, no employees, no reason for selling, and the business appears entirely owner-dependent — meaning the customer base may not transfer. At $40,000 asking price, it's also below the ideal range for a seller-finance deal structure, and the $22,000 annual cash flow barely clears the minimum threshold.
+  ⚠ Flags: No year established — business age unknown, could be <1 year (-2 if combined with unclear selling reason); Reason for selling unclear + unknown business age (-2); Owner is sole revenue generator — no employees, clients likely follow the owner (-2 but partially counted above); Annual cash flow $22,000 is marginally above $20,000 hard filter threshold
 
-🔴 #7  [D] 30/100  —  Local Flower Shop
-----------------------------------------------------------------------
-  Financials: Ask: $50,000  |  Revenue: $80,000  |  CF: $25,000  |  ROI: 50.0%  |  Margin: 31.2%
-  Scores:  ROI: 5/5  |  RevMult: 4/5  |  Margin: 2/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -5
-  Strength: Very low asking price of $50k with $25k stated cash flow means the entire purchase could potentially be covered by the down payment alone, eliminating debt service risk.
-  Risk:     Profit margin of 31% is over 2x the flower shop industry norm (8-14%), and with no verifiable financials, business age, employees, or reason for selling, the stated cash flow is highly suspect.
-  Verdict:  This flower shop has an attractive low asking price and strong stated cash flow, but multiple red flags undermine confidence. The 31% profit margin is more than double the industry norm of 8-14%, suggesting inflated or unverifiable financials. With no established year, no employees, no reason for selling, and a fully owner-dependent model, this listing lacks the stability and seller-finance signals needed for a confident acquisition.
-  ⚠ Flags: No year established — business age unknown, could be <1 year (hard filter risk); No employees mentioned — likely fully owner-dependent; Reason for selling not stated + unknown business age = -2 penalty; Profit margin 31.25% exceeds 2x industry norm of 8-14% = -2 margin sanity penalty; Missing key financials verification (no rent, no detailed P&L) = partial -1
-
-🔴 #8  [D] 27/100  —  Established Deli in Great Location
+🔴 #7  [D] 27/100  —  Established Deli in Great Location
 ----------------------------------------------------------------------
   Financials: Ask: $50,000  |  Revenue: $150,000
   Scores:  ROI: 1/5  |  RevMult: 4/5  |  Margin: 1/5  |  Age: 5/5  |  Independence: 2/5  |  Market: 3/5  |  Flags: -4
-  Strength: 20+ year established business with retiring owner at a low revenue multiple of 0.33x — ideal seller-finance candidate if cash flow can be verified above $20k.
-  Risk:     No cash flow disclosed and market-typical deli margins suggest annual profit of only $7,500-$15,000, failing the hard cash flow filter and making debt service untenable.
-  Verdict:  This 20+ year deli has a very attractive asking price of $50,000 against $150,000 in gross revenue, and the retiring owner signals strong seller-finance potential. However, the complete absence of disclosed cash flow is a hard filter failure — market-implied deli margins of 5-10% suggest annual profit of only $7,500-$15,000, well below the $20,000 minimum threshold. Without verifiable cash flow and with no employees mentioned, this deal cannot service debt and generate positive income under the acquisition model.
-  ⚠ Flags: Missing cash flow entirely — no verifiable cash flow in listing (-2); Owner is likely the sole operator — no employees mentioned, clients may follow owner (-2)
+  Strength: 20+ year established business with retiring owner at a low 0.33x revenue asking price — strong seller finance likelihood from a motivated boomer exit.
+  Risk:     Cash flow is undisclosed, and industry-standard margins suggest annual profit of only $7,500-$15,000 — far too low to service debt or generate meaningful income for a new owner.
+  Verdict:  This 20-year-old deli has a compelling retirement seller and low asking price, but the refusal to disclose cash flow is a critical red flag. Using industry-standard deli margins of 5-10% on $150,000 revenue yields estimated cash flow of only $7,500-$15,000 annually, which fails the $20,000 minimum hard filter and cannot service any meaningful debt. Without disclosed financials and no mention of employees, this listing does not meet the investment criteria despite the attractive seller profile.
+  ⚠ Flags: Missing financials — cash flow not disclosed despite being a critical metric; No employees mentioned — likely sole owner-operator; Estimated annual cash flow based on industry margins ($7,500-$15,000) falls below $20,000 hard filter threshold; Reason for selling is retirement but no staff in place raises transition risk
 
-🔴 #9  [D] 18/100  —  Established Dog Walking Business
+🔴 #8  [D] 18/100  —  Home-Based Tutoring Service
 ----------------------------------------------------------------------
-  Financials: Ask: $35,000  |  Revenue: $40,000  |  CF: $20,000  |  ROI: 57.1%  |  Margin: 50.0%
-  Scores:  ROI: 1/5  |  RevMult: 3/5  |  Margin: 3/5  |  Age: 2/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -4
-  Strength: Low entry cost with reasonable valuation at 0.875x revenue and 50% margins consistent with industry norms in a growing pet care market.
-  Risk:     Completely owner-dependent with no employees — dog walking clients are loyal to their specific walker, meaning client attrition upon ownership transfer is highly likely.
-  Verdict:  This dog walking business fails multiple hard criteria: annual cash flow of $20,000 is at the absolute minimum threshold, the asking price of $35,000 is too small to structure a meaningful seller-finance deal, and the business appears to be entirely owner-dependent with no staff or systems. The lack of established year, no employees, and unclear seller motivation make this a poor fit for the acquisition model — clients in dog walking businesses are typically loyal to the walker, not the brand, creating significant transition risk.
-  ⚠ Flags: Owner is sole revenue generator — clients likely follow the owner personally (-2); Reason for selling is unclear + business age unknown, possibly < 5 years (-2); No employees mentioned — pure owner-operator model; Asking price $35,000 is below the $50k-$250k range ideal for seller-finance structuring
+  Financials: Ask: $30,000  |  Revenue: $35,000  |  CF: $15,000  |  ROI: 50.0%  |  Margin: 42.9%
+  Scores:  ROI: 1/5  |  RevMult: 4/5  |  Margin: 3/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -4
+  Strength: Very low asking price at 0.86x revenue with a growing industry tailwind in Pittsburgh's education market.
+  Risk:     Completely owner-dependent with $15,000 annual cash flow — too small to service any debt, and clients will likely leave when the owner changes.
+  Verdict:  This listing fails the hard filter on annual cash flow ($15,000 < $20,000 minimum). The business is entirely owner-dependent with no staff, no stated business age, and an asking price too small to structure a meaningful seller-financed deal. While the tutoring industry is growing and the price-to-revenue multiple is attractive, this opportunity does not meet the investment thesis requirements for cash flow, scalability, or deal structure.
+  ⚠ Flags: Annual cash flow $15,000 is below $20,000 hard filter — triggers D-tier disqualification; No year established — business age unknown, reason for selling unclear; No employees — completely owner-dependent, clients likely follow the owner; Asking price $30,000 is below the $50,000 minimum for A-tier seller note structuring
 
-🔴 #10  [D] 15/100  —  Mobile Pet Grooming Business
+🔴 #9  [D] 15/100  —  Local Flower Shop
 ----------------------------------------------------------------------
-  Financials: Ask: $25,000  |  Revenue: $80,000
-  Scores:  ROI: 1/5  |  RevMult: 4/5  |  Margin: 2/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -4
-  Strength: Low asking price at 0.31x revenue with a fully equipped van in a growing industry — minimal capital at risk if revenue is real.
-  Risk:     No verifiable cash flow, no business age, no employees, and no reason for sale — too many unknowns to underwrite confidently.
-  Verdict:  This mobile pet grooming business fails multiple hard filters: no verifiable cash flow is stated, no business age is provided (could be under 1 year), and the operation is entirely owner-dependent with no employees. While the 0.31x revenue multiple is reasonable and the pet care industry is growing, the lack of disclosed financials and operational details makes this an unacceptable acquisition risk under a seller-finance framework. The $25,000 asking price is also too small to meaningfully structure a seller note.
-  ⚠ Flags: No verifiable cash flow stated anywhere in listing — hard filter trigger; No business age provided — could be < 1 year old; No employees — completely owner-dependent solo operation; Reason for selling not stated + unknown business age
+  Financials: Ask: $50,000  |  Revenue: $80,000  |  CF: $25,000  |  ROI: 50.0%  |  Margin: 31.2%
+  Scores:  ROI: 5/5  |  RevMult: 4/5  |  Margin: 2/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -8
+  Strength: Very low asking price ($50,000) with a favorable 0.625x revenue multiple, meaning the entire purchase could theoretically be covered by the down payment alone.
+  Risk:     Stated profit margin of 31% is more than double the flower shop industry norm (8-14%), suggesting financials may be overstated or unsustainable, and no staff or business history is provided to validate the numbers.
+  Verdict:  This flower shop has an attractive price point and favorable revenue multiple, but critical information is missing: no business age, no employees, no reason for selling, and an implausibly high profit margin (31% vs. 8-14% industry norm). The listing strongly suggests a solo owner-operator business with unverified financials, making seller financing unlikely and the acquisition risky. Without staff, verified books, and a clear seller motivation, this deal doesn't meet the threshold for a confident seller-financed acquisition.
+  ⚠ Flags: Profit margin (31.25%) exceeds 2x industry norm (8-14%) — automatic -2 penalty for margin sanity; No year established — cannot verify business age or stability; No employees mentioned — likely fully owner-dependent (-2); No reason for selling given + unknown business age (-2); Missing financials verification — all figures from description only, no structured fields populated (-2)
 
-🔴 #11  [D] 13/100  —  Established Cleaning Service
+🔴 #10  [D] 15/100  —  Turnkey Convenience Store
 ----------------------------------------------------------------------
-  Financials: Ask: $35,000  |  Revenue: $50,000
-  Scores:  ROI: 1/5  |  RevMult: 4/5  |  Margin: 1/5  |  Age: 2/5  |  Independence: 1/5  |  Market: 2/5  |  Flags: -4
-  Strength: Revenue multiple of 0.7x is fair pricing and the Philadelphia cleaning market has stable demand with 6-7% CAGR projections.
-  Risk:     No cash flow data and implied profitability of $5,000-$10,000/yr on $50k revenue makes this unable to service any debt or generate meaningful income for a buyer.
-  Verdict:  This listing fails multiple hard filters: no verifiable cash flow is stated, implied cash flow based on industry margins (10-20% of $50k = $5k-$10k) falls far below the $20,000 minimum, and the $35,000 asking price is below the threshold for a meaningful seller-finance structure. The listing lacks critical details — no year established, no employees, no reason for selling, no financials beyond gross revenue. This is not a viable acquisition candidate under the seller-finance model.
-  ⚠ Flags: No verifiable cash flow anywhere in listing (hard filter fail: -2); No year established and reason for selling unclear (-2); Asking price $35k is below the $50k minimum for seller-finance deal structuring; No employee information — likely fully owner-dependent; Annual cash flow likely below $20,000 hard filter minimum based on industry margins
+  Financials: Ask: $40,000  |  Revenue: $200,000
+  Scores:  ROI: 1/5  |  RevMult: 4/5  |  Margin: 1/5  |  Age: 1/5  |  Independence: 2/5  |  Market: 3/5  |  Flags: -4
+  Strength: Very low asking price at 0.2x gross revenue in a stable industry with an existing customer base, making the entry cost minimal.
+  Risk:     No cash flow, net income, or profit data disclosed — implied earnings from industry norms are far too low to service any debt or generate meaningful owner income, and the complete lack of financial transparency is a dealbreaker.
+  Verdict:  This convenience store fails multiple hard filters: no verifiable cash flow is stated, no business age is provided, and implied net income based on industry-standard 1-5% margins ($2,000-$10,000/yr) falls well below the $20,000 minimum cash flow threshold. The low asking price of $40,000 is attractive on a revenue-multiple basis but likely reflects very thin margins and limited profitability. Without documented earnings, seller motivation, business tenure, or staff, this listing does not support a viable seller-financed acquisition.
+  ⚠ Flags: No verifiable cash flow or net income anywhere in listing — hard filter fail and -2 penalty; No business age stated and no reason for selling — -2 penalty for unclear reason + potentially young business; Annual cash flow likely below $20,000 hard filter based on industry margins
 
-🔴 #12  [D] 12/100  —  Laundromat in Philadelphia County, PA
+🔴 #11  [D] 12/100  —  Laundromat in Philadelphia County, PA
 ----------------------------------------------------------------------
   Financials: Ask: $50,000
   Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 1/5  |  Independence: 4/5  |  Market: 3/5  |  Flags: -4
-  Strength: Low asking price ($50K) for an absentee-run laundromat in a densely populated urban market with claimed modern equipment.
-  Risk:     Zero verifiable financial data — no revenue, no cash flow, no business age, no employee info — making it impossible to underwrite any deal structure.
-  Verdict:  This listing fails the hard filter for no verifiable revenue or cash flow anywhere in the description. Despite the attractive $50,000 price point and absentee-run laundromat model in a strong urban market, the complete absence of financials makes it impossible to evaluate debt service coverage, ROI, or deal viability. A buyer would need to request detailed P&L statements before this listing can be taken seriously.
-  ⚠ Flags: Missing financials entirely (-2); Reason for selling unclear + no business age provided — could be < 5 years (-2)
+  Strength: Low asking price of $50k in a densely populated urban area with claimed absentee operation — if financials can be verified, the deal structure would require minimal or no seller financing.
+  Risk:     Zero financial data provided — no revenue, no cash flow, no business age, no reason for selling. This listing could be masking a failing or non-existent business.
+  Verdict:  This listing is essentially a shell with zero verifiable financial information. Despite a low asking price of $50,000 and the attractive claim of absentee operation in a dense urban market, the complete absence of revenue, cash flow, business age, and seller motivation data makes it impossible to evaluate as a viable acquisition. Without financials, this fails the hard filter for 'no verifiable revenue or cash flow anywhere in listing' and cannot be recommended.
+  ⚠ Flags: Missing financials entirely (-2); Reason for selling unclear + no business age given — could be < 5 years old (-2)
 
-🔴 #13  [D] 12/100  —  Turnkey Convenience Store
-----------------------------------------------------------------------
-  Financials: Ask: $40,000  |  Revenue: $200,000
-  Scores:  ROI: 1/5  |  RevMult: 4/5  |  Margin: 1/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -4
-  Strength: Very low asking price at 0.2x revenue with $200,000 in gross sales and a reported steady customer base in a busy neighborhood.
-  Risk:     No cash flow or profit data disclosed, and industry-typical convenience store margins of 1-5% suggest annual net income far below the $20,000 threshold needed to service any debt.
-  Verdict:  This listing fails multiple hard filters: no verifiable cash flow is stated, and industry-typical margins (1-5%) on $200k revenue imply annual net income of only $2k-$10k, well below the $20,000 cash flow minimum. The business age is unknown, no employees are mentioned, and the reason for sale is absent — all critical red flags. While the $40,000 asking price is low at 0.2x revenue, the lack of financial transparency and thin convenience store margins make this unsuitable for a seller-financed acquisition.
-  ⚠ Flags: Missing financials entirely — no cash flow, net income, or profit margin stated (-2); Reason for selling unclear + no business age provided (-2)
-
-🔴 #14  [D] 10/100  —  Dry Cleaner Business for Sale – Established 50 Years
+🔴 #12  [D] 10/100  —  Dry Cleaner Business for Sale – Established 50 Years
 ----------------------------------------------------------------------
   Financials: Ask: $40,000
   Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 5/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -5
-  Strength: 50 years of continuous operation in the same location with a retiring owner — strong boomer exit signal and proven market demand.
-  Risk:     Dry cleaning machines are excluded from the sale, meaning the buyer faces substantial additional capital expenditure on top of the purchase price, and zero financial data is provided to justify any investment.
-  Verdict:  This listing fails multiple hard filters: no verifiable revenue or cash flow is stated, the asking price of $40,000 is below the ideal seller-finance structuring range, and critically, the dry cleaning machines are excluded — meaning the buyer must invest significant additional capital in core equipment. While the 50-year operating history and retirement motivation are genuinely attractive signals, the complete absence of financials and the owner-operator-only model make this un-scoreable as a cash-flow acquisition.
-  ⚠ Flags: Missing financials entirely (-2); Dry cleaning machines NOT included — requires significant capex to acquire core equipment (-1); No verifiable revenue or cash flow anywhere in listing — hard filter fail; Owner is sole revenue generator / no staff mentioned (-2)
+  Strength: 50 years of continuous operation in a stable residential location with a retiring owner — strong seller motivation and proven market demand.
+  Risk:     Dry cleaning machines are not included in the sale, meaning the buyer must invest significant additional capital (potentially $20,000–$80,000+) just to operate, on top of zero disclosed financials to justify the purchase.
+  Verdict:  This listing fails multiple hard filters: no verifiable revenue or cash flow is stated, and the asking price of $40,000 falls below the minimum deal size for a meaningful seller-finance structure. Most critically, the dry cleaning machines are explicitly excluded from the sale, meaning significant additional capital expenditure would be needed to actually run a dry cleaning business. While the 50-year history and retirement sale are attractive signals, the total absence of financials and the owner-dependent single-operator model make this unviable under the target acquisition thesis.
+  ⚠ Flags: Missing financials entirely (-2); Dry cleaning machines NOT included — significant undisclosed capex required to actually operate as a dry cleaner (-1); No verifiable revenue or cash flow — hard filter fail (-2); Owner is sole operator with no staff — clients may follow owner or simply stop coming
 
-🔴 #15  [D] 9/100  —  Home-Based Tutoring Service
+🔴 #13  [D] 6/100  —  Established Hair Salon in Prime Location
 ----------------------------------------------------------------------
-  Financials: Ask: $30,000  |  Revenue: $35,000  |  CF: $15,000  |  ROI: 50.0%  |  Margin: 42.9%
-  Scores:  ROI: 1/5  |  RevMult: 4/5  |  Margin: 4/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 2/5  |  Flags: -6
-  Strength: Low asking price with fair valuation at 0.86x revenue and healthy 43% profit margin within industry norms.
-  Risk:     Completely owner-dependent tutoring business with no staff, no documented systems, and cash flow too low to support debt service — clients will likely leave with the seller.
-  Verdict:  This home-based tutoring business fails multiple hard filters: annual cash flow of $15,000 is below the $20,000 minimum required to service debt and generate income, the asking price of $30,000 is too small to structure a meaningful seller-finance deal, and the business is entirely owner-dependent with no employees or systems. While the valuation is fair at 0.86x revenue and margins are normal for the industry, the business lacks the scale, transferability, and cash flow needed for an acquisition under this investment thesis.
-  ⚠ Flags: Annual cash flow $15,000 is below the $20,000 hard filter threshold — triggers D-tier disqualification; No year established — unknown business age, reason for selling unclear + possibly < 5 years old (-2); Owner is sole revenue generator — clients follow the tutor (-2); Asking price $30,000 is below the $50,000 minimum for structuring a seller note — too small for seller-finance thesis (-2)
+  Financials: Ask: $35,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 2/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -4
+  Strength: Low asking price of $35,000 in an affluent Montgomery County market with claimed loyal customer base.
+  Risk:     Zero financial disclosure — no revenue, no cash flow, no profit figures, no business age, and no employees mentioned. Impossible to underwrite a deal or calculate debt service coverage.
+  Verdict:  This listing is a hard disqualify under the framework. There is no verifiable revenue, cash flow, or financial data of any kind, which triggers automatic D-tier classification. The listing reads as an owner-operator hair salon with no staff mentioned, no reason for selling, and no financial transparency — making it unsuitable for a seller-financed acquisition.
+  ⚠ Flags: Missing financials entirely (-2); No year established and no reason for selling — unclear seller context with unknown business age (-2)
 
-🔴 #16  [D] 1/100  —  Small janitorial business for sale
+🔴 #14  [D] 6/100  —  Small Cafe with Growth Potential
+----------------------------------------------------------------------
+  Financials: Ask: $30,000  |  Revenue: $100,000  |  CF: $20,000  |  ROI: 66.7%  |  Margin: 20.0%
+  Scores:  ROI: 3/5  |  RevMult: 5/5  |  Margin: 3/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -9
+  Strength: Extremely low entry price at 0.3x revenue with loyal local clientele in a revitalizing market, making it affordable even as an all-cash purchase.
+  Risk:     Pure owner-operator business with no staff, no documented business age, and above-normal profit margins that may not hold up under scrutiny — high risk of buying a job, not a business.
+  Verdict:  This cafe is priced attractively at $30,000 with claimed $20,000 cash flow, but it fails multiple hard filters and framework requirements. The asking price is too low to structure a meaningful seller-finance deal, there are no employees or systems in place, business age is unknown, and the 20% profit margin exceeds typical cafe norms (5-15%), raising questions about financial accuracy. While the low entry cost is appealing, this is fundamentally a job purchase rather than a business acquisition — a solo owner-operator cafe with unverified financials and no documented stability.
+  ⚠ Flags: Missing financials in structured fields — revenue and cash flow only in description text (-2); No year established + no reason for selling — could be under 5 years and unclear motivation (-2); Owner is sole operator with no staff — clients may follow owner (-2); Margin sanity: 20% profit margin exceeds industry norm of 8-12% for cafe by more than 2x the upper bound — automatic penalty (-2); Asking price $30,000 is below the $50,000 minimum for structuring a seller note — deal too small for thesis (-1)
+
+🔴 #15  [D] 4/100  —  Retail Store in Philadelphia
+----------------------------------------------------------------------
+  Financials: Ask: $50,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 2/5  |  Independence: 1/5  |  Market: 2/5  |  Flags: -4
+  Strength: Low asking price of $50,000 keeps total capital at risk relatively small
+  Risk:     Complete absence of financials — no revenue, no cash flow, no margin, no business age, no employee count — makes it impossible to evaluate viability or structure a seller-financed deal
+  Verdict:  This listing fails multiple hard filters: no verifiable revenue or cash flow anywhere in the listing, and no business age provided. The description is extremely thin — just generic marketing language with zero financial substance. Without any financials, seller context, or operational detail, this is uninvestable under a seller-finance model and represents a high-risk blind purchase.
+  ⚠ Flags: Missing financials entirely (-2): No revenue, cash flow, or any financial data provided; Reason for selling unclear + business age unknown (-2): No seller motivation given and no established date
+
+🔴 #16  [D] 3/100  —  Mobile Pet Grooming Business
+----------------------------------------------------------------------
+  Financials: Ask: $25,000  |  Revenue: $80,000
+  Scores:  ROI: 1/5  |  RevMult: 5/5  |  Margin: 1/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 2/5  |  Flags: -6
+  Strength: Very low asking price relative to stated gross revenue ($25k on $80k), and comes with a fully equipped van — low barrier to entry.
+  Risk:     100% owner-dependent with no employees, no stated cash flow, and no business age — this is essentially buying a van and a client list with no guarantee clients will stay.
+  Verdict:  This mobile pet grooming business fails multiple hard filters: no verifiable cash flow is disclosed, business age is unknown, and the asking price of $25,000 is too small to structure a meaningful seller-financed deal. It is a pure owner-operator business with no staff, meaning all revenue depends on the owner personally grooming pets — clients will likely follow the groomer, not the van. While the low asking price and $80k gross revenue look attractive on the surface, the complete lack of profit data and operational details make this unsuitable for the target acquisition model.
+  ⚠ Flags: No verifiable cash flow anywhere in listing — hard filter fail; No business age stated — could be under 1 year; Reason for selling not stated + unknown business age; Owner is sole revenue generator — clients follow the groomer; Asking price $25,000 is below the $50,000 minimum for structured seller note (hard tier rule)
+
+🔴 #17  [D] 1/100  —  Small janitorial business for sale
 ----------------------------------------------------------------------
   Financials: Ask: $35,000
   Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 2/5  |  Flags: -4
-  Strength: Low asking price of $35,000 means minimal capital at risk if a buyer can verify the client base independently.
-  Risk:     Zero financial documentation — no revenue, no cash flow, no margin data, no business age, no employees — making this essentially unanalyzable and a hard filter disqualification.
-  Verdict:  This listing fails multiple hard filters: no verifiable revenue or cash flow is stated anywhere, no business age is provided, and no employees are mentioned. The $35,000 asking price is below the minimum range for a meaningful seller-finance structure, and the complete absence of financials makes it impossible to evaluate debt service coverage or profitability. This appears to be a solo-operator client list sale with some equipment, not a structured business acquisition opportunity.
-  ⚠ Flags: Missing financials entirely (-2); Reason for selling unclear + business age unknown (-2); No verifiable revenue or cash flow — hard filter fail
-
-🔴 #17  [D] 1/100  —  Retail Store in Philadelphia
-----------------------------------------------------------------------
-  Financials: Ask: $50,000
-  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 2/5  |  Flags: -4
-  Strength: Low asking price of $50,000 means limited capital at risk if financials were to be verified favorably.
-  Risk:     Complete absence of any financial data — no revenue, no cash flow, no profit figures — makes this impossible to underwrite and triggers automatic disqualification under the hard filter for no verifiable revenue or cash flow.
-  Verdict:  This listing is a hard disqualify under the investment framework. There is zero verifiable revenue or cash flow data, no establishment year, no employee information, and no seller motivation — triggering multiple hard filters (no verifiable revenue/cash flow) and heavy red flag penalties. The vague description of 'established retail store' with a 'steady customer base' provides no substantive basis for evaluating debt service coverage or operational viability.
-  ⚠ Flags: Missing financials entirely (-2): No revenue, cash flow, or any financial data provided; Reason for selling unclear + business age unknown (-2): No seller motivation given and no establishment date to verify tenure
+  Strength: Low asking price of $35,000 means limited capital at risk if financials can be verified during due diligence.
+  Risk:     Complete absence of financial data — no revenue, no cash flow, no profit — makes this unanalyzable and a hard-filter disqualification.
+  Verdict:  This listing fails the hard filter for no verifiable revenue or cash flow anywhere in the description. With no financials, no business age, no employees, and no reason for selling, it is impossible to structure a seller-financed deal or assess viability. The $35k asking price is below the ideal range for a meaningful seller note, and the listing reads more like an asset/client-list sale than an operating business.
+  ⚠ Flags: Missing financials entirely (-2); Reason for selling unclear + business age unknown (-2); No employees disclosed — likely sole owner-operator; No verifiable revenue or cash flow (hard filter fail)
 
 🔴 #18  [D] 0/100  —  Business for Sale 10k Month Home Based
 ----------------------------------------------------------------------
-  Financials: Ask: $5,500  |  Revenue: $120,000
-  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -8
-  Strength: The senior care placement industry has genuine tailwinds from aging demographics, and the low entry cost means minimal capital at risk.
-  Risk:     This is a business opportunity/starter kit, not an operating business. The $10k/month revenue claim is the seller's personal performance and does not transfer — buyer would be starting from zero with a manual and some templates.
-  Verdict:  This is not a legitimate business acquisition — it is a business opportunity/training package being sold for $5,500. The seller is offering a manual, templates, consulting, and a website setup, not an operating business with transferable revenue, clients, or contracts. There are no verifiable financials, no established business age, no employees, and the revenue claims are the seller's personal results that would not transfer to a buyer.
-  ⚠ Flags: Missing financials entirely (-2): No verifiable revenue, cash flow, or profit documented; This is a business opportunity/training package, NOT an operating business with transferable revenue (-2); Reason for selling unclear + no business age (-2); Owner is sole revenue generator — clients/facility relationships follow the owner (-2); Asking price of $5,500 is below framework minimum for seller-finance structure ($50k-$250k)
+  Financials: Ask: $5,500
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 2/5  |  Flags: -5
+  Strength: The underlying senior placement industry is genuinely growing due to aging demographics, and the low entry cost means minimal capital at risk.
+  Risk:     This is a biz-op, not an operating business. You are buying a starter kit with no guaranteed revenue, no existing clients, and no transferable cash flow — all income claims are aspirational projections from the seller.
+  Verdict:  This is not a business acquisition — it is a $5,500 business opportunity/startup kit selling consulting, a manual, and marketing templates for entering the senior placement advisory space. There are no verifiable financials, no existing customer base, no staff, and no operating business being transferred. It fails multiple hard filters including no verifiable revenue, asking price far below the minimum for a seller-finance deal structure, and no established business age.
+  ⚠ Flags: No verifiable revenue or cash flow anywhere in listing (hard filter fail); This is a business opportunity / startup kit, not an existing business acquisition; Asking price far below $50,000 minimum for seller-finance structure (hard filter: too small to structure); No year established — likely not an operating business being sold; Income claims are aspirational/projected, not documented; Reason for selling unclear — seller appears to be selling copies of their system, not exiting the business
 
 🔴 #19  [D] 0/100  —  TURNKEY TANNING SALON FOR SALE – FULLY BUILT OUT – PRIM
 ----------------------------------------------------------------------
   Financials: Ask: $60,000
   Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 2/5  |  Flags: -6
-  Strength: Prime high-traffic Route 70 location in an affluent Medford, NJ suburb with a fully built-out 1,900 sq ft space that would cost $100K+ to replicate.
-  Risk:     Zero financial data provided — no revenue, no cash flow, no profit figures — combined with a declining tanning industry and only 2 years of operation suggests the business may not be generating meaningful income.
-  Verdict:  This listing is an automatic D-tier disqualification on multiple hard filters: no verifiable revenue or cash flow, business is only 2 years old, and there are no employees or systems in place. The listing reads more like an asset/equipment sale than a going-concern business — the seller emphasizes build-out cost savings rather than business performance metrics. Without any financial data and in a declining industry, this is not a viable seller-finance acquisition target.
-  ⚠ Flags: Missing financials entirely (-2): No revenue, cash flow, or profit data anywhere in listing; Reason for selling unclear + business < 5 years old (-2): Owner relocating after only 2 years is a concern — may indicate the business isn't profitable enough to justify staying; Owner is sole revenue generator (-2): No staff mentioned, appears entirely owner-dependent, clients likely follow owner
+  Strength: Turnkey build-out in a high-traffic Route 70 location could save significant construction costs for someone with an existing beauty/wellness business concept.
+  Risk:     No financial data whatsoever — this appears to be a failing or non-operational business being sold purely for its physical build-out value, not as a going concern.
+  Verdict:  This listing is essentially an asset sale of a 2-year-old tanning salon build-out, not a cash-flowing business acquisition. There are zero financials provided — no revenue, no cash flow, no profit — which is an automatic hard filter failure under 'no verifiable revenue or cash flow.' The tanning industry is in secular decline, the business is very young, and the owner leaving after just 2 years with no financial disclosure is a significant red flag.
+  ⚠ Flags: Missing financials entirely (-2); Reason for selling unclear context + business < 5 years old (-2): owner 'relocating' after only 2 years raises concern about viability; Owner is sole revenue generator / no staff mentioned (-2); Listing reads more like an asset/build-out sale than a going-concern business sale; Declining industry trend for UV tanning salons; No mention of customer base, memberships, or recurring revenue
 
-🔴 #20  [D] 0/100  —  Small Cafe in Suburban Area
+🔴 #20  [D] 0/100  —  Established Cleaning Service
+----------------------------------------------------------------------
+  Financials: Ask: $35,000  |  Revenue: $50,000
+  Scores:  ROI: 1/5  |  RevMult: 3/5  |  Margin: 1/5  |  Age: 2/5  |  Independence: 1/5  |  Market: 2/5  |  Flags: -6
+  Strength: Low asking price at a reasonable 0.7x revenue multiple means limited downside capital at risk if purchased outright for cash.
+  Risk:     No cash flow data, no employees, and $50k gross revenue likely yields sub-$10k annual profit — completely insufficient to service any debt or provide meaningful income.
+  Verdict:  This listing fails multiple hard filters: no verifiable cash flow is stated anywhere, and estimated cash flow based on industry margins ($5,000-$9,000/yr) falls far below the $20,000 minimum threshold. The $35,000 asking price is too small to structure meaningful seller financing, and the absence of staff, business age, or any operational detail suggests a solo owner-operator micro-business. This is not a viable acquisition under the seller-finance model.
+  ⚠ Flags: No verifiable cash flow or net income anywhere in listing (-2: missing financials entirely); No year established and no employee info — reason for selling unclear + possibly young business (-2); Owner is likely sole revenue generator — clients follow owner in small cleaning operations (-2)
+
+🔴 #21  [D] 0/100  —  Small Cafe in Suburban Area
 ----------------------------------------------------------------------
   Financials: Ask: $45,000  |  Revenue: $75,000  |  CF: $18,000  |  ROI: 40.0%  |  Margin: 24.0%
-  Scores:  ROI: 1/5  |  RevMult: 4/5  |  Margin: 2/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -7
-  Strength: Low asking price at 0.6x revenue represents a reasonable valuation if financials are accurate, and Lancaster's growing suburban market provides a decent demand environment.
-  Risk:     Cash flow of $18,000 is insufficient to service debt and generate meaningful income, and the suspiciously high 24% profit margin (vs. 8-12% industry norm) suggests either underreported expenses or inflated earnings.
-  Verdict:  This cafe fails the hard filter for annual cash flow below $20,000, which automatically places it in D-tier. The 24% profit margin is roughly double the industry norm for cafes (8-12%), raising serious questions about the accuracy of reported financials. With no stated business age, no employees, no reason for selling, and a pure owner-operator model, this listing lacks the fundamentals needed for a viable seller-financed acquisition.
-  ⚠ Flags: Annual cash flow $18,000 is below the $20,000 hard filter threshold — triggers D-tier disqualification; No year established — cannot confirm business is more than 1 year old; No employees mentioned — pure owner-operator; Reason for selling not stated + unknown business age = -2 penalty; Missing financials detail (no rent, no expense breakdown) = -2 penalty; Profit margin (24%) exceeds 2x industry norm for cafe/coffee (8-12%) = -2 automatic penalty per margin sanity rule; Asking price $45,000 is below the $50,000 minimum for A-tier seller note structure = -1
-
-🔴 #21  [D] 0/100  —  Established Hair Salon in Prime Location
-----------------------------------------------------------------------
-  Financials: Ask: $35,000
-  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 2/5  |  Independence: 1/5  |  Market: 2/5  |  Flags: -6
-  Strength: Low asking price of $35,000 means minimal capital at risk if financials were to check out.
-  Risk:     Complete absence of financial data combined with a business model where revenue is tied to the individual stylist — high risk of customer attrition upon ownership change.
-  Verdict:  This listing fails multiple hard filters: no verifiable revenue or cash flow is provided anywhere in the listing, and annual cash flow cannot be confirmed above the $20,000 minimum threshold. Hair salons are inherently owner-dependent businesses where client relationships follow the stylist, making transition risky. With zero financial transparency and no mention of staff or systems, this is not a viable seller-finance acquisition target.
-  ⚠ Flags: Missing financials entirely (-2); No verifiable revenue or cash flow — hard filter fail (-2); Owner is likely sole revenue generator — clients follow the stylist (-2)
+  Scores:  ROI: 1/5  |  RevMult: 4/5  |  Margin: 2/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -9
+  Strength: Low asking price at 0.6x revenue with a loyal customer base in a growing Lancaster, PA suburban market.
+  Risk:     Cash flow of $18,000/year is insufficient to service debt and provide income, the business appears entirely owner-dependent with no staff, and the unusually high 24% margin for a cafe suggests the financials may not be accurate or sustainable.
+  Verdict:  This cafe fails the hard filter with annual cash flow of only $18,000 — below the $20,000 minimum needed to service any debt and generate income. The 24% profit margin is suspiciously high for a cafe (industry norm is 5-15%), no business age or employee information is provided, and the listing explicitly describes a hands-on owner-operator model with no staff. The asking price of $45,000 is too small to structure a meaningful seller-financed deal, and the overall lack of verifiable information makes this a pass.
+  ⚠ Flags: Annual cash flow of $18,000 is below the $20,000 hard filter minimum — triggers D-tier disqualification; No business age provided — reason for selling unclear + possibly < 5 years old (-2); No employees mentioned, owner is sole operator — clients may follow owner (-2); Profit margin of 24% exceeds 2x the cafe industry norm of 8-12%, triggering margin sanity penalty (-2); Missing detailed financials — no rent, no cost breakdown (-2); Asking price of $45,000 is below the $50,000 minimum for A-tier seller-finance structuring (-1)
 
 ======================================================================
   Tier Summary
 ----------------------------------------------------------------------
   🟢 Tier A: 0 businesses
   🟡 Tier B: 1 businesses
-  🟠 Tier C: 3 businesses
-  🔴 Tier D: 17 businesses
+  🟠 Tier C: 2 businesses
+  🔴 Tier D: 18 businesses
 ======================================================================

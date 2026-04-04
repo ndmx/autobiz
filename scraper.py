@@ -92,11 +92,11 @@ def get_cl_sites(location: str) -> list[str]:
     return ["philadelphia"]  # default
 
 
-def scrape_craigslist_index(subdomain: str, max_price: int, verbose: bool) -> list[dict]:
+def scrape_craigslist_index(subdomain: str, max_price: int, verbose: bool, min_price: int = 1000) -> list[dict]:
     """Fetch the bfs (business for sale) listing index for a CL subdomain."""
     url = (
         f"https://{subdomain}.craigslist.org/search/bfs"
-        f"?min_price=1000&max_price={max_price}&query=business"
+        f"?min_price={min_price}&max_price={max_price}&query=business"
     )
     if verbose:
         print(f"  [CL] {subdomain}: {url}")
@@ -205,14 +205,14 @@ def is_real_business(title: str, description: str, price: int = None) -> bool:
     return score >= 2
 
 
-def scrape_craigslist(location: str, max_price: int, verbose: bool) -> list[dict]:
+def scrape_craigslist(location: str, max_price: int, verbose: bool, min_price: int = 1000) -> list[dict]:
     """Full Craigslist pipeline: index → detail pages → filtered results."""
     sites = get_cl_sites(location)
     print(f"  [CL] Scanning {len(sites)} Craigslist site(s): {', '.join(sites)}")
 
     raw = []
     for site in sites:
-        raw.extend(scrape_craigslist_index(site, max_price, verbose))
+        raw.extend(scrape_craigslist_index(site, max_price, verbose, min_price=min_price))
         time.sleep(0.5)
 
     print(f"  [CL] Raw listings: {len(raw)} — fetching detail pages...")
@@ -343,43 +343,48 @@ def grok_scrape_url(grok: OpenAI, url: str, label: str, verbose: bool) -> list[d
         return []
 
 
-def build_bizbuysell_urls(location: str, max_price: int) -> list[tuple[str, str]]:
+def build_bizbuysell_urls(location: str, max_price: int, min_price: int = 0) -> list[tuple[str, str]]:
     """Generate BizBuySell + BusinessBroker search URLs for the target location."""
     loc_enc = quote_plus(location)
     is_statewide = "pennsylvania" in location.lower() and "," not in location.lower()
+    price_filter = f"min_price={min_price}&max_price={max_price}" if min_price else f"max_price={max_price}"
 
     base_urls = [
         (
             "BizBuySell-PA-retiring",
-            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?max_price={max_price}&q=retiring",
+            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?{price_filter}&q=retiring+seller+financing",
+        ),
+        (
+            "BizBuySell-PA-seller-finance",
+            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?{price_filter}&q=seller+financing+owner+will+carry",
         ),
         (
             "BizBuySell-PA-routes",
-            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?max_price={max_price}&q=route+vending+laundromat",
+            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?{price_filter}&q=route+vending+laundromat",
         ),
         (
             "BizBuySell-PA-service",
-            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?max_price={max_price}&q=cleaning+service+established",
+            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?{price_filter}&q=cleaning+service+established",
         ),
         (
             "BizBuySell-PA-food",
-            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?max_price={max_price}&q=restaurant+deli+cafe+retiring",
+            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?{price_filter}&q=restaurant+deli+cafe+retiring",
         ),
         (
             "BizBuySell-PA-retail",
-            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?max_price={max_price}&q=retail+store+established+owner",
+            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?{price_filter}&q=retail+store+established+owner",
         ),
         (
             "BusinessBroker-PA",
-            f"https://www.businessbroker.net/businesses-for-sale/pennsylvania/?MaxPrice={max_price}",
+            f"https://www.businessbroker.net/businesses-for-sale/pennsylvania/?MinPrice={min_price}&MaxPrice={max_price}",
         ),
         (
             "BusinessBroker-PA-p2",
-            f"https://www.businessbroker.net/businesses-for-sale/pennsylvania/?MaxPrice={max_price}&Page=2",
+            f"https://www.businessbroker.net/businesses-for-sale/pennsylvania/?MinPrice={min_price}&MaxPrice={max_price}&Page=2",
         ),
         (
             "BizBuySell-PA-all",
-            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?max_price={max_price}",
+            f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?{price_filter}",
         ),
     ]
 
@@ -387,7 +392,7 @@ def build_bizbuysell_urls(location: str, max_price: int) -> list[tuple[str, str]
         # Add location-specific searches
         base_urls.insert(0, (
             f"BizBuySell-{location.split()[0]}",
-            f"https://www.bizbuysell.com/businesses-for-sale/?q={loc_enc}&max_price={max_price}",
+            f"https://www.bizbuysell.com/businesses-for-sale/?q={loc_enc}&{price_filter}",
         ))
 
     return base_urls
@@ -454,7 +459,8 @@ def write_json(listings: list[dict], path: str):
 def main():
     parser = argparse.ArgumentParser(description="autobiz scraper — real listing data from multiple sources")
     parser.add_argument("--location", default="Philadelphia PA", help="Target location (default: Philadelphia PA)")
-    parser.add_argument("--budget", type=int, default=50000, help="Max asking price filter")
+    parser.add_argument("--budget", type=int, default=250000, help="Max asking price filter (default: 250000)")
+    parser.add_argument("--min-budget", type=int, default=50000, help="Min asking price filter (default: 50000)")
     parser.add_argument("--output", type=str, default=None, help="Save as CSV (for analyze.py)")
     parser.add_argument("--json", type=str, default=None, dest="json_out", help="Save as JSON (for agent pipeline)")
     parser.add_argument("--no-grok", action="store_true", help="Skip Grok-proxied sources (CL only)")
@@ -472,7 +478,7 @@ def main():
 
     print("=" * 64)
     print(f"  autobiz scraper")
-    print(f"  Location: {args.location}  |  Budget: ${args.budget:,}")
+    print(f"  Location: {args.location}  |  Price range: ${args.min_budget:,}–${args.budget:,}")
     print("=" * 64)
 
     all_listings: list[dict] = []
@@ -480,13 +486,13 @@ def main():
     # --- Craigslist ---
     if not args.no_craigslist:
         print("\n[ Craigslist ]")
-        cl = scrape_craigslist(args.location, args.budget + 10000, args.verbose)
+        cl = scrape_craigslist(args.location, args.budget + 10000, args.verbose, min_price=args.min_budget)
         all_listings.extend(cl)
 
     # --- BizBuySell + BusinessBroker via Grok ---
     if grok:
         print("\n[ Grok-proxied sources ]")
-        for label, url in build_bizbuysell_urls(args.location, args.budget):
+        for label, url in build_bizbuysell_urls(args.location, args.budget, min_price=args.min_budget):
             batch = grok_scrape_url(grok, url, label, args.verbose)
             all_listings.extend(batch)
             time.sleep(0.8)

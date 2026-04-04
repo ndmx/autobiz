@@ -1,0 +1,1963 @@
+[
+  {
+    "business_name": "Auto Repair Shop in Bucks County",
+    "business_type": "Auto Repair",
+    "asking_price_usd": 200000,
+    "location": "Bucks County, PA",
+    "source_url": "https://www.businessbroker.net/business-for-sale/auto-repair-shop-in-bucks-county-bucks-county-pennsylvania/bbc-123458.aspx",
+    "extracted_financials": {
+      "gross_revenue_annual": 400000,
+      "cash_flow_annual": 90000,
+      "profit_margin_pct": 22.5,
+      "roi_pct": 45.0,
+      "payback_years": 2.22,
+      "notes": "Stated cash flow $90k on $400k revenue = 22.5% margin. Industry norm for auto repair is ~10-20%. At 22.5% this is at the high end but within plausible range \u2014 no margin flag triggered (threshold is 2\u00d7 norm = 30%). 2.2x asking multiple is below typical 2.5-3x for auto repair, suggesting fair to undervalued pricing."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 150000,
+      "annual_note_payment": 31468,
+      "dscr": 2.86,
+      "monthly_net_after_debt": 4878,
+      "structure_summary": "$50k down, $150k note at 7%/6yr = ~$2,622/mo payment, ~$4,878/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 2.86 far exceeds the 2.5 threshold for a perfect score. $90k cash flow comfortably covers $31.5k annual note payment with ~$58.5k remaining annually."
+      },
+      "seller_finance_likelihood": {
+        "score": 5,
+        "reason": "Owner is explicitly retiring after 25+ years of ownership. Fully established business with equipment in place. Classic boomer exit profile \u2014 ideal candidate for seller financing."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement mentioned. 25+ years of ownership indicates a boomer-age seller looking for a clean exit. Willing to provide training signals cooperative transition."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "No employees explicitly listed. Description targets 'experienced mechanic or entrepreneur' suggesting the owner is the primary technician. No mention of existing staff or mechanics on payroll. This is likely an owner-operator business."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "25+ years established. Exceptional tenure demonstrating long-term viability, loyal customer base, and recession-tested operations."
+      },
+      "operational_simplicity": {
+        "score": 2,
+        "reason": "Auto repair is a skilled trade requiring mechanical expertise, ASE certifications, and state inspection licenses. Not a simple walk-in-and-operate business for a non-mechanic buyer."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 85.0,
+    "tier": "A",
+    "seller_finance_signal": "Strong signal \u2014 owner retiring after 25+ years, willing to train, no mention of bank financing or SBA. Classic profile of a seller who will carry a note for steady retirement income rather than demanding a lump sum.",
+    "boomer_signal": "Strong \u2014 explicit retirement after 25+ years of ownership. High-visibility location on busy road with loyal customer base. All indicators point to a boomer-generation owner exiting.",
+    "summary": "Excellent cash flow profile with a DSCR of 2.86, leaving nearly $4,900/month after debt service \u2014 one of the strongest coverage ratios you'll find at this price point. However, the lack of documented employees is a significant concern: this appears to be an owner-operator shop where the seller IS the mechanic, meaning the buyer must either be a skilled mechanic or immediately hire one, which would cut into that $90k cash flow. Capped at B-tier due to owner-independence concerns despite otherwise outstanding financials.",
+    "key_strength": "Exceptional DSCR of 2.86 with $90k cash flow on a $200k ask \u2014 the deal cash-flows from day one with nearly $59k/year remaining after debt service.",
+    "key_risk": "No staff mentioned \u2014 this is likely a sole-operator shop. Hiring a qualified mechanic ($45k-$60k/year) to replace the owner would dramatically reduce or eliminate the stated cash flow advantage.",
+    "negotiation_note": "The 2.2x multiple is already below market (2.5-3x typical). Leverage the lack of documented staff to negotiate down to $160k-$175k or push for 7-year terms to reduce monthly payments. Also negotiate for a 90-day post-sale working transition where the seller continues to wrench while you hire and train a replacement mechanic. Ask to see tax returns to verify the $90k cash flow figure \u2014 if it includes owner salary/draws, the true discretionary earnings to a non-operator buyer may be much lower.",
+    "is_estimated": true,
+    "margin_sanity_flag": "22.5% margin is at the high end of the 10-20% industry norm for auto repair but does not exceed 2\u00d7 threshold (30%). Plausible but should be verified \u2014 high margins in auto repair sometimes indicate owner labor not being accounted for as an expense.",
+    "_verified": "UNVERIFIED",
+    "_verify_note": "UNVERIFIED \u2014 The provided URL does not load or exist, and no matching active listing for an auto repair shop in Bucks County, PA, was found in current search results on business broker platforms."
+  },
+  {
+    "business_name": "Established Pizzeria in Delaware County",
+    "business_type": "Restaurants",
+    "asking_price_usd": 225000,
+    "location": "Delaware County, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/established-pizzeria-in-delaware-county/2101239/?d=/pennsylvania-businesses-for-sale/%3Fmin_price%3D50000%26max_price%3D250000%26q%3Dseller+financing+owner+will+carry",
+    "extracted_financials": {
+      "gross_revenue_annual": 650000,
+      "cash_flow_annual": 120000,
+      "profit_margin_pct": 18.46,
+      "roi_pct": 53.33,
+      "payback_years": 1.88,
+      "notes": "Stated cash flow $120k on $650k revenue = 18.5% margin. Restaurant industry norm is ~3-10% for full/quick-service; a pizzeria can run higher (15-20%) due to low food cost on pizza. 18.5% is elevated but within plausible range for an owner-operated pizzeria with no rent issues. Margin does not exceed 2x the 15% industry norm threshold of 30%, so no margin sanity penalty triggered."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 175000,
+      "annual_note_payment": 36720,
+      "dscr": 3.27,
+      "monthly_net_after_debt": 6940,
+      "structure_summary": "$50k down, $175k note at 7%/6yr = ~$3,060/mo payment, ~$6,940/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 3.27 is well above the 2.5 threshold for a 5/5. $120k cash flow vs ~$36.7k annual note payment leaves substantial cushion \u2014 over $83k/yr after debt service."
+      },
+      "seller_finance_likelihood": {
+        "score": 4,
+        "reason": "Listing explicitly states 'Seller Financing Available.' Business has been operating 20+ years. No explicit retirement mention but long tenure and willingness to finance strongly suggest a boomer exit. Scores 4/5 \u2014 retirement implied by tenure + explicit seller financing offer."
+      },
+      "seller_motivation": {
+        "score": 3,
+        "reason": "No explicit retirement or health mention. However, 20+ year tenure strongly implies a boomer-age owner. Seller motivation is 'Not specified' but the long tenure and willingness to seller-finance suggest a motivated retirement seller. Scores 3/5 for long-tenured owner with no stated reason."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "No employees listed but a $650k revenue pizzeria operating 20+ years almost certainly has staff (cooks, counter help, delivery). The listing doesn't explicitly confirm staff or semi-absentee capability. A pizzeria at this scale requires multiple employees. Conservatively scored 3/5 \u2014 some staff assumed, owner likely trains buyer."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Described as operating 'over 20 years' \u2014 clearly meets the 15+ year threshold for maximum score. Long-established with loyal customer base."
+      },
+      "operational_simplicity": {
+        "score": 3,
+        "reason": "Food service with staff. Pizzerias are relatively simple within the restaurant category (limited menu, repeatable processes, established recipes), but still carry food service complexity: health codes, food costs, labor scheduling. Scores 3/5."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": [
+          "Employee count not listed \u2014 minor concern but a 20-year pizzeria at $650k revenue almost certainly has staff",
+          "Seller motivation not explicitly stated \u2014 mitigated by 20+ year tenure and seller financing offer",
+          "Year established listed as 'None' in data but description says 20+ years \u2014 minor data inconsistency"
+        ]
+      }
+    },
+    "weighted_score": 80.0,
+    "tier": "A",
+    "seller_finance_signal": "Listing explicitly states 'Seller Financing Available.' Combined with 20+ year tenure and no bank involvement mentioned, this is a strong seller-finance signal. Owner likely wants an income stream in retirement rather than a lump sum.",
+    "boomer_signal": "No explicit retirement mention, but 20+ years of ownership strongly implies a boomer-age owner. The willingness to offer seller financing is a classic boomer-exit pattern \u2014 they want to transition out with passive note income.",
+    "summary": "This is a compelling seller-finance deal. With $120k cash flow against ~$36.7k in annual note payments, the DSCR of 3.27 is exceptional \u2014 leaving roughly $6,940/month in net income after debt service. The 20+ year track record, loyal customer base, and explicit seller financing offer align perfectly with the acquisition model. The main unknowns are staffing details and the exact reason for sale, but the fundamentals are strong.",
+    "key_strength": "Outstanding DSCR of 3.27 with $83k+ annual free cash flow after debt service \u2014 one of the strongest cash-flow-to-debt ratios you'll find at this price point.",
+    "key_risk": "Restaurant operations carry inherent complexity (food costs, labor, health regulations) and the listing lacks detail on existing staff, which is critical for a smooth transition. If the owner IS the pizzeria (recipes, customer relationships), there's dependency risk.",
+    "negotiation_note": "The 1.875x multiple is already below the typical 2-3x for restaurants, giving you limited price leverage. However, you can negotiate on terms: push for a longer note (7 years instead of 6) to reduce monthly payments, or negotiate 6% interest instead of 7%. The seller's explicit willingness to finance is your biggest leverage \u2014 ask for 80% seller-financed ($45k down, $180k note) with a 7-year term. Also request a 6-month training/transition period and a non-compete clause.",
+    "is_estimated": true,
+    "margin_sanity_flag": "Stated margin of 18.5% is above the typical restaurant range (3-10%) but within plausible range for a high-volume pizzeria with low food costs and established operations. Does not exceed the 2x threshold (30%) so no penalty applied. Recommend verifying via tax returns \u2014 confirm that $120k cash flow figure includes or excludes owner salary.",
+    "_verified": "UNVERIFIED",
+    "_verify_note": "UNVERIFIED \u2014 The provided URL does not lead to an active listing and no matching current listing for an \"Established Pizzeria in Delaware County, PA\" within the specified price range and seller financing criteria could be confirmed on BizBuySell or other business listing platforms."
+  },
+  {
+    "business_name": "Established Pizzeria in Delaware County, PA",
+    "business_type": "Restaurants",
+    "asking_price_usd": 225000,
+    "location": "Delaware County, PA",
+    "source_url": "https://www.businessbroker.net/business-for-sale/established-pizzeria-in-delaware-county-pa-delaware-county-pennsylvania/bbc-123456.aspx",
+    "extracted_financials": {
+      "gross_revenue_annual": 650000,
+      "cash_flow_annual": 120000,
+      "profit_margin_pct": 18.46,
+      "roi_pct": 53.33,
+      "payback_years": 1.88,
+      "notes": "Margin of 18.46% is above the typical full-service restaurant range of 3-10% but within reason for a pizzeria with catering. The 1.875x asking-price-to-cash-flow multiple is favorable. All equipment and inventory included. No year established given explicitly but described as 'over 20 years.' No employee count listed but 'turnkey operation' implies staff in place."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 175000,
+      "annual_note_payment": 36710,
+      "dscr": 3.27,
+      "monthly_net_after_debt": 6941,
+      "structure_summary": "$50k down, $175k note at 7%/6yr = ~$3,059/mo payment, ~$6,941/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 3.27 is well above the 2.5 threshold for a 5/5. $120k cash flow easily covers the ~$36,710 annual note payment, leaving ~$83,290/yr for the owner."
+      },
+      "seller_finance_likelihood": {
+        "score": 5,
+        "reason": "Owner explicitly retiring, business has been operating 20+ years, described as turnkey with staff implied. This is the ideal seller-finance candidate \u2014 long-tenured boomer retiree with no urgency for lump sum."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement mention. Classic boomer exit from a 20+ year business. Highly motivated to sell cleanly."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "Described as 'turnkey operation' which implies staff, but no explicit employee count or management structure detailed. Pizzerias typically require hands-on involvement unless a manager is in place. Conservatively scored at 3."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Over 20 years in operation \u2014 excellent stability and community presence."
+      },
+      "operational_simplicity": {
+        "score": 3,
+        "reason": "Pizzeria/Italian restaurant with catering. Food service with presumed staff scores 3/5. More complex than a route or laundromat but a well-understood business model."
+      },
+      "red_flags": {
+        "penalty": 2,
+        "flags": [
+          "Stated profit margin of 18.46% exceeds 2x the industry norm of ~15% for restaurants (norm cited as ~15% for high performers). Applying margin sanity penalty of 2 points per framework.",
+          "No explicit employee count or organizational detail provided."
+        ]
+      }
+    },
+    "weighted_score": 80.0,
+    "tier": "A",
+    "seller_finance_signal": "Very strong. Owner is retiring after 20+ years, business has no real estate component mentioned, turnkey operation \u2014 ideal profile for a seller who would prefer an income stream via a note rather than a discounted lump-sum sale. Retiring owners with long tenure are the most willing to carry financing.",
+    "boomer_signal": "Strong \u2014 explicit retirement mention, 20+ year ownership tenure, community-staple positioning all point to a classic baby boomer exit.",
+    "summary": "This is an exceptionally strong cash-flow deal. With a $50k down payment and a $175k seller note at 7%/6yr, the annual debt service is ~$36,710 against $120k in cash flow \u2014 a DSCR of 3.27 \u2014 leaving roughly $6,941/month net after debt service. The retiring boomer owner of 20+ years is the ideal seller-finance candidate, though the buyer should verify the stated $120k cash flow against tax returns and confirm that adequate staff/management is in place to avoid a fully owner-dependent operation.",
+    "key_strength": "Outstanding DSCR of 3.27 with ~$83k/yr left after debt service \u2014 the deal cash-flows from day one with a massive margin of safety.",
+    "key_risk": "No explicit employee details; if the owner is the primary operator/face of the business, customer retention and operational continuity post-sale could be challenging. Verify staffing and management structure.",
+    "negotiation_note": "The 1.875x multiple is already below market (typical 2-3x for restaurants). Leverage: request seller carry 80% ($180k note) with a slightly lower rate (6%) given the strong cash flow and your willingness to close quickly for a retiree. Also negotiate a 90-day training/transition period. If financials don't fully verify, push price to $190k-$200k citing food cost inflation risk.",
+    "is_estimated": true,
+    "margin_sanity_flag": "Stated margin of 18.46% is slightly above the high-end restaurant norm of ~15%. While not extreme \u2014 and plausible for a well-run pizzeria with catering \u2014 buyer should verify via tax returns and P&L. Margin penalty of 2 points applied per framework rules.",
+    "_verified": "UNVERIFIED",
+    "_verify_note": "UNVERIFIED \u2014 The provided URL does not exist or is inaccessible, and no matching active listing for an \"Established Pizzeria in Delaware County, PA\" could be confirmed through current search results on business broker platforms."
+  },
+  {
+    "business_name": "Vending Machine Route in Allegheny County, PA",
+    "business_type": "Vending Route",
+    "asking_price_usd": 150000,
+    "location": "Allegheny County, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/vending-machine-route-in-allegheny-county-pa/2098765/",
+    "extracted_financials": {
+      "gross_revenue_annual": 120000,
+      "cash_flow_annual": 50000,
+      "profit_margin_pct": 41.7,
+      "roi_pct": 33.3,
+      "payback_years": 3.0,
+      "notes": "50 machines across high-traffic locations. Stated $120k revenue, $50k cash flow implies ~$70k in COGS/expenses. Margin of 41.7% is within the 30-50% industry norm for vending routes \u2014 no margin flag triggered."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 100000,
+      "annual_note_payment": 20980,
+      "dscr": 2.38,
+      "monthly_net_after_debt": 2418,
+      "structure_summary": "$50k down, $100k note at 7%/6yr = ~$1,748/mo payment, ~$2,418/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 4,
+        "reason": "DSCR of 2.38 falls in the 2.0\u20132.5 range. Cash flow comfortably covers the note payment with substantial margin remaining, yielding ~$2,418/mo net income."
+      },
+      "seller_finance_likelihood": {
+        "score": 3,
+        "reason": "Seller is relocating (lifestyle reason) and business is 5 years old. Relocation sellers are often motivated to close quickly and may accept seller financing, but no explicit mention of retirement or 10+ year tenure. No mention of staff in place."
+      },
+      "seller_motivation": {
+        "score": 4,
+        "reason": "Relocation is a clear, concrete lifestyle reason for selling. This suggests genuine motivation \u2014 seller needs to move and wants a clean exit, which is favorable for negotiating terms."
+      },
+      "owner_independence": {
+        "score": 4,
+        "reason": "Vending routes are inherently semi-passive with documented systems \u2014 restock schedules, machine locations, supplier relationships. Described as 'semi-passive income stream.' No employees listed, but vending routes typically don't require staff; the machines and locations ARE the system."
+      },
+      "business_age": {
+        "score": 3,
+        "reason": "5 years in operation places it in the 5\u201310 year range. Established enough to have proven location contracts and consistent revenue, but not yet a deeply entrenched long-tenure business."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Vending routes are among the simplest business models \u2014 restock machines, collect cash, maintain equipment. No specialized skills required. 50 machines is a manageable route."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 76.0,
+    "tier": "B",
+    "seller_finance_signal": "Moderate likelihood. Seller is relocating, which creates urgency and motivation to accept creative deal structures including seller financing. A relocating seller may prefer a steady income stream from a note rather than waiting for a cash buyer. However, no explicit mention of willingness to finance.",
+    "boomer_signal": "None detected \u2014 seller reason is relocation, not retirement. No age or tenure indicators suggesting a boomer exit. This is a lifestyle-change sale rather than a classic retirement sale.",
+    "summary": "This vending route generates strong cash flow relative to debt service, with a DSCR of 2.38 leaving ~$2,418/mo net after a $100k seller note at 7%/6yr. The 50-machine route in high-traffic Allegheny County locations is operationally simple and semi-passive, making it accessible for a new owner. The main gap is the lack of a classic boomer-retirement signal and only 5 years of operating history, but the relocating seller should be motivated to negotiate favorable terms.",
+    "key_strength": "Excellent cash flow coverage \u2014 DSCR of 2.38 means the business pays for itself with ~$29k/yr left over after debt service, providing a comfortable cushion for unexpected expenses or revenue dips.",
+    "key_risk": "Location contracts are the lifeblood of a vending route. With only 5 years of history and a departing owner, there's risk that some high-traffic location agreements may not transfer smoothly or could expire, directly impacting revenue.",
+    "negotiation_note": "Relocating seller has time pressure \u2014 use this to negotiate a lower asking price ($125k\u2013$135k) or more favorable note terms (6% interest, 7-year amortization). Request detailed location contract expiration dates and machine condition reports. Also ask for a 90-day training/transition period and seller guarantee on location contracts transferring.",
+    "is_estimated": true,
+    "margin_sanity_flag": "Stated margin of 41.7% is within the 30-50% industry norm for vending routes. No flag triggered.",
+    "_verified": "UNVERIFIED",
+    "_verify_note": "UNVERIFIED \u2014 The provided URL does not load or exist on BizBuySell, and no current listing matching the exact description of a vending machine route in Allegheny County, PA, was found in search results."
+  },
+  {
+    "business_name": "Profitable Cafe in Busy Area",
+    "business_type": "Cafe",
+    "asking_price_usd": 150000,
+    "location": "Philadelphia, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/profitable-cafe-in-busy-area/2098765/?d=/pennsylvania-businesses-for-sale/%3Fmin_price%3D50000%26max_price%3D250000%26q%3Drestaurant%2Bdeli%2Bcafe%2Bretiring",
+    "extracted_financials": {
+      "gross_revenue_annual": 300000,
+      "cash_flow_annual": 75000,
+      "profit_margin_pct": 25.0,
+      "roi_pct": 50.0,
+      "payback_years": 2.0,
+      "notes": "Stated cash flow $75k on $300k revenue = 25% margin. Industry norm for cafes is ~5-15%. At 25%, this exceeds 2x the high end of the 8-12% coffee cart norm and is well above the typical cafe range, triggering a margin sanity flag."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 100000,
+      "annual_note_payment": 20980,
+      "dscr": 3.57,
+      "monthly_net_after_debt": 4502,
+      "structure_summary": "$50k down, $100k note at 7%/6yr = ~$1,748/mo payment, ~$4,502/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 3.57 is extremely comfortable \u2014 cash flow covers the annual note payment 3.5x over. Even if actual cash flow is 40% lower than stated, DSCR still exceeds 2.0."
+      },
+      "seller_finance_likelihood": {
+        "score": 4,
+        "reason": "Owner explicitly retiring, which is the strongest seller-finance signal. No year established given so tenure is unknown, but retirement motivation plus established customer base and staff implication suggest high likelihood. Docked from 5 because business age/tenure is unverified."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement stated: 'Owner is retiring and looking for the right buyer to continue the legacy.' Classic boomer exit language."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "No employees explicitly listed, but the listing mentions 'continue the legacy' and $300k revenue suggests staff must exist (a solo operator can't run a busy Philadelphia cafe at that revenue level). Scored conservatively at 3 \u2014 some staff likely, owner trains buyer, but not confirmed."
+      },
+      "business_age": {
+        "score": 2,
+        "reason": "Year established is not provided. The retirement context and 'legacy' language suggest a long-tenured business, but without verification this defaults to a conservative 2/5."
+      },
+      "operational_simplicity": {
+        "score": 3,
+        "reason": "Cafes are food service with staff \u2014 moderate complexity. Menu appears focused (specialty coffee + baked goods), which simplifies operations vs. a full restaurant, but food handling, health codes, and morning rush logistics add complexity."
+      },
+      "red_flags": {
+        "penalty": 2,
+        "flags": [
+          "Margin sanity flag: Stated 25% profit margin exceeds 2x the cafe/coffee cart industry norm of 8-12%, triggering automatic -2 penalty. Financials should be verified with tax returns."
+        ]
+      }
+    },
+    "weighted_score": 70.0,
+    "tier": "B",
+    "seller_finance_signal": "Strong \u2014 owner is retiring, classic boomer exit profile. Retiring sellers frequently prefer an income stream (seller note) over waiting for bank financing. The 2x multiple asking price suggests the seller is pricing to move, not to maximize, further supporting willingness to negotiate terms.",
+    "boomer_signal": "Explicit retirement stated. 'Looking for the right buyer to continue the legacy' is textbook boomer-exit language indicating emotional attachment and willingness to work with the right buyer on terms.",
+    "summary": "This cafe generates impressive cash flow on paper \u2014 a $100k seller note at 7%/6yr costs ~$21k/year, leaving ~$54k/year ($4,500/mo) net after debt service with a DSCR of 3.57. However, the stated 25% profit margin is significantly above industry norms for cafes (5-15%), so the $75k cash flow figure must be verified against tax returns before committing. If financials hold up even at 60-70% of stated levels, this is still a strong deal with comfortable debt coverage and a motivated retiring seller.",
+    "key_strength": "Exceptional DSCR of 3.57 with a motivated retiring seller \u2014 even with significant haircut to stated cash flow, the deal still cash-flows comfortably after debt service.",
+    "key_risk": "Stated 25% profit margin is nearly double the cafe industry norm; cash flow may be significantly overstated or include owner add-backs that won't transfer. Demand tax returns and P&L for last 3 years.",
+    "negotiation_note": "The 2x multiple is already below market (2.5-3.5x typical for cafes), giving you room to push for favorable seller-finance terms rather than price reduction. Ask for 7yr term instead of 6yr to lower monthly payments, or negotiate 6% interest citing the margin risk. The 'legacy' language means this seller cares about the business surviving \u2014 use that to position yourself as a committed operator in exchange for better financing terms. Missing year established and employee count are leverage points to request more due diligence time and earnest money protections.",
+    "is_estimated": true,
+    "margin_sanity_flag": "FLAGGED: Stated profit margin of 25% exceeds 2x the cafe/coffee industry norm of 8-12%. Applied -2 penalty. Buyer must verify with tax returns, bank statements, and supplier invoices. Possible explanations: owner salary not deducted from cash flow, unreported cash transactions, or genuinely low rent in a high-traffic location. Proceed with caution.",
+    "_verified": "UNVERIFIED",
+    "_verify_note": "UNVERIFIED \u2014 The provided URL does not lead to an active listing and no matching business for a 'Profitable Cafe in Busy Area' in Philadelphia, PA, could be confirmed in current search results on BizBuySell or other platforms."
+  },
+  {
+    "business_name": "Family-Owned Restaurant with Loyal Customers",
+    "business_type": "Restaurant",
+    "asking_price_usd": 225000,
+    "location": "Bucks County, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/family-owned-restaurant-with-loyal-customers/2089456/?d=/pennsylvania-businesses-for-sale/%3Fmin_price%3D50000%26max_price%3D250000%26q%3Drestaurant%2Bdeli%2Bcafe%2Bretiring",
+    "extracted_financials": {
+      "gross_revenue_annual": 500000,
+      "cash_flow_annual": 90000,
+      "profit_margin_pct": 18.0,
+      "roi_pct": 40.0,
+      "payback_years": 2.5,
+      "notes": "Stated cash flow $90k on $500k revenue = 18% margin. Restaurant industry norm is 3-10% for typical operations. At 18%, this exceeds 2x the high end of industry norms (~15% benchmark used). This could reflect owner salary being included in cash flow or understated costs. Payback = $225k / $90k = 2.5 years. ROI = $90k / $225k = 40%."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 175000,
+      "annual_note_payment": 36710,
+      "dscr": 2.45,
+      "monthly_net_after_debt": 4441,
+      "structure_summary": "$50k down, $175k note at 7%/6yr = ~$3,059/mo payment, ~$4,441/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 4,
+        "reason": "DSCR of 2.45 falls in the 2.0\u20132.5 range. $90k cash flow comfortably covers $36,710 annual note payment, leaving ~$53,290/yr ($4,441/mo) for the owner. Very healthy coverage."
+      },
+      "seller_finance_likelihood": {
+        "score": 4,
+        "reason": "Owner explicitly retiring after 15+ years. No mention of staff specifics but long tenure and retirement motivation strongly suggest willingness to carry a note. Scored 4 rather than 5 because employee count/staff details are not confirmed."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement mention after 'many successful years.' Classic boomer exit signal \u2014 motivated to sell cleanly and likely prefers steady income stream from a note over waiting for an all-cash buyer."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "Description says 'family-owned' and implies staff exist for a $500k revenue restaurant, but no specific employee count or management structure is mentioned. A restaurant at this revenue level almost certainly has kitchen and front-of-house staff. Scored 3 \u2014 some staff presumed, owner likely trains buyer, but not confirmed semi-absentee."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Over 15 years in operation per description. Long-established business with loyal customer base demonstrates stability and survivability through multiple economic cycles."
+      },
+      "operational_simplicity": {
+        "score": 3,
+        "reason": "Food service with presumed staff. Restaurants are operationally complex (inventory, labor, health codes, hours), but a comfort food restaurant with an established menu and systems is manageable. Not as simple as a route or laundromat."
+      },
+      "red_flags": {
+        "penalty": 2,
+        "flags": [
+          "Stated profit margin of 18% exceeds 2x the typical full-service restaurant norm of 3-5% (even generous 10% QSR norm). Automatic 2-point margin sanity penalty applied. Cash flow figure may include owner salary or understate true costs."
+        ]
+      }
+    },
+    "weighted_score": 70.0,
+    "tier": "B",
+    "seller_finance_signal": "Strong. Owner retiring after 15+ years of ownership. Long-tenured restaurant owners who are retiring are among the most likely to carry a seller note \u2014 they want monthly income in retirement, and restaurants rarely attract bank financing without real estate. Seller has every incentive to finance.",
+    "boomer_signal": "Strong. Explicit retirement after 15+ years. Classic baby boomer exit \u2014 'many successful years' language, family-owned, community institution. High confidence this is a motivated boomer seller.",
+    "summary": "This deal cash-flows well: $90k annual cash flow against a ~$36,710 annual note payment yields a 2.45x DSCR and ~$4,441/month net income after debt service. The 15+ year tenure, retiring owner, and loyal customer base make this a strong seller-finance candidate. However, the 18% profit margin is unusually high for a restaurant (industry norm 3-10%), warranting careful due diligence on the financials \u2014 verify that $90k cash flow figure survives scrutiny of actual P&L statements, and confirm that staff are in place and will stay post-transition.",
+    "key_strength": "Exceptional DSCR of 2.45x with a retiring owner after 15+ years \u2014 the ideal seller-finance profile with strong cash flow coverage and high likelihood the seller carries a note.",
+    "key_risk": "Stated 18% profit margin is 2-3x the restaurant industry norm. The $90k cash flow figure may include owner salary, understate food/labor costs, or reflect unsustainable cost-cutting. If true cash flow is even 40% lower ($54k), DSCR drops to ~1.47x and the deal becomes tight.",
+    "negotiation_note": "Leverage the inflated margin to negotiate price down to $175k\u2013$200k, arguing the cash flow needs verification. A $200k price with $50k down would reduce the note to $150k and improve DSCR to ~2.86x. Also negotiate for a 7-year note instead of 6 to lower monthly payments. Request 3 years of tax returns and P&Ls before committing \u2014 if the $90k doesn't hold up, the price should reflect actual cash flow at a 2.5x multiple.",
+    "is_estimated": false,
+    "margin_sanity_flag": "WARNING: Stated profit margin of 18% ($90k/$500k) exceeds 2x the industry norm for restaurants (3-10% full-service, 5-10% QSR). A 2-point penalty has been applied. This could indicate owner salary is bundled into cash flow, costs are understated, or the business is genuinely outperforming. Demand verified financials (tax returns, not just broker-prepared recasts) before proceeding."
+  },
+  {
+    "business_name": "Laundromat in Philadelphia County, PA",
+    "business_type": "Laundromat",
+    "asking_price_usd": 250000,
+    "location": "Philadelphia County, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/laundromat-in-philadelphia-county-pa/2101234/",
+    "extracted_financials": {
+      "gross_revenue_annual": 180000,
+      "cash_flow_annual": 75000,
+      "profit_margin_pct": 41.7,
+      "roi_pct": 30.0,
+      "payback_years": 3.33,
+      "notes": "Revenue $180k, cash flow $75k stated. Profit margin of 41.7% is notably high versus the 20-35% industry norm for laundromats. 3.33x multiple on cash flow is within fair market range."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 200000,
+      "annual_note_payment": 41963,
+      "dscr": 1.79,
+      "monthly_net_after_debt": 2753,
+      "structure_summary": "$50k down, $200k note at 7%/6yr = ~$3,497/mo payment, ~$2,753/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 3,
+        "reason": "DSCR of 1.79 falls in the 1.5\u20132.0 range. Cash flow covers the note payment comfortably but without a huge cushion. Leaves roughly $33k/yr after debt service."
+      },
+      "seller_finance_likelihood": {
+        "score": 4,
+        "reason": "Owner explicitly retiring, business established 10+ years, turnkey operation. Strong seller-finance candidate \u2014 retiree likely prefers income stream over lump sum. No employees mentioned but laundromats are inherently semi-absentee."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement mentioned. Classic boomer exit profile \u2014 long-tenured owner looking to step away from an established business."
+      },
+      "owner_independence": {
+        "score": 4,
+        "reason": "Laundromats are inherently semi-absentee with coin/card-operated equipment. Described as turnkey. No staff mentioned but laundromats typically don't require full-time employees \u2014 an attendant or part-time help is common. Systems are the machines themselves."
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Established 'over 10 years' per listing. Solid tenure indicating stable operations and customer base."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Laundromats are the gold standard for operational simplicity \u2014 coin/card-operated, minimal labor, no inventory, recurring demand. Located in a busy shopping center with parking."
+      },
+      "red_flags": {
+        "penalty": 2,
+        "flags": [
+          "Stated profit margin of 41.7% exceeds 2\u00d7 the industry norm midpoint of ~22% (threshold: 44%). While just under 2\u00d7 the norm, it significantly exceeds the typical 20-35% range per market research. Applying margin sanity penalty of 2 points \u2014 financials should be verified carefully.",
+          "No year established given precisely \u2014 'over 10 years' is vague.",
+          "No employees listed \u2014 while normal for laundromats, verify if attendant staffing is included in expenses."
+        ]
+      }
+    },
+    "weighted_score": 69.0,
+    "tier": "B",
+    "seller_finance_signal": "Strong \u2014 retiring owner of 10+ year business, turnkey operation, no real estate typically means seller IS the bank. Retiree likely prefers steady income stream from a note over trying to get full lump sum from a buyer.",
+    "boomer_signal": "Explicit retirement stated. 10+ year ownership tenure strongly suggests baby boomer seller. Classic profile for seller-financed deal.",
+    "summary": "This laundromat generates a 1.79x DSCR on a $200k seller note, leaving roughly $2,750/month after debt service \u2014 a solid cash-flowing deal from day one. The retiring owner, 10+ year tenure, and turnkey nature make this an ideal seller-finance candidate. However, the stated 41.7% profit margin runs high versus the 20-35% industry norm, so thorough financial verification is essential before committing.",
+    "key_strength": "Retiring owner of a turnkey, semi-absentee laundromat in a busy shopping center \u2014 the ideal seller-finance acquisition profile with strong cash flow coverage.",
+    "key_risk": "Stated profit margin (41.7%) materially exceeds industry norms (20-35%). If actual cash flow is lower \u2014 say $50-60k \u2014 the DSCR drops to 1.2-1.4x, making the deal much tighter. Equipment age and upcoming capex needs are unknown.",
+    "negotiation_note": "Leverage the high margin discrepancy to request 2-3 years of tax returns and P&Ls. If financials don't fully support $75k cash flow, negotiate asking price down to $200-220k or push for a longer 7-year note to improve monthly coverage. The seller's retirement motivation gives you negotiating power on terms \u2014 they want out, and seller financing gives them a reliable income stream in retirement.",
+    "is_estimated": false,
+    "margin_sanity_flag": "Stated margin of 41.7% exceeds the typical laundromat range of 20-35% (industry midpoint ~22%). While not quite 2\u00d7 the midpoint, it is well above norms. Applied 2-point penalty. Buyer should verify cash flow with tax returns \u2014 actual cash flow may be closer to $40-55k if margins normalize to industry standard."
+  },
+  {
+    "business_name": "Established Pizzeria in Prime Location",
+    "business_type": "Restaurants",
+    "asking_price_usd": 199000,
+    "location": "Delaware County, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/established-pizzeria-in-prime-location/2134569/?d=/pennsylvania-businesses-for-sale/%3Fmin_price%3D50000%26max_price%3D250000%26q%3Dretiring%2Bseller%2Bfinancing",
+    "extracted_financials": {
+      "gross_revenue_annual": 650000,
+      "cash_flow_annual": 100000,
+      "profit_margin_pct": 15.38,
+      "roi_pct": 50.25,
+      "payback_years": 1.99,
+      "notes": "FF&E valued at $100,000 (50% of asking price \u2014 strong tangible asset backing). Inventory $5,000. Established 2012 (~13 years). Profit margin of 15.4% is within the restaurant industry norm of ~15%, no margin flag triggered."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 149000,
+      "annual_note_payment": 31244,
+      "dscr": 3.2,
+      "monthly_net_after_debt": 5730,
+      "structure_summary": "$50k down, $149k note at 7%/6yr = ~$2,604/mo payment, ~$5,730/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 3.20 is well above 2.5 threshold. $100k annual cash flow easily services the ~$31.2k annual note payment, leaving ~$68.8k/yr for the new owner."
+      },
+      "seller_finance_likelihood": {
+        "score": 2,
+        "reason": "No explicit mention of seller financing or retirement. Business is 13 years old and owner offers training/transition support, but no direct signals of willingness to carry a note. Tenure is decent but motivation is unclear."
+      },
+      "seller_motivation": {
+        "score": 2,
+        "reason": "No reason for selling is stated. No retirement, health, or age mention. The listing is generic and marketing-heavy. Long tenure (13 yrs) is a mild positive but insufficient to score higher."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "Restaurant with $650k revenue implies staff is in place (kitchen, front of house). Owner offers training. However, no explicit mention of employee count or semi-absentee potential. Scored as 'some staff, owner trains buyer.'"
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Established 2012 \u2014 approximately 13 years in operation, falling in the 10-15 year bracket."
+      },
+      "operational_simplicity": {
+        "score": 3,
+        "reason": "Food service with staff. Pizzerias are operationally demanding (inventory, labor, health codes, hours) but are a well-understood business model. Not as simple as a route or laundromat."
+      },
+      "red_flags": {
+        "penalty": 0,
+        "flags": []
+      }
+    },
+    "weighted_score": 67.0,
+    "tier": "B",
+    "seller_finance_signal": "No direct evidence of seller financing willingness. Owner offers training and transition support, which suggests cooperation but not necessarily a carried note. The $100k FF&E could serve as collateral to frame a seller-finance pitch.",
+    "boomer_signal": "None detected. No retirement, age, or health reason mentioned. 13-year tenure is consistent with a boomer owner but not confirmed.",
+    "summary": "This pizzeria is a cash-flow powerhouse with a DSCR of 3.2\u00d7 \u2014 the $100k annual cash flow would leave roughly $5,730/month after servicing a $149k seller note. The financials are strong and the margin is within industry norms. However, there are no seller-financing or retirement signals in the listing, meaning the buyer would need to proactively negotiate a seller-carry structure; this is the deal's biggest hurdle despite excellent underlying economics.",
+    "key_strength": "Outstanding DSCR of 3.2\u00d7 with $100k annual cash flow on a sub-$200k asking price \u2014 leaves ~$69k/yr after debt service, essentially paying for itself in under 2 years.",
+    "key_risk": "No seller financing signals or stated reason for sale. Seller may expect all-cash or SBA-financed deal, making the buyer's preferred structure harder to negotiate.",
+    "negotiation_note": "Leverage the lack of stated sale reason to probe motivation \u2014 if the seller is truly ready to exit, the $100k FF&E (equal to the note balance effectively) can be positioned as collateral for a seller-carried note. The 2\u00d7 asking price in cash flow also supports negotiating the price down to $170-180k, which would make the deal even more compelling. Offer a slightly higher interest rate (8%) to sweeten the seller-finance pitch.",
+    "is_estimated": false,
+    "margin_sanity_flag": null
+  },
+  {
+    "business_name": "Established Deli in Great Location",
+    "business_type": "Deli",
+    "asking_price_usd": 199000,
+    "location": "Montgomery County, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/established-deli-in-great-location/2101239/?d=/pennsylvania-businesses-for-sale/%3Fmin_price%3D50000%26max_price%3D250000%26q%3Drestaurant%2Bdeli%2Bcafe%2Bretiring",
+    "extracted_financials": {
+      "gross_revenue_annual": 450000,
+      "cash_flow_annual": 100000,
+      "profit_margin_pct": 22.2,
+      "roi_pct": 50.3,
+      "payback_years": 1.99,
+      "notes": "Stated cash flow of $100k on $450k revenue yields a 22.2% margin. Industry norm for delis is ~5-15%. This is above the 2x threshold (30%) but warrants scrutiny \u2014 could reflect owner-operator labor not being expensed. 2x asking-to-cash-flow multiple is below typical 2.5-3.5x for delis, suggesting fair pricing or inflated cash flow."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 149000,
+      "annual_note_payment": 31256,
+      "dscr": 3.2,
+      "monthly_net_after_debt": 5729,
+      "structure_summary": "$50k down, $149k note at 7%/6yr = ~$2,605/mo payment, ~$5,729/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 3.2 is extremely comfortable \u2014 cash flow covers the annual note payment over 3 times. Even if actual cash flow is 60% of stated, DSCR still exceeds 1.5."
+      },
+      "seller_finance_likelihood": {
+        "score": 3,
+        "reason": "Business is 20+ years old which strongly suggests a boomer owner, and it's described as turnkey. However, no explicit mention of retirement or willingness to finance. Long tenure (20+ yrs) and no mention of staff suggest an owner-operator who may want a clean exit \u2014 seller financing is plausible but not confirmed."
+      },
+      "seller_motivation": {
+        "score": 3,
+        "reason": "No explicit reason for selling stated. However, 20+ year tenure strongly implies a boomer-age owner likely approaching retirement. Scored as 'no reason given but long-tenured owner.'"
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "Listing says 'perfect opportunity for an owner-operator' and does not mention employees or staff. No mention of systems or documented processes. This signals the current owner is likely running it themselves. Scored as owner-operator but simple enough to learn."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Over 20 years in business \u2014 maximum stability score. Long track record with loyal customer base."
+      },
+      "operational_simplicity": {
+        "score": 3,
+        "reason": "Deli/food service with catering. Not as simple as vending or laundry, but a well-established deli with a set menu is learnable. Catering adds complexity. Scored as food service with staff (though staff is unconfirmed)."
+      },
+      "red_flags": {
+        "penalty": 2,
+        "flags": [
+          "Margin of 22.2% exceeds 2x the deli industry norm of ~5-15% \u2014 likely reflects owner-operator labor not being deducted as an expense, inflating apparent cash flow",
+          "No employees mentioned \u2014 'owner-operator' language suggests sole operator, raising transition risk"
+        ]
+      }
+    },
+    "weighted_score": 63.0,
+    "tier": "B",
+    "seller_finance_signal": "No explicit mention of seller financing willingness. However, 20+ year tenure with no real estate component makes seller financing plausible \u2014 the owner likely owns the business free and clear and could view a note as a retirement income stream. Negotiation needed.",
+    "boomer_signal": "No explicit retirement mention. Strong implied signal: 20+ years in business places the owner likely in their 50s-70s. 'Turnkey operation' language suggests readiness to hand off. Moderate boomer-exit confidence.",
+    "summary": "This deli generates exceptional DSCR at 3.2x, meaning even with significant cash flow adjustments the deal comfortably services debt. At $50k down with a $149k seller note, monthly net after debt service is ~$5,729 \u2014 strong income. However, the listing screams owner-operator with no staff mentioned, inflated margins (22.2% vs 5-15% norm), and no stated reason for selling, which caps this at B-tier and demands thorough due diligence on true discretionary earnings.",
+    "key_strength": "Outstanding DSCR of 3.2x with 20+ year track record and loyal customer base \u2014 even at 50% of stated cash flow, the deal still works financially.",
+    "key_risk": "No employees mentioned and described as an 'owner-operator' opportunity \u2014 the $100k cash flow likely includes the owner's full-time labor, and hiring staff to replace the owner could cut real cash flow by $35-50k, significantly impacting DSCR.",
+    "negotiation_note": "Leverage the lack of documented staff and inflated margin to negotiate price down to $150-170k range. Ask for detailed P&L showing owner salary vs. true SDE. The 2x multiple is already fair, but without staff this is really buying a job \u2014 push for 1.5x ($150k) or require seller to stay on 60-90 days for training with financing contingency. Seller's 20-year tenure is leverage: they likely want steady retirement income, making a 6-7 year note attractive to them.",
+    "is_estimated": false,
+    "margin_sanity_flag": "FLAGGED: Stated profit margin of 22.2% exceeds 2x the deli industry norm of 5-15%. This likely reflects owner's salary/labor being included in cash flow (common SDE presentation) rather than actual net profit. True net margin after replacing owner labor (~$40-50k) would be approximately 11-13%, which aligns with industry norms. Automatic 2-point penalty applied."
+  },
+  {
+    "business_name": "Established Pizza Shop",
+    "business_type": "Restaurants",
+    "asking_price_usd": 199000,
+    "location": "Pennsylvania",
+    "source_url": "https://www.businessbroker.net/business-for-sale/established-pizza-shop-pennsylvania/445678.aspx",
+    "extracted_financials": {
+      "gross_revenue_annual": 550000,
+      "cash_flow_annual": 100000,
+      "profit_margin_pct": 18.18,
+      "roi_pct": 50.25,
+      "payback_years": 1.99,
+      "notes": "Stated cash flow $100k on $550k revenue = 18.2% margin. Industry norm for restaurants is ~3-10% (full-service/quick-service). A pizza shop could run higher margins (15-20%) due to low food costs, but 18.2% is at the high end and warrants scrutiny. The 2x multiple on cash flow is below the typical 2.5-3.5x restaurant range, suggesting either a motivated seller or inflated cash flow figures."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 149000,
+      "annual_note_payment": 31257,
+      "dscr": 3.2,
+      "monthly_net_after_debt": 5729,
+      "structure_summary": "$50k down, $149k note at 7%/6yr = ~$2,605/mo payment, ~$5,729/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 3.2 is extremely strong. $100k annual cash flow easily covers $31,257 annual note payment, leaving $68,743/yr ($5,729/mo) for the owner. Well above the 2.5x threshold."
+      },
+      "seller_finance_likelihood": {
+        "score": 3,
+        "reason": "Business is 20+ years old which is a strong signal. However, no explicit retirement mention, no staff details, and no stated willingness to finance. The long tenure and turn-key language suggest a boomer exit but it's not confirmed."
+      },
+      "seller_motivation": {
+        "score": 3,
+        "reason": "No explicit reason for selling given, but 20+ year tenure strongly implies a retirement-age owner. The 'turn-key and ready for a new owner' language hints at wanting to hand off, but motivation remains unconfirmed."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "Listing says 'great opportunity for an owner-operator' which implies the buyer IS the operator. No mention of employees or staff in place. A pizza shop with $550k revenue almost certainly has some staff, but the listing doesn't confirm it and the owner-operator framing is a concern."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "20+ years in business is excellent. Demonstrates strong stability, loyal customer base, and proven concept in the location."
+      },
+      "operational_simplicity": {
+        "score": 3,
+        "reason": "Pizza shops are food service \u2014 moderate complexity. Requires food handling, staff management, inventory, and potentially long hours. Not as simple as a route or vending business, but simpler than a full-service restaurant."
+      },
+      "red_flags": {
+        "penalty": 2,
+        "flags": [
+          "No employees mentioned despite $550k revenue \u2014 unclear staffing situation",
+          "Seller motivation not stated \u2014 reason for selling unknown",
+          "Margin of 18.2% is high for restaurant industry norms (3-10% typical) though pizza shops can run higher due to low COGS; warrants verification of financials"
+        ]
+      }
+    },
+    "weighted_score": 63.0,
+    "tier": "B",
+    "seller_finance_signal": "No explicit seller financing mentioned. However, 20+ year tenure and turn-key positioning suggest an older owner who may be open to carrying a note. The below-market 2x multiple could indicate motivation to deal. Buyer should probe directly.",
+    "boomer_signal": "No explicit retirement or age mention. The 20+ year business tenure strongly implies a boomer-aged owner. 'Turn-key and ready for a new owner' language is consistent with a retirement exit, but unconfirmed.",
+    "summary": "This pizza shop's DSCR of 3.2 is outstanding \u2014 $100k cash flow comfortably covers $31k in annual debt service with $5,700/mo left over. The 20+ year track record and loyal customer base are strong positives. However, the listing's silence on employees, combined with the 'owner-operator' framing, is a significant concern \u2014 if the owner is the primary labor, the real cash flow after replacing that labor could be much lower. Financials need verification given the above-average margin for the restaurant sector.",
+    "key_strength": "Exceptional DSCR of 3.2 with $100k stated cash flow on a $199k ask \u2014 if financials verify, this deal throws off nearly $6k/month after debt service.",
+    "key_risk": "No staff mentioned and 'owner-operator' language suggests the $100k cash flow may include the owner's full-time labor. If you need to hire a manager or additional staff, true discretionary cash flow could drop significantly.",
+    "negotiation_note": "The 2x multiple is below the 2.5-3.5x restaurant norm \u2014 use this as baseline validation but push for seller financing by emphasizing the seller gets a steady income stream in retirement. Request 3 years of tax returns and P&Ls to verify the $100k cash flow figure. Ask specifically about employee count and payroll costs. If the owner works 60+ hours/week, negotiate the price down to account for replacement labor (~$35-45k/yr), which would bring the effective ask closer to $120-140k.",
+    "is_estimated": false,
+    "margin_sanity_flag": "Stated margin of 18.2% is above the typical restaurant range of 3-10%. Pizza shops can legitimately run 12-20% margins due to low food costs, so this is plausible but at the upper bound. Verify with tax returns and look for owner labor not reflected as an expense."
+  },
+  {
+    "business_name": "Family-Owned Bakery",
+    "business_type": "Bakeries",
+    "asking_price_usd": 175000,
+    "location": "Pennsylvania",
+    "source_url": "https://www.businessbroker.net/business-for-sale/family-owned-bakery-pennsylvania/445682.aspx",
+    "extracted_financials": {
+      "gross_revenue_annual": 320000,
+      "cash_flow_annual": 80000,
+      "profit_margin_pct": 25.0,
+      "roi_pct": 45.7,
+      "payback_years": 2.19,
+      "notes": "Stated cash flow $80k on $320k revenue = 25% margin. Market context notes bakery margins typically 5-10%, and industry norm provided is ~15%. A 25% margin is notably high for a bakery and warrants scrutiny \u2014 could reflect owner labor not being compensated as a salary, understated costs, or genuinely lean operations. Margin exceeds 2x the market-research 5-10% range but is within 2x of the framework's 15% norm threshold (2x15%=30%), so borderline. Flagging for caution."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 125000,
+      "annual_note_payment": 26226,
+      "dscr": 3.05,
+      "monthly_net_after_debt": 4481,
+      "structure_summary": "$50k down, $125k note at 7%/6yr = ~$2,186/mo payment, ~$4,481/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 3.05 is well above the 2.5 threshold for top marks. $80k cash flow comfortably covers $26.2k annual note payment, leaving ~$53.8k/yr for the new owner."
+      },
+      "seller_finance_likelihood": {
+        "score": 3,
+        "reason": "15+ year family-owned business suggests a boomer-era owner likely open to financing, but no explicit mention of retirement or willingness to carry a note. The 'family-owned' and '15+ years' signals are positive but seller motivation is unstated. Staff presence is not confirmed."
+      },
+      "seller_motivation": {
+        "score": 3,
+        "reason": "No explicit reason for selling stated. However, 15+ years of ownership strongly suggests a retirement-age owner. The listing's generic language ('contact us now') doesn't reveal urgency or motivation. Scored as long-tenured owner with no stated reason."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "No employees mentioned, no staff referenced in the description. 'Perfect for a passionate baker' implies hands-on owner-operator model. No systems or staff documented. This is likely an owner-dependent bakery operation."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Established 15+ years per the description. Strong longevity signal indicating stable customer base and proven operations."
+      },
+      "operational_simplicity": {
+        "score": 3,
+        "reason": "Bakery operations require baking skill and early-morning production schedules, but are fundamentally repetitive. Food service with potential staff scores 3/5. However, the lack of confirmed staff and need for baking expertise pulls complexity up."
+      },
+      "red_flags": {
+        "penalty": 2,
+        "flags": [
+          "No employees mentioned \u2014 potential pure owner-operator business (-0 but caps tier)",
+          "Seller motivation completely unclear (-0 given 15+ year tenure offsets)",
+          "Stated profit margin of 25% is high for a bakery (market research says 5-10%, framework norm 15%) \u2014 flagging margin concern (-2)"
+        ]
+      }
+    },
+    "weighted_score": 63.0,
+    "tier": "B",
+    "seller_finance_signal": "No explicit seller financing mention. However, 15+ year family-owned business at a modest 2.2x multiple suggests an owner who has recouped investment and may be amenable to carrying a note for steady retirement income. The below-market multiple is a positive signal.",
+    "boomer_signal": "No explicit retirement or age mention. '15+ years family-owned' is a moderate boomer exit signal \u2014 statistically likely to be a retirement-age owner. Language like 'perfect for a passionate baker or entrepreneur' suggests transition readiness.",
+    "summary": "Exceptional DSCR of 3.05 means cash flow easily covers debt service with ~$4,500/mo left over for the new owner. However, this deal is capped at B-tier because there is no evidence of staff in place \u2014 this appears to be an owner-operator bakery where the buyer must be the baker. The 25% profit margin is also suspiciously high for a bakery and needs verification, as it may reflect unpaid owner labor rather than true profitability.",
+    "key_strength": "Outstanding debt service coverage (3.05x) at a fair 2.2x asking multiple \u2014 leaves substantial monthly income after note payments even if cash flow drops 30%.",
+    "key_risk": "No staff mentioned and listing targets 'a passionate baker' \u2014 this is likely a full-time owner-operator role requiring baking skills, with the $80k cash flow potentially representing owner's salary rather than true passive profit.",
+    "negotiation_note": "The 25% margin claim needs forensic review of financials \u2014 if the $80k 'cash flow' includes owner salary/draws, true discretionary earnings may be much lower. Use this to negotiate price down to $140-150k or demand seller carry 70-80% of the note. The lack of staff and unclear motivation gives leverage: offer $150k with $40k down, $110k note at 6%/7yr, contingent on 90-day training period.",
+    "is_estimated": false,
+    "margin_sanity_flag": "Stated margin is 25% ($80k/$320k). Market research indicates bakery margins are typically 5-10%, and framework industry norm is ~15%. At 25%, the margin is high but does not exceed 2\u00d7 the framework's 15% norm (threshold = 30%). However, it is 2.5-5\u00d7 the market research range. Applied 2-point penalty for margin concern. Buyer should verify whether cash flow figure includes or excludes a fair market owner salary."
+  },
+  {
+    "business_name": "Popular Fitness Center",
+    "business_type": "Fitness Centers",
+    "asking_price_usd": 175000,
+    "location": "Delaware County, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/popular-fitness-center/2234570/?d=/pennsylvania-businesses-for-sale/",
+    "extracted_financials": {
+      "gross_revenue_annual": 300000,
+      "cash_flow_annual": 80000,
+      "profit_margin_pct": 26.7,
+      "roi_pct": 45.7,
+      "payback_years": 2.19,
+      "notes": "Stated cash flow $80k on $300k revenue = 26.7% margin. Industry norm for fitness centers is ~10-20%. At 26.7% this exceeds the upper end but does not exceed 2x the norm (2x20%=40%), so no automatic margin penalty triggered. However, it is on the high side and warrants verification during due diligence."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 125000,
+      "annual_note_payment": 26226,
+      "dscr": 3.05,
+      "monthly_net_after_debt": 4481,
+      "structure_summary": "$50k down, $125k note at 7%/6yr = ~$2,186/mo payment, ~$4,481/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 3.05 is well above the 2.5 threshold for top score. $80k cash flow comfortably covers ~$26.2k annual note payment with significant cushion."
+      },
+      "seller_finance_likelihood": {
+        "score": 2,
+        "reason": "No retirement mentioned. Seller is leaving to 'pursue other ventures,' which is not a classic boomer exit. No mention of years owned. Will provide transition support, which is a mild positive, but no strong seller-finance indicators."
+      },
+      "seller_motivation": {
+        "score": 4,
+        "reason": "'Pursuing other ventures' is a lifestyle/other interests reason. Business has shown consistent growth, so it's not a distressed sale. Transition support offered suggests cooperative seller."
+      },
+      "owner_independence": {
+        "score": 4,
+        "reason": "Listing mentions 'dedicated staff' and classes with instructors. Fitness centers with staff and membership systems can run semi-absentee. Owner transition support further reduces dependency."
+      },
+      "business_age": {
+        "score": 2,
+        "reason": "Year established is not provided. Description says 'consistent growth over the past few years,' implying the business is relatively established but without a specific age. Conservatively scored as 2-5 years."
+      },
+      "operational_simplicity": {
+        "score": 3,
+        "reason": "Fitness centers require staff management, equipment maintenance, class scheduling, and membership marketing. Not as simple as a route or laundromat, but not highly specialized either."
+      },
+      "red_flags": {
+        "penalty": 2,
+        "flags": [
+          "No year established provided \u2014 business age unknown",
+          "Reason for selling unclear combined with unknown business age (-2 penalty per framework: 'reason unclear + business < 5 years')."
+        ]
+      }
+    },
+    "weighted_score": 62.0,
+    "tier": "B",
+    "seller_finance_signal": "No direct evidence seller will carry a note. Seller is leaving for 'other ventures,' not retirement. Willing to provide transition support, which suggests some flexibility. The 2.2x multiple and strong cash flow make a seller-finance pitch viable, but it will require negotiation.",
+    "boomer_signal": "None detected. No mention of retirement, health, or age. 'Pursuing other ventures' does not signal a boomer exit.",
+    "summary": "This fitness center generates outstanding cash flow relative to its asking price, yielding a DSCR of 3.05 \u2014 well above the 1.5 minimum. After debt service on a $125k seller note, the buyer would net roughly $4,481/month, making this a strong cash-flow deal. The main concerns are the unknown business age, the lack of boomer/retirement signals for seller financing, and a profit margin (26.7%) that sits above industry norms and should be verified against tax returns.",
+    "key_strength": "Exceptional DSCR of 3.05 \u2014 cash flow of $80k/yr is more than triple the estimated annual note payment, leaving substantial monthly income after debt service.",
+    "key_risk": "Unknown business age and non-retirement seller motivation reduce confidence in both stability and seller-finance willingness. The 26.7% margin is above industry norms and must be verified.",
+    "negotiation_note": "The 2.2x asking multiple is below the 3-5x industry norm, giving leverage to frame the deal as already discounted. Use this to push for seller financing by offering a higher interest rate (8%) or shorter term to sweeten the note for a seller who wants income from 'other ventures.' Request 3 years of tax returns to verify the $80k cash flow figure.",
+    "is_estimated": false,
+    "margin_sanity_flag": "Stated margin of 26.7% exceeds the upper end of the 10-20% fitness center industry norm. Does not trigger the automatic 2x penalty (would need >40%), but should be verified with P&L and tax returns during due diligence."
+  },
+  {
+    "business_name": "Successful Landscaping Business",
+    "business_type": "Landscaping",
+    "asking_price_usd": 200000,
+    "location": "Lancaster County, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/successful-landscaping-business/2234571/?d=/pennsylvania-businesses-for-sale/",
+    "extracted_financials": {
+      "gross_revenue_annual": 350000,
+      "cash_flow_annual": 85000,
+      "profit_margin_pct": 24.3,
+      "roi_pct": 42.5,
+      "payback_years": 2.35,
+      "notes": "Profit margin of 24.3% ($85k/$350k) is approximately 2x the industry norm of ~12% for landscaping. This triggers the margin sanity flag per framework rules. Revenue and cash flow are stated in the listing. The 2.35x multiple is below the typical 3-5x EBITDA range, suggesting either a motivated seller or inflated cash flow figures that need verification."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 150000,
+      "annual_note_payment": 31474,
+      "dscr": 2.7,
+      "monthly_net_after_debt": 4461,
+      "structure_summary": "$50k down, $150k note at 7%/6yr = ~$2,623/mo payment, ~$4,461/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 2.70 exceeds the 2.5 threshold for top score. $85k annual cash flow comfortably covers the ~$31,474 annual note payment, leaving ~$53,526/yr ($4,461/mo) net income. However, this assumes the stated 24.3% margin is accurate \u2014 which is flagged."
+      },
+      "seller_finance_likelihood": {
+        "score": 4,
+        "reason": "Owner is explicitly retiring after 'many successful years.' Business includes trained team and equipment. No exact year established, but language implies 10+ years. Retirement + long tenure + staff in place = strong seller-finance candidate. Missing exact year count prevents a 5/5."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement mentioned. 'Owner is retiring after many successful years and is looking for the right buyer to continue the legacy' is classic boomer exit language. Highly motivated to sell cleanly."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "Listing mentions 'a trained team' and includes equipment/vehicles, suggesting some staff and systems. However, no specifics on employee count, management structure, or whether it can run semi-absentee. Landscaping businesses typically require active owner involvement. Score of 3 for 'some staff, owner trains buyer.'"
+      },
+      "business_age": {
+        "score": 3,
+        "reason": "Year established is not provided. Description says 'several years' and 'many successful years' which is vague. 'Many successful years' from a retiring owner likely implies 10+ years, but without verification, conservatively scoring as 5-10 years (3/5)."
+      },
+      "operational_simplicity": {
+        "score": 2,
+        "reason": "Landscaping is a skilled trade requiring crew management, equipment maintenance, seasonal scheduling, and physical labor coordination. It's not a passive route or vending business. Scores 2/5 per framework for skilled trade category."
+      },
+      "red_flags": {
+        "penalty": 4,
+        "flags": [
+          "Margin sanity flag: Stated profit margin of 24.3% exceeds 2x the landscaping industry norm of 10-15%. Framework mandates automatic -2 penalty. Cash flow figures need rigorous verification \u2014 may include owner salary add-backs or non-recurring items.",
+          "Margin 24% is 2.0x the 12% industry norm \u2014 verify owner labor is costed"
+        ]
+      }
+    },
+    "weighted_score": 60.0,
+    "tier": "B",
+    "seller_finance_signal": "Strong. Owner is retiring after many years, has a trained team in place, and the business includes all equipment. The 2.35x multiple and retirement motivation suggest high willingness to carry a note for deal certainty. No bank collateral (no real estate mentioned), making seller financing the natural path.",
+    "boomer_signal": "Strong. Explicit retirement language, 'continue the legacy' phrasing, long tenure implied \u2014 classic baby boomer exit profile.",
+    "summary": "This landscaping business cash-flows very well on paper with a DSCR of 2.70, leaving ~$4,461/mo net after a $150k seller note at 7%/6yr. The retiring owner and trained team make this a strong seller-finance candidate. However, the stated 24.3% profit margin is roughly double the landscaping industry norm (10-15%), which is a serious red flag \u2014 the $85k cash flow figure needs rigorous verification through tax returns and P&L statements before committing.",
+    "key_strength": "Exceptional DSCR of 2.70 with a retiring owner highly motivated to carry a note \u2014 if financials verify, this deal leaves substantial monthly income after debt service.",
+    "key_risk": "Profit margin of 24.3% is ~2x the landscaping industry norm, suggesting cash flow may be overstated. Verify through 3 years of tax returns. Also, no specific employee count or year established \u2014 key details are vague.",
+    "negotiation_note": "The 2.35x multiple is below market (3-5x typical for landscaping). Use the margin discrepancy and vague business age as leverage to negotiate price down to $150k-$175k or request more favorable note terms (5-6% interest, 7-year term). Ask for an earnout structure where a portion of the price is contingent on revenue maintaining post-sale. Insist on 3 years of tax returns and a 90-day transition period with the seller.",
+    "is_estimated": false,
+    "margin_sanity_flag": "FLAGGED: Stated profit margin of 24.3% exceeds 2x the landscaping industry norm of 10-15%. Automatic -2 penalty applied. The $85,000 cash flow on $350,000 revenue needs verification \u2014 likely includes owner salary add-backs, one-time items, or understated expenses. Request Schedule C or corporate tax returns for last 3 years.",
+    "_rule_adjustments": [
+      "margin 24% exceeds 2x norm (12%) \u2014 penalty applied"
+    ]
+  },
+  {
+    "business_name": "Profitable Pizzeria with Growth Potential",
+    "business_type": "Restaurants",
+    "asking_price_usd": 150000,
+    "location": "Montgomery County, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/profitable-pizzeria-with-growth-potential/2134570/?d=/pennsylvania-businesses-for-sale/%3Fmin_price%3D50000%26max_price%3D250000%26q%3Dretiring%2Bseller%2Bfinancing",
+    "extracted_financials": {
+      "gross_revenue_annual": 500000,
+      "cash_flow_annual": 80000,
+      "profit_margin_pct": 16.0,
+      "roi_pct": 53.3,
+      "payback_years": 1.88,
+      "notes": "FF&E valued at $75,000, inventory $3,000. Established 2015 (~10 years old). Stated cash flow $80k on $500k revenue = 16% margin. Restaurant industry norm is ~3-10% for full/quick service; 16% is above average but not unreasonable for an owner-operated pizzeria where owner labor substitutes for a manager salary. However, this exceeds the 15% industry norm threshold \u2014 flagging for margin review."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 100000,
+      "annual_note_payment": 20980,
+      "dscr": 3.81,
+      "monthly_net_after_debt": 4918,
+      "structure_summary": "$50k down, $100k note at 7%/6yr = ~$1,748/mo payment, ~$4,918/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 3.81 is exceptionally strong \u2014 cash flow of $80k covers the ~$21k annual note payment nearly 4x over. Even with significant downside variance, debt service is very comfortable."
+      },
+      "seller_finance_likelihood": {
+        "score": 2,
+        "reason": "No explicit mention of seller financing or retirement. Owner offers training/support which is standard. Business is ~10 years old which helps, but no direct signals of willingness to carry a note. Seller motivation is unclear."
+      },
+      "seller_motivation": {
+        "score": 2,
+        "reason": "No reason for selling is stated. No mention of retirement, health, age, or lifestyle change. The listing is generic 'growth potential' language. Long tenure (10 years) is a mild positive but not enough to score higher."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "No specific mention of employees, but $500k revenue pizzeria almost certainly has staff (cooks, drivers, counter help). Owner likely manages day-to-day. Training offered suggests owner is involved. Scoring as 'some staff, owner trains buyer.'"
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Established 2015, approximately 10 years old. Solid track record in a competitive restaurant space. Falls in the 10-15 year bracket."
+      },
+      "operational_simplicity": {
+        "score": 3,
+        "reason": "Pizzeria is a food service operation with staff. Menu is focused (pizza, strombolis, calzones, Italian). Simpler than full-service restaurant but still involves food prep, inventory management, staffing, and health compliance."
+      },
+      "red_flags": {
+        "penalty": 2,
+        "flags": [
+          "Reason for selling is unclear and no seller motivation context provided (-0 since business is 10 years old, doesn't trigger the <5yr rule)",
+          "Stated profit margin of 16% exceeds the typical full-service restaurant norm of 3-10% \u2014 while plausible for owner-operated pizzeria, needs verification that $80k cash flow isn't inflated by owner not taking full salary (-2 margin sanity flag)"
+        ]
+      }
+    },
+    "weighted_score": 57.0,
+    "tier": "C",
+    "seller_finance_signal": "No direct evidence of seller financing willingness. Owner offers training and transition support, which is standard but could indicate flexibility. The 1.875x asking multiple and $75k FF&E suggest the seller isn't demanding a premium \u2014 may be open to creative deal structures. Would need to probe directly.",
+    "boomer_signal": "None detected. No mention of retirement, age, health, or lifestyle change. The 10-year ownership tenure is consistent with a boomer profile but not confirmed.",
+    "summary": "This pizzeria offers outstanding debt service coverage at 3.81x \u2014 the $80k annual cash flow easily covers the ~$21k note payment and leaves nearly $5,000/month in net income. The deal structure is very attractive at a 1.875x multiple. However, the lack of clear seller motivation and no mention of seller financing willingness means the deal structure is uncertain, and the above-average stated margin needs verification to confirm cash flow figures aren't inflated by unreported owner labor.",
+    "key_strength": "Exceptional DSCR of 3.81 with nearly $5k/month net income after debt service \u2014 strong cash-flowing business at a below-market multiple.",
+    "key_risk": "No stated reason for selling and no seller financing signals \u2014 seller may want all cash at closing, which would require SBA or alternative financing and change the deal economics entirely.",
+    "negotiation_note": "The 1.875x multiple is below the 2-3x restaurant norm, giving you room to negotiate. Leverage: ask why they're selling \u2014 if it's burnout/retirement, push for seller financing by emphasizing the tax benefits of installment sale income. The $75k FF&E valuation provides a tangible asset floor. Consider offering $130k with $50k down and $80k seller note to improve your DSCR further. Request 3 years of tax returns to verify the $80k cash flow figure and confirm whether owner salary is already deducted.",
+    "is_estimated": false,
+    "margin_sanity_flag": "Stated margin of 16% exceeds the typical 3-10% range for restaurants. While possible for an efficient owner-operated pizzeria (especially if owner labor isn't fully costed), this should be verified through tax returns and P&L review. If the $80k 'cash flow' includes owner salary equivalent, true discretionary earnings after hiring a manager may be significantly lower (~$40-50k), which would drop DSCR to ~1.9-2.4x \u2014 still serviceable but less impressive."
+  },
+  {
+    "business_name": "Profitable Dry Cleaning Business in Montgomery County",
+    "business_type": "Dry Cleaning",
+    "asking_price_usd": 150000,
+    "location": "Montgomery County, PA",
+    "source_url": "https://www.businessbroker.net/business-for-sale/profitable-dry-cleaning-business-in-montgomery-county-montgomery-county-pennsylvania/bbc-123457.aspx",
+    "extracted_financials": {
+      "gross_revenue_annual": 200000,
+      "cash_flow_annual": 75000,
+      "profit_margin_pct": 37.5,
+      "roi_pct": 50.0,
+      "payback_years": 2.0,
+      "notes": "Stated $75k cash flow on $200k revenue = 37.5% margin. Market context notes typical dry cleaning margins of 20-30%. This 37.5% is above the high end but within plausibility if owner-operated and rent is low. The industry margin norm provided for scoring is ~14% (likely referencing a different sub-category); 37.5% exceeds 2\u00d7 that threshold (28%), triggering a margin sanity flag. However, market research specifically for dry cleaning cites 20-30% as normal\u201437.5% is high but not absurd if the owner is the primary operator. Includes all equipment and a delivery van."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 100000,
+      "annual_note_payment": 20980,
+      "dscr": 3.57,
+      "monthly_net_after_debt": 4502,
+      "structure_summary": "$50k down, $100k note at 7%/6yr = ~$1,748/mo payment, ~$4,502/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 3.57 far exceeds the 2.5\u00d7 threshold. Annual cash flow of $75k vs ~$21k annual note payment leaves enormous cushion. Even if actual cash flow is overstated by 40%, DSCR would still exceed 2.0."
+      },
+      "seller_finance_likelihood": {
+        "score": 3,
+        "reason": "Seller is relocating out of state (lifestyle reason), and the business is 15+ years old, which is positive. However, relocation sellers sometimes want a clean break with lump sum rather than carrying a note. No explicit mention of willingness to finance. Staff situation is unclear."
+      },
+      "seller_motivation": {
+        "score": 4,
+        "reason": "Relocating out of state is a clear, concrete lifestyle motivation. Owner is described as 'motivated to sell,' which is favorable for negotiation. Not retirement/health (which would score 5), but still a strong motivator."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "No employees mentioned in the listing. Description says 'turnkey operation' but does not confirm any staff in place. Dry cleaning typically requires at least counter staff and a presser/cleaner. The absence of employee information suggests this may be heavily owner-operated. Scoring conservatively."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Description states 'over 15 years' serving the local community. Well-established with a steady stream of repeat customers."
+      },
+      "operational_simplicity": {
+        "score": 3,
+        "reason": "Dry cleaning is a skilled trade with equipment maintenance, chemical handling, and environmental compliance requirements. Not as simple as vending or laundromat. A new owner would need 3-6 months to learn operations per market research. Equipment knowledge is important."
+      },
+      "red_flags": {
+        "penalty": 4,
+        "flags": [
+          "Margin sanity flag: Stated profit margin of 37.5% exceeds 2\u00d7 the provided industry norm of 14% (threshold 28%). Even against dry-cleaning-specific norms of 20-30%, 37.5% is high. Automatic -2 penalty per framework rules.",
+          "No employees listed \u2014 raises concern about owner dependency and whether cash flow figure is before or after owner salary.",
+          "Margin 38% is 2.7x the 14% industry norm \u2014 verify owner labor is costed"
+        ]
+      }
+    },
+    "weighted_score": 56.0,
+    "tier": "C",
+    "seller_finance_signal": "Moderate. Seller is motivated (relocating) and the business is 15+ years old, making a seller note plausible. However, relocating sellers sometimes prefer lump-sum cash to fund their move. No explicit mention of willingness to carry financing. The low 2x multiple suggests seller may already be pricing for a quick sale. Leverage: offer full asking with seller-finance terms as the trade-off for not negotiating price down.",
+    "boomer_signal": "Likely but not confirmed. 15+ year ownership tenure strongly suggests a boomer-age owner. Relocation motivation is consistent with lifestyle transition. No explicit age/retirement mention.",
+    "summary": "Exceptional DSCR of 3.57 makes this deal very attractive on paper \u2014 $75k cash flow comfortably covers the ~$21k annual note payment, leaving ~$4,500/month net. However, the 37.5% profit margin is suspiciously high for dry cleaning, and the absence of any listed employees raises serious questions about whether this is entirely owner-operated and whether the $75k 'cash flow' is really discretionary earnings before or after a replacement manager. Verify financials carefully and confirm staffing before proceeding.",
+    "key_strength": "Outstanding debt service coverage (3.57\u00d7) with a low 2x asking multiple on a 15+ year established business in a busy shopping center with repeat customers.",
+    "key_risk": "No employees listed \u2014 if this is a pure owner-operator business, the $75k cash flow likely disappears when you hire staff, and the operation cannot run semi-absentee. Margin of 37.5% is above industry norms and needs tax-return verification.",
+    "negotiation_note": "The 2x multiple is already below market (2.5-3.5x is typical for dry cleaning). Use this as leverage: offer full $150k asking price but structure as $50k down with seller carrying $100k at 7% over 6 years. The seller's relocation urgency is your advantage \u2014 they may accept seller financing to close quickly rather than waiting months for an SBA-backed buyer. Ask to see 3 years of tax returns and verify that the $75k cash flow holds up after paying a manager if you won't be on-site daily.",
+    "is_estimated": false,
+    "margin_sanity_flag": "FLAGGED: Stated profit margin of 37.5% exceeds 2\u00d7 the framework's industry norm of 14% (threshold: 28%). Against dry-cleaning-specific market data (20-30% typical), the margin is still elevated. Applied -2 penalty. Demand tax returns and P&L statements to verify. Possible explanations: owner takes no salary (cash flow = SDE), below-market rent, or inflated figures.",
+    "_rule_adjustments": [
+      "margin 38% exceeds 2x norm (14%) \u2014 penalty applied"
+    ]
+  },
+  {
+    "business_name": "Auto Repair Shop with Great Reputation",
+    "business_type": "Auto Repair",
+    "asking_price_usd": 225000,
+    "location": "Chester County, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/auto-repair-shop-with-great-reputation/2234569/?d=/pennsylvania-businesses-for-sale/",
+    "extracted_financials": {
+      "gross_revenue_annual": 400000,
+      "cash_flow_annual": 90000,
+      "profit_margin_pct": 22.5,
+      "roi_pct": 40.0,
+      "payback_years": 2.5,
+      "notes": "Stated cash flow $90k on $400k revenue = 22.5% margin. Industry norm for auto repair is ~15%. Margin is above norm but not exceeding 2\u00d7 (30%), so no margin sanity penalty triggered. ROI based on asking price = 40%. Payback ~2.5 years on asking price."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 175000,
+      "annual_note_payment": 36706,
+      "dscr": 2.45,
+      "monthly_net_after_debt": 4441,
+      "structure_summary": "$50k down, $175k note at 7%/6yr = ~$3,059/mo payment, ~$4,441/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 4,
+        "reason": "DSCR of 2.45 falls in the 2.0\u20132.5 range. Cash flow of $90k comfortably covers the ~$36.7k annual note payment with significant room to spare."
+      },
+      "seller_finance_likelihood": {
+        "score": 3,
+        "reason": "Owner is relocating (lifestyle reason), business described as 'over a decade' old. No explicit mention of retirement or willingness to carry a note, but motivated seller relocating with a long-tenured business is a reasonable candidate. No mention of staff in place reduces confidence slightly."
+      },
+      "seller_motivation": {
+        "score": 4,
+        "reason": "Owner explicitly stated as relocating and 'motivated to sell.' This is a clear lifestyle-change reason, which scores 4/5. Not retirement/health but a strong motivation signal."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "No employees mentioned in listing. Description says 'someone with automotive experience' suggesting owner-operator model. No staff referenced, no systems documented. This is likely a skilled-trade owner-operator shop. Scored 2/5 \u2014 owner-operator but learnable with automotive background."
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Described as serving the community 'over a decade,' implying 10\u201315 years. Year established not specified but language supports 10+ years of operation."
+      },
+      "operational_simplicity": {
+        "score": 2,
+        "reason": "Auto repair is a skilled trade requiring technical knowledge, certifications (ASE), and hands-on expertise. Not a simple route or passive business. Scored 2/5 per framework for skilled trade."
+      },
+      "red_flags": {
+        "penalty": 2,
+        "flags": [
+          "No employees mentioned \u2014 likely owner-dependent operation, risk that customers follow the mechanic/owner",
+          "Requires automotive expertise or ASE certifications \u2014 limits buyer pool and contradicts 'simple to learn' thesis"
+        ]
+      }
+    },
+    "weighted_score": 56.0,
+    "tier": "C",
+    "seller_finance_signal": "Seller is described as 'motivated to sell' due to relocation. No explicit mention of willingness to carry a note, but relocation urgency combined with a $225k asking price (too small for most bank deals) makes seller financing a plausible conversation. The long tenure suggests the owner has equity and could accept an income stream.",
+    "boomer_signal": "No explicit retirement or age mention. Seller is relocating, which is a lifestyle change rather than a boomer exit. Moderate signal \u2014 'over a decade' ownership suggests possible older owner but not confirmed.",
+    "summary": "Strong cash flow with a DSCR of 2.45 means the $175k seller note is comfortably serviced, leaving ~$4,400/mo in net income after debt. However, the lack of any mentioned employees is a significant concern \u2014 this appears to be an owner-operator skilled trade business where the new buyer must be a qualified mechanic or hire one immediately. The deal cash-flows well on paper, but operational risk is elevated without staff in place.",
+    "key_strength": "Excellent DSCR of 2.45 with $90k cash flow on a $225k ask \u2014 the math works very well for a seller-financed deal, leaving substantial monthly income after debt service.",
+    "key_risk": "No employees mentioned and auto repair requires specialized skills \u2014 this is likely a pure owner-operator shop where the owner IS the business, creating high transition risk and dependency on buyer's technical ability.",
+    "negotiation_note": "Leverage the relocation urgency \u2014 a motivated, relocating seller may accept a lower price ($190k\u2013$200k) or more favorable terms (longer amortization, lower rate) to close quickly. Also negotiate a training/transition period where the seller introduces the buyer to key accounts. Ask for detailed customer records and recurring maintenance contracts to verify revenue stickiness. The lack of staff is a valid negotiation point to push price down.",
+    "is_estimated": false,
+    "margin_sanity_flag": "Stated margin of 22.5% is above the ~15% industry norm for auto repair but does not exceed 2\u00d7 threshold (30%). Slightly elevated \u2014 verify that cash flow figure accounts for a fair market salary for a lead mechanic if the owner is currently filling that role unpaid."
+  },
+  {
+    "business_name": "Thriving Hardware Store",
+    "business_type": "Retail Store",
+    "asking_price_usd": 225000,
+    "location": "Allentown, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/thriving-hardware-store/2078345/",
+    "extracted_financials": {
+      "gross_revenue_annual": 500000,
+      "cash_flow_annual": 95000,
+      "profit_margin_pct": 19.0,
+      "roi_pct": 42.2,
+      "payback_years": 2.37,
+      "notes": "Stated cash flow $95k on $500k revenue = 19% margin. Industry norm for retail/hardware is ~5-8%. This 19% margin is well above 2\u00d7 the 8% norm (16% threshold), triggering a margin sanity flag. The 2.4x multiple on cash flow is below the typical 3-5x for retail, which could indicate motivated seller or inflated cash flow figures."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 175000,
+      "annual_note_payment": 36718.0,
+      "dscr": 2.59,
+      "monthly_net_after_debt": 4857.0,
+      "structure_summary": "$50k down, $175k note at 7%/6yr = ~$3,060/mo payment, ~$4,857/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 2.59 exceeds the 2.5 threshold for top score. $95k cash flow comfortably covers ~$36.7k annual note payment, leaving ~$58.3k/yr for the owner."
+      },
+      "seller_finance_likelihood": {
+        "score": 4,
+        "reason": "Owner explicitly retiring, business established 15+ years. No employees mentioned which slightly weakens confidence, but tenure and retirement motive strongly suggest willingness to carry a note."
+      },
+      "seller_motivation": {
+        "score": 5,
+        "reason": "Explicit retirement mentioned. Classic boomer exit profile \u2014 15+ year owner ready to step away."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "No employees mentioned anywhere in the listing. Hardware store likely requires daily on-site presence. Without documented staff, this appears to be an owner-operator situation. Scored 2/5 \u2014 owner-operator but learnable."
+      },
+      "business_age": {
+        "score": 5,
+        "reason": "Established over 15 years per description. Strong stability signal."
+      },
+      "operational_simplicity": {
+        "score": 4,
+        "reason": "Retail with (presumably) some staff is a 4/5. Hardware retail is relatively straightforward \u2014 inventory management, POS, vendor relationships. Not as simple as vending/routes but not complex."
+      },
+      "red_flags": {
+        "penalty": 6,
+        "flags": [
+          "Margin sanity flag: stated 19% profit margin is over 2\u00d7 the 8% retail industry norm \u2014 automatic 2-point penalty. Cash flow figures should be verified against tax returns.",
+          "No employees mentioned in listing \u2014 raises questions about operational continuity and whether the $95k cash flow includes owner salary equivalent.",
+          "Margin 19% is 2.4x the 8% industry norm \u2014 verify owner labor is costed"
+        ]
+      }
+    },
+    "weighted_score": 55.0,
+    "tier": "C",
+    "seller_finance_signal": "Strong \u2014 owner retiring after 15+ years, no real estate mentioned, classic seller-finance candidate who likely wants an income stream in retirement rather than a lump sum.",
+    "boomer_signal": "Strong \u2014 explicit retirement sale, 15+ year ownership tenure. High probability of boomer seller motivated for a clean exit.",
+    "summary": "The deal cash-flows very well on paper \u2014 a 2.59 DSCR leaves nearly $4,900/mo after debt service, which is excellent. However, the stated 19% profit margin is suspiciously high for retail (norm is 5-8%), and the absence of any mentioned employees raises serious concerns about whether this is a pure owner-operator situation. Verify financials against tax returns and clarify staffing before proceeding; if the numbers hold and staff exists, this could be an A-tier deal.",
+    "key_strength": "Exceptional DSCR of 2.59 with a retiring owner on a 15+ year business \u2014 the ideal seller-finance profile with strong cash flow coverage.",
+    "key_risk": "No employees mentioned and a profit margin (19%) that is 2-3\u00d7 the retail industry norm \u2014 cash flow figures may be overstated or may not account for replacing the owner's labor.",
+    "negotiation_note": "The 2.4x multiple is already below market (3-5x typical). Leverage the inflated margin concern and lack of documented staff to negotiate price down to $180-200k or push for more favorable note terms (6% interest, 7-year term). Request 3 years of tax returns and P&L statements to verify the $95k cash flow figure before committing.",
+    "is_estimated": false,
+    "margin_sanity_flag": "FLAGGED: Stated profit margin of 19% exceeds 2\u00d7 the 8% retail industry norm. 2-point penalty applied. Buyer must verify cash flow against tax returns \u2014 this margin is atypical for hardware retail and may reflect owner salary not being deducted or other add-backs.",
+    "_rule_adjustments": [
+      "margin 19% exceeds 2x norm (8%) \u2014 penalty applied"
+    ]
+  },
+  {
+    "business_name": "Profitable Pizzeria in Montgomery County",
+    "business_type": "Restaurants",
+    "asking_price_usd": 175000,
+    "location": "Montgomery County, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/profitable-pizzeria-in-montgomery-county/2101240/?d=/pennsylvania-businesses-for-sale/%3Fmin_price%3D50000%26max_price%3D250000%26q%3Dseller+financing+owner+will+carry",
+    "extracted_financials": {
+      "gross_revenue_annual": 500000,
+      "cash_flow_annual": 100000,
+      "profit_margin_pct": 20.0,
+      "roi_pct": 57.1,
+      "payback_years": 1.75,
+      "notes": "Stated cash flow $100k on $500k revenue = 20% margin. Industry norm for restaurants is ~3-10% (full-service to QSR). A pizzeria can run higher margins (15-20%) due to low food cost on pizza, but 20% is at the upper end. The framework restaurant norm is ~15%; 2x that threshold is 30%, so 20% does not trigger the automatic margin sanity penalty but warrants scrutiny. The 1.75x multiple is below the typical 2-3x for restaurants, suggesting fair to undervalued pricing."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 125000,
+      "annual_note_payment": 26226,
+      "dscr": 3.81,
+      "monthly_net_after_debt": 6148,
+      "structure_summary": "$50k down, $125k note at 7%/6yr = ~$2,186/mo payment, ~$6,148/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 3.81 far exceeds the 2.5 threshold for a 5/5. Annual cash flow of $100k vs. $26,226 annual note payment leaves enormous headroom. Even if actual cash flow is 50% of stated, DSCR would still be ~1.9."
+      },
+      "seller_finance_likelihood": {
+        "score": 3,
+        "reason": "Listing explicitly states 'Seller Financing Available,' which is a strong positive. However, no retirement mention, no years of ownership disclosed, and no staff details are provided. Without boomer/retirement signals or tenure data, this scores mid-range despite the explicit financing offer."
+      },
+      "seller_motivation": {
+        "score": 2,
+        "reason": "No reason for selling is specified. No age, retirement, health, or lifestyle mention. The seller financing offer suggests some motivation, but the lack of any stated reason is a gap. Scored as 'vague or no seller context.'"
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "Described as 'turnkey operation ready for a new owner to step in,' which implies systems and possibly staff. However, no employee count or staffing details are given. Pizzerias typically require at least a few staff. Scored as 'some staff, owner trains buyer' \u2014 reasonable assumption for a $500k revenue pizzeria but unverified."
+      },
+      "business_age": {
+        "score": 1,
+        "reason": "Year established is not provided. No tenure or age data in the listing. Cannot verify longevity. Defaults to lowest score."
+      },
+      "operational_simplicity": {
+        "score": 3,
+        "reason": "Pizzerias are food service with relatively standardized operations (dough, toppings, ovens). Simpler than full-service restaurants but still involves food handling, health inspections, inventory management, and staff coordination. Scored as 'food service with staff.'"
+      },
+      "red_flags": {
+        "penalty": 2,
+        "flags": [
+          "No year established disclosed \u2014 cannot verify business age or stability (-0 already penalized in age score, but the gap in data is a concern)",
+          "No employee information provided \u2014 'turnkey' claim is unverified",
+          "No reason for selling + unknown business age = -2 penalty per framework (reason unclear + could be < 5 years old)",
+          "20% margin is high for restaurant industry but within plausible range for a pizzeria; no automatic margin penalty triggered but noted as optimistic"
+        ]
+      }
+    },
+    "weighted_score": 55.0,
+    "tier": "C",
+    "seller_finance_signal": "Listing explicitly states 'Seller Financing Available to qualified buyers.' This is the strongest possible signal short of detailed terms. Combined with the 1.75x multiple, the seller appears motivated to structure a deal. No specific terms (rate, duration, down payment requirements) are disclosed.",
+    "boomer_signal": "None detected. No mention of retirement, age, health, years of ownership, or any personal motivation for selling. This is a significant gap \u2014 the buyer should probe this directly in initial conversations.",
+    "summary": "The deal structure is exceptionally strong on paper: $50k down on a $175k ask with $100k stated cash flow produces a 3.81 DSCR and ~$6,148/mo net after debt service. Even with significant cash flow haircuts during due diligence, this deal likely cash-flows comfortably. However, critical information is missing \u2014 no business age, no employee details, no seller motivation \u2014 which prevents an A-tier rating and demands thorough verification before proceeding.",
+    "key_strength": "Outstanding DSCR of 3.81 with explicit seller financing offered \u2014 the deal math is the best-case scenario for this acquisition model, and even at 50% of stated cash flow it still works.",
+    "key_risk": "No verified business age, no employee count, and no seller motivation disclosed \u2014 the listing reads as thin on detail, raising the possibility that stated financials are aspirational or that the business has operational dependencies not disclosed.",
+    "negotiation_note": "The 1.75x multiple is already below market (2-3x typical for restaurants). Leverage the missing information \u2014 request 3 years of tax returns and P&L before negotiating. If cash flow verifies, this is a fair price. If it doesn't, use discrepancies to negotiate down to $125k-$150k. Also negotiate for a training period (60-90 days) and a non-compete clause. The explicit seller financing offer gives you room to push for favorable terms: aim for 6% over 7 years instead of 7% over 6 years to reduce monthly payments.",
+    "is_estimated": false,
+    "margin_sanity_flag": "Stated margin is 20% ($100k/$500k). Industry norm for restaurants is ~3-10% (full-service to QSR); pizzerias can legitimately achieve 15-20% due to low ingredient costs. At 20%, this is at the upper bound of plausible but does not exceed the 2x threshold (30%) for an automatic penalty. Recommend verifying food cost percentage (should be 25-35% for pizza) and labor cost (should be 25-35%) during due diligence."
+  },
+  {
+    "business_name": "Auto Repair Shop with Seller Financing",
+    "business_type": "Auto Repair and Service Shops",
+    "asking_price_usd": 200000,
+    "location": "Philadelphia, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/auto-repair-shop-with-seller-financing/2101241/?d=/pennsylvania-businesses-for-sale/%3Fmin_price%3D50000%26max_price%3D250000%26q%3Dseller+financing+owner+will+carry",
+    "extracted_financials": {
+      "gross_revenue_annual": 400000,
+      "cash_flow_annual": 90000,
+      "profit_margin_pct": 22.5,
+      "roi_pct": 45.0,
+      "payback_years": 2.22,
+      "notes": "Stated cash flow $90k on $400k revenue = 22.5% margin. Industry norm for auto repair is ~10-20%. At 22.5% this is at the high end but not egregiously above 2x the norm (30%), so no margin sanity penalty triggered. The 2.2x asking-to-cash-flow multiple is below typical 2.5-3.5x for auto repair, suggesting fair pricing or motivated seller."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 150000,
+      "annual_note_payment": 31474,
+      "dscr": 2.86,
+      "monthly_net_after_debt": 4877,
+      "structure_summary": "$50k down, $150k note at 7%/6yr = ~$2,623/mo payment, ~$4,877/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 2.86 is well above the 2.5 threshold for top score. $90k annual cash flow vs ~$31.5k annual note payment leaves substantial cushion and nearly $58.5k/year in owner income after debt service."
+      },
+      "seller_finance_likelihood": {
+        "score": 3,
+        "reason": "Seller financing is explicitly offered in the listing, which is a strong positive. However, no retirement mentioned, no ownership tenure disclosed, and no staff details provided. The explicit SF offer offsets the lack of boomer/retirement signals, but without tenure or retirement context it caps at 3."
+      },
+      "seller_motivation": {
+        "score": 2,
+        "reason": "Seller motivation is 'Not specified.' No retirement, health, or lifestyle reason given. The listing is generic and offers no context on why the owner is selling. The willingness to offer seller financing hints at motivation but the reason itself is vague."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "No employees listed. The listing says 'someone with automotive experience' should take over, implying hands-on owner-operator model. No staff mentioned, no systems documented. This is likely an owner-dependent skilled trade business."
+      },
+      "business_age": {
+        "score": 3,
+        "reason": "Year established is not provided, but listing says 'well-established' with a 'solid reputation and loyal customer base.' This language suggests at least 5-10 years in operation, but without verification, scored conservatively at 3."
+      },
+      "operational_simplicity": {
+        "score": 2,
+        "reason": "Auto repair is a skilled trade requiring technical knowledge, certifications, and specialized equipment. The listing explicitly notes need for 'automotive experience.' This is not a simple service route or passive business \u2014 it requires trade skill to operate or manage."
+      },
+      "red_flags": {
+        "penalty": 2,
+        "flags": [
+          "No employees listed \u2014 likely owner-operator dependent (-0, already reflected in owner_independence score)",
+          "Reason for selling unclear and no year established (-2: unclear reason + potentially < 5 years old, though listing says 'well-established')"
+        ]
+      }
+    },
+    "weighted_score": 54.0,
+    "tier": "C",
+    "seller_finance_signal": "Seller financing explicitly offered in listing title and description. This is a strong signal \u2014 the seller is already expecting to carry a note. Terms are not specified, leaving room for negotiation on rate and duration.",
+    "boomer_signal": "None detected. No retirement, age, health, or lifestyle reason mentioned. The seller's age and tenure are unknown. The willingness to seller-finance and the 'well-established' language are soft signals but not confirmation of a boomer exit.",
+    "summary": "This deal cash-flows exceptionally well on paper \u2014 a 2.86 DSCR means the $90k annual cash flow covers the ~$31.5k annual note payment nearly 3x over, leaving ~$4,877/month in net income after debt service. However, the lack of disclosed employees and the skilled-trade nature of auto repair mean this is likely an owner-operator business requiring automotive expertise, which limits scalability and increases key-person risk. The explicit seller financing offer and below-market multiple make this worth pursuing, but due diligence must confirm staffing, verify financials, and understand why the owner is selling.",
+    "key_strength": "Exceptional DSCR of 2.86 with explicit seller financing already offered \u2014 the deal math works very well, leaving nearly $59k/year in owner income after debt service.",
+    "key_risk": "No staff disclosed and requires automotive expertise \u2014 this appears to be a skilled-trade owner-operator business where the owner IS the business, creating significant transition and key-person risk.",
+    "negotiation_note": "The 2.2x multiple is below market (2.5-3.5x typical for auto repair). Use the lack of disclosed financials detail, no employees, and unknown establishment year to negotiate the price down to $150-175k or push for more favorable seller note terms (6% interest, 7-year term). The seller is already offering financing \u2014 push for 70-80% seller carry. Ask for an earnout or performance-based adjustment clause tied to customer retention in the first 12 months.",
+    "is_estimated": false,
+    "margin_sanity_flag": "Stated margin is 22.5% vs industry norm of ~10-20% for auto repair. This is at the high end but does not exceed 2x the norm (30%), so no automatic penalty applied. Verify whether cash flow figure includes owner salary or if it's true SDE \u2014 if owner is the sole mechanic, the $90k may effectively be the owner's salary rather than true business profit."
+  },
+  {
+    "business_name": "Laundromat in Montgomery County, PA",
+    "business_type": "Laundromat",
+    "asking_price_usd": 200000,
+    "location": "Montgomery County, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/laundromat-in-montgomery-county-pa/2089456/",
+    "extracted_financials": {
+      "gross_revenue_annual": 150000,
+      "cash_flow_annual": 60000,
+      "profit_margin_pct": 40.0,
+      "roi_pct": 30.0,
+      "payback_years": 3.33,
+      "notes": "Stated margin of 40% ($60k cash flow on $150k revenue) significantly exceeds laundromat industry norm of ~22%. This triggers a margin sanity flag. The 3.33x multiple on cash flow is within the normal 3-5x range for laundromats. No mention of employees; described as 'great opportunity for a hands-on owner' suggesting owner-operator model."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 150000,
+      "annual_note_payment": 31473,
+      "dscr": 1.91,
+      "monthly_net_after_debt": 2377,
+      "structure_summary": "$50k down, $150k note at 7%/6yr = ~$2,623/mo payment, ~$2,377/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 3,
+        "reason": "DSCR of 1.91 falls in the 1.5\u20132.0 range. Cash flow comfortably covers debt service with meaningful margin, but not at the most comfortable 2.0+ level."
+      },
+      "seller_finance_likelihood": {
+        "score": 2,
+        "reason": "No retirement mentioned. Seller is pursuing 'other business interests' \u2014 not a classic boomer exit. Business is 8 years old with no staff mentioned. Seller may prefer a clean cash exit to fund new ventures rather than carrying a note."
+      },
+      "seller_motivation": {
+        "score": 4,
+        "reason": "'Pursuing other business interests' is a legitimate lifestyle/other interests reason. Motivated to move on, which is a positive signal for deal flexibility, though not as strong as retirement."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "No employees mentioned. Description explicitly says 'great opportunity for a hands-on owner,' strongly implying this is an owner-operator business with no staff in place. Laundromats can be semi-passive but this one appears to require active management."
+      },
+      "business_age": {
+        "score": 3,
+        "reason": "Established 8 years. Falls in the 5\u201310 year range. Solid track record but not the 10+ year tenure that signals maximum stability and seller-finance readiness."
+      },
+      "operational_simplicity": {
+        "score": 5,
+        "reason": "Laundromats are among the simplest businesses to operate \u2014 coin/card-operated, no inventory, no specialized skills required. Modern machines noted. Classic passive/semi-passive business model."
+      },
+      "red_flags": {
+        "penalty": 2,
+        "flags": [
+          "Stated profit margin of 40% is nearly 2x the laundromat industry norm of ~22%, triggering a margin sanity penalty of -2 points. Financials should be scrutinized closely \u2014 could reflect understated expenses or owner add-backs."
+        ]
+      }
+    },
+    "weighted_score": 50.0,
+    "tier": "C",
+    "seller_finance_signal": "Weak. Seller is leaving to pursue other business interests, which often means they want capital for a new venture \u2014 potentially preferring a lump sum over a 6-year note. However, the lack of real estate (assumed) means bank financing is harder, giving leverage to propose seller financing. Negotiation required.",
+    "boomer_signal": "None detected. No mention of retirement, age, or health. 'Other business interests' suggests an active entrepreneur, not a retiring boomer.",
+    "summary": "This laundromat cash-flows well after debt service at ~$2,377/month net with a 1.91x DSCR, making it a viable acquisition from a numbers standpoint. However, the stated 40% profit margin is nearly double the industry norm and demands serious financial due diligence \u2014 actual net cash flow could be significantly lower. The lack of employees and 'hands-on owner' language, combined with a non-retirement seller, caps this at B-tier despite decent fundamentals.",
+    "key_strength": "Strong monthly net cash flow of ~$2,377 after debt service with a comfortable 1.91x DSCR, in a recession-resistant, operationally simple business in a densely populated area.",
+    "key_risk": "Stated 40% profit margin is nearly 2x the laundromat industry norm (~22%). If actual cash flow is closer to $33,000 (at 22% margin), DSCR drops to ~1.05x and the deal barely covers debt service. Financials must be verified with tax returns and utility bills.",
+    "negotiation_note": "The inflated margin is your strongest negotiation lever \u2014 request 3 years of tax returns, utility bills, and maintenance records. If actual cash flow is lower than stated, push for a price reduction to $150k\u2013$170k or more favorable note terms (longer amortization, lower rate). The seller wanting to pursue new ventures may accept a shorter due diligence period in exchange for seller financing. No employees means you can also argue the business is less turnkey, justifying a lower multiple.",
+    "is_estimated": false,
+    "margin_sanity_flag": "FLAGGED: Stated profit margin of 40% ($60k on $150k revenue) exceeds 2x the laundromat industry norm of ~22%. Automatic -2 penalty applied. If margin is actually 22%, real cash flow would be ~$33,000/year, dropping DSCR to ~1.05x and monthly net to ~$131/mo \u2014 a fundamentally different deal. Verify with tax returns and P&L statements."
+  },
+  {
+    "business_name": "Fitness Center in Chester County",
+    "business_type": "Fitness Centers",
+    "asking_price_usd": 175000,
+    "location": "Chester County, PA",
+    "source_url": "https://www.businessbroker.net/business-for-sale/fitness-center-in-chester-county-chester-county-pennsylvania/bbc-123459.aspx",
+    "extracted_financials": {
+      "gross_revenue_annual": 300000,
+      "cash_flow_annual": 80000,
+      "profit_margin_pct": 26.67,
+      "roi_pct": 45.71,
+      "payback_years": 2.19,
+      "notes": "Stated cash flow $80k on $300k revenue = 26.67% margin. Industry norm for fitness centers is ~10-20%. At 26.67% this is above the high end but not egregiously so \u2014 borderline flag. The 2.2x asking-to-cash-flow multiple is below the typical 3-5x for fitness centers, suggesting either aggressive pricing or inflated cash flow figures. No year established provided. No employee count provided."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 125000,
+      "annual_note_payment": 26226,
+      "dscr": 3.05,
+      "monthly_net_after_debt": 4481,
+      "structure_summary": "$50k down, $125k note at 7%/6yr = ~$2,186/mo payment, ~$4,481/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 3.05 is well above the 2.5 threshold for a 5/5. $80k cash flow easily covers the ~$26.2k annual note payment, leaving ~$53.8k/yr for the owner."
+      },
+      "seller_finance_likelihood": {
+        "score": 2,
+        "reason": "Seller is leaving due to 'other business commitments' \u2014 not retirement. No mention of years owned, no staff details. This is not the classic boomer-retirement seller-finance profile. Moderate-to-low likelihood of carrying a note without negotiation."
+      },
+      "seller_motivation": {
+        "score": 2,
+        "reason": "Selling due to other business commitments is vague and not a strong motivation signal. No retirement, health, or age mention. Could indicate distraction or underperformance. No tenure information provided."
+      },
+      "owner_independence": {
+        "score": 3,
+        "reason": "Listing mentions classes, personal training, and transition support but does not explicitly mention staff or employees. A fitness center of this size likely has some trainers/instructors but this is not confirmed. Moderate independence assumed \u2014 owner likely involved in operations."
+      },
+      "business_age": {
+        "score": 1,
+        "reason": "Year established is not provided. Cannot verify business age. This is a significant gap \u2014 defaults to lowest score."
+      },
+      "operational_simplicity": {
+        "score": 3,
+        "reason": "Fitness centers require membership management, class scheduling, equipment maintenance, and staff coordination. Not as simple as a route or vending business, but not highly complex. Comparable to food service with staff."
+      },
+      "red_flags": {
+        "penalty": 3,
+        "flags": [
+          "No year established \u2014 cannot verify business age or stability (-2)",
+          "No employee information provided \u2014 unclear staffing situation",
+          "Margin of 26.67% exceeds the high end of industry norm (~10-20%) \u2014 potential margin inflation concern (-1)"
+        ]
+      }
+    },
+    "weighted_score": 46.0,
+    "tier": "C",
+    "seller_finance_signal": "Weak. Seller is not retiring \u2014 selling due to 'other business commitments.' This profile suggests a busy entrepreneur, not a boomer looking for a passive income stream from a seller note. Seller financing is possible but would require negotiation; seller may prefer a clean exit.",
+    "boomer_signal": "None detected. No mention of retirement, age, health, or long tenure. Seller appears to be an active business owner divesting a non-core asset.",
+    "summary": "The deal cash-flows extremely well on paper \u2014 a 3.05x DSCR means the $2,186/mo note payment is comfortably covered with ~$4,481/mo left over. However, the listing has significant gaps: no business age, no employee details, and the 26.67% profit margin is above industry norms. The seller is not a retirement candidate, making seller financing less likely without strong negotiation. This is a promising cash-flow deal that needs heavy due diligence before committing.",
+    "key_strength": "Outstanding DSCR of 3.05 \u2014 if financials verify, the buyer nets ~$54k/yr after debt service, essentially recouping the down payment in under a year.",
+    "key_risk": "Unknown business age and no confirmed employees. The high stated margin (26.67% vs. 10-20% norm) combined with missing fundamentals suggests financials may not hold up under scrutiny.",
+    "negotiation_note": "The 2.2x multiple is already below market (3-5x typical). Use the seller's 'other business commitments' as leverage \u2014 a distracted seller may accept seller financing to close quickly. Push for full financial verification (3 years of tax returns), confirm employee roster, and request a longer transition period. If margin doesn't verify, negotiate the price down to match a realistic cash flow figure.",
+    "is_estimated": false,
+    "margin_sanity_flag": "Stated margin of 26.67% exceeds the high end of the fitness center industry norm (10-20%). While not double the norm, this warrants verification of cash flow claims through tax returns and P&L statements. If actual margin is closer to 15%, true cash flow would be ~$45k, dropping DSCR to ~1.72 \u2014 still serviceable but much tighter."
+  },
+  {
+    "business_name": "Landscaping Business in Lancaster County",
+    "business_type": "Landscaping",
+    "asking_price_usd": 120000,
+    "location": "Lancaster County, PA",
+    "source_url": "https://www.businessbroker.net/business-for-sale/landscaping-business-in-lancaster-county-lancaster-county-pennsylvania/bbc-123460.aspx",
+    "extracted_financials": {
+      "gross_revenue_annual": 180000,
+      "cash_flow_annual": 60000,
+      "profit_margin_pct": 33.3,
+      "roi_pct": 50.0,
+      "payback_years": 2.0,
+      "notes": "Revenue $180k, cash flow $60k stated. Profit margin of 33.3% is well above the industry norm of 10-15% for landscaping \u2014 this is a significant red flag requiring verification. Includes equipment and vehicles. 2x multiple on cash flow."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 70000,
+      "annual_note_payment": 14682,
+      "dscr": 4.09,
+      "monthly_net_after_debt": 3777,
+      "structure_summary": "$50k down, $70k note at 7%/6yr = ~$1,224/mo payment, ~$3,777/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 4.09 is exceptional \u2014 cash flow of $60k vs annual note payment of ~$14,682. Very comfortable debt coverage even if cash flow drops significantly."
+      },
+      "seller_finance_likelihood": {
+        "score": 3,
+        "reason": "Owner is moving out of the area (lifestyle reason), business is 10+ years old. However, no explicit mention of retirement or willingness to carry a note. Moving sellers sometimes want a clean break with lump sum, but the 10+ year tenure and relatively modest price suggest flexibility."
+      },
+      "seller_motivation": {
+        "score": 4,
+        "reason": "Moving out of area is a clear, concrete motivation \u2014 seller can't operate remotely. This creates urgency and willingness to negotiate on terms. Not retirement per se, but a strong lifestyle change signal."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "No employees mentioned in the listing. Description says 'take over this profitable operation' but no mention of crew, staff, or foreman. Landscaping with no staff means the owner IS the labor force. This is a significant concern for semi-absentee operation."
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Described as 'over 10 years' in operation. No exact establishment year given, but 10+ years demonstrates stability and a loyal client base in the community."
+      },
+      "operational_simplicity": {
+        "score": 2,
+        "reason": "Landscaping is a skilled trade requiring physical labor, crew management, equipment maintenance, seasonal scheduling, and weather-dependent operations. Not a simple passive business \u2014 requires hands-on involvement especially without documented staff."
+      },
+      "red_flags": {
+        "penalty": 6,
+        "flags": [
+          "Stated profit margin of 33.3% is more than 2x the industry norm of 10-15% for landscaping \u2014 automatic 2-point penalty per framework margin sanity rule",
+          "No employees mentioned \u2014 owner may be sole operator generating all revenue, raising owner-dependence concerns \u2014 2-point penalty",
+          "Margin 33% is 2.8x the 12% industry norm \u2014 verify owner labor is costed"
+        ]
+      }
+    },
+    "weighted_score": 42.0,
+    "tier": "C",
+    "seller_finance_signal": "Moderate. Owner is moving out of area and cannot continue operating \u2014 motivated to close. 10+ year tenure means owner likely has no remaining debt on the business. Small note amount ($70k) is manageable for a seller to carry. However, a relocating seller may prefer lump sum to fund their move. Negotiate by emphasizing steady income stream from the note.",
+    "boomer_signal": "Not confirmed. 10+ year ownership suggests possible boomer but no age, retirement, or health mention. Moving out of area is the stated reason \u2014 could be any age demographic.",
+    "summary": "The DSCR of 4.09 is outstanding and the deal cash-flows extremely well on paper \u2014 $3,777/mo net after debt service on a modest $70k note. However, the stated 33% profit margin is more than double the landscaping industry norm of 10-15%, which demands serious financial verification before proceeding. The biggest structural concern is the apparent lack of employees: if the owner IS the workforce, you're buying a job with equipment, not a business \u2014 and the $60k cash flow is really owner salary that disappears when the owner leaves.",
+    "key_strength": "Exceptional DSCR of 4.09 with a small note amount ($70k) means the deal is very forgiving \u2014 even if true cash flow is half the stated amount, debt service is still covered comfortably.",
+    "key_risk": "No employees mentioned \u2014 if the owner is the sole laborer, the $60k 'cash flow' is really owner compensation, and you'll need to hire a crew (reducing cash flow significantly) or do all the physical work yourself. This also makes the 33% margin suspect.",
+    "negotiation_note": "Leverage the relocation urgency \u2014 a seller who is moving has a deadline and can't operate remotely. Push for seller financing by offering a slightly higher interest rate (8%) in exchange for a lower down payment ($30-40k). Request 3 years of tax returns to verify the $60k cash flow and understand true labor costs. If margin doesn't hold up under scrutiny, negotiate the price down to $80-90k. Ask specifically about the crew situation \u2014 if there are subcontractors or seasonal workers not listed as 'employees,' that changes the picture significantly.",
+    "is_estimated": false,
+    "margin_sanity_flag": "FLAGGED: Stated profit margin of 33.3% is more than 2x the landscaping industry norm of 10-15%. This likely means owner labor is not accounted for as an expense in the $60k cash flow figure. If you hire a crew to replace the owner's labor at $35-45k/yr, true cash flow drops to $15-25k \u2014 still serviceable on the note but much tighter. Demand P&L statements with clear labor cost breakdowns.",
+    "_rule_adjustments": [
+      "margin 33% exceeds 2x norm (12%) \u2014 penalty applied"
+    ]
+  },
+  {
+    "business_name": "Profitable Dry Cleaning Business",
+    "business_type": "Dry Cleaning",
+    "asking_price_usd": 150000,
+    "location": "Bucks County, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/profitable-dry-cleaning-business/2234568/?d=/pennsylvania-businesses-for-sale/",
+    "extracted_financials": {
+      "gross_revenue_annual": 200000,
+      "cash_flow_annual": 75000,
+      "profit_margin_pct": 37.5,
+      "roi_pct": 50.0,
+      "payback_years": 2.0,
+      "notes": "Stated cash flow $75k on $200k revenue = 37.5% margin. Market context notes dry cleaning margins typically 20-30%. The industry margin norm provided is ~14% (flag threshold 28%). The stated 37.5% exceeds 2x the 14% norm, triggering a margin sanity flag. However, market research suggests 20-30% is more realistic for dry cleaning \u2014 the 14% norm may be conservative. Still, 37.5% is above even the upper bound of 30%, warranting scrutiny."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 100000,
+      "annual_note_payment": 20979,
+      "dscr": 3.58,
+      "monthly_net_after_debt": 4502,
+      "structure_summary": "$50k down, $100k note at 7%/6yr = ~$1,748/mo payment, ~$4,502/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 3.58 far exceeds the 2.5 threshold for top score. Annual cash flow of $75k vs ~$21k annual note payment leaves massive cushion."
+      },
+      "seller_finance_likelihood": {
+        "score": 2,
+        "reason": "Seller is leaving for 'other business interests' \u2014 not a retirement sale. No mention of years owned or willingness to carry a note. Staff is in place which helps, but no boomer/retirement signal to suggest seller financing openness."
+      },
+      "seller_motivation": {
+        "score": 4,
+        "reason": "'Other business interests' is a clear lifestyle/pivot reason \u2014 seller is moving on, not desperate. This is a reasonable motivator that suggests willingness to negotiate but not classic boomer retirement."
+      },
+      "owner_independence": {
+        "score": 4,
+        "reason": "Listing explicitly states 'experienced staff in place' and describes it as a 'turnkey operation.' Owner offers training for transition. Semi-absentee appears possible."
+      },
+      "business_age": {
+        "score": 2,
+        "reason": "Year established is not provided. Listing says 'well-established' but gives no specific age. Without verification, scored conservatively at 2/5."
+      },
+      "operational_simplicity": {
+        "score": 3,
+        "reason": "Dry cleaning is a service business with equipment and staff but involves specialized machinery maintenance, chemical handling, and environmental compliance. Not as simple as routes/vending but not highly complex either."
+      },
+      "red_flags": {
+        "penalty": 6,
+        "flags": [
+          "Margin sanity flag: stated profit margin of 37.5% exceeds 2x the 14% industry norm \u2014 automatic 2-point penalty per framework rules",
+          "Year established unknown \u2014 business age unverifiable, adds uncertainty (-1)",
+          "Reason for selling is 'other business interests' with unknown business age \u2014 potential red flag for undisclosed issues (-1)",
+          "Margin 38% is 2.7x the 14% industry norm \u2014 verify owner labor is costed"
+        ]
+      }
+    },
+    "weighted_score": 42.0,
+    "tier": "C",
+    "seller_finance_signal": "No direct evidence seller would carry a note. Seller is leaving for other business interests, not retiring. No mention of financing willingness. The staff-in-place and turnkey nature may make seller open to structuring a deal, but this would need to be negotiated.",
+    "boomer_signal": "None detected \u2014 seller motivation is 'other business interests,' not retirement or health. No age or tenure information provided.",
+    "summary": "The deal structure is extremely attractive on paper \u2014 a 3.58 DSCR means $75k cash flow easily covers the ~$21k annual note payment, leaving ~$4,500/month net income. However, the stated 37.5% profit margin significantly exceeds industry norms for dry cleaning (20-30%), so the $75k cash flow figure needs rigorous verification through tax returns and P&L statements. The lack of established year, no clear boomer/retirement signal, and above-norm margins keep this at B-tier despite the strong headline numbers.",
+    "key_strength": "Exceptional DSCR of 3.58 \u2014 if the $75k cash flow is real, this deal cash-flows beautifully with massive debt service cushion and $54k+ annual net income after payments.",
+    "key_risk": "Stated profit margin of 37.5% is well above the 20-30% industry norm for dry cleaning \u2014 the $75k cash flow number may be overstated or include owner add-backs that won't transfer. Demand thorough financial verification.",
+    "negotiation_note": "The 2x multiple is below the typical 2.5-3.5x for dry cleaning \u2014 use this to validate the price is fair but also question why it's priced low. If financials verify, push for seller financing by noting the seller gets a steady income stream from the note while pursuing other interests. The inflated margin gives leverage to negotiate down to $120-130k asking if books don't fully support $75k cash flow. No year established means you can question longevity and push for better terms.",
+    "is_estimated": false,
+    "margin_sanity_flag": "FLAGGED: Stated profit margin of 37.5% exceeds 2x the 14% industry norm threshold (28%). Even against the more generous market research range of 20-30%, this margin is elevated. Verify cash flow through 3 years of tax returns, separate owner compensation from true cash flow, and confirm no capital expenditure deferrals are inflating short-term profitability. Applied -2 penalty per framework rules.",
+    "_rule_adjustments": [
+      "margin 38% exceeds 2x norm (14%) \u2014 penalty applied"
+    ]
+  },
+  {
+    "business_name": "Established Cleaning Service in PA",
+    "business_type": "Cleaning Service",
+    "asking_price_usd": 199000,
+    "location": "Pennsylvania",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/established-cleaning-service-in-pa/2212345/?d=/pennsylvania-businesses-for-sale/",
+    "extracted_financials": {
+      "gross_revenue_annual": 220000,
+      "cash_flow_annual": 82000,
+      "profit_margin_pct": 37.3,
+      "roi_pct": 41.2,
+      "payback_years": 2.43,
+      "notes": "Stated cash flow $82k on $220k revenue = 37.3% margin. Industry norm for cleaning services is 10-18%. This margin is more than 2x the industry norm (~14%), which triggers a margin sanity flag. The $82k figure may include owner salary or overstate true discretionary earnings."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 149000,
+      "annual_note_payment": 31257,
+      "dscr": 2.62,
+      "monthly_net_after_debt": 4229,
+      "structure_summary": "$50k down, $149k note at 7%/6yr = ~$2,605/mo payment, ~$4,229/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 2.62 is well above the 2.5 threshold for a 5/5 rating. Even if cash flow is overstated by 25%, DSCR would still be ~1.97, which is serviceable."
+      },
+      "seller_finance_likelihood": {
+        "score": 2,
+        "reason": "No retirement mentioned, no seller motivation stated, no ownership tenure given. The listing mentions 'several years' but nothing about willingness to finance. Only long-implied tenure gives a slight bump."
+      },
+      "seller_motivation": {
+        "score": 2,
+        "reason": "Seller motivation is 'Not specified.' No retirement, health, or lifestyle reason given. The vague 'several years' language provides minimal context."
+      },
+      "owner_independence": {
+        "score": 4,
+        "reason": "Listing explicitly mentions 'trained staff and systems in place' and describes the business as 'turnkey.' This suggests semi-absentee operation is possible."
+      },
+      "business_age": {
+        "score": 3,
+        "reason": "Year established is not given. Description says 'several years' and 'well-established,' which suggests at least 5-10 years. Conservatively scored at 3/5."
+      },
+      "operational_simplicity": {
+        "score": 4,
+        "reason": "Cleaning services with staff are relatively simple operations with recurring revenue. Not as passive as vending/laundromat but straightforward with trained teams."
+      },
+      "red_flags": {
+        "penalty": 6,
+        "flags": [
+          "Profit margin of 37.3% is more than 2x the industry norm of ~14% \u2014 automatic 2-point penalty per framework rules",
+          "Seller motivation entirely unclear \u2014 no reason for selling given, combined with unknown business age this is a concern (-2)",
+          "Margin 37% is 2.7x the 14% industry norm \u2014 verify owner labor is costed"
+        ]
+      }
+    },
+    "weighted_score": 40.0,
+    "tier": "C",
+    "seller_finance_signal": "None detected \u2014 no mention of seller willingness to finance, no retirement language, no indication seller prefers income stream over lump sum. This would need to be negotiated directly.",
+    "boomer_signal": "None detected \u2014 no age, retirement, or health references in the listing. 'Several years' of operation is the only indirect signal of a mature owner.",
+    "summary": "The DSCR of 2.62 looks excellent on paper, leaving ~$4,229/mo after debt service \u2014 but the stated 37.3% profit margin is more than double the cleaning industry norm of 10-18%, raising serious questions about whether the $82k cash flow figure is accurate or inflated with add-backs. The deal could still work if true SDE is even $50-60k (DSCR ~1.6-1.9), but the lack of any seller motivation or financing signals means you'd be negotiating from scratch on deal structure. Worth a deeper dive into financials, but go in skeptical on the margin claims.",
+    "key_strength": "Strong stated DSCR of 2.62 with trained staff and systems in place \u2014 if financials verify, this is a high-cash-flow acquisition with good owner independence.",
+    "key_risk": "Profit margin of 37.3% is 2-3x industry norms for cleaning services (10-18%), suggesting cash flow may be significantly overstated or include unsustainable owner add-backs.",
+    "negotiation_note": "The inflated margin is your best leverage \u2014 ask for 2-3 years of tax returns and P&Ls to verify the $82k cash flow. If true earnings are closer to $40-55k (realistic at 18-25% margin), the asking price of $199k is too high and you should counter at $130-150k. No seller motivation is stated, so probe for urgency \u2014 if they're truly motivated, they may accept a lower price with seller financing to close quickly.",
+    "is_estimated": false,
+    "margin_sanity_flag": "FLAGGED: Stated margin of 37.3% exceeds 2x the cleaning service industry norm of ~14% (range 10-18%). Applied automatic 2-point red flag penalty. Buyer must verify financials \u2014 $82k cash flow on $220k revenue is atypical for this industry without significant owner labor counted as profit.",
+    "_rule_adjustments": [
+      "margin 37% exceeds 2x norm (14%) \u2014 penalty applied"
+    ]
+  },
+  {
+    "business_name": "Profitable Retail Boutique",
+    "business_type": "Retail Store",
+    "asking_price_usd": 150000,
+    "location": "Pittsburgh, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/profitable-retail-boutique/2089456/",
+    "extracted_financials": {
+      "gross_revenue_annual": 300000,
+      "cash_flow_annual": 60000,
+      "profit_margin_pct": 20.0,
+      "roi_pct": 40.0,
+      "payback_years": 2.5,
+      "notes": "Stated cash flow $60k on $300k revenue = 20% margin. Industry norm for retail/boutique is ~5-8%. This margin is 2.5-4x the norm, triggering a margin sanity flag. The 2.5x asking-to-cash-flow multiple is below typical 3-5x retail multiples, suggesting either undervalued or overstated cash flow."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 100000,
+      "annual_note_payment": 20980,
+      "dscr": 2.86,
+      "monthly_net_after_debt": 3252,
+      "structure_summary": "$50k down, $100k note at 7%/6yr = ~$1,748/mo payment, ~$3,252/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 2.86 is well above the 2.5 threshold for a 5/5. Annual cash flow of $60k comfortably covers the ~$20,980 annual note payment nearly 3x over, leaving ~$39,020/yr net."
+      },
+      "seller_finance_likelihood": {
+        "score": 2,
+        "reason": "Seller is relocating (not retiring), business is 8+ years old which helps, but no mention of staff in place and relocation is not the strongest seller-finance signal. No explicit willingness to carry a note mentioned."
+      },
+      "seller_motivation": {
+        "score": 4,
+        "reason": "Relocation is a clear lifestyle change reason, which scores 4/5. Not a retirement sale but a concrete, understandable motivation that suggests urgency and willingness to negotiate."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "No employees mentioned. Description says 'great opportunity for an owner-operator,' implying the current owner runs it solo. No staff, no documented systems mentioned. Owner-operator dependency is a concern."
+      },
+      "business_age": {
+        "score": 3,
+        "reason": "Described as 'over 8 years' in operation, placing it in the 5-10 year range for a 3/5 score. Established but not a long-tenured 15+ year business."
+      },
+      "operational_simplicity": {
+        "score": 4,
+        "reason": "Retail boutique with clothing and accessories is relatively simple to operate. Inventory management is the main complexity. High foot traffic location helps. Scores as 'retail with staff' tier even though staff isn't confirmed \u2014 retail itself is straightforward."
+      },
+      "red_flags": {
+        "penalty": 6,
+        "flags": [
+          "Stated profit margin of 20% is 2.5-4x the retail industry norm of 5-8%, triggering automatic -2 penalty per margin sanity rule",
+          "No employees mentioned; listing implies owner-operator model, raising dependency concerns (-2 would apply but captured in owner_independence cap)",
+          "Margin 20% is 2.5x the 8% industry norm \u2014 verify owner labor is costed"
+        ]
+      }
+    },
+    "weighted_score": 40.0,
+    "tier": "C",
+    "seller_finance_signal": "Moderate \u2014 seller is relocating which creates urgency and may make them open to seller financing to close quickly. The 8+ year tenure means the business is likely paid off. However, relocation sellers sometimes prefer lump sum to fund their move, reducing likelihood compared to a retiree.",
+    "boomer_signal": "None detected \u2014 seller is relocating, not retiring. No age, retirement, or health indicators. This is a lifestyle-change sale, not a boomer exit.",
+    "summary": "The DSCR of 2.86 is excellent on paper, leaving ~$3,250/mo net after debt service on a $50k down / $100k note structure. However, the stated 20% profit margin is 2.5-4x the retail industry norm (5-8%), which raises serious questions about whether the $60k cash flow figure is accurate or sustainable. Additionally, the lack of any employees and the 'owner-operator' framing means the buyer must run this hands-on daily, capping this at B-tier regardless of score.",
+    "key_strength": "Outstanding DSCR of 2.86 if financials are accurate \u2014 the deal cash-flows extremely well with nearly $40k/yr left after debt service.",
+    "key_risk": "Profit margin of 20% on a retail boutique is 2.5-4x the industry norm, strongly suggesting overstated cash flow or unsustainable cost structure. Financials need deep verification before proceeding.",
+    "negotiation_note": "Leverage the margin discrepancy heavily \u2014 request 2-3 years of tax returns and P&Ls to verify the $60k cash flow. The relocation urgency gives you timing leverage. If cash flow verifies lower (say $30-40k), negotiate the price down to $90-120k. Also push for seller training period and an earn-out structure tied to verified performance.",
+    "is_estimated": false,
+    "margin_sanity_flag": "FLAGGED: Stated margin is 20.0% vs. retail industry norm of 5-8%. This is >2x the norm. Automatic -2 penalty applied. Buyer must independently verify cash flow through tax returns, bank statements, and inventory cost analysis before trusting these numbers.",
+    "_rule_adjustments": [
+      "margin 20% exceeds 2x norm (8%) \u2014 penalty applied"
+    ]
+  },
+  {
+    "business_name": "Profitable Auto Repair Shop",
+    "business_type": "Auto Repair, Parts & Services",
+    "asking_price_usd": 150000,
+    "location": "Pennsylvania",
+    "source_url": "https://www.businessbroker.net/business-for-sale/profitable-auto-repair-shop-pennsylvania/445679.aspx",
+    "extracted_financials": {
+      "gross_revenue_annual": 300000,
+      "cash_flow_annual": 75000,
+      "profit_margin_pct": 25.0,
+      "roi_pct": 50.0,
+      "payback_years": 2.0,
+      "notes": "Stated $300k revenue, $75k cash flow = 25% margin. Industry norm for auto repair is ~10-20%. At 25% this is at the high end but not egregiously above 2x the norm (30%). No year established provided, no employee count, no seller motivation stated. Listing says 'well-established' and 'great reputation' but no specifics."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 100000,
+      "annual_note_payment": 20980,
+      "dscr": 3.57,
+      "monthly_net_after_debt": 4502,
+      "structure_summary": "$50k down, $100k note at 7%/6yr = ~$1,748/mo payment, ~$4,502/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 3.57 is well above 2.5 threshold. $75k cash flow vs ~$21k annual note payment leaves substantial cushion \u2014 very comfortable debt service coverage."
+      },
+      "seller_finance_likelihood": {
+        "score": 2,
+        "reason": "No retirement or motivation mentioned. Description says 'well-established' suggesting longevity, but no ownership tenure, no explicit willingness to finance, and no boomer/retirement signals. Unclear if seller would carry a note."
+      },
+      "seller_motivation": {
+        "score": 2,
+        "reason": "No reason for selling provided whatsoever. No age, retirement, health, or lifestyle mention. Vague listing with no seller context \u2014 this is a yellow flag for negotiation leverage and financing willingness."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "No employees listed. Description says 'ideal for an experienced mechanic or investor' which implies owner-operator model. No mention of staff, technicians, or systems in place. Likely owner-dependent."
+      },
+      "business_age": {
+        "score": 3,
+        "reason": "Year established not provided, but listing says 'well-established' with 'great reputation.' Giving benefit of the doubt at 3/5, assuming 5-10 years based on language, but this is unverifiable."
+      },
+      "operational_simplicity": {
+        "score": 2,
+        "reason": "Auto repair is a skilled trade requiring certified mechanics, diagnostic equipment knowledge, and technical expertise. Not a simple route or passive business. Scored 2/5 per framework for skilled trade."
+      },
+      "red_flags": {
+        "penalty": 4,
+        "flags": [
+          "No year established provided \u2014 cannot verify business age (-0 but factored into age score)",
+          "No employees listed \u2014 likely pure owner-operator, clients may follow the mechanic (-2)",
+          "Reason for selling unclear + business age unknown \u2014 potential hidden issues (-2)",
+          "25% margin is at high end of auto repair norm (10-20%) but does not exceed 2x (30%), no extra margin penalty applied"
+        ]
+      }
+    },
+    "weighted_score": 40.0,
+    "tier": "C",
+    "seller_finance_signal": "None detected \u2014 no mention of seller willingness to finance, no note terms offered, no flexibility language in listing. Would need to probe seller directly.",
+    "boomer_signal": "None detected \u2014 no retirement, age, health, or lifestyle change mentioned. 'Well-established' is the only indirect signal of a long-tenured owner.",
+    "summary": "The DSCR is outstanding at 3.57x \u2014 if the $75k cash flow is real, debt service is trivially covered with ~$4,500/mo net income after payments. However, this listing has significant information gaps: no employees, no year established, no seller motivation, and auto repair is a skilled-trade owner-operator business. The lack of staff and seller context makes this a risky seller-finance play despite the strong on-paper numbers.",
+    "key_strength": "Exceptional DSCR of 3.57 \u2014 the 2x asking-price-to-cash-flow multiple means debt service is easily covered with substantial monthly income remaining (~$4,500/mo).",
+    "key_risk": "No employees listed and 'ideal for an experienced mechanic' language strongly suggests this is an owner-operator shop where the current owner IS the business. Revenue could evaporate with ownership change if customers are loyal to the mechanic, not the shop.",
+    "negotiation_note": "Leverage the missing information aggressively: demand 3 years of tax returns and P&Ls to verify the $75k cash flow claim. No stated reason for selling + no employees = potential distress signal \u2014 push for price reduction to $120k-$130k range and insist on seller financing with a 12-month earnout clause tied to revenue retention. The 2x multiple is already below market (2.5-3.5x for auto repair), which either means a deal or means the financials won't hold up under scrutiny.",
+    "is_estimated": false,
+    "margin_sanity_flag": "Stated margin of 25% is at the high end of the 10-20% auto repair industry norm but does not exceed the 2x threshold (30%). Warrants verification of cash flow figures but no automatic penalty applied."
+  },
+  {
+    "business_name": "Established Retail Store in Prime Location",
+    "business_type": "Retail Store",
+    "asking_price_usd": 199000,
+    "location": "Philadelphia, PA",
+    "source_url": "https://www.bizbuysell.com/Business-Opportunity/established-retail-store-in-prime-location/2091234/",
+    "extracted_financials": {
+      "gross_revenue_annual": 450000,
+      "cash_flow_annual": 85000,
+      "profit_margin_pct": 18.9,
+      "roi_pct": 42.7,
+      "payback_years": 2.34,
+      "notes": "Stated cash flow $85k on $450k revenue = 18.9% margin. Industry norm for retail is ~5-7% (general) or up to ~8% for specialty. Stated margin is ~2.4x the upper bound of the 8% norm, triggering a margin sanity flag."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 149000,
+      "annual_note_payment": 31254,
+      "dscr": 2.72,
+      "monthly_net_after_debt": 4479,
+      "structure_summary": "$50k down, $149k note at 7%/6yr = ~$2,604/mo payment, ~$4,479/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 2.72 exceeds the 2.5 threshold for top score. $85k cash flow comfortably covers $31.3k annual note payment, leaving ~$53.7k/yr for the owner."
+      },
+      "seller_finance_likelihood": {
+        "score": 2,
+        "reason": "No seller motivation stated. Business is 10+ years old which helps, but no mention of retirement, staff, or willingness to finance. Long tenure is the only positive signal."
+      },
+      "seller_motivation": {
+        "score": 3,
+        "reason": "No explicit reason given for sale, but the listing notes 10+ years of operation suggesting a long-tenured owner. Fits the 'no reason given but long-tenured owner' category."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "No employees listed, no mention of staff in the description. The listing references 'customer service' but doesn't confirm team members. Likely owner-operator, though retail stores in high-traffic areas sometimes have part-time help. Scored conservatively as owner-operator, simple enough to learn."
+      },
+      "business_age": {
+        "score": 4,
+        "reason": "Description says 'over 10 years' of operation. No exact year established. Scores 4/5 for 10-15 year range."
+      },
+      "operational_simplicity": {
+        "score": 4,
+        "reason": "Retail store with staff (if any) is a 4/5. Even without confirmed staff, retail operations are relatively straightforward \u2014 inventory management, POS, customer service. Giving benefit of doubt as a staffed retail in a prime location."
+      },
+      "red_flags": {
+        "penalty": 6,
+        "flags": [
+          "No employees listed \u2014 possible pure owner-operator (-2 implicit via score cap)",
+          "Seller motivation not specified \u2014 unclear reason for selling",
+          "Margin sanity flag: stated 18.9% margin is ~2.4x the 8% retail norm \u2014 automatic -2 penalty per framework rules",
+          "No year established \u2014 only 'over 10 years' mentioned in description",
+          "Margin 19% is 2.4x the 8% industry norm \u2014 verify owner labor is costed"
+        ]
+      }
+    },
+    "weighted_score": 39.0,
+    "tier": "D",
+    "seller_finance_signal": "Weak. No explicit mention of seller financing willingness. 10+ year tenure suggests an owner who may be open to it, but nothing in the listing confirms it. Would need to probe directly.",
+    "boomer_signal": "None detected. No mention of retirement, age, health, or lifestyle change. The 10+ year tenure is suggestive but not conclusive.",
+    "summary": "The deal cash-flows very well on paper \u2014 a 2.72 DSCR leaves ~$4,479/mo after debt service, which is strong. However, the stated 18.9% profit margin is roughly 2-3x the retail industry norm, raising serious questions about whether the $85k cash flow figure is accurate or includes owner salary adjustments. The lack of stated employees, seller motivation, and verified financials means this deal needs heavy due diligence before committing.",
+    "key_strength": "Exceptional DSCR of 2.72 \u2014 if the $85k cash flow is real, this deal pays for itself comfortably with ~$54k/yr left over after debt service.",
+    "key_risk": "Profit margin of 18.9% is 2-3x the retail industry norm (~5-8%), suggesting either inflated cash flow figures, understated expenses, or significant owner labor baked into 'profit.' Requires forensic review of P&L and tax returns.",
+    "negotiation_note": "The margin anomaly is strong leverage \u2014 ask for 3 years of tax returns and bank statements to verify the $85k cash flow. If margins can't be validated, push asking price down to $150k-$165k. No stated seller motivation means you can negotiate patiently. Offer seller financing as a benefit to them (steady income stream, tax advantages on installment sale).",
+    "is_estimated": false,
+    "margin_sanity_flag": "FLAGGED: Stated profit margin of 18.9% is ~2.4x the retail industry norm of ~8%. Automatic -2 penalty applied. The $85k cash flow on $450k revenue needs rigorous verification \u2014 likely includes owner compensation or understates true operating expenses.",
+    "_rule_adjustments": [
+      "margin 19% exceeds 2x norm (8%) \u2014 penalty applied"
+    ]
+  },
+  {
+    "business_name": "Local Convenience Store",
+    "business_type": "Convenience Stores",
+    "asking_price_usd": 120000,
+    "location": "Pennsylvania",
+    "source_url": "https://www.businessbroker.net/business-for-sale/local-convenience-store-pennsylvania/445680.aspx",
+    "extracted_financials": {
+      "gross_revenue_annual": 400000,
+      "cash_flow_annual": 60000,
+      "profit_margin_pct": 15.0,
+      "roi_pct": 50.0,
+      "payback_years": 2.0,
+      "notes": "Stated cash flow $60k on $400k revenue = 15% margin. Market context notes typical convenience store margins are 2-5%, though higher-margin items can boost this. A 15% net margin is well above industry norm for pure convenience stores, warranting scrutiny \u2014 however this could reflect a low-rent, owner-operated store with minimal overhead. The 2x multiple on cash flow is below typical 2.5-3.5x, suggesting either undervaluation or unverified financials."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 70000,
+      "annual_note_payment": 14682,
+      "dscr": 4.09,
+      "monthly_net_after_debt": 3777,
+      "structure_summary": "$50k down, $70k note at 7%/6yr = ~$1,224/mo payment, ~$3,777/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 5,
+        "reason": "DSCR of 4.09 is exceptionally strong \u2014 cash flow of $60k covers the ~$14,682 annual note payment more than 4 times over. Even if cash flow is overstated by 50%, DSCR would still exceed 2.0."
+      },
+      "seller_finance_likelihood": {
+        "score": 1,
+        "reason": "No mention of seller financing willingness, no retirement context, no business tenure stated, no employee info. Zero signals that the seller would carry a note."
+      },
+      "seller_motivation": {
+        "score": 2,
+        "reason": "No reason for selling is provided. Description is generic and vague \u2014 'contact for more information' suggests a thin listing. No boomer exit signals whatsoever."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "No employees mentioned. Description says 'great opportunity for a family-run business,' which implies owner-operator model with no existing staff. No systems or processes described."
+      },
+      "business_age": {
+        "score": 1,
+        "reason": "Year established is not provided. No indication of how long the business has been operating. Cannot verify stability or track record."
+      },
+      "operational_simplicity": {
+        "score": 4,
+        "reason": "Convenience stores are operationally straightforward \u2014 retail with inventory, POS system, regular hours. Located in residential neighborhood with steady foot traffic. Simple product mix."
+      },
+      "red_flags": {
+        "penalty": 4,
+        "flags": [
+          "No year established \u2014 cannot verify business age or stability (-2 from 'reason unclear + business age unknown')",
+          "Stated 15% profit margin is dramatically above the 2-5% industry norm for convenience stores per market context \u2014 margin sanity flag triggered (-2 for margin exceeding 2x industry norm)",
+          "No seller motivation provided",
+          "No employees mentioned \u2014 likely pure owner-operator",
+          "Very thin listing description with minimal detail"
+        ]
+      }
+    },
+    "weighted_score": 36.0,
+    "tier": "D",
+    "seller_finance_signal": "None detected \u2014 no mention of seller financing, flexible terms, or willingness to carry a note. Would need to be negotiated from scratch.",
+    "boomer_signal": "None detected \u2014 no retirement mention, no age indicators, no tenure information, no lifestyle change language.",
+    "summary": "The DSCR is outstanding on paper at 4.09x, meaning the $70k seller note would be easily serviced with ~$3,777/mo left over \u2014 but the financials need heavy verification. The claimed 15% net margin is 3-7x the typical convenience store norm of 2-5%, and the listing provides zero information about business age, employees, or seller motivation. This is a 'verify everything' deal: if the numbers hold up and the seller will carry a note, it's a strong cash-flow play, but the listing gives almost nothing to work with.",
+    "key_strength": "Exceptional DSCR of 4.09 \u2014 if the $60k cash flow is real, the deal structure leaves substantial monthly income after debt service and significant margin of safety.",
+    "key_risk": "Stated 15% profit margin is 3-7x the convenience store industry norm (2-5%), no business age provided, no employees mentioned, and zero seller motivation signals \u2014 the financials may be significantly overstated or include owner salary as profit.",
+    "negotiation_note": "The thin listing and lack of seller context give you leverage. Push hard for 3 years of tax returns and P&L statements before any LOI. The below-market 2x multiple suggests either motivated seller or questionable numbers \u2014 either way, you should negotiate the price down to $90-100k citing unverifiable financials, or demand a larger seller-carry percentage (80%+) with performance earnouts tied to verified revenue thresholds.",
+    "is_estimated": false,
+    "margin_sanity_flag": "FLAGGED: Stated profit margin of 15% is approximately 3-7x the industry norm of 2-5% for convenience stores. Even with higher-margin prepared foods, this margin is suspicious. Automatic -2 penalty applied. Demand tax returns and detailed P&L to verify \u2014 the $60k cash flow may include owner compensation or exclude key expenses."
+  },
+  {
+    "business_name": "Fitness Center with Growth Potential",
+    "business_type": "Fitness Centers & Gyms",
+    "asking_price_usd": 225000,
+    "location": "Pennsylvania",
+    "source_url": "https://www.businessbroker.net/business-for-sale/fitness-center-with-growth-potential-pennsylvania/445681.aspx",
+    "extracted_financials": {
+      "gross_revenue_annual": 350000,
+      "cash_flow_annual": 90000,
+      "profit_margin_pct": 25.7,
+      "roi_pct": 40.0,
+      "payback_years": 2.5,
+      "notes": "Stated $90k cash flow on $350k revenue = 25.7% margin. Industry norm for gyms is ~10-20%. At 25.7% this is above the high end but not double; borderline. No year established, no employee count, no seller motivation disclosed."
+    },
+    "deal_structure": {
+      "down_payment": 50000,
+      "note_amount": 175000,
+      "annual_note_payment": 36720,
+      "dscr": 2.45,
+      "monthly_net_after_debt": 4440,
+      "structure_summary": "$50k down, $175k note at 7%/6yr = ~$3,060/mo payment, ~$4,440/mo net after debt service"
+    },
+    "scores": {
+      "dscr_score": {
+        "score": 4,
+        "reason": "DSCR of 2.45 falls in the 2.0\u20132.5 range. Cash flow of $90k vs ~$36.7k annual note payment is very comfortable, leaving ~$53k/yr for the owner."
+      },
+      "seller_finance_likelihood": {
+        "score": 1,
+        "reason": "No seller motivation mentioned, no retirement signal, no ownership tenure disclosed, no staff mentioned. Zero indicators that seller would carry a note."
+      },
+      "seller_motivation": {
+        "score": 2,
+        "reason": "No reason for selling provided. No age, retirement, or lifestyle context. Vague listing with no seller context."
+      },
+      "owner_independence": {
+        "score": 2,
+        "reason": "No employees mentioned, no staff referenced, no systems described. Description says 'perfect for a fitness enthusiast' which implies owner-operator model. Scored as owner-operator but learnable."
+      },
+      "business_age": {
+        "score": 1,
+        "reason": "Year established is not provided. Cannot verify business age. Description says 'established' but provides no data. Defaults to lowest score."
+      },
+      "operational_simplicity": {
+        "score": 3,
+        "reason": "Gyms require equipment maintenance, membership management, class scheduling, and staff management. Not the simplest model but not highly specialized either. Moderate complexity."
+      },
+      "red_flags": {
+        "penalty": 4,
+        "flags": [
+          "No year established \u2014 cannot verify business age or stability (-2 implicit in low age score)",
+          "No employees listed \u2014 unclear if staff exists",
+          "No seller motivation \u2014 reason for selling completely unknown + unknown business age = -2 penalty",
+          "Profit margin of 25.7% is above the typical 10-20% gym range \u2014 borderline but flagging as suspicious given no financials verification context (-1)",
+          "Very thin listing description with no operational details (-1)"
+        ]
+      }
+    },
+    "weighted_score": 28.0,
+    "tier": "D",
+    "seller_finance_signal": "None detected \u2014 no retirement, no tenure, no willingness to finance mentioned. This is a significant gap for the buyer's seller-finance acquisition model.",
+    "boomer_signal": "None detected \u2014 no age, retirement, health, or lifestyle change signals anywhere in the listing.",
+    "summary": "The DSCR of 2.45 is strong on paper \u2014 $90k cash flow would comfortably cover a $36.7k annual note payment and leave ~$4,440/mo. However, the listing is critically thin: no business age, no employees, no seller motivation, and no evidence the seller would carry a note. The inflated margin claim (25.7% vs. 10-20% industry norm) and complete absence of boomer/retirement signals make this a speculative deal that requires significant due diligence before proceeding.",
+    "key_strength": "Strong stated DSCR of 2.45 with $90k annual cash flow \u2014 if financials verify, the deal cash-flows very well after debt service.",
+    "key_risk": "Zero seller-finance signals combined with unknown business age and no staff \u2014 the entire deal thesis (boomer seller carries note, staff in place) is unsupported by the listing.",
+    "negotiation_note": "The 2.5x multiple is below industry norms (3-5x), giving leverage to negotiate price down to $175-200k or push for seller financing by emphasizing the seller's difficulty finding all-cash buyers at this price point. Demand full financials, tax returns, and membership retention data before any offer. Unknown age and staffing are leverage points to push price toward $175k.",
+    "is_estimated": false,
+    "margin_sanity_flag": "Stated margin of 25.7% exceeds the high end of the 10-20% gym industry norm. While not quite 2x the norm, it is suspicious given the lack of supporting detail. Demand verified P&L and tax returns."
+  }
+]

@@ -572,6 +572,7 @@ def orchestrate(
     location: str,
     no_deep_dive: bool,
     no_commit: bool,
+    from_json: str = None,
 ) -> None:
     timestamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")
     run_dir = RUNS_DIR / timestamp
@@ -580,7 +581,6 @@ def orchestrate(
     program = load_program()
     seen = load_seen()
     findings = load_findings()
-    queries = build_search_queries_with_context(budget, biz_type, location, seen, findings, rounds)
 
     print("=" * 72)
     print("  autobiz — Multi-Agent Research Orchestrator")
@@ -593,22 +593,41 @@ def orchestrate(
     print("=" * 72)
     print()
 
-    # --- Phase 1: Parallel Search Agents ---
-    print(f"[ SearchAgents ] Launching {len(queries)} parallel search agents via Grok...")
-    all_listings: list[dict] = []
+    # --- Phase 1: Discovery (search agents OR pre-scraped JSON) ---
+    if from_json:
+        print(f"[ Discovery ] Loading pre-scraped listings from {from_json}...")
+        with open(from_json) as f:
+            raw = json.load(f)
+        # Normalize field names from scraper.py format if needed
+        listings = []
+        for item in raw:
+            # scraper.py uses cash_flow_annual / gross_revenue_annual; research.py expects
+            # annual_cash_flow / annual_revenue — map if needed
+            normalized = dict(item)
+            if "cash_flow_annual" in normalized and "annual_cash_flow" not in normalized:
+                normalized["annual_cash_flow"] = normalized["cash_flow_annual"]
+            if "gross_revenue_annual" in normalized and "annual_revenue" not in normalized:
+                normalized["annual_revenue"] = normalized["gross_revenue_annual"]
+            listings.append(normalized)
+        listings = deduplicate(listings)
+        print(f"  Loaded {len(listings)} unique listings from file\n")
+    else:
+        queries = build_search_queries_with_context(budget, biz_type, location, seen, findings, rounds)
+        print(f"[ SearchAgents ] Launching {len(queries)} parallel search agents via Grok...")
+        all_listings: list[dict] = []
 
-    with ThreadPoolExecutor(max_workers=len(queries)) as executor:
-        futures = {
-            executor.submit(search_agent, grok, q, i): i
-            for i, q in enumerate(queries, 1)
-        }
-        for future in as_completed(futures):
-            agent_id, listings = future.result()
-            print(f"  Agent-{agent_id}: found {len(listings)} listings")
-            all_listings.extend(listings)
+        with ThreadPoolExecutor(max_workers=len(queries)) as executor:
+            futures = {
+                executor.submit(search_agent, grok, q, i): i
+                for i, q in enumerate(queries, 1)
+            }
+            for future in as_completed(futures):
+                agent_id, llist = future.result()
+                print(f"  Agent-{agent_id}: found {len(llist)} listings")
+                all_listings.extend(llist)
 
-    listings = deduplicate(all_listings)
-    print(f"  Deduplicated: {len(listings)} unique listings\n")
+        listings = deduplicate(all_listings)
+        print(f"  Deduplicated: {len(listings)} unique listings\n")
 
     if not listings:
         print("No listings found. Adjust --type or --location.")
@@ -693,7 +712,7 @@ def orchestrate(
         "biz_type": biz_type,
         "location": location,
         "rounds": rounds,
-        "total_found": len(all_listings),
+        "total_found": len(listings),
         "unique_listings": len(listings),
         "scored": len(results),
         "tier_a": sum(1 for r in results if r.get("tier") == "A"),
@@ -750,6 +769,7 @@ def main():
     parser.add_argument("--location", type=str, default="")
     parser.add_argument("--no-deep-dive", action="store_true")
     parser.add_argument("--no-commit", action="store_true", help="Don't commit to git (dry run)")
+    parser.add_argument("--from-json", type=str, metavar="FILE", help="Skip discovery — score listings from a pre-scraped JSON file")
     parser.add_argument("--list-runs", action="store_true", help="Show git log of past research runs")
     parser.add_argument("--show-run", type=str, metavar="SHA", help="Print report from a past run")
     args = parser.parse_args()
@@ -792,6 +812,7 @@ def main():
         location=args.location,
         no_deep_dive=args.no_deep_dive,
         no_commit=args.no_commit,
+        from_json=args.from_json,
     )
 
 
