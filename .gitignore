@@ -18,6 +18,9 @@ build/
 # macOS
 .DS_Store
 
+# User config (API keys saved via settings page)
+config.json
+
 # IDE
 .vscode/
 .idea/

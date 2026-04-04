@@ -196,14 +196,10 @@ def analyze_business(
 
     prompt = build_extraction_prompt(business, program, market_context)
 
+    from config import llm_score_call
     for attempt in range(MAX_RETRIES):
         try:
-            response = client.messages.create(
-                model=MODEL,
-                max_tokens=1500,
-                messages=[{"role": "user", "content": prompt}],
-            )
-            raw = response.content[0].text.strip()
+            raw = llm_score_call(prompt, max_tokens=1500)
 
             # Strip markdown code fences if present
             if raw.startswith("```"):
@@ -220,18 +216,19 @@ def analyze_business(
 
             return result
 
-        except (anthropic.RateLimitError, anthropic.APIStatusError) as e:
-            if attempt < MAX_RETRIES - 1:
-                print(f"  Rate limit / API error, retrying in {RETRY_DELAY}s... ({e})")
+        except Exception as e:
+            raw_err = str(e).lower()
+            is_rate = any(x in raw_err for x in ("rate", "429", "limit", "quota"))
+            if is_rate and attempt < MAX_RETRIES - 1:
+                print(f"  Rate limit, retrying in {RETRY_DELAY}s...")
                 time.sleep(RETRY_DELAY)
-            else:
-                raise
-        except json.JSONDecodeError as e:
-            print(f"  JSON parse error on attempt {attempt + 1}: {e}")
+                continue
+            if isinstance(e, json.JSONDecodeError):
+                print(f"  JSON parse error on attempt {attempt + 1}: {e}")
             if attempt == MAX_RETRIES - 1:
                 return {
                     "business_name": business.get("business_name", "Unknown"),
-                    "error": f"JSON parse failed: {e}",
+                    "error": f"API/parse error: {e}",
                     "raw_response": raw[:500],
                     "weighted_score": 0,
                     "tier": "D",
@@ -370,21 +367,22 @@ def main():
     parser.add_argument("--grok", action="store_true", help="Enrich each listing with live web search via Grok (xAI)")
     args = parser.parse_args()
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        print("Error: ANTHROPIC_API_KEY environment variable not set.")
+    from config import load_config, get_scoring_client, get_research_client
+    app_cfg = load_config()
+    try:
+        _, client = get_scoring_client(app_cfg)
+    except ValueError as e:
+        print(f"Error: {e}")
         sys.exit(1)
-
-    client = anthropic.Anthropic(api_key=api_key)
 
     grok_client = None
     if args.grok:
-        xai_key = os.environ.get("XAI_API_KEY")
-        if not xai_key:
-            print("Error: XAI_API_KEY environment variable not set (required for --grok).")
+        try:
+            grok_client = get_research_client(app_cfg)
+            print("Grok web search enrichment: ENABLED")
+        except ValueError as e:
+            print(f"Error: {e}")
             sys.exit(1)
-        grok_client = XaiClient(api_key=xai_key)
-        print("Grok web search enrichment: ENABLED")
 
     program = load_program()
 

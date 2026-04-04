@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>autobiz — Settings</title>
+  <link rel="stylesheet" href="/static/settings.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">autobiz</div>
+      <div class="header-sub">Model &amp; API Settings</div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Toast notification -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- ── Scoring Model ── -->
+    <section class="card">
+      <div class="card-header">
+        <h2>Scoring Model</h2>
+        <p class="card-desc">Used by Claude / GPT / Gemini to evaluate and score each business against the investment thesis.</p>
+      </div>
+
+      <div class="field-group">
+        <label for="scoring_provider">Provider</label>
+        <select id="scoring_provider" onchange="providerChanged('scoring', this.value)">
+          {% for p in provider_models %}
+          <option value="{{ p }}" {% if cfg.scoring.provider == p %}selected{% endif %}>
+            {{ p | title }}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label for="scoring_model">Model</label>
+        <input type="text" id="scoring_model" value="{{ cfg.scoring.model }}"
+               list="scoring_model_list" placeholder="e.g. claude-opus-4-6">
+        <datalist id="scoring_model_list">
+          {% for m in provider_models[cfg.scoring.provider] %}
+          <option value="{{ m }}">
+          {% endfor %}
+        </datalist>
+      </div>
+
+      <div class="field-group">
+        <label for="scoring_api_key">
+          API Key
+          {% if env_status.scoring == 'config' %}
+            <span class="badge badge-saved">saved</span>
+          {% elif env_status.scoring.startswith('env:') %}
+            <span class="badge badge-env">{{ env_status.scoring[4:] }}</span>
+          {% else %}
+            <span class="badge badge-missing">not set</span>
+          {% endif %}
+        </label>
+        <div class="key-input-wrap">
+          <input type="password" id="scoring_api_key"
+                 value="{{ masked.scoring_key_masked }}"
+                 placeholder="Paste API key here"
+                 autocomplete="off">
+          <button type="button" class="btn-icon" onclick="toggleKey('scoring_api_key')" title="Show/hide">
+            <svg id="scoring_api_key_eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+        <div class="field-hint">
+          Leave blank to keep using the
+          <code id="scoring_env_hint">{{ env_key_map[cfg.scoring.provider] }}</code>
+          environment variable.
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <button class="btn btn-secondary" onclick="testConnection('scoring')">
+          Test Connection
+        </button>
+        <span id="scoring_test_result" class="test-result"></span>
+      </div>
+    </section>
+
+    <!-- ── Research Model ── -->
+    <section class="card">
+      <div class="card-header">
+        <h2>Research Model</h2>
+        <p class="card-desc">Used to search the web for listings, enrich market data, and run due diligence. xAI Grok recommended — it has live web access.</p>
+      </div>
+
+      <div class="field-group">
+        <label for="research_provider">Provider</label>
+        <select id="research_provider" onchange="providerChanged('research', this.value)">
+          {% for p in provider_models %}
+          <option value="{{ p }}" {% if cfg.research.provider == p %}selected{% endif %}>
+            {{ p | title }}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label for="research_model">Model</label>
+        <input type="text" id="research_model" value="{{ cfg.research.model }}"
+               list="research_model_list" placeholder="e.g. grok-4.20-multi-agent-latest">
+        <datalist id="research_model_list">
+          {% for m in provider_models[cfg.research.provider] %}
+          <option value="{{ m }}">
+          {% endfor %}
+        </datalist>
+        <div class="field-hint">For live web search, use xAI Grok — other providers will use their training data only.</div>
+      </div>
+
+      <div class="field-group">
+        <label for="research_api_key">
+          API Key
+          {% if env_status.research == 'config' %}
+            <span class="badge badge-saved">saved</span>
+          {% elif env_status.research.startswith('env:') %}
+            <span class="badge badge-env">{{ env_status.research[4:] }}</span>
+          {% else %}
+            <span class="badge badge-missing">not set</span>
+          {% endif %}
+        </label>
+        <div class="key-input-wrap">
+          <input type="password" id="research_api_key"
+                 value="{{ masked.research_key_masked }}"
+                 placeholder="Paste API key here"
+                 autocomplete="off">
+          <button type="button" class="btn-icon" onclick="toggleKey('research_api_key')" title="Show/hide">
+            <svg id="research_api_key_eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+        <div class="field-hint">
+          Leave blank to keep using the
+          <code id="research_env_hint">{{ env_key_map[cfg.research.provider] }}</code>
+          environment variable.
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <button class="btn btn-secondary" onclick="testConnection('research')">
+          Test Connection
+        </button>
+        <span id="research_test_result" class="test-result"></span>
+      </div>
+    </section>
+
+    <!-- ── Run Defaults ── -->
+    <section class="card">
+      <div class="card-header">
+        <h2>Run Defaults</h2>
+        <p class="card-desc">Pre-fill <code>--location</code> and <code>--budget</code> when running <code>agent.py</code> without flags.</p>
+      </div>
+
+      <div class="field-group">
+        <label for="location">Default Location</label>
+        <input type="text" id="location" value="{{ cfg.defaults.location }}"
+               placeholder="e.g. Pennsylvania">
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label for="budget_min">Min Asking Price ($)</label>
+          <input type="number" id="budget_min" value="{{ cfg.defaults.budget_min }}"
+                 min="0" step="5000" placeholder="75000">
+        </div>
+        <div class="field-group">
+          <label for="budget_max">Max Asking Price ($)</label>
+          <input type="number" id="budget_max" value="{{ cfg.defaults.budget_max }}"
+                 min="0" step="5000" placeholder="250000">
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Save ── -->
+    <div class="save-bar">
+      <button class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
+      {% if last_saved %}
+      <span class="last-saved">Last saved: {{ last_saved }}</span>
+      {% endif %}
+    </div>
+  </main>
+
+  <script>
+    // Provider → suggested models (rendered by Jinja2)
+    const PROVIDER_MODELS = {{ provider_models | tojson }};
+    const ENV_KEY_MAP = {{ env_key_map | tojson }};
+
+    function providerChanged(role, provider) {
+      // Update datalist options
+      const listId = `${role}_model_list`;
+      const datalist = document.getElementById(listId);
+      datalist.innerHTML = "";
+      (PROVIDER_MODELS[provider] || []).forEach(m => {
+        const opt = document.createElement("option");
+        opt.value = m;
+        datalist.appendChild(opt);
+      });
+
+      // Pre-fill model with first suggestion
+      const modelInput = document.getElementById(`${role}_model`);
+      if (PROVIDER_MODELS[provider] && PROVIDER_MODELS[provider].length) {
+        modelInput.value = PROVIDER_MODELS[provider][0];
+      }
+
+      // Update env hint
+      const hint = document.getElementById(`${role}_env_hint`);
+      if (hint) hint.textContent = ENV_KEY_MAP[provider] || `${provider.toUpperCase()}_API_KEY`;
+    }
+
+    function toggleKey(inputId) {
+      const input = document.getElementById(inputId);
+      const eye = document.getElementById(`${inputId}_eye`);
+      if (input.type === "password") {
+        input.type = "text";
+        eye.style.opacity = "0.4";
+      } else {
+        input.type = "password";
+        eye.style.opacity = "1";
+      }
+    }
+
+    async function testConnection(role) {
+      const provider = document.getElementById(`${role}_provider`).value;
+      const model = document.getElementById(`${role}_model`).value.trim();
+      const apiKey = document.getElementById(`${role}_api_key`).value.trim();
+      const resultEl = document.getElementById(`${role}_test_result`);
+
+      resultEl.textContent = "Testing…";
+      resultEl.className = "test-result";
+
+      try {
+        const resp = await fetch("/test-key", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ provider, model, api_key: apiKey }),
+        });
+        const data = await resp.json();
+        if (data.ok) {
+          resultEl.textContent = `Connected (${data.latency_ms}ms)`;
+          resultEl.className = "test-result success";
+        } else {
+          resultEl.textContent = `Failed: ${data.error}`;
+          resultEl.className = "test-result error";
+        }
+      } catch (e) {
+        resultEl.textContent = `Error: ${e.message}`;
+        resultEl.className = "test-result error";
+      }
+    }
+
+    async function saveSettings() {
+      const payload = {
+        scoring_provider: document.getElementById("scoring_provider").value,
+        scoring_model:    document.getElementById("scoring_model").value.trim(),
+        scoring_api_key:  document.getElementById("scoring_api_key").value.trim(),
+        research_provider: document.getElementById("research_provider").value,
+        research_model:    document.getElementById("research_model").value.trim(),
+        research_api_key:  document.getElementById("research_api_key").value.trim(),
+        location:    document.getElementById("location").value.trim(),
+        budget_min:  parseInt(document.getElementById("budget_min").value) || 0,
+        budget_max:  parseInt(document.getElementById("budget_max").value) || 0,
+      };
+
+      try {
+        const resp = await fetch("/save", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const data = await resp.json();
+        if (data.ok) {
+          showToast("Settings saved.", "success");
+          // Clear key fields so they don't re-submit plaintext
+          document.getElementById("scoring_api_key").value = "";
+          document.getElementById("research_api_key").value = "";
+          // Reload to refresh badges
+          setTimeout(() => location.reload(), 800);
+        } else {
+          showToast(`Save failed: ${data.error}`, "error");
+        }
+      } catch (e) {
+        showToast(`Error: ${e.message}`, "error");
+      }
+    }
+
+    function showToast(msg, type) {
+      const toast = document.getElementById("toast");
+      toast.textContent = msg;
+      toast.className = `toast ${type}`;
+      setTimeout(() => { toast.className = "toast hidden"; }, 3500);
+    }
+  </script>
+</body>
+</html>

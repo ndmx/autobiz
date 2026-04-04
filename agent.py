@@ -518,39 +518,30 @@ def scoring_agent(
     market_context = market_enrich(grok, business)
     prompt = build_scoring_prompt(business, program, market_context, budget)
 
-    for attempt in range(MAX_RETRIES):
-        try:
-            response = claude.messages.create(
-                model=CLAUDE_MODEL,
-                max_tokens=1800,
-                messages=[{"role": "user", "content": prompt}],
-            )
-            raw = response.content[0].text.strip()
-            if raw.startswith("```"):
-                raw = raw.split("```")[1]
-                if raw.startswith("json"):
-                    raw = raw[4:].strip()
-            result = json.loads(raw)
-            if "scores" in result:
-                result["weighted_score"] = compute_weighted_score(result["scores"])
-                result["tier"] = score_to_tier(result["weighted_score"])
-            return agent_id, result
-        except (anthropic.RateLimitError, anthropic.APIStatusError):
-            if attempt < MAX_RETRIES - 1:
-                time.sleep(RETRY_DELAY)
-            else:
-                return agent_id, {
-                    "business_name": business.get("business_name", "Unknown"),
-                    "error": "API error after retries",
-                    "weighted_score": 0, "tier": "D",
-                }
-        except json.JSONDecodeError as e:
-            if attempt == MAX_RETRIES - 1:
-                return agent_id, {
-                    "business_name": business.get("business_name", "Unknown"),
-                    "error": f"JSON parse failed: {e}",
-                    "weighted_score": 0, "tier": "D",
-                }
+    try:
+        from config import llm_score_call
+        raw = llm_score_call(prompt)
+        if raw.startswith("```"):
+            raw = raw.split("```")[1]
+            if raw.startswith("json"):
+                raw = raw[4:].strip()
+        result = json.loads(raw)
+        if "scores" in result:
+            result["weighted_score"] = compute_weighted_score(result["scores"])
+            result["tier"] = score_to_tier(result["weighted_score"])
+        return agent_id, result
+    except json.JSONDecodeError as e:
+        return agent_id, {
+            "business_name": business.get("business_name", "Unknown"),
+            "error": f"JSON parse failed: {e}",
+            "weighted_score": 0, "tier": "D",
+        }
+    except Exception as e:
+        return agent_id, {
+            "business_name": business.get("business_name", "Unknown"),
+            "error": f"Scoring error: {e}",
+            "weighted_score": 0, "tier": "D",
+        }
 
 
 # ---------------------------------------------------------------------------
@@ -784,18 +775,19 @@ def main():
         print(show_run(args.show_run))
         return
 
-    # API clients
-    anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
-    xai_key = os.environ.get("XAI_API_KEY")
-    if not anthropic_key:
-        print("Error: ANTHROPIC_API_KEY not set.")
+    # API clients — reads from config.json first, falls back to env vars
+    from config import load_config, get_research_client, llm_score_call
+    app_cfg = load_config()
+    try:
+        grok = get_research_client(app_cfg)
+    except ValueError as e:
+        print(f"Error: {e}")
         sys.exit(1)
-    if not xai_key:
-        print("Error: XAI_API_KEY not set.")
+    try:
+        _, claude = __import__("config").get_scoring_client(app_cfg)
+    except ValueError as e:
+        print(f"Error: {e}")
         sys.exit(1)
-
-    claude = anthropic.Anthropic(api_key=anthropic_key)
-    grok = XaiClient(api_key=xai_key)
 
     orchestrate(
         claude=claude,
