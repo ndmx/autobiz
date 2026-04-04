@@ -1,0 +1,111 @@
+======================================================================
+  autobiz — Business Viability Report
+======================================================================
+  Analyzed: 11 businesses  |  Showing: 11
+
+🟠 #1  [C] 55/100  —  Established Hair Salon in Prime Location
+----------------------------------------------------------------------
+  Financials: Ask: $45,000  |  Revenue: $120,000  |  CF: $40,000  |  ROI: 88.9%  |  Margin: 33.3%
+  Scores:  ROI: 5/5  |  RevMult: 4/5  |  Margin: 3/5  |  Age: 5/5  |  Independence: 2/5  |  Market: 4/5  |  Flags: -4
+  Strength: Extremely low asking price relative to stated cash flow, with a retiring owner motivated to sell after 20 years — strong negotiation position and clean transition potential.
+  Risk:     Hair salons are inherently stylist-dependent; the loyal customer base likely follows the current owner/stylist, and the stated 33% profit margin significantly exceeds industry norms, suggesting financials may not hold post-acquisition.
+  Verdict:  This 20-year-old hair salon offers eye-catching financials with a sub-1.5-year payback on paper, a retiring owner (strong boomer signal), and a prime Montgomery County location. However, the 33% profit margin far exceeds the 10-20% industry norm, demanding rigorous verification, and the business is almost certainly owner-dependent — the retiring stylist's loyal clients may not transfer to a new owner. Capped at B-tier due to owner independence score of 2/5 and margin concerns.
+  ⚠ Flags: Profit margin (33%) exceeds 2x industry norm upper bound (20%) — automatic 2-point penalty per margin sanity rule; Owner is likely sole revenue generator — clients follow stylist, not salon — 2-point penalty
+
+🟠 #2  [C] 52/100  —  Profitable Pizzeria - Owner Retiring
+----------------------------------------------------------------------
+  Financials: Ask: $50,000  |  Revenue: $200,000  |  CF: $50,000  |  ROI: 100.0%  |  Margin: 25.0%
+  Scores:  ROI: 5/5  |  RevMult: 3/5  |  Margin: 3/5  |  Age: 5/5  |  Independence: 2/5  |  Market: 4/5  |  Flags: -4
+  Strength: Explicit retirement sale with 15 years of operating history and a very low asking price multiple (0.25x revenue, 1x cash flow) — if financials verify, this is an outstanding deal.
+  Risk:     Stated 25% profit margin is nearly 2x the pizzeria industry norm (7-15%), suggesting either inflated cash flow claims or unusual cost structure that requires deep financial verification. No staff mentioned implies heavy owner dependence.
+  Verdict:  This pizzeria shows attractive headline numbers with a 1-year payback on paper, a 15-year operating history, and an explicitly retiring owner. However, the claimed 25% profit margin is nearly double the industry norm for pizzerias, which raises serious verification concerns about the stated $50,000 cash flow. No staff are mentioned, making this likely an owner-operator business that caps it at B-tier regardless of score, and the financials need thorough due diligence before committing.
+  ⚠ Flags: Profit margin (25%) exceeds 2x the industry norm for pizzerias (7-15%), triggering automatic -2 penalty; No employees mentioned — likely owner-dependent operation, potential -2 for owner as sole revenue generator; Cash flow and revenue stated only in description, not in structured fields — verification needed
+
+🟠 #3  [C] 40/100  —  Mobile Pet Grooming Service
+----------------------------------------------------------------------
+  Financials: Ask: $40,000  |  Revenue: $75,000  |  CF: $28,000  |  ROI: 70.0%  |  Margin: 37.3%
+  Scores:  ROI: 5/5  |  RevMult: 4/5  |  Margin: 3/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 4/5  |  Flags: -4
+  Strength: Outstanding payback speed — $28K annual cash flow on $40K asking price yields ~1.4 year payback with a fully equipped van included.
+  Risk:     Complete owner-dependence with no staff; client relationships likely follow the groomer, creating high churn risk during ownership transition.
+  Verdict:  This mobile pet grooming business offers excellent ROI on paper at 70% annually with a 1.4-year payback, and the asking price of $40K fits the budget well. However, it is a pure owner-operator business with no employees, no stated business age, and no seller motivation — meaning the client base may be personality-dependent and the deal carries significant transition risk. The strong cash flow numbers are attractive but need verification, and the buyer must be prepared to personally perform all grooming work.
+  ⚠ Flags: No business age stated + no seller motivation = unclear reason for selling with unknown business age (-2); Owner is sole revenue generator — clients likely follow the groomer personally, no staff (-2)
+
+🔴 #4  [D] 34/100  —  Laundromat in Philadelphia County, PA
+----------------------------------------------------------------------
+  Financials: Ask: $50,000
+  Scores:  ROI: 1/5  |  RevMult: 3/5  |  Margin: 1/5  |  Age: 2/5  |  Independence: 5/5  |  Market: 3/5  |  Flags: -2
+  Strength: 100% absentee operation with exceptionally low rent ($1,000/month) and a long-term 10-year lease, providing cost stability and passive income potential.
+  Risk:     Zero financial transparency — no revenue, cash flow, or profit figures provided, making it impossible to verify the business generates any meaningful income or calculate payback period.
+  Verdict:  This laundromat has appealing structural features — 100% absentee operation, very low rent with a 10-year lease, retirement-motivated seller, and a solid Philadelphia location. However, the complete absence of any revenue or cash flow data is a critical gap that makes it impossible to assess payback or ROI. Without financials, this is a speculative buy at the top of the budget; the buyer must demand detailed P&L before proceeding.
+  ⚠ Flags: Missing financials entirely — no revenue, cash flow, or profit figures provided anywhere in the listing (-2)
+
+🔴 #5  [D] 34/100  —  Small Cafe with Growth Potential
+----------------------------------------------------------------------
+  Financials: Ask: $45,000  |  Revenue: $120,000  |  CF: $25,000  |  ROI: 55.6%  |  Margin: 20.8%
+  Scores:  ROI: 5/5  |  RevMult: 4/5  |  Margin: 3/5  |  Age: 2/5  |  Independence: 2/5  |  Market: 3/5  |  Flags: -6
+  Strength: Strong stated ROI of 55.6% with a 1.8-year payback period at a price point ($45,000) well within budget, and the revenue multiple of 0.375x aligns with industry norms.
+  Risk:     Profit margin of 20.8% is suspiciously above the 5-15% cafe industry norm, no staff or systems exist, and the complete absence of seller motivation, business age, and operational details suggests unverifiable financials and high transition risk.
+  Verdict:  This Pittsburgh cafe shows attractive ROI on paper at 55.6%, but the stated 20.8% profit margin significantly exceeds industry norms for cafes (5-15%), raising questions about the accuracy or sustainability of the $25,000 cash flow figure. The lack of any seller motivation, business age, employee information, or operational systems makes this a risky acquisition despite the affordable asking price. An owner-operator with no staff in a competitive cafe market means the buyer is essentially purchasing a job, not a business.
+  ⚠ Flags: Margin sanity: 20.8% profit margin exceeds 2x the coffee cart/cafe industry norm of 8-12% — automatic 2-point penalty applied; Reason for selling unclear + business age unknown (could be < 5 years) — 2-point penalty; No seller motivation or boomer signal provided — no retirement or lifestyle reason given; No employees mentioned — likely owner is sole operator, clients may follow owner — 2-point penalty for owner as sole revenue generator
+
+🔴 #6  [D] 24/100  —  Drop store(dry cleaner) for sale
+----------------------------------------------------------------------
+  Financials: Ask: $60,000
+  Scores:  ROI: 1/5  |  RevMult: 2/5  |  Margin: 2/5  |  Age: 5/5  |  Independence: 2/5  |  Market: 3/5  |  Flags: -4
+  Strength: 20-year operating history with claimed loyal customer base and high foot traffic location provides a solid foundation if financials can be verified.
+  Risk:     Complete absence of any verifiable financial data despite making aggressive payback claims — this is the most critical gap and could indicate the seller is either unsophisticated or hiding unfavorable numbers.
+  Verdict:  This 20-year-old dry cleaner drop store in Lansdowne has strong tenure but critically lacks any verifiable financial data. The seller claims payback in 'less than a year' on a $60,000 asking price, but provides zero revenue, cash flow, or profit figures to support this extraordinary claim. At $60k it exceeds the budget, and without documented financials or evidence of staff, this is a risky proposition that requires significant due diligence before serious consideration.
+  ⚠ Flags: Missing financials entirely (-2): No revenue, cash flow, or profit figures provided anywhere; Unsubstantiated payback claim: 'less than a year' payback on $60k with zero financial documentation is a major credibility concern; Asking price exceeds $50k budget threshold; No employees mentioned — likely pure owner-operator
+
+🔴 #7  [D] 24/100  —  TURNKEY TANNING SALON FOR SALE – FULLY BUILT OUT – PRIM
+----------------------------------------------------------------------
+  Financials: Ask: $60,000
+  Scores:  ROI: 1/5  |  RevMult: 2/5  |  Margin: 1/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 2/5
+  Strength: Turnkey build-out on a high-traffic Route 70 location could save significant fit-out costs if repurposed for a different concept.
+  Risk:     Complete absence of any financial data — no revenue, no cash flow, no customer base evidence — combined with a declining industry and a very young business suggests this may be an unprofitable operation being sold for its build-out value alone.
+  Verdict:  This listing is essentially an asset/build-out sale disguised as a business sale, with zero financial disclosure — no revenue, no cash flow, no profit data, and no employees mentioned. The tanning salon industry is in decline, the business is only 2 years old, the asking price exceeds the $50K budget, and the seller's relocation after just 2 years raises serious concerns about viability. This fails multiple hard filters and is not a viable acquisition under this investment thesis.
+
+🔴 #8  [D] 19/100  —  Dry Cleaner Business for Sale – Established 50 Years
+----------------------------------------------------------------------
+  Financials: Ask: $40,000
+  Scores:  ROI: 1/5  |  RevMult: 4/5  |  Margin: 1/5  |  Age: 5/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -5
+  Strength: 50-year operating history in a stable residential location with a clearly motivated retiring owner.
+  Risk:     Dry cleaning machines are excluded from the sale, meaning the buyer must invest significant additional capital (potentially $20,000–$80,000+) to actually operate as a dry cleaner, and zero financials are provided to justify even the $40,000 ask.
+  Verdict:  Despite 50 years of operation and a retirement-motivated seller at a reasonable price point, this listing is severely undermined by zero financial disclosure and the critical exclusion of dry cleaning machines. Without revenue or cash flow data, payback cannot be estimated, and the additional capital required to purchase dry cleaning equipment could easily double or triple the effective acquisition cost. This is essentially buying a location lease, a customer base of unknown size, and some ancillary equipment — not a turnkey business.
+  ⚠ Flags: Missing financials entirely (-2): No revenue, cash flow, or profit data provided; Dry cleaning machines not included — requires significant capex to actually operate as a dry cleaner (-1); Owner is sole revenue generator / completely owner-dependent with no staff mentioned (-2)
+
+🔴 #9  [D] 9/100  —  Turnkey Cafe in Bustling Neighborhood
+----------------------------------------------------------------------
+  Financials: Ask: $45,000
+  Scores:  ROI: 1/5  |  RevMult: 3/5  |  Margin: 1/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -4
+  Strength: Turnkey cafe in a high-foot-traffic Philadelphia neighborhood at a price point within budget — could be interesting if financials are verified.
+  Risk:     Zero verifiable financial data makes this listing impossible to underwrite; you'd be buying blind with no way to estimate payback period or ROI.
+  Verdict:  This listing is almost entirely devoid of financial information — no revenue, no cash flow, no profit, no business age, no employee count, and no reason for selling. The $45,000 asking price is within budget but impossible to evaluate without any financial substantiation. This is a marketing shell, not an investable opportunity in its current form.
+  ⚠ Flags: Missing financials entirely (-2): No revenue, cash flow, or any financial data provided; Reason for selling unclear + unknown business age (-2): No seller motivation stated and no business age given
+
+🔴 #10  [D] 6/100  —  Established Hair Salon in Prime Location
+----------------------------------------------------------------------
+  Financials: Ask: $35,000
+  Scores:  ROI: 1/5  |  RevMult: 1/5  |  Margin: 1/5  |  Age: 2/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -4
+  Strength: Asking price of $35,000 fits well within the $50k budget, and the prime Philadelphia location could have value if the lease terms are favorable.
+  Risk:     Complete absence of financial data — no revenue, no cash flow, no profit margin, no business age, no staff. This could easily be an empty chair rental with no transferable income stream.
+  Verdict:  This listing provides zero verifiable financial data — no revenue, no cash flow, no profit, no business age, and no employees. It reads as an asset sale of salon equipment and lease in a good location rather than a cash-flowing business. Without any financials to verify, this fails the hard filter for 'no verifiable revenue or cash flow anywhere in listing' and is disqualified.
+  ⚠ Flags: Missing financials entirely (-2); Reason for selling is unclear + business age unknown (-2); No employees mentioned — likely sole owner-operator, clients may follow owner
+
+🔴 #11  [D] 0/100  —  Business for Sale 10k Month Home Based
+----------------------------------------------------------------------
+  Financials: Ask: $5,500  |  Revenue: $120,000
+  Scores:  ROI: 1/5  |  RevMult: 5/5  |  Margin: 1/5  |  Age: 1/5  |  Independence: 1/5  |  Market: 3/5  |  Flags: -8
+  Strength: Very low price point at $5,500 means minimal capital at risk, and the senior placement industry has genuine demographic tailwinds.
+  Risk:     This is not an operating business — it is a startup package with no transferable revenue, clients, or contracts. The buyer would need to build everything from scratch with no guarantee of income.
+  Verdict:  This is not a business acquisition — it is a startup kit or business opportunity package disguised as a business for sale. The $5,500 buys training materials, a manual, and consulting, but no transferable revenue, client base, facility contracts, or operating history. The seller's $10k/month income is tied to their personal credentials and relationships, none of which transfer to a buyer who would be starting from zero.
+  ⚠ Flags: Missing financials entirely (-2): No P&L, no documented cash flow, no tax returns referenced; This is a business opportunity/startup kit, NOT an operating business acquisition (-2): Buyer purchases training materials and must build the business from scratch; Owner is sole revenue generator — clients follow owner (-2): All revenue tied to seller's personal relationships, certifications, and reputation; Reason for selling unclear + no business age given (-2): No explanation for why the seller is selling; no established operating history for the package being sold
+
+======================================================================
+  Tier Summary
+----------------------------------------------------------------------
+  🟢 Tier A: 0 businesses
+  🟡 Tier B: 0 businesses
+  🟠 Tier C: 3 businesses
+  🔴 Tier D: 8 businesses
+======================================================================
