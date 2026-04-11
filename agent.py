@@ -20,6 +20,8 @@ Usage:
     uv run agent.py --show-run <sha>     # print a past run's report
 """
 
+from __future__ import annotations
+
 import argparse
 import json
 import os
@@ -32,6 +34,8 @@ from pathlib import Path
 
 import anthropic
 from xai_sdk import Client as XaiClient
+
+from proximity import add_proximity_fields, assign_proximity_ranks
 
 # Re-use all logic from research.py
 from research import (
@@ -250,11 +254,72 @@ def verify_listings(grok: XaiClient, results: list[dict], top_n: int = 5) -> lis
 
 
 # ---------------------------------------------------------------------------
+# Listing metadata preservation
+# ---------------------------------------------------------------------------
+
+LISTING_METADATA_FIELDS = [
+    "business_type",
+    "asking_price",
+    "location",
+    "city",
+    "county",
+    "distance_to_philly_miles",
+    "proximity_bucket",
+    "proximity_rank",
+    "seller_motivation",
+    "source_url",
+    "listing_date",
+    "_source",
+]
+
+
+def as_int(value) -> int | None:
+    if value in (None, ""):
+        return None
+    if isinstance(value, (int, float)):
+        return int(value)
+    cleaned = "".join(ch for ch in str(value) if ch.isdigit())
+    return int(cleaned) if cleaned else None
+
+
+def in_price_range(item: dict, min_budget: int, max_budget: int) -> bool:
+    asking = as_int(item.get("asking_price") or item.get("asking_price_usd"))
+    return asking is None or min_budget <= asking <= max_budget
+
+
+def enrich_listing_for_philly(item: dict) -> dict:
+    add_proximity_fields(item)
+    return item
+
+
+def attach_listing_metadata(result: dict, listing: dict) -> dict:
+    """Keep source/proximity facts that are not part of the LLM JSON schema."""
+    for field in LISTING_METADATA_FIELDS:
+        value = listing.get(field)
+        if value not in (None, "") and result.get(field) in (None, ""):
+            result[field] = value
+
+    result["_source"] = result.get("_source") or listing.get("_source", "")
+    result["_input_business_name"] = listing.get("business_name", "")
+    result["_input_location"] = listing.get("location", "")
+    result["_input_source_url"] = listing.get("source_url", "")
+    add_proximity_fields(result)
+    return result
+
+
+def assign_result_proximity_ranks(results: list[dict]) -> list[dict]:
+    good = [r for r in results if "error" not in r]
+    assign_proximity_ranks(good)
+    return results
+
+
+# ---------------------------------------------------------------------------
 # Context-aware search query builder (fix #3 + #6)
 # ---------------------------------------------------------------------------
 
 def build_search_queries_with_context(
     budget: int,
+    min_budget: int,
     biz_type: str,
     location: str,
     seen: dict,
@@ -265,20 +330,23 @@ def build_search_queries_with_context(
     loc = f" in {location}" if location else ""
     btype = f" {biz_type}" if biz_type else ""
     budget_k = budget // 1000
+    min_k = max(1, min_budget // 1000)
 
     # Seller-finance acquisition thesis: ~$50k down, seller carries note, CF services debt
     down_k = 50  # assumed down payment in $k
     max_k = budget_k  # max total asking price
+    target_range = f"${min_k}000 to ${max_k}000"
 
     # Base queries targeting seller-finance-friendly deals
     queries = [
-        f"baby boomer retiring{btype} business for sale{loc} seller financing ${down_k}k down established cash flow",
-        f"owner retiring{btype} business{loc} asking price ${down_k*2}000 to ${max_k}000 seller will finance motivated",
-        f"retirement sale{btype} business{loc} seller carry note ${max_k}k cash flow positive 10 years established",
+        f"Philadelphia PA{btype} business for sale {target_range} seller financing owner retiring established cash flow",
+        f"Philadelphia metro Bucks Montgomery Delaware Chester{btype} business for sale {target_range} seller will finance",
+        f"baby boomer retiring{btype} business for sale{loc} {target_range} seller financing ${down_k}k down established cash flow",
+        f"owner retiring{btype} business{loc} asking price {target_range} seller will finance motivated",
+        f"retirement sale{btype} business{loc} seller carry note under ${max_k}k cash flow positive 10 years established",
         f"{btype} business for sale{loc} ${down_k}000 down seller financing 5 year note boomer owner retiring",
         f"buy{btype} business{loc} under ${max_k}000 seller financing accepted motivated seller semi-absentee staff",
-        f"motivated seller{btype} business{loc} under ${max_k}000 retiring health reasons will carry paper financing",
-        f"semi-absentee{btype} business{loc} ${down_k*2}000 to ${max_k}000 existing staff recurring revenue seller finance",
+        f"semi-absentee{btype} business{loc} {target_range} existing staff recurring revenue seller finance",
         f"{btype} business for sale{loc} under ${max_k}000 established route vending laundromat cleaning contracts seller note",
     ]
 
@@ -309,8 +377,9 @@ def build_search_queries_with_context(
 TIER_ICONS = {"A": "🟢", "B": "🟡", "C": "🟠", "D": "🔴"}
 
 
-def render_report(results: list[dict], deep_dives: dict, budget: int) -> str:
+def render_report(results: list[dict], deep_dives: dict, budget: int, min_budget: int = 0) -> str:
     good = [r for r in results if "error" not in r]
+    assign_result_proximity_ranks(good)
 
     # Split verified-capable from pure estimates for separate display
     verified = [r for r in good if not r.get("is_estimated")]
@@ -322,7 +391,10 @@ def render_report(results: list[dict], deep_dives: dict, budget: int) -> str:
     lines = []
     lines.append("=" * 72)
     lines.append("  autobiz — Auto-Research Report")
-    lines.append(f"  Budget: ${budget:,}  |  Goal: Fastest payback from boomer seller")
+    if min_budget:
+        lines.append(f"  Asking price: ${min_budget:,}–${budget:,}  |  Goal: Fastest payback from boomer seller")
+    else:
+        lines.append(f"  Budget: ${budget:,}  |  Goal: Fastest payback from boomer seller")
     lines.append("=" * 72)
     lines.append(
         f"  Total scored: {len(good)}  |  "
@@ -332,6 +404,26 @@ def render_report(results: list[dict], deep_dives: dict, budget: int) -> str:
     )
     lines.append("")
 
+    closest = sorted(
+        good,
+        key=lambda r: (
+            r.get("distance_to_philly_miles") is None,
+            r.get("distance_to_philly_miles") or 10_000,
+            -r.get("weighted_score", 0),
+        ),
+    )[:10]
+    if closest:
+        lines.append("  -- Closest to Philadelphia --")
+        for r in closest:
+            dist = r.get("distance_to_philly_miles")
+            dist_str = f"{dist} mi" if dist is not None else "unknown"
+            lines.append(
+                f"  #{r.get('proximity_rank', '?'):<2} {dist_str:<10} "
+                f"[{r.get('tier', '?')}] {r.get('weighted_score', 0):.0f}/100  "
+                f"{r.get('business_name', 'Unknown')[:45]}  |  {r.get('location', '')}"
+            )
+        lines.append("")
+
     def format_entry(i, r, show_dd=True):
         tier = r.get("tier", "?")
         score = r.get("weighted_score", 0)
@@ -340,10 +432,16 @@ def render_report(results: list[dict], deep_dives: dict, budget: int) -> str:
         btype = r.get("business_type", "")
         loc = r.get("location", "")
         fin = r.get("extracted_financials", {})
+        distance = r.get("distance_to_philly_miles")
+        distance_str = f"{distance} mi from Philly" if distance is not None else "distance unknown"
 
         lines.append(f"{icon} #{i}  [{tier}] {score:.0f}/100  —  {name}")
         if btype or loc:
             lines.append(f"     {btype}  |  {loc}")
+        lines.append(
+            f"     Proximity: #{r.get('proximity_rank', '?')} closest  |  "
+            f"{distance_str}  |  {r.get('proximity_bucket', 'unknown distance')}"
+        )
         lines.append("-" * 72)
 
         # Rule adjustments note
@@ -552,6 +650,7 @@ def orchestrate(
     claude: anthropic.Anthropic,
     grok: XaiClient,
     budget: int,
+    min_budget: int,
     rounds: int,
     biz_type: str,
     location: str,
@@ -569,7 +668,7 @@ def orchestrate(
 
     print("=" * 72)
     print("  autobiz — Multi-Agent Research Orchestrator")
-    print(f"  Budget: ${budget:,}  |  Agents: {rounds} search + parallel scoring")
+    print(f"  Asking price: ${min_budget:,}–${budget:,}  |  Agents: {rounds} search + parallel scoring")
     if biz_type:
         print(f"  Type: {biz_type}")
     if location:
@@ -593,11 +692,14 @@ def orchestrate(
                 normalized["annual_cash_flow"] = normalized["cash_flow_annual"]
             if "gross_revenue_annual" in normalized and "annual_revenue" not in normalized:
                 normalized["annual_revenue"] = normalized["gross_revenue_annual"]
+            enrich_listing_for_philly(normalized)
             listings.append(normalized)
         listings = deduplicate(listings)
+        listings = [item for item in listings if in_price_range(item, min_budget, budget)]
+        assign_proximity_ranks(listings)
         print(f"  Loaded {len(listings)} unique listings from file\n")
     else:
-        queries = build_search_queries_with_context(budget, biz_type, location, seen, findings, rounds)
+        queries = build_search_queries_with_context(budget, min_budget, biz_type, location, seen, findings, rounds)
         print(f"[ SearchAgents ] Launching {len(queries)} parallel search agents via Grok...")
         all_listings: list[dict] = []
 
@@ -612,6 +714,10 @@ def orchestrate(
                 all_listings.extend(llist)
 
         listings = deduplicate(all_listings)
+        for item in listings:
+            enrich_listing_for_philly(item)
+        listings = [item for item in listings if in_price_range(item, min_budget, budget)]
+        assign_proximity_ranks(listings)
         print(f"  Deduplicated: {len(listings)} unique listings\n")
 
     if not listings:
@@ -634,7 +740,7 @@ def orchestrate(
         completed = 0
         for future in as_completed(futures):
             agent_id, result = future.result()
-            results[agent_id] = result
+            results[agent_id] = attach_listing_metadata(result, listings[agent_id])
             completed += 1
             name = result.get("business_name", "Unknown")[:45]
             score = result.get("weighted_score", 0)
@@ -646,6 +752,7 @@ def orchestrate(
 
     # Apply hard rules (score inflation fix)
     results = apply_hard_rules(results)
+    assign_result_proximity_ranks(results)
     results.sort(key=lambda x: x.get("weighted_score", 0), reverse=True)
 
     top_ab = [r for r in results if r.get("tier") in ("A", "B")]
@@ -679,7 +786,7 @@ def orchestrate(
             json.dump(deep_dives, f, indent=2)
 
     # --- Generate Report ---
-    report = render_report(results, deep_dives, budget)
+    report = render_report(results, deep_dives, budget, min_budget=min_budget)
     print(report)
 
     with open(run_dir / "report.txt", "w") as f:
@@ -694,6 +801,7 @@ def orchestrate(
     meta = {
         "timestamp": timestamp,
         "budget": budget,
+        "min_budget": min_budget,
         "biz_type": biz_type,
         "location": location,
         "rounds": rounds,
@@ -722,7 +830,7 @@ def orchestrate(
 
         commit_msg = (
             f"autobiz-run {timestamp}\n\n"
-            f"Budget: ${budget:,} | Type: {biz_type or 'any'} | Location: {location or 'any'}\n"
+            f"Asking price: ${min_budget:,}-${budget:,} | Type: {biz_type or 'any'} | Location: {location or 'any'}\n"
             f"Found: {len(listings)} listings | Scored: {len(results)} | A/B: {len(top_ab)}\n"
             f"Top pick: [{top_tier}] {top_score:.0f}/100 — {top_name} ({payback_str})"
             f"\nSeen fingerprints total: {len(seen)}"
@@ -748,10 +856,11 @@ def orchestrate(
 
 def main():
     parser = argparse.ArgumentParser(description="autobiz agent — autonomous multi-agent business research")
-    parser.add_argument("--budget", type=int, default=200000, help="Max asking price to consider (default: 200000). Down payment ~$50k, seller finances balance.")
+    parser.add_argument("--budget", type=int, default=None, help="Max asking price to consider (default: saved config). Down payment ~$50k, seller finances balance.")
+    parser.add_argument("--min-budget", type=int, default=None, help="Min asking price to consider (default: saved config).")
     parser.add_argument("--rounds", type=int, default=3, help="Parallel search agents to run (default: 3)")
     parser.add_argument("--type", type=str, default="", dest="biz_type")
-    parser.add_argument("--location", type=str, default="")
+    parser.add_argument("--location", type=str, default=None)
     parser.add_argument("--no-deep-dive", action="store_true")
     parser.add_argument("--no-commit", action="store_true", help="Don't commit to git (dry run)")
     parser.add_argument("--from-json", type=str, metavar="FILE", help="Skip discovery — score listings from a pre-scraped JSON file")
@@ -778,6 +887,9 @@ def main():
     # API clients — reads from config.json first, falls back to env vars
     from config import load_config, get_research_client, llm_score_call
     app_cfg = load_config()
+    args.location = args.location if args.location is not None else app_cfg["defaults"].get("location", "Pennsylvania")
+    args.budget = args.budget if args.budget is not None else int(app_cfg["defaults"].get("budget_max", 250000))
+    args.min_budget = args.min_budget if args.min_budget is not None else int(app_cfg["defaults"].get("budget_min", 75000))
     try:
         grok = get_research_client(app_cfg)
     except ValueError as e:
@@ -793,6 +905,7 @@ def main():
         claude=claude,
         grok=grok,
         budget=args.budget,
+        min_budget=args.min_budget,
         rounds=args.rounds,
         biz_type=args.biz_type,
         location=args.location,

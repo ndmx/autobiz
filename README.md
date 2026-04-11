@@ -40,6 +40,26 @@ uv run analyze.py --csv ../j_mnirekmw25v4gb0tgn.csv --output results.json --repo
 uv run analyze.py --csv ../j_mnirekmw25v4gb0tgn.csv --limit 5
 ```
 
+## Philadelphia-first, PA-wide workflow
+
+The scraper now prioritizes Philadelphia and the nearby Bucks / Montgomery /
+Delaware / Chester county market, then sweeps statewide Pennsylvania sources.
+Every listing gets approximate proximity fields:
+
+- `distance_to_philly_miles`
+- `proximity_bucket`
+- `proximity_rank`
+
+```bash
+# Pull source-backed PA listings, Philly-first
+uv run scraper.py --location "Pennsylvania" --min-budget 75000 --budget 250000 \
+  --output data_pa_wide.csv --json data_pa_wide.json
+
+# Score the scraped listings and include a closest-to-Philadelphia ranking
+uv run agent.py --from-json data_pa_wide.json --location "Pennsylvania" \
+  --min-budget 75000 --budget 250000 --no-commit
+```
+
 ## Scoring Parameters
 
 | Parameter           | Weight |

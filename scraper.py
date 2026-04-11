@@ -15,6 +15,8 @@ Usage:
     uv run scraper.py --location "Philadelphia PA" --radius 50  # include suburbs
 """
 
+from __future__ import annotations
+
 import argparse
 import csv
 import json
@@ -29,6 +31,8 @@ import requests
 from bs4 import BeautifulSoup
 from xai_sdk import Client as XaiClient
 from xai_sdk.chat import user as xai_user
+
+from proximity import add_proximity_fields, assign_proximity_ranks
 
 GROK_MODEL = "grok-4.20-multi-agent-latest"
 
@@ -76,8 +80,8 @@ CRAIGSLIST_SITES = {
     "philadelphia": ["philadelphia", "southjersey", "delaware"],
     "pennsylvania": [
         "philadelphia", "pittsburgh", "allentown", "harrisburg",
-        "lancaster", "reading", "scranton", "statecollegepenn",
-        "lehighvalley", "poconos", "williamsport", "york",
+        "lancaster", "reading", "scranton", "pennstate",
+        "poconos", "williamsport", "york",
         "southjersey", "delaware",  # Philly metro overflow
     ],
     "default": ["philadelphia"],
@@ -338,12 +342,47 @@ def grok_scrape_url(grok: XaiClient, url: str, label: str, verbose: bool) -> lis
 
 
 def build_bizbuysell_urls(location: str, max_price: int, min_price: int = 0) -> list[tuple[str, str]]:
-    """Generate BizBuySell + BusinessBroker search URLs for the target location."""
+    """Generate Philly-first, PA-wide business listing search URLs."""
     loc_enc = quote_plus(location)
-    is_statewide = "pennsylvania" in location.lower() and "," not in location.lower()
+    loc_lower = location.lower()
+    is_statewide = ("pennsylvania" in loc_lower or loc_lower.strip() in {"pa", "statewide"}) and "," not in loc_lower
+    is_phillyish = any(x in loc_lower for x in ("philadelphia", "philly", "south jersey", "delaware valley"))
     price_filter = f"min_price={min_price}&max_price={max_price}" if min_price else f"max_price={max_price}"
 
-    base_urls = [
+    urls: list[tuple[str, str]] = []
+
+    # Start with Philadelphia metro even for PA-wide searches, since this is the
+    # buyer's home market and likely easiest to diligence in person.
+    if is_statewide or is_phillyish:
+        urls.extend([
+            (
+                "BizBuySell-Philadelphia",
+                f"https://www.bizbuysell.com/businesses-for-sale/?q=Philadelphia+PA&{price_filter}",
+            ),
+            (
+                "BizBuySell-PA-Philly-metro",
+                f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?{price_filter}&q=Philadelphia+Bucks+Montgomery+Delaware+Chester",
+            ),
+            (
+                "BizBuySell-PA-seller-finance-Philly",
+                f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?{price_filter}&q=Philadelphia+seller+financing+owner+retiring",
+            ),
+            (
+                "BizQuest-Philadelphia",
+                "https://www.bizquest.com/businesses-for-sale-in-philadelphia-pa/",
+            ),
+            (
+                "BusinessBroker-Philadelphia",
+                f"https://www.businessbroker.net/businesses-for-sale/philadelphia-pennsylvania.aspx?MinPrice={min_price}&MaxPrice={max_price}",
+            ),
+        ])
+    elif location.strip():
+        urls.append((
+            f"BizBuySell-{location.split()[0]}",
+            f"https://www.bizbuysell.com/businesses-for-sale/?q={loc_enc}&{price_filter}",
+        ))
+
+    urls.extend([
         (
             "BizBuySell-PA-retiring",
             f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?{price_filter}&q=retiring+seller+financing",
@@ -373,23 +412,43 @@ def build_bizbuysell_urls(location: str, max_price: int, min_price: int = 0) -> 
             f"https://www.businessbroker.net/businesses-for-sale/pennsylvania/?MinPrice={min_price}&MaxPrice={max_price}",
         ),
         (
-            "BusinessBroker-PA-p2",
-            f"https://www.businessbroker.net/businesses-for-sale/pennsylvania/?MinPrice={min_price}&MaxPrice={max_price}&Page=2",
-        ),
-        (
             "BizBuySell-PA-all",
             f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?{price_filter}",
         ),
-    ]
+        (
+            "BizQuest-PA",
+            "https://www.bizquest.com/businesses-for-sale-in-pennsylvania-pa/",
+        ),
+        (
+            "DealStream-PA",
+            "https://dealstream.com/pennsylvania-businesses-for-sale/5",
+        ),
+        (
+            "LoopNet-PA",
+            "https://www.loopnet.com/biz/pennsylvania-businesses-for-sale/",
+        ),
+        (
+            "PennBBA-PA",
+            "https://www.pennbba.com/buy_a_business.php",
+        ),
+    ])
 
-    if not is_statewide:
-        # Add location-specific searches
-        base_urls.insert(0, (
-            f"BizBuySell-{location.split()[0]}",
-            f"https://www.bizbuysell.com/businesses-for-sale/?q={loc_enc}&{price_filter}",
+    # BusinessBroker paginates cleanly and often exposes financials on cards.
+    for page in range(2, 8):
+        urls.append((
+            f"BusinessBroker-PA-p{page}",
+            f"https://www.businessbroker.net/businesses-for-sale/pennsylvania/?MinPrice={min_price}&MaxPrice={max_price}&Page={page}",
         ))
 
-    return base_urls
+    # De-duplicate while preserving Philly-first order.
+    seen = set()
+    unique = []
+    for label, url in urls:
+        if url in seen:
+            continue
+        seen.add(url)
+        unique.append((label, url))
+    return unique
 
 
 # ---------------------------------------------------------------------------
@@ -402,6 +461,14 @@ def normalize_listings(listings: list[dict]) -> list[dict]:
     clean = []
     for item in listings:
         name = (item.get("business_name") or "").strip()[:60].lower()
+        description = (item.get("description") or "").strip().lower()
+        source_url = (item.get("source_url") or "").strip().lower()
+        if (
+            name in {"string", "business name", "name or description"}
+            or source_url.startswith("string ")
+            or "include all text you can see from the listing card" in description
+        ):
+            continue
         price = item.get("asking_price") or 0
         key = f"{name}:{price}"
         if key in seen or not name:
@@ -416,8 +483,27 @@ def normalize_listings(listings: list[dict]) -> list[dict]:
         item.setdefault("employees", "")
         item.setdefault("seller_motivation", "")
         item.setdefault("listing_date", "")
+        add_proximity_fields(item)
         clean.append(item)
-    return clean
+    return assign_proximity_ranks(clean)
+
+
+def as_int(value) -> int | None:
+    if value in (None, ""):
+        return None
+    if isinstance(value, (int, float)):
+        return int(value)
+    cleaned = "".join(ch for ch in str(value) if ch.isdigit())
+    return int(cleaned) if cleaned else None
+
+
+def filter_by_budget(listings: list[dict], min_price: int, max_price: int) -> list[dict]:
+    filtered = []
+    for item in listings:
+        asking = as_int(item.get("asking_price"))
+        if asking is None or min_price <= asking <= max_price:
+            filtered.append(item)
+    return assign_proximity_ranks(filtered)
 
 
 # ---------------------------------------------------------------------------
@@ -425,7 +511,8 @@ def normalize_listings(listings: list[dict]) -> list[dict]:
 # ---------------------------------------------------------------------------
 
 CSV_FIELDS = [
-    "business_name", "business_type", "asking_price", "location",
+    "business_name", "business_type", "asking_price", "location", "city", "county",
+    "distance_to_philly_miles", "proximity_bucket", "proximity_rank",
     "cash_flow_annual", "gross_revenue_annual", "year_established",
     "employees", "description", "seller_motivation",
     "source_url", "listing_date", "_source",
@@ -452,9 +539,9 @@ def write_json(listings: list[dict], path: str):
 
 def main():
     parser = argparse.ArgumentParser(description="autobiz scraper — real listing data from multiple sources")
-    parser.add_argument("--location", default="Philadelphia PA", help="Target location (default: Philadelphia PA)")
-    parser.add_argument("--budget", type=int, default=250000, help="Max asking price filter (default: 250000)")
-    parser.add_argument("--min-budget", type=int, default=50000, help="Min asking price filter (default: 50000)")
+    parser.add_argument("--location", default=None, help="Target location (default: saved config, usually Pennsylvania)")
+    parser.add_argument("--budget", type=int, default=None, help="Max asking price filter (default: saved config)")
+    parser.add_argument("--min-budget", type=int, default=None, help="Min asking price filter (default: saved config)")
     parser.add_argument("--output", type=str, default=None, help="Save as CSV (for analyze.py)")
     parser.add_argument("--json", type=str, default=None, dest="json_out", help="Save as JSON (for agent pipeline)")
     parser.add_argument("--no-grok", action="store_true", help="Skip Grok-proxied sources (CL only)")
@@ -462,13 +549,19 @@ def main():
     parser.add_argument("--verbose", action="store_true")
     args = parser.parse_args()
 
-    xai_key = os.environ.get("XAI_API_KEY")
+    from config import load_config
+    app_cfg = load_config()
+    args.location = args.location or app_cfg["defaults"].get("location", "Pennsylvania")
+    args.budget = args.budget if args.budget is not None else int(app_cfg["defaults"].get("budget_max", 250000))
+    args.min_budget = args.min_budget if args.min_budget is not None else int(app_cfg["defaults"].get("budget_min", 75000))
+
     grok = None
     if not args.no_grok:
-        if not xai_key:
-            print("Warning: XAI_API_KEY not set — skipping Grok-proxied sources (use --no-grok to suppress)")
-        else:
-            grok = XaiClient(api_key=xai_key)
+        from config import get_research_client
+        try:
+            grok = get_research_client(app_cfg)
+        except ValueError as e:
+            print(f"Warning: {e} — skipping Grok-proxied sources (use --no-grok to suppress)")
 
     print("=" * 64)
     print(f"  autobiz scraper")
@@ -492,7 +585,7 @@ def main():
             time.sleep(0.8)
 
     # --- Normalize + dedup ---
-    listings = normalize_listings(all_listings)
+    listings = filter_by_budget(normalize_listings(all_listings), args.min_budget, args.budget)
     print(f"\n  Total unique listings: {len(listings)}")
 
     # --- Source breakdown ---
@@ -518,13 +611,15 @@ def main():
         write_json(listings, args.json_out)
 
     # Print quick preview
-    print(f"\n{'#':<4} {'Title':<50} {'Price':<10} {'Source':<20}")
-    print("-" * 90)
+    print(f"\n{'#':<4} {'Title':<44} {'Price':<10} {'Miles':<7} {'Source':<20}")
+    print("-" * 92)
     for i, l in enumerate(listings[:20], 1):
         price = f"${l['asking_price']:,}" if l.get("asking_price") else "N/A"
-        name = (l.get("business_name") or "")[:48]
+        name = (l.get("business_name") or "")[:42]
+        miles = l.get("distance_to_philly_miles")
+        miles = str(miles) if miles is not None else "?"
         src = (l.get("_source") or "")[:18]
-        print(f"{i:<4} {name:<50} {price:<10} {src}")
+        print(f"{i:<4} {name:<44} {price:<10} {miles:<7} {src}")
     if len(listings) > 20:
         print(f"  ... and {len(listings) - 20} more")
 

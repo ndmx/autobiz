@@ -11,6 +11,8 @@ Usage:
     uv run research.py --budget 40000
 """
 
+from __future__ import annotations
+
 import argparse
 import json
 import os
@@ -22,6 +24,8 @@ from typing import Optional
 import anthropic
 from xai_sdk import Client as XaiClient
 from xai_sdk.chat import user as xai_user, system as xai_system
+
+from proximity import add_proximity_fields, assign_proximity_ranks
 
 # ---------------------------------------------------------------------------
 # Config
@@ -70,8 +74,8 @@ def build_search_queries(budget: int, biz_type: str = "", location: str = "") ->
 
 DISCOVERY_SYSTEM = """You are a business acquisition researcher. When asked to find small business listings,
 you search the web thoroughly and return structured data. You ALWAYS respond with a valid JSON array.
-Never return empty results — dig through BizBuySell, BusinessBroker.net, LoopNet, local broker sites,
-Craigslist business listings, and any other sources you can find."""
+Dig through BizBuySell, BusinessBroker.net, LoopNet, BizQuest, DealStream, local broker sites,
+Craigslist business listings, and any other sources you can find. Only return source-backed listings."""
 
 DISCOVERY_PROMPT_TEMPLATE = """Search the web right now for: "{query}"
 
@@ -97,12 +101,11 @@ Return ONLY a valid JSON array (no markdown, no explanation) with objects matchi
 ]
 
 Rules:
-- Include ONLY businesses with asking price ≤ $60,000 (or price unknown but likely under $60k)
+- Include ONLY businesses whose asking price appears consistent with the search query budget
 - Prioritize listings where the owner mentions retirement, age, health, or lifestyle change
-- Include at least 3 listings, up to 10
-- If you can't find listings from live search, generate realistic hypothetical listings based on
-  what you know about current market conditions for this type of business — clearly mark those
-  with source_url = "estimated" so the analyst knows
+- Include up to 10 listings
+- If you can't find source-backed listings from live search, return []
+- Do NOT generate hypothetical listings
 - The description field should be detailed — include all financial info you found
 """
 
@@ -126,7 +129,9 @@ def discover_listings(grok: XaiClient, query: str, verbose: bool = False) -> lis
 
         listings = json.loads(raw)
         if isinstance(listings, list):
-            return listings
+            for listing in listings:
+                add_proximity_fields(listing)
+            return assign_proximity_ranks(listings)
         return []
 
     except json.JSONDecodeError as e:
@@ -635,6 +640,9 @@ def main():
         name = biz.get("business_name", "Unknown")[:55]
         print(f"  [{i}/{len(listings)}] {name}...")
         result = score_business(claude, grok, biz, program, args.budget)
+        for field in ("city", "county", "distance_to_philly_miles", "proximity_bucket", "proximity_rank", "_source"):
+            if biz.get(field) not in (None, ""):
+                result[field] = biz.get(field)
         results.append(result)
         time.sleep(0.5)
 

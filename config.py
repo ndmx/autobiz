@@ -15,7 +15,12 @@ import os
 import time
 from pathlib import Path
 
-CONFIG_PATH = Path(__file__).parent / "config.json"
+PROJECT_DIR = Path(__file__).parent
+CONFIG_PATH = PROJECT_DIR / "config.json"
+ENV_PATHS = [
+    PROJECT_DIR / ".env",
+    PROJECT_DIR / "env" / ".env",
+]
 
 DEFAULTS = {
     "scoring": {
@@ -71,6 +76,43 @@ PROVIDER_MODELS = {
 
 MAX_RETRIES = 3
 RETRY_DELAY = 2
+
+
+# ---------------------------------------------------------------------------
+# .env loading
+# ---------------------------------------------------------------------------
+
+def _strip_env_quotes(value: str) -> str:
+    value = value.strip()
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in ("'", '"'):
+        return value[1:-1]
+    return value
+
+
+def load_env_files(paths: list[Path] = None) -> None:
+    """Load project .env files without overriding already-exported variables."""
+    for path in paths or ENV_PATHS:
+        if not path.exists():
+            continue
+        try:
+            lines = path.read_text().splitlines()
+        except Exception:
+            continue
+        for line in lines:
+            raw = line.strip()
+            if not raw or raw.startswith("#") or "=" not in raw:
+                continue
+            key, value = raw.split("=", 1)
+            key = key.strip()
+            if key.startswith("export "):
+                key = key[len("export "):].strip()
+            if not key or key in os.environ:
+                continue
+            os.environ[key] = _strip_env_quotes(value)
+
+
+# Make env/.env available to CLI scripts, Flask routes, and client factories.
+load_env_files()
 
 
 # ---------------------------------------------------------------------------

@@ -11,6 +11,8 @@ Usage:
     uv run analyze.py --csv ../j_mnirekmw25v4gb0tgn.csv --tier A
 """
 
+from __future__ import annotations
+
 import argparse
 import csv
 import json
@@ -23,6 +25,8 @@ from typing import Optional
 import anthropic
 from xai_sdk import Client as XaiClient
 from xai_sdk.chat import user as xai_user
+
+from proximity import add_proximity_fields, assign_proximity_ranks
 
 # ---------------------------------------------------------------------------
 # Config
@@ -96,10 +100,14 @@ Business Name: {business.get('business_name', 'Unknown')}
 Asking Price: {business.get('asking_price', 'Not stated')}
 Location: {business.get('location', 'Not stated')}
 Cash Flow (field): {business.get('cash_flow', 'Not stated')}
+Cash Flow Annual: {business.get('cash_flow_annual', 'Not stated')}
 Gross Revenue (field): {business.get('gross_revenue', 'Not stated')}
+Gross Revenue Annual: {business.get('gross_revenue_annual', 'Not stated')}
 Year Established: {business.get('year_established', 'Not stated')}
 Employees: {business.get('employees', 'Not stated')}
 Inventory: {business.get('inventory', 'Not stated')}
+Source URL: {business.get('source_url', 'Not stated')}
+Distance to Philadelphia: {business.get('distance_to_philly_miles', 'Unknown')} miles
 Description:
 {business.get('description', 'No description provided')}
 
@@ -273,15 +281,42 @@ def render_report(results: list[dict], top: Optional[int] = None, tier_filter: O
     lines.append(f"  Analyzed: {len(results)} businesses  |  Showing: {len(filtered)}")
     lines.append("")
 
+    closest = sorted(
+        filtered,
+        key=lambda r: (
+            r.get("distance_to_philly_miles") is None,
+            r.get("distance_to_philly_miles") or 10_000,
+            -r.get("weighted_score", 0),
+        ),
+    )[:10]
+    if closest:
+        lines.append("  Closest to Philadelphia")
+        lines.append("-" * 70)
+        for r in closest:
+            dist = r.get("distance_to_philly_miles")
+            dist_str = f"{dist} mi" if dist is not None else "unknown"
+            lines.append(
+                f"  #{r.get('proximity_rank', '?'):<2} {dist_str:<10} "
+                f"[{r.get('tier', '?')}] {r.get('weighted_score', 0):.0f}/100  "
+                f"{r.get('business_name', 'Unknown')[:42]}"
+            )
+        lines.append("")
+
     for i, r in enumerate(filtered, 1):
         tier = r.get("tier", "?")
         score = r.get("weighted_score", 0)
         icon = TIER_COLORS.get(tier, "⚪")
         name = r.get("business_name", "Unknown")[:55]
         fin = r.get("extracted_financials", {})
+        distance = r.get("distance_to_philly_miles")
+        distance_str = f"{distance} mi from Philly" if distance is not None else "distance unknown"
 
         lines.append(f"{icon} #{i}  [{tier}] {score:.0f}/100  —  {name}")
         lines.append("-" * 70)
+        lines.append(
+            f"  Proximity: #{r.get('proximity_rank', '?')} closest  |  "
+            f"{distance_str}  |  {r.get('proximity_bucket', 'unknown distance')}"
+        )
 
         # Financials
         ap = r.get("asking_price_usd")
@@ -388,6 +423,9 @@ def main():
 
     print(f"Loading businesses from {args.csv}...")
     businesses = load_csv(args.csv)
+    for biz in businesses:
+        add_proximity_fields(biz)
+    assign_proximity_ranks(businesses)
     if args.limit:
         businesses = businesses[:args.limit]
     print(f"Loaded {len(businesses)} businesses.\n")
@@ -396,9 +434,13 @@ def main():
     for i, biz in enumerate(businesses, 1):
         name = biz.get("business_name", "Unknown")[:60]
         print(f"[{i}/{len(businesses)}] Analyzing: {name}...")
+        add_proximity_fields(biz)
         result = analyze_business(client, biz, program, grok_client=grok_client)
-        result["_source_url"] = biz.get("input_url", "")
+        result["_source_url"] = biz.get("source_url") or biz.get("input_url", "")
         result["_location"] = biz.get("location", "")
+        for field in ("city", "county", "distance_to_philly_miles", "proximity_bucket", "proximity_rank", "_source"):
+            if biz.get(field) not in (None, ""):
+                result[field] = biz.get(field)
         results.append(result)
         # Brief pause to be kind to the API
         time.sleep(0.5)
