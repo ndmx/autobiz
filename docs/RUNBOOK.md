@@ -61,6 +61,11 @@ The dashboard run buttons launch background jobs using the saved defaults:
 
 Job logs stream into the dashboard while the process is running.
 
+Job history is stored at `runs/web_jobs/jobs.json`. On app startup,
+`run_jobs.py` loads that history, starts a background status monitor, and marks
+stale `running` jobs as `interrupted` so the dashboard reflects the current
+state after a restart.
+
 For terminal-only or automation runs:
 
 ```bash

@@ -150,7 +150,7 @@ input[type="search"] {
 
 .run-panel {
   display: grid;
-  grid-template-columns: minmax(180px, 1fr) auto minmax(280px, 480px);
+  grid-template-columns: minmax(180px, 1fr) auto minmax(280px, 420px) minmax(260px, 360px);
   gap: 16px;
   align-items: start;
   margin-bottom: 18px;
@@ -210,6 +210,64 @@ input[type="search"] {
   font-size: 12px;
   padding: 10px;
   white-space: pre-wrap;
+}
+
+.job-history h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.job-history ul {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.job-history li {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.job-history strong,
+.job-history small {
+  display: block;
+}
+
+.job-history a {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.job-status {
+  display: inline-block;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  margin: 4px 0;
+  padding: 2px 7px;
+  text-transform: uppercase;
+}
+
+.job-status-running {
+  background: #eef2ff;
+  color: #1d4ed8;
+}
+
+.job-status-completed {
+  background: #dff5ed;
+  color: #08664f;
+}
+
+.job-status-failed,
+.job-status-interrupted,
+.job-status-unknown {
+  background: #fee4e2;
+  color: var(--red);
 }
 
 .board {

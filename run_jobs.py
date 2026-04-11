@@ -13,12 +13,30 @@ from pathlib import Path
 
 PROJECT_DIR = Path(__file__).parent
 JOB_DIR = PROJECT_DIR / "runs" / "web_jobs"
+JOB_FILE = JOB_DIR / "jobs.json"
 RUN_JOBS: dict[str, dict] = {}
-RUN_LOCK = threading.Lock()
+RUN_LOCK = threading.RLock()
+MONITOR_STARTED = False
 
 
 def _job_id(kind: str) -> str:
     return f"{datetime.now().strftime('%Y-%m-%d_%H%M%S')}_{kind}"
+
+
+def _now() -> str:
+    return datetime.now().isoformat(timespec="seconds")
+
+
+def _rel(path: Path | str) -> str:
+    try:
+        return Path(path).relative_to(PROJECT_DIR).as_posix()
+    except ValueError:
+        return str(path)
+
+
+def _abs(path: Path | str) -> Path:
+    path_obj = Path(path)
+    return path_obj if path_obj.is_absolute() else PROJECT_DIR / path_obj
 
 
 def build_scrape_command(cfg: dict) -> list[str]:
@@ -79,18 +97,151 @@ def _log_tail(path: Path, limit: int = 5000) -> str:
 
 def public_job(job: dict) -> dict:
     process = job.get("process")
+    persisted_status = job.get("status")
     return_code = process.poll() if process else job.get("return_code")
-    status = "running" if return_code is None else ("completed" if return_code == 0 else "failed")
+    if process and return_code is None:
+        status = "running"
+    elif persisted_status in {"interrupted", "completed", "failed"}:
+        status = persisted_status
+    elif return_code is None:
+        status = "unknown"
+    else:
+        status = "completed" if return_code == 0 else "failed"
     return {
         "id": job["id"],
         "kind": job["kind"],
         "status": status,
         "return_code": return_code,
         "started_at": job["started_at"],
+        "ended_at": job.get("ended_at", ""),
         "command": " ".join(job["command"]),
-        "log_path": str(job["log_path"]),
-        "log_tail": _log_tail(job["log_path"]),
+        "log_path": _rel(job["log_path"]),
+        "log_tail": _log_tail(_abs(job["log_path"])),
+        "artifacts": job.get("artifacts", []),
     }
+
+
+def serialize_job(job: dict) -> dict:
+    public = public_job(job)
+    public.pop("log_tail", None)
+    public["command"] = list(job.get("command", []))
+    return public
+
+
+def persist_jobs(path: Path | None = None) -> None:
+    path = path or JOB_FILE
+    path.parent.mkdir(parents=True, exist_ok=True)
+    jobs = [serialize_job(job) for job in sorted(RUN_JOBS.values(), key=lambda item: item["started_at"], reverse=True)]
+    path.write_text(json.dumps(jobs, indent=2))
+
+
+def load_jobs(path: Path | None = None) -> list[dict]:
+    path = path or JOB_FILE
+    if not path.exists():
+        return []
+    try:
+        jobs = json.loads(path.read_text())
+    except Exception:
+        return []
+    return jobs if isinstance(jobs, list) else []
+
+
+def recover_jobs(path: Path | None = None) -> int:
+    path = path or JOB_FILE
+    loaded = 0
+    with RUN_LOCK:
+        RUN_JOBS.clear()
+        for record in load_jobs(path):
+            if not isinstance(record, dict) or not record.get("id"):
+                continue
+            status = record.get("status")
+            if status == "running":
+                status = "interrupted"
+                record["ended_at"] = record.get("ended_at") or _now()
+                record["return_code"] = record.get("return_code")
+            job = {
+                "id": record["id"],
+                "kind": record.get("kind", "unknown"),
+                "command": record.get("command", []),
+                "started_at": record.get("started_at", ""),
+                "ended_at": record.get("ended_at", ""),
+                "return_code": record.get("return_code"),
+                "status": status or "unknown",
+                "log_path": _abs(record.get("log_path", JOB_DIR / f"{record['id']}.log")),
+                "artifacts": record.get("artifacts", []),
+            }
+            RUN_JOBS[job["id"]] = job
+            loaded += 1
+        if loaded:
+            persist_jobs(path)
+    return loaded
+
+
+def scrape_artifacts() -> list[dict]:
+    paths = [PROJECT_DIR / "data_pa_wide.csv", PROJECT_DIR / "data_pa_wide.json"]
+    return [{"label": path.name, "path": _rel(path)} for path in paths if path.exists()]
+
+
+def latest_run_artifacts(started_at: str = "") -> list[dict]:
+    runs_dir = PROJECT_DIR / "runs"
+    if not runs_dir.exists():
+        return []
+    run_dirs = sorted(
+        [path for path in runs_dir.iterdir() if path.is_dir() and path.name != "web_jobs"],
+        key=lambda path: path.name,
+        reverse=True,
+    )
+    for run_dir in run_dirs:
+        artifacts = []
+        for filename in ("dashboard.html", "report.txt", "scored.json", "discovered.json", "meta.json"):
+            path = run_dir / filename
+            if path.exists():
+                artifacts.append({"label": f"{run_dir.name}/{filename}", "path": _rel(path)})
+        if artifacts:
+            return artifacts
+    return []
+
+
+def artifacts_for_job(job: dict) -> list[dict]:
+    if job.get("kind") == "scrape":
+        return scrape_artifacts()
+    if job.get("kind") == "score":
+        return latest_run_artifacts(job.get("started_at", ""))
+    return []
+
+
+def finish_job(job: dict, return_code: int) -> None:
+    job["return_code"] = return_code
+    job["status"] = "completed" if return_code == 0 else "failed"
+    job["ended_at"] = _now()
+    job["artifacts"] = artifacts_for_job(job)
+
+
+def _monitor_loop(interval: float = 2.0) -> None:
+    while True:
+        with RUN_LOCK:
+            changed = False
+            for job in RUN_JOBS.values():
+                process = job.get("process")
+                if not process or job.get("status") != "running":
+                    continue
+                return_code = process.poll()
+                if return_code is not None:
+                    finish_job(job, return_code)
+                    changed = True
+            if changed:
+                persist_jobs()
+        threading.Event().wait(interval)
+
+
+def initialize_job_system(path: Path | None = None) -> int:
+    global MONITOR_STARTED
+    loaded = recover_jobs(path)
+    if not MONITOR_STARTED:
+        thread = threading.Thread(target=_monitor_loop, daemon=True)
+        thread.start()
+        MONITOR_STARTED = True
+    return loaded
 
 
 def start_run_job(kind: str, command: list[str]) -> tuple[dict, int]:
@@ -122,16 +273,48 @@ def start_run_job(kind: str, command: list[str]) -> tuple[dict, int]:
             "kind": kind,
             "command": command,
             "process": process,
-            "started_at": datetime.now().isoformat(timespec="seconds"),
+            "started_at": _now(),
+            "ended_at": "",
             "log_path": log_path,
+            "return_code": None,
+            "status": "running",
+            "artifacts": [],
         }
         RUN_JOBS[job_id] = job
+        persist_jobs()
         return {"ok": True, "job": public_job(job)}, 202
 
 
 def list_run_jobs() -> list[dict]:
     with RUN_LOCK:
+        changed = False
+        for job in RUN_JOBS.values():
+            process = job.get("process")
+            if process and job.get("status") == "running":
+                return_code = process.poll()
+                if return_code is not None:
+                    finish_job(job, return_code)
+                    changed = True
+        if changed:
+            persist_jobs()
         return [public_job(job) for job in sorted(RUN_JOBS.values(), key=lambda item: item["started_at"], reverse=True)]
+
+
+def get_run_job(job_id: str) -> dict | None:
+    with RUN_LOCK:
+        job = RUN_JOBS.get(job_id)
+        return public_job(job) if job else None
+
+
+def safe_project_path(path_value: str) -> Path | None:
+    try:
+        path = _abs(path_value).resolve()
+        project = PROJECT_DIR.resolve()
+        if path == project or project in path.parents:
+            return path
+    except Exception:
+        return None
+    return None
 
 
 def save_job_snapshot(path: Path = JOB_DIR / "latest.json") -> None:

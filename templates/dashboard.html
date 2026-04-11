@@ -75,6 +75,24 @@
       </div>
       <pre id="job-log" aria-live="polite">{% if jobs %}{{ jobs[0].kind }}: {{ jobs[0].status }}
 {{ jobs[0].log_tail }}{% else %}No dashboard-launched jobs yet.{% endif %}</pre>
+      <div class="job-history">
+        <h3>Job History</h3>
+        <ul id="job-list">
+          {% for job in jobs[:5] %}
+          <li>
+            <strong>{{ job.kind }}</strong>
+            <span class="job-status job-status-{{ job.status }}">{{ job.status }}</span>
+            <small>{{ job.started_at }}</small>
+            <a href="/jobs/log/{{ job.id }}" target="_blank" rel="noreferrer">Log</a>
+            {% for artifact in job.artifacts %}
+            <a href="/jobs/artifact?path={{ artifact.path|urlencode }}" target="_blank" rel="noreferrer">{{ artifact.label }}</a>
+            {% endfor %}
+          </li>
+          {% else %}
+          <li>No jobs yet.</li>
+          {% endfor %}
+        </ul>
+      </div>
     </section>
 
     <section class="board" aria-label="Business listings">
@@ -187,6 +205,7 @@
       if (!jobLog) return;
       const resp = await fetch("/jobs/status");
       const data = await resp.json();
+      renderJobs(data.jobs || []);
       const job = data.jobs?.[0];
       if (!job) {
         jobLog.textContent = "No dashboard-launched jobs yet.";
@@ -196,6 +215,38 @@
       jobButtons.forEach((button) => {
         button.disabled = data.jobs.some((item) => item.status === "running" && item.kind === button.dataset.job);
       });
+    }
+
+    function renderJobs(jobs) {
+      const list = document.getElementById("job-list");
+      if (!list) return;
+      if (!jobs.length) {
+        list.innerHTML = "<li>No jobs yet.</li>";
+        return;
+      }
+      list.innerHTML = jobs.slice(0, 5).map((job) => {
+        const artifacts = (job.artifacts || []).map((artifact) => {
+          const path = encodeURIComponent(artifact.path);
+          return `<a href="/jobs/artifact?path=${path}" target="_blank" rel="noreferrer">${escapeHtml(artifact.label)}</a>`;
+        }).join(" ");
+        return `<li>
+          <strong>${escapeHtml(job.kind)}</strong>
+          <span class="job-status job-status-${escapeHtml(job.status)}">${escapeHtml(job.status)}</span>
+          <small>${escapeHtml(job.started_at || "")}</small>
+          <a href="/jobs/log/${encodeURIComponent(job.id)}" target="_blank" rel="noreferrer">Log</a>
+          ${artifacts}
+        </li>`;
+      }).join("");
+    }
+
+    function escapeHtml(value) {
+      return String(value || "").replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;",
+      }[char]));
     }
 
     async function startJob(kind) {

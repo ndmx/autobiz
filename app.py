@@ -11,13 +11,22 @@ import os
 import threading
 import webbrowser
 
-from flask import Flask, jsonify, redirect, render_template, request, url_for
+from flask import Flask, Response, jsonify, redirect, render_template, request, send_file, url_for
 
 import config as cfg
 from dashboard_data import dashboard_context
-from run_jobs import build_score_command, build_scrape_command, list_run_jobs, start_run_job
+from run_jobs import (
+    build_score_command,
+    build_scrape_command,
+    get_run_job,
+    initialize_job_system,
+    list_run_jobs,
+    safe_project_path,
+    start_run_job,
+)
 
 app = Flask(__name__)
+initialize_job_system()
 
 BROWSER_DISABLED_VALUES = {"1", "true", "yes", "on"}
 
@@ -75,6 +84,22 @@ def start_score():
 @app.route("/jobs/status", methods=["GET"])
 def job_status():
     return jsonify({"ok": True, "jobs": list_run_jobs()})
+
+
+@app.route("/jobs/log/<job_id>", methods=["GET"])
+def job_log(job_id):
+    job = get_run_job(job_id)
+    if not job:
+        return Response("Job not found", status=404, mimetype="text/plain")
+    return Response(job.get("log_tail", ""), mimetype="text/plain")
+
+
+@app.route("/jobs/artifact", methods=["GET"])
+def job_artifact():
+    path = safe_project_path(request.args.get("path", ""))
+    if not path or not path.exists() or not path.is_file():
+        return Response("Artifact not found", status=404, mimetype="text/plain")
+    return send_file(path)
 
 
 @app.route("/settings", methods=["GET"])

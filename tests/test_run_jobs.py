@@ -42,6 +42,61 @@ class RunJobsTests(unittest.TestCase):
         self.assertEqual(len(run_jobs.RUN_JOBS), 1)
         run_jobs.RUN_JOBS.clear()
 
+    def test_recover_jobs_marks_stale_running_job_interrupted(self):
+        run_jobs.RUN_JOBS.clear()
+        with tempfile.TemporaryDirectory() as tmp:
+            job_file = Path(tmp) / "jobs.json"
+            log_path = Path(tmp) / "old.log"
+            log_path.write_text("started\n")
+            job_file.write_text("""[
+              {
+                "id": "old_scrape",
+                "kind": "scrape",
+                "status": "running",
+                "return_code": null,
+                "started_at": "2026-04-11T10:00:00",
+                "command": ["python", "scraper.py"],
+                "log_path": "%s",
+                "artifacts": []
+              }
+            ]""" % str(log_path))
+
+            loaded = run_jobs.recover_jobs(job_file)
+            jobs = run_jobs.list_run_jobs()
+
+        self.assertEqual(loaded, 1)
+        self.assertEqual(jobs[0]["status"], "interrupted")
+        run_jobs.RUN_JOBS.clear()
+
+    def test_persist_jobs_round_trips_completed_job(self):
+        run_jobs.RUN_JOBS.clear()
+        with tempfile.TemporaryDirectory() as tmp:
+            job_file = Path(tmp) / "jobs.json"
+            log_path = Path(tmp) / "done.log"
+            log_path.write_text("done\n")
+            run_jobs.RUN_JOBS["done_score"] = {
+                "id": "done_score",
+                "kind": "score",
+                "command": ["python", "agent.py"],
+                "started_at": "2026-04-11T10:00:00",
+                "ended_at": "2026-04-11T10:01:00",
+                "return_code": 0,
+                "status": "completed",
+                "log_path": log_path,
+                "artifacts": [{"label": "report", "path": "runs/x/report.txt"}],
+            }
+
+            run_jobs.persist_jobs(job_file)
+            loaded = run_jobs.load_jobs(job_file)
+
+        self.assertEqual(loaded[0]["status"], "completed")
+        self.assertEqual(loaded[0]["artifacts"][0]["label"], "report")
+        run_jobs.RUN_JOBS.clear()
+
+    def test_safe_project_path_rejects_external_paths(self):
+        self.assertIsNone(run_jobs.safe_project_path("/etc/passwd"))
+        self.assertIsNotNone(run_jobs.safe_project_path("README.md"))
+
 
 if __name__ == "__main__":
     unittest.main()

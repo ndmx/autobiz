@@ -33,6 +33,14 @@ class DashboardTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.get_json()["jobs"][0]["status"], "running")
 
+    def test_job_log_route_returns_log_tail(self):
+        client = app.test_client()
+        with patch("app.get_run_job", return_value={"id": "job", "log_tail": "hello log"}):
+            response = client.get("/jobs/log/job")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("hello log", response.get_data(as_text=True))
+
 
 if __name__ == "__main__":
     unittest.main()

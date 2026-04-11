@@ -18,7 +18,7 @@ Philadelphia-first discovery with statewide Pennsylvania coverage.
 | Module | Responsibility |
 | --- | --- |
 | `app.py` | Flask dashboard/settings shell and local browser auto-open. |
-| `run_jobs.py` | Background dashboard-launched scrape and score jobs. |
+| `run_jobs.py` | Persistent dashboard-launched scrape and score job history plus background status monitor. |
 | `config.py` | Loads `config.json`, project `.env` files, shell env, and built-in defaults. Creates provider clients. |
 | `scraper.py` | Source-backed listing collection. Direct Craigslist scrape plus Grok-proxied listing sites. |
 | `source_adapters/` | Per-source direct parsers and Grok-fallback URL builders. |

@@ -104,6 +104,11 @@ The dashboard has run buttons for:
 - Scraping PA listings into `data_pa_wide.csv` and `data_pa_wide.json`.
 - Scoring `data_pa_wide.json` through the agent pipeline.
 
+Job history is persisted in `runs/web_jobs/jobs.json`. When the app starts,
+the job system loads that history, starts its background status monitor, and
+marks stale in-progress jobs as interrupted so the dashboard shows the current
+state immediately after a restart.
+
 Each scored run also writes a static `dashboard.html` next to `report.txt`, so
 the visual report is preserved with the run artifacts.
 
