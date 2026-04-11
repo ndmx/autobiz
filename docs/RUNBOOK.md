@@ -36,22 +36,29 @@ for name in ["ANTHROPIC_API_KEY", "XAI_API_KEY", "OPENAI_API_KEY", "GEMINI_API_K
 PY
 ```
 
-## Settings UI
+## Dashboard and Settings UI
 
-Start the settings UI:
+Start the dashboard:
 
 ```bash
 uv run app.py
 ```
 
-Open:
+It opens in your default browser:
 
 ```text
-http://localhost:7860
+http://localhost:7860/dashboard
 ```
 
-Use the UI for provider/model defaults, API key testing, default location, and
-default asking-price range.
+Use the dashboard to compare score, Philly distance, source, financial
+confidence, and deal terms. Use the settings link for provider/model defaults,
+API key testing, default location, and default asking-price range.
+
+For terminal-only or automation runs:
+
+```bash
+AUTOBIZ_NO_BROWSER=1 uv run app.py
+```
 
 ## Source-Backed Scrape
 

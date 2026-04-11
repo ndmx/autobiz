@@ -73,7 +73,7 @@ uv run scraper.py --location "Pennsylvania" --min-budget 75000 --budget 250000 \
 uv run agent.py --from-json data_pa_wide.json --location "Pennsylvania" \
   --min-budget 75000 --budget 250000 --no-commit
 
-# Open the browser dashboard
+# Start the dashboard; it opens in your default browser
 uv run app.py
 ```
 
@@ -90,10 +90,11 @@ uv run agent.py --from-json data_pa_wide.json --verify-top 0 --no-deep-dive --no
 uv run python -m unittest discover -s tests
 ```
 
-The dashboard opens at `http://localhost:7860/dashboard`. It defaults to the
-newest scored run when one exists, and can also load the PA-wide scraped JSON.
-Rows are ranked by distance from Philadelphia, then score, with source, asking
-price, cash flow, revenue, deal terms, and financial confidence visible together.
+The dashboard opens automatically at `http://localhost:7860/dashboard`. It
+defaults to the newest scored run when one exists, and can also load the PA-wide
+scraped JSON. Rows are ranked by distance from Philadelphia, then score, with
+source, asking price, cash flow, revenue, deal terms, and financial confidence
+visible together. For headless runs, use `AUTOBIZ_NO_BROWSER=1 uv run app.py`.
 
 ## Financial confidence
 

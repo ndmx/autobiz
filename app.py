@@ -4,11 +4,13 @@ app.py — autobiz Settings Web UI
 Run with:
     uv run app.py
 
-Opens at: http://localhost:7860
+Opens the dashboard at: http://localhost:7860/dashboard
 """
 
 import json
 import os
+import threading
+import webbrowser
 from pathlib import Path
 
 from flask import Flask, jsonify, redirect, render_template, request, url_for
@@ -20,6 +22,25 @@ from proximity import add_proximity_fields
 app = Flask(__name__)
 
 PROJECT_DIR = Path(__file__).parent
+BROWSER_DISABLED_VALUES = {"1", "true", "yes", "on"}
+
+
+# ---------------------------------------------------------------------------
+# Run helpers
+# ---------------------------------------------------------------------------
+
+def dashboard_url(port: int) -> str:
+    return f"http://localhost:{port}/dashboard"
+
+
+def should_auto_open_browser() -> bool:
+    return os.environ.get("AUTOBIZ_NO_BROWSER", "").strip().lower() not in BROWSER_DISABLED_VALUES
+
+
+def open_browser_later(url: str, delay: float = 1.0) -> None:
+    timer = threading.Timer(delay, lambda: webbrowser.open(url, new=2))
+    timer.daemon = True
+    timer.start()
 
 
 # ---------------------------------------------------------------------------
@@ -339,5 +360,11 @@ def status():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 7860))
-    print(f"\n  autobiz Dashboard\n  http://localhost:{port}/dashboard\n")
-    app.run(host="0.0.0.0", port=port, debug=False)
+    url = dashboard_url(port)
+    if should_auto_open_browser():
+        open_browser_later(url)
+        open_note = "opening in your default browser"
+    else:
+        open_note = "browser auto-open disabled"
+    print(f"\n  autobiz Dashboard\n  {url}\n  {open_note}\n")
+    app.run(host="0.0.0.0", port=port, debug=False, use_reloader=False)
