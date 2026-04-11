@@ -1,7 +1,7 @@
 import unittest
 
 from agent import apply_hard_rules
-from listing_utils import attach_listing_metadata, financial_confidence
+from listing_utils import attach_listing_metadata, financial_confidence, financial_field_provenance
 
 
 class ListingUtilsTests(unittest.TestCase):
@@ -16,6 +16,7 @@ class ListingUtilsTests(unittest.TestCase):
 
         self.assertEqual(confidence["level"], "high")
         self.assertGreaterEqual(confidence["score"], 80)
+        self.assertEqual(confidence["provenance"]["cash_flow"], "scraped")
 
     def test_financial_confidence_very_low_without_hard_financials(self):
         confidence = financial_confidence({
@@ -26,6 +27,18 @@ class ListingUtilsTests(unittest.TestCase):
 
         self.assertEqual(confidence["level"], "very_low")
         self.assertLess(confidence["score"], 30)
+        self.assertEqual(confidence["provenance"]["source"], "unverified")
+
+    def test_financial_field_provenance_marks_estimates(self):
+        provenance = financial_field_provenance({
+            "asking_price_usd": 125000,
+            "extracted_financials": {"cash_flow_annual": 50000},
+            "is_estimated": True,
+            "source_url": "estimated",
+        })
+
+        self.assertEqual(provenance["asking_price"], "estimated")
+        self.assertEqual(provenance["cash_flow"], "estimated")
 
     def test_attach_listing_metadata_adds_confidence_and_proximity(self):
         result = {"business_name": "Service Route", "weighted_score": 70}

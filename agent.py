@@ -46,7 +46,7 @@ from listing_utils import (
     proximity_breakdown,
     source_breakdown,
 )
-from reporting import render_agent_report
+from reporting import render_agent_report, render_html_report
 
 # Re-use all logic from research.py
 from research import (
@@ -588,6 +588,15 @@ def orchestrate(
 
     with open(run_dir / "report.txt", "w") as f:
         f.write(report)
+
+    html_report = render_html_report(
+        results,
+        budget,
+        min_budget=min_budget,
+        title=f"autobiz run {timestamp}",
+    )
+    with open(run_dir / "dashboard.html", "w") as f:
+        f.write(html_report)
 
     # Update cross-run memory
     seen = update_seen(seen, results)

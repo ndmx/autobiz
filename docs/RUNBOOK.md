@@ -60,6 +60,12 @@ For terminal-only or automation runs:
 AUTOBIZ_NO_BROWSER=1 uv run app.py
 ```
 
+Scored agent runs also save a static visual report at:
+
+```text
+runs/<timestamp>/dashboard.html
+```
+
 ## Source-Backed Scrape
 
 Pull Philly-first, PA-wide listings:

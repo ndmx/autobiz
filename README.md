@@ -11,9 +11,11 @@ Core files:
 - **`program.md`** — the scoring framework. Edit this to tune what "strong business" means to you. This is your human-facing lever.
 - **`scraper.py`** — source-backed listing collection, Philadelphia-first and Pennsylvania-wide.
 - **`source_adapters/`** — per-source adapters for Craigslist and Grok-backed marketplace pages.
+- **`dedupe.py`** — fuzzy cross-source duplicate detection and merge logic.
 - **`agent.py`** — multi-agent orchestration: discovery, scoring, verification, deep dives, reports, and run artifacts.
 - **`listing_utils.py`** — shared listing filtering, metadata preservation, and proximity ranking helpers.
 - **`proximity.py`** — approximate distance-to-Philadelphia enrichment.
+- **`dashboard_data.py`** — shared dashboard and run-report data shaping.
 - **`reporting.py`** — text report rendering.
 - **`app.py`** — browser dashboard and settings UI.
 - **`config.py`** — config, `.env` loading, and provider client factories.
@@ -96,6 +98,9 @@ scraped JSON. Rows are ranked by distance from Philadelphia, then score, with
 source, asking price, cash flow, revenue, deal terms, and financial confidence
 visible together. For headless runs, use `AUTOBIZ_NO_BROWSER=1 uv run app.py`.
 
+Each scored run also writes a static `dashboard.html` next to `report.txt`, so
+the visual report is preserved with the run artifacts.
+
 ## Financial confidence
 
 Every scraped or scored listing gets a `financial_confidence` block:
@@ -104,6 +109,22 @@ Every scraped or scored listing gets a `financial_confidence` block:
 - `medium`: enough financial evidence for a diligence queue.
 - `low` / `very_low`: missing core facts. The hard-rules pass caps these listings
   so missing cash flow cannot rank as a top acquisition candidate.
+
+The confidence block includes field provenance for asking price, cash flow,
+revenue, and source, marking values as scraped, LLM-extracted, estimated, or
+missing.
+
+## Tests and CI
+
+Local checks:
+
+```bash
+uv run python -m unittest discover -s tests
+uv run python -m compileall app.py agent.py scraper.py listing_utils.py proximity.py reporting.py dashboard_data.py dedupe.py source_adapters tests
+```
+
+GitHub Actions runs the same checks on pushes to `main` / `codex/**` branches
+and on pull requests.
 
 ## Scoring Parameters
 

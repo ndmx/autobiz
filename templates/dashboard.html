@@ -99,6 +99,7 @@
                 <strong>{{ row.name }}</strong>
                 <span>{{ row.type }} · {{ row.location }}</span>
                 {% if row.estimated %}<em>Estimated</em>{% endif %}
+                {% if row.duplicate_count > 1 %}<em title="{{ row.duplicate_sources }}">Seen {{ row.duplicate_count }}x</em>{% endif %}
               </td>
               <td>
                 <div class="metric-label">{{ row.distance_display }}</div>
@@ -119,7 +120,7 @@
               </td>
               <td>
                 <span class="confidence confidence-{{ row.confidence_level }}">{{ row.confidence_level|replace('_', ' ') }}</span>
-                <small>{{ row.confidence_score }}/100 · {{ row.confidence_reasons }}</small>
+                <small title="{{ row.provenance_summary }}">{{ row.confidence_score }}/100 · {{ row.confidence_reasons }}</small>
               </td>
               <td class="deal-cell">{{ row.structure }}</td>
               <td>

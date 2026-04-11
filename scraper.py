@@ -25,6 +25,7 @@ import time
 from source_adapters.craigslist import scrape_craigslist
 from source_adapters.grok_pages import build_grok_source_urls, grok_scrape_url
 
+from dedupe import dedupe_listings
 from listing_utils import financial_confidence
 from proximity import add_proximity_fields, assign_proximity_ranks
 
@@ -33,8 +34,7 @@ from proximity import add_proximity_fields, assign_proximity_ranks
 # ---------------------------------------------------------------------------
 
 def normalize_listings(listings: list[dict]) -> list[dict]:
-    """Clean and deduplicate by title+price fingerprint."""
-    seen = set()
+    """Clean placeholders and deduplicate likely cross-source repeats."""
     clean = []
     for item in listings:
         name = (item.get("business_name") or "").strip()[:60].lower()
@@ -46,11 +46,8 @@ def normalize_listings(listings: list[dict]) -> list[dict]:
             or "include all text you can see from the listing card" in description
         ):
             continue
-        price = item.get("asking_price") or 0
-        key = f"{name}:{price}"
-        if key in seen or not name:
+        if not name:
             continue
-        seen.add(key)
 
         # Ensure required fields exist
         item.setdefault("business_type", "")
@@ -63,7 +60,7 @@ def normalize_listings(listings: list[dict]) -> list[dict]:
         add_proximity_fields(item)
         item["financial_confidence"] = financial_confidence(item)
         clean.append(item)
-    return assign_proximity_ranks(clean)
+    return assign_proximity_ranks(dedupe_listings(clean))
 
 
 def as_int(value) -> int | None:

@@ -17,14 +17,17 @@ Philadelphia-first discovery with statewide Pennsylvania coverage.
 
 | Module | Responsibility |
 | --- | --- |
-| `app.py` | Flask settings UI for provider/model/API/default run settings. |
+| `app.py` | Flask dashboard/settings shell and local browser auto-open. |
 | `config.py` | Loads `config.json`, project `.env` files, shell env, and built-in defaults. Creates provider clients. |
 | `scraper.py` | Source-backed listing collection. Direct Craigslist scrape plus Grok-proxied listing sites. |
+| `source_adapters/` | Per-source scraping or URL-building adapters. |
+| `dedupe.py` | Fuzzy cross-source duplicate detection and merge logic. |
+| `dashboard_data.py` | Shared dashboard and static HTML report data shaping. |
 | `research.py` | Shared discovery, market enrichment, scoring prompt, scoring math, and deep-dive logic. |
 | `agent.py` | Orchestrates discovery, scoring workers, verification, deep dives, run artifacts, and git history. |
 | `listing_utils.py` | Shared listing metadata preservation, price filtering, source summaries, and proximity ranking helpers. |
 | `proximity.py` | Approximate Philly distance, bucket, city, county, and proximity rank enrichment. |
-| `reporting.py` | Text report rendering for agent runs. |
+| `reporting.py` | Text and static HTML report rendering for agent runs. |
 | `program.md` | Human-editable acquisition thesis and scoring rubric. |
 | `runs/` | Timestamped run artifacts: discovered listings, scored results, reports, deep dives, and metadata. |
 
@@ -36,12 +39,15 @@ flowchart TD
     Env[".env / shell env"] --> Config
     Program["program.md scoring thesis"] --> Research["research.py prompts and scoring"]
     Scraper["scraper.py source-backed listings"] --> Data["data_*.csv / data_*.json"]
+    Scraper --> Adapters["source_adapters"]
+    Scraper --> Dedupe["dedupe.py"]
     Data --> Agent["agent.py orchestrator"]
     Config --> Agent
     Research --> Agent
     Agent --> ListingUtils["listing_utils.py"]
     ListingUtils --> Proximity["proximity.py"]
     Agent --> Reporting["reporting.py"]
+    Reporting --> DashboardData["dashboard_data.py"]
     Agent --> Runs["runs/<timestamp>/ artifacts"]
     Reporting --> Runs
 ```
@@ -58,8 +64,8 @@ flowchart TD
 8. Apply hard rules for score caps and margin sanity.
 9. Verify the top candidate URLs through Grok, unless disabled.
 10. Run deep dives on the top candidates, unless disabled.
-11. Render the text report.
-12. Save `scored.json`, `deep_dives.json`, `report.txt`, and `meta.json`.
+11. Render the text report and static HTML dashboard report.
+12. Save `scored.json`, `deep_dives.json`, `report.txt`, `dashboard.html`, and `meta.json`.
 13. Update cross-run memory and optionally commit the run artifacts.
 
 ## Source-Backed vs Estimated Records
@@ -68,6 +74,11 @@ The discovery prompt now asks for source-backed listings only. If a record has
 `source_url = "estimated"` or no URL, it is treated as an estimate and capped
 below A-tier. The main report separates verified/source-backed records from
 estimated benchmark records.
+
+Each scored or scraped listing also gets `financial_confidence`, including
+field-level provenance for asking price, cash flow, revenue, and source. This
+keeps scraped facts, LLM-extracted facts, estimates, and missing values visible
+in both the live dashboard and run artifacts.
 
 ## Proximity Model
 

@@ -26,6 +26,7 @@ from xai_sdk import Client as XaiClient
 from xai_sdk.chat import user as xai_user, system as xai_system
 
 from proximity import add_proximity_fields, assign_proximity_ranks
+from dedupe import dedupe_listings
 
 # ---------------------------------------------------------------------------
 # Config
@@ -432,18 +433,8 @@ def deep_dive(grok: XaiClient, candidate: dict) -> str:
 # ---------------------------------------------------------------------------
 
 def deduplicate(listings: list[dict]) -> list[dict]:
-    """Remove duplicate listings based on business name + location."""
-    seen = set()
-    unique = []
-    for listing in listings:
-        key = (
-            listing.get("business_name", "").lower().strip()[:40],
-            listing.get("location", "").lower().strip()[:20],
-        )
-        if key not in seen:
-            seen.add(key)
-            unique.append(listing)
-    return unique
+    """Remove likely duplicate listings across sources."""
+    return dedupe_listings(listings)
 
 
 # ---------------------------------------------------------------------------

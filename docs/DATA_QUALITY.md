@@ -56,6 +56,27 @@ Good scoring fields:
 Listings with missing financials should be treated cautiously, even when the
 business type looks attractive.
 
+## Financial Confidence and Provenance
+
+`financial_confidence` is a separate data-quality score, not a deal-quality
+score. It marks whether asking price, cash flow, revenue, and source evidence
+are present, and it includes field-level provenance:
+
+- `scraped`: value came directly from the listing object.
+- `llm_extracted`: value came from a scored result's extracted financials.
+- `estimated`: value belongs to an estimated or unverified listing.
+- `missing`: no usable positive value was found.
+
+Hard rules cap listings with missing verified cash flow and listings with low
+financial confidence so attractive narratives do not outrank stronger evidence.
+
+## Deduplication
+
+`dedupe.py` merges likely repeats across sources using normalized name tokens,
+location, source host, and price bands. Merged rows retain `_duplicate_count`,
+`_duplicate_sources`, and a `_dedupe_note` so the dashboard can surface when a
+business appeared in more than one place.
+
 ## Philly Proximity Fields
 
 Every normalized listing should include:
@@ -75,7 +96,7 @@ Craigslist market fallbacks, not a full street-address geocoder.
 - Some pages block automated access or change HTML frequently.
 - Grok-proxied extraction can return no rows even when a human browser shows listings.
 - County-only locations use county-seat approximations.
-- Business names are sometimes generic, which makes deduplication imperfect.
+- Business names are sometimes generic, which makes deduplication probabilistic.
 - Financial fields from descriptions may include seller discretionary earnings,
   owner benefit, cash flow, or EBITDA under inconsistent labels.
 
@@ -99,5 +120,5 @@ Highest leverage improvements:
   only on generic Grok extraction.
 - Add a geocoder for exact address or city/county lookup.
 - Store raw source snippets alongside normalized fields for auditability.
-- Add a financial confidence score based on explicit vs inferred financials.
+- Store raw source snippets alongside normalized fields for auditability.
 - Add source freshness checks so stale listings do not keep ranking.

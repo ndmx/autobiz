@@ -42,6 +42,40 @@ def financial_value_present(value: Any) -> bool:
     return number is not None and number > 0
 
 
+def financial_field_provenance(item: dict) -> dict[str, str]:
+    """Classify where key financial fields came from."""
+    fin = item.get("extracted_financials") or {}
+    is_estimated = item.get("is_estimated") or item.get("source_url") in {"estimated", "market estimate"}
+
+    fields = {
+        "asking_price": item.get("asking_price_usd") or item.get("asking_price") or fin.get("asking_price_usd"),
+        "cash_flow": (
+            fin.get("cash_flow_annual")
+            or fin.get("annual_cash_flow")
+            or item.get("cash_flow_annual")
+            or item.get("annual_cash_flow")
+        ),
+        "revenue": (
+            fin.get("gross_revenue_annual")
+            or fin.get("annual_revenue")
+            or item.get("gross_revenue_annual")
+            or item.get("annual_revenue")
+        ),
+    }
+    provenance = {}
+    for field, value in fields.items():
+        if not financial_value_present(value):
+            provenance[field] = "missing"
+        elif is_estimated:
+            provenance[field] = "estimated"
+        elif field in {"cash_flow", "revenue"} and fin:
+            provenance[field] = "llm_extracted"
+        else:
+            provenance[field] = "scraped"
+    provenance["source"] = "verified_url" if item.get("source_url") and not is_estimated else "unverified"
+    return provenance
+
+
 def financial_confidence(item: dict) -> dict:
     """
     Score how much hard financial evidence a listing has.
@@ -70,6 +104,7 @@ def financial_confidence(item: dict) -> dict:
     source_url = item.get("source_url", "")
     seller_note = item.get("seller_motivation") or item.get("seller_finance_signal") or item.get("boomer_signal")
     is_estimated = item.get("is_estimated") or source_url in {"estimated", "market estimate"}
+    provenance = financial_field_provenance(item)
 
     if financial_value_present(ask):
         score += 25
@@ -116,7 +151,7 @@ def financial_confidence(item: dict) -> dict:
     else:
         level = "very_low"
 
-    return {"score": score, "level": level, "reasons": reasons}
+    return {"score": score, "level": level, "reasons": reasons, "provenance": provenance}
 
 
 def in_price_range(item: dict, min_budget: int, max_budget: int) -> bool:

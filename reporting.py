@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+from html import escape
+
+from dashboard_data import dashboard_summary, rows_for_items
 from listing_utils import assign_result_proximity_ranks
 
 
@@ -198,3 +201,70 @@ def render_agent_report(results: list[dict], deep_dives: dict, budget: int, min_
     lines.append("=" * 72)
 
     return "\n".join(lines)
+
+
+def render_html_report(results: list[dict], budget: int, min_budget: int = 0, title: str = "autobiz run") -> str:
+    rows = rows_for_items([result for result in results if "error" not in result])
+    summary = dashboard_summary(rows)
+    price_label = f"${min_budget:,}-${budget:,}" if min_budget else f"up to ${budget:,}"
+
+    body_rows = []
+    for row in rows:
+        url = row["source_url"]
+        source = escape(row["source"])
+        source_html = f'<a href="{escape(url)}">{source}</a>' if url and url != "estimated" else source
+        body_rows.append(
+            "<tr>"
+            f"<td>#{row['proximity_rank']}</td>"
+            f"<td><strong>{escape(row['name'])}</strong><small>{escape(row['type'])} | {escape(row['location'])}</small></td>"
+            f"<td>{escape(row['distance_display'])}<small>{escape(row['bucket'])}</small></td>"
+            f"<td><strong>{escape(row['score_display'])}</strong><span>{escape(row['tier'])}</span></td>"
+            f"<td>Ask {escape(row['asking'])}<small>CF {escape(row['cash_flow'])} | Rev {escape(row['revenue'])}</small></td>"
+            f"<td><strong>{escape(row['confidence_level'])}</strong><small>{row['confidence_score']}/100 | {escape(row['provenance_summary'])}</small></td>"
+            f"<td>{escape(str(row['structure']))}</td>"
+            f"<td>{source_html}</td>"
+            "</tr>"
+        )
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{escape(title)}</title>
+  <style>
+    body {{ margin: 0; background: #f4f7f5; color: #17201b; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }}
+    main {{ max-width: 1440px; margin: 0 auto; padding: 28px; }}
+    h1 {{ margin: 0 0 6px; font-size: 26px; }}
+    p {{ margin: 0 0 20px; color: #637068; }}
+    .summary {{ display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 18px; }}
+    .tile, table {{ background: white; border: 1px solid #d7e0db; border-radius: 8px; }}
+    .tile {{ padding: 14px; }}
+    .tile span, small {{ display: block; color: #637068; font-size: 12px; }}
+    .tile strong {{ display: block; font-size: 26px; }}
+    table {{ width: 100%; border-collapse: collapse; overflow: hidden; }}
+    th, td {{ padding: 12px; border-bottom: 1px solid #d7e0db; text-align: left; vertical-align: top; }}
+    th {{ background: #edf4f0; font-size: 12px; }}
+    td span {{ display: inline-block; margin-left: 6px; background: #dff5ed; border-radius: 8px; padding: 2px 7px; font-size: 12px; font-weight: 700; }}
+    a {{ color: #115e59; }}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>{escape(title)}</h1>
+    <p>Asking price {price_label}. Ranked by distance from Philadelphia, then score.</p>
+    <section class="summary">
+      <div class="tile"><span>Total</span><strong>{summary['total']}</strong></div>
+      <div class="tile"><span>Scored</span><strong>{summary['scored']}</strong></div>
+      <div class="tile"><span>Avg Score</span><strong>{summary['avg_score'] if summary['avg_score'] is not None else 'N/A'}</strong></div>
+      <div class="tile"><span>Closest</span><strong>{str(summary['closest']) + ' mi' if summary['closest'] is not None else 'N/A'}</strong></div>
+      <div class="tile"><span>High Confidence</span><strong>{summary['high_confidence']}</strong></div>
+    </section>
+    <table>
+      <thead><tr><th>Rank</th><th>Business</th><th>Distance</th><th>Score</th><th>Financials</th><th>Confidence</th><th>Deal</th><th>Source</th></tr></thead>
+      <tbody>{''.join(body_rows)}</tbody>
+    </table>
+  </main>
+</body>
+</html>
+"""
