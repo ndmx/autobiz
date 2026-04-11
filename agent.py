@@ -28,6 +28,7 @@ import os
 import subprocess
 import sys
 import time
+from contextlib import contextmanager
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
@@ -35,11 +36,18 @@ from pathlib import Path
 import anthropic
 from xai_sdk import Client as XaiClient
 
-from proximity import add_proximity_fields, assign_proximity_ranks
+from listing_utils import (
+    assign_result_proximity_ranks,
+    attach_listing_metadata,
+    enrich_listing_for_philly,
+    filter_and_rank_listings,
+    proximity_breakdown,
+    source_breakdown,
+)
+from reporting import render_agent_report
 
 # Re-use all logic from research.py
 from research import (
-    build_search_queries,
     build_scoring_prompt,
     compute_weighted_score,
     deep_dive,
@@ -48,12 +56,6 @@ from research import (
     load_program,
     market_enrich,
     score_to_tier,
-    CLAUDE_MODEL,
-    GROK_MODEL,
-    MAX_RETRIES,
-    RETRY_DELAY,
-    get_industry_margin_norm,
-    RED_FLAG_WEIGHT,
 )
 
 RUNS_DIR = Path(__file__).parent / "runs"
@@ -254,66 +256,6 @@ def verify_listings(grok: XaiClient, results: list[dict], top_n: int = 5) -> lis
 
 
 # ---------------------------------------------------------------------------
-# Listing metadata preservation
-# ---------------------------------------------------------------------------
-
-LISTING_METADATA_FIELDS = [
-    "business_type",
-    "asking_price",
-    "location",
-    "city",
-    "county",
-    "distance_to_philly_miles",
-    "proximity_bucket",
-    "proximity_rank",
-    "seller_motivation",
-    "source_url",
-    "listing_date",
-    "_source",
-]
-
-
-def as_int(value) -> int | None:
-    if value in (None, ""):
-        return None
-    if isinstance(value, (int, float)):
-        return int(value)
-    cleaned = "".join(ch for ch in str(value) if ch.isdigit())
-    return int(cleaned) if cleaned else None
-
-
-def in_price_range(item: dict, min_budget: int, max_budget: int) -> bool:
-    asking = as_int(item.get("asking_price") or item.get("asking_price_usd"))
-    return asking is None or min_budget <= asking <= max_budget
-
-
-def enrich_listing_for_philly(item: dict) -> dict:
-    add_proximity_fields(item)
-    return item
-
-
-def attach_listing_metadata(result: dict, listing: dict) -> dict:
-    """Keep source/proximity facts that are not part of the LLM JSON schema."""
-    for field in LISTING_METADATA_FIELDS:
-        value = listing.get(field)
-        if value not in (None, "") and result.get(field) in (None, ""):
-            result[field] = value
-
-    result["_source"] = result.get("_source") or listing.get("_source", "")
-    result["_input_business_name"] = listing.get("business_name", "")
-    result["_input_location"] = listing.get("location", "")
-    result["_input_source_url"] = listing.get("source_url", "")
-    add_proximity_fields(result)
-    return result
-
-
-def assign_result_proximity_ranks(results: list[dict]) -> list[dict]:
-    good = [r for r in results if "error" not in r]
-    assign_proximity_ranks(good)
-    return results
-
-
-# ---------------------------------------------------------------------------
 # Context-aware search query builder (fix #3 + #6)
 # ---------------------------------------------------------------------------
 
@@ -368,202 +310,6 @@ def build_search_queries_with_context(
         )
 
     return queries[:rounds]
-
-
-# ---------------------------------------------------------------------------
-# Report rendering (local override with verified badges + estimated section)
-# ---------------------------------------------------------------------------
-
-TIER_ICONS = {"A": "🟢", "B": "🟡", "C": "🟠", "D": "🔴"}
-
-
-def render_report(results: list[dict], deep_dives: dict, budget: int, min_budget: int = 0) -> str:
-    good = [r for r in results if "error" not in r]
-    assign_result_proximity_ranks(good)
-
-    # Split verified-capable from pure estimates for separate display
-    verified = [r for r in good if not r.get("is_estimated")]
-    estimated = [r for r in good if r.get("is_estimated")]
-
-    verified.sort(key=lambda x: x.get("weighted_score", 0), reverse=True)
-    estimated.sort(key=lambda x: x.get("weighted_score", 0), reverse=True)
-
-    lines = []
-    lines.append("=" * 72)
-    lines.append("  autobiz — Auto-Research Report")
-    if min_budget:
-        lines.append(f"  Asking price: ${min_budget:,}–${budget:,}  |  Goal: Fastest payback from boomer seller")
-    else:
-        lines.append(f"  Budget: ${budget:,}  |  Goal: Fastest payback from boomer seller")
-    lines.append("=" * 72)
-    lines.append(
-        f"  Total scored: {len(good)}  |  "
-        f"Verified/real: {len(verified)}  |  "
-        f"Estimated: {len(estimated)}  |  "
-        f"A-tier: {sum(1 for r in good if r.get('tier')=='A')}"
-    )
-    lines.append("")
-
-    closest = sorted(
-        good,
-        key=lambda r: (
-            r.get("distance_to_philly_miles") is None,
-            r.get("distance_to_philly_miles") or 10_000,
-            -r.get("weighted_score", 0),
-        ),
-    )[:10]
-    if closest:
-        lines.append("  -- Closest to Philadelphia --")
-        for r in closest:
-            dist = r.get("distance_to_philly_miles")
-            dist_str = f"{dist} mi" if dist is not None else "unknown"
-            lines.append(
-                f"  #{r.get('proximity_rank', '?'):<2} {dist_str:<10} "
-                f"[{r.get('tier', '?')}] {r.get('weighted_score', 0):.0f}/100  "
-                f"{r.get('business_name', 'Unknown')[:45]}  |  {r.get('location', '')}"
-            )
-        lines.append("")
-
-    def format_entry(i, r, show_dd=True):
-        tier = r.get("tier", "?")
-        score = r.get("weighted_score", 0)
-        icon = TIER_ICONS.get(tier, "⚪")
-        name = r.get("business_name", "Unknown")[:50]
-        btype = r.get("business_type", "")
-        loc = r.get("location", "")
-        fin = r.get("extracted_financials", {})
-        distance = r.get("distance_to_philly_miles")
-        distance_str = f"{distance} mi from Philly" if distance is not None else "distance unknown"
-
-        lines.append(f"{icon} #{i}  [{tier}] {score:.0f}/100  —  {name}")
-        if btype or loc:
-            lines.append(f"     {btype}  |  {loc}")
-        lines.append(
-            f"     Proximity: #{r.get('proximity_rank', '?')} closest  |  "
-            f"{distance_str}  |  {r.get('proximity_bucket', 'unknown distance')}"
-        )
-        lines.append("-" * 72)
-
-        # Rule adjustments note
-        adjustments = r.get("_rule_adjustments", [])
-        if adjustments:
-            lines.append(f"  ↓ Adjusted: {'; '.join(adjustments)}")
-
-        ap = r.get("asking_price_usd")
-        cf = fin.get("cash_flow_annual")
-        rev = fin.get("gross_revenue_annual")
-        margin = fin.get("profit_margin_pct")
-        payback = fin.get("payback_years")
-
-        fin_parts = []
-        if ap:
-            fin_parts.append(f"Ask: ${ap:,.0f}")
-        if cf:
-            fin_parts.append(f"CF: ${cf:,.0f}/yr")
-        if rev:
-            fin_parts.append(f"Rev: ${rev:,.0f}/yr")
-        if margin:
-            fin_parts.append(f"Margin: {margin:.0f}%")
-        if payback:
-            fin_parts.append(f"Payback: {payback:.1f} yrs")
-        if fin_parts:
-            lines.append("  Financials: " + "  |  ".join(fin_parts))
-
-        margin_flag = r.get("margin_sanity_flag")
-        if margin_flag:
-            lines.append(f"  ⚠ Margin: {margin_flag}")
-
-        pb = r.get("payback_projection", "")
-        if pb:
-            lines.append(f"  Payback:    {pb}")
-
-        bs = r.get("boomer_signal", "")
-        if bs and bs != "None detected":
-            lines.append(f"  Seller:     {bs}")
-
-        scores = r.get("scores", {})
-        score_parts = []
-        labels = {
-            "payback_speed": "Payback",
-            "price_budget_fit": "Price Fit",
-            "seller_motivation": "Seller",
-            "owner_independence": "Independence",
-            "business_age": "Age",
-            "operational_simplicity": "Simplicity",
-        }
-        for key, label in labels.items():
-            s = scores.get(key, {}).get("score", "?")
-            score_parts.append(f"{label}: {s}/5")
-        flags = scores.get("red_flags", {})
-        if flags.get("penalty", 0) > 0:
-            score_parts.append(f"Flags: -{flags['penalty']}")
-        lines.append("  Scores: " + "  |  ".join(score_parts))
-
-        lines.append(f"  Strength: {r.get('key_strength', 'N/A')}")
-        lines.append(f"  Risk:     {r.get('key_risk', 'N/A')}")
-        lines.append(f"  Verdict:  {r.get('summary', 'N/A')}")
-
-        flag_list = flags.get("flags", [])
-        if flag_list:
-            lines.append(f"  ⚠ Flags: {'; '.join(flag_list)}")
-
-        neg = r.get("negotiation_note", "")
-        if neg:
-            lines.append(f"  Negotiate: {neg}")
-
-        url = r.get("source_url", "")
-        verified_badge = r.get("_verified", "")
-        badge_str = ""
-        if verified_badge == "VERIFIED":
-            badge_str = " [VERIFIED ✓]"
-        elif verified_badge == "LIKELY_REAL":
-            badge_str = " [LIKELY_REAL]"
-        elif r.get("is_estimated"):
-            badge_str = " [ESTIMATED]"
-
-        if url and url not in ("", "estimated"):
-            lines.append(f"  Source:   {url}{badge_str}")
-        else:
-            lines.append(f"  Source:   [market estimate — verify independently]")
-
-        if show_dd and r.get("business_name") in deep_dives:
-            dd = deep_dives[r["business_name"]]
-            lines.append("")
-            lines.append("  --- Due Diligence Brief (Grok) ---")
-            for ddline in dd.split("\n"):
-                lines.append(f"  {ddline}")
-
-        lines.append("")
-
-    # Main section: verified/real listings
-    if verified:
-        lines.append("  ── Verified / Real Listings ──")
-        lines.append("")
-        for i, r in enumerate(verified, 1):
-            format_entry(i, r, show_dd=(i <= 3))
-
-    # Estimated section
-    if estimated:
-        lines.append("  ── Market Estimates (unverified — use for benchmarking only) ──")
-        lines.append("")
-        for i, r in enumerate(estimated, 1):
-            format_entry(i, r, show_dd=False)
-
-    # Tier summary
-    tier_counts = {"A": 0, "B": 0, "C": 0, "D": 0}
-    for r in good:
-        t = r.get("tier", "D")
-        if t in tier_counts:
-            tier_counts[t] += 1
-
-    lines.append("=" * 72)
-    lines.append("  Tier Summary")
-    lines.append("-" * 72)
-    for t, icon in TIER_ICONS.items():
-        lines.append(f"  {icon} Tier {t}: {tier_counts[t]} businesses")
-    lines.append("=" * 72)
-
-    return "\n".join(lines)
 
 
 def list_runs() -> list[dict]:
@@ -646,6 +392,15 @@ def scoring_agent(
 # Orchestrator
 # ---------------------------------------------------------------------------
 
+@contextmanager
+def timed_stage(name: str, timings: dict[str, float]):
+    started = time.monotonic()
+    try:
+        yield
+    finally:
+        timings[name] = round(time.monotonic() - started, 2)
+
+
 def orchestrate(
     claude: anthropic.Anthropic,
     grok: XaiClient,
@@ -656,6 +411,8 @@ def orchestrate(
     location: str,
     no_deep_dive: bool,
     no_commit: bool,
+    scoring_workers: int = 5,
+    verify_top: int = 5,
     from_json: str = None,
 ) -> None:
     timestamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")
@@ -665,10 +422,14 @@ def orchestrate(
     program = load_program()
     seen = load_seen()
     findings = load_findings()
+    stage_timings: dict[str, float] = {}
 
     print("=" * 72)
     print("  autobiz — Multi-Agent Research Orchestrator")
-    print(f"  Asking price: ${min_budget:,}–${budget:,}  |  Agents: {rounds} search + parallel scoring")
+    print(
+        f"  Asking price: ${min_budget:,}–${budget:,}  |  "
+        f"Agents: {rounds} search + {scoring_workers} scoring"
+    )
     if biz_type:
         print(f"  Type: {biz_type}")
     if location:
@@ -678,47 +439,39 @@ def orchestrate(
     print()
 
     # --- Phase 1: Discovery (search agents OR pre-scraped JSON) ---
-    if from_json:
-        print(f"[ Discovery ] Loading pre-scraped listings from {from_json}...")
-        with open(from_json) as f:
-            raw = json.load(f)
-        # Normalize field names from scraper.py format if needed
-        listings = []
-        for item in raw:
-            # scraper.py uses cash_flow_annual / gross_revenue_annual; research.py expects
-            # annual_cash_flow / annual_revenue — map if needed
-            normalized = dict(item)
-            if "cash_flow_annual" in normalized and "annual_cash_flow" not in normalized:
-                normalized["annual_cash_flow"] = normalized["cash_flow_annual"]
-            if "gross_revenue_annual" in normalized and "annual_revenue" not in normalized:
-                normalized["annual_revenue"] = normalized["gross_revenue_annual"]
-            enrich_listing_for_philly(normalized)
-            listings.append(normalized)
-        listings = deduplicate(listings)
-        listings = [item for item in listings if in_price_range(item, min_budget, budget)]
-        assign_proximity_ranks(listings)
-        print(f"  Loaded {len(listings)} unique listings from file\n")
-    else:
-        queries = build_search_queries_with_context(budget, min_budget, biz_type, location, seen, findings, rounds)
-        print(f"[ SearchAgents ] Launching {len(queries)} parallel search agents via Grok...")
-        all_listings: list[dict] = []
+    with timed_stage("discovery", stage_timings):
+        if from_json:
+            print(f"[ Discovery ] Loading pre-scraped listings from {from_json}...")
+            with open(from_json) as f:
+                raw = json.load(f)
+            listings = []
+            for item in raw:
+                normalized = dict(item)
+                if "cash_flow_annual" in normalized and "annual_cash_flow" not in normalized:
+                    normalized["annual_cash_flow"] = normalized["cash_flow_annual"]
+                if "gross_revenue_annual" in normalized and "annual_revenue" not in normalized:
+                    normalized["annual_revenue"] = normalized["gross_revenue_annual"]
+                enrich_listing_for_philly(normalized)
+                listings.append(normalized)
+            listings = filter_and_rank_listings(deduplicate(listings), min_budget, budget)
+            print(f"  Loaded {len(listings)} unique listings from file\n")
+        else:
+            queries = build_search_queries_with_context(budget, min_budget, biz_type, location, seen, findings, rounds)
+            print(f"[ SearchAgents ] Launching {len(queries)} parallel search agents via Grok...")
+            all_listings: list[dict] = []
 
-        with ThreadPoolExecutor(max_workers=len(queries)) as executor:
-            futures = {
-                executor.submit(search_agent, grok, q, i): i
-                for i, q in enumerate(queries, 1)
-            }
-            for future in as_completed(futures):
-                agent_id, llist = future.result()
-                print(f"  Agent-{agent_id}: found {len(llist)} listings")
-                all_listings.extend(llist)
+            with ThreadPoolExecutor(max_workers=len(queries)) as executor:
+                futures = {
+                    executor.submit(search_agent, grok, q, i): i
+                    for i, q in enumerate(queries, 1)
+                }
+                for future in as_completed(futures):
+                    agent_id, llist = future.result()
+                    print(f"  Agent-{agent_id}: found {len(llist)} listings")
+                    all_listings.extend(llist)
 
-        listings = deduplicate(all_listings)
-        for item in listings:
-            enrich_listing_for_philly(item)
-        listings = [item for item in listings if in_price_range(item, min_budget, budget)]
-        assign_proximity_ranks(listings)
-        print(f"  Deduplicated: {len(listings)} unique listings\n")
+            listings = filter_and_rank_listings(deduplicate(all_listings), min_budget, budget)
+            print(f"  Deduplicated: {len(listings)} unique listings\n")
 
     if not listings:
         print("No listings found. Adjust --type or --location.")
@@ -729,39 +482,43 @@ def orchestrate(
         json.dump(listings, f, indent=2)
 
     # --- Phase 2: Parallel Scoring Agents ---
-    print(f"[ ScoringAgents ] Launching {len(listings)} parallel scoring agents (Claude + Grok)...")
-    results: list[dict] = [None] * len(listings)
+    with timed_stage("scoring", stage_timings):
+        print(f"[ ScoringAgents ] Launching {len(listings)} scoring jobs (Claude + Grok)...")
+        results: list[dict] = [None] * len(listings)
+        max_workers = max(1, min(scoring_workers, len(listings)))
 
-    with ThreadPoolExecutor(max_workers=min(5, len(listings))) as executor:
-        futures = {
-            executor.submit(scoring_agent, claude, grok, biz, program, budget, i): i
-            for i, biz in enumerate(listings)
-        }
-        completed = 0
-        for future in as_completed(futures):
-            agent_id, result = future.result()
-            results[agent_id] = attach_listing_metadata(result, listings[agent_id])
-            completed += 1
-            name = result.get("business_name", "Unknown")[:45]
-            score = result.get("weighted_score", 0)
-            tier = result.get("tier", "?")
-            print(f"  [{completed}/{len(listings)}] [{tier}] {score:.0f}  {name}")
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = {
+                executor.submit(scoring_agent, claude, grok, biz, program, budget, i): i
+                for i, biz in enumerate(listings)
+            }
+            completed = 0
+            for future in as_completed(futures):
+                agent_id, result = future.result()
+                results[agent_id] = attach_listing_metadata(result, listings[agent_id])
+                completed += 1
+                name = result.get("business_name", "Unknown")[:45]
+                score = result.get("weighted_score", 0)
+                tier = result.get("tier", "?")
+                print(f"  [{completed}/{len(listings)}] [{tier}] {score:.0f}  {name}")
 
-    results = [r for r in results if r is not None]
-    results.sort(key=lambda x: x.get("weighted_score", 0), reverse=True)
-
-    # Apply hard rules (score inflation fix)
-    results = apply_hard_rules(results)
-    assign_result_proximity_ranks(results)
-    results.sort(key=lambda x: x.get("weighted_score", 0), reverse=True)
+        results = [r for r in results if r is not None]
+        results.sort(key=lambda x: x.get("weighted_score", 0), reverse=True)
+        results = apply_hard_rules(results)
+        assign_result_proximity_ranks(results)
+        results.sort(key=lambda x: x.get("weighted_score", 0), reverse=True)
 
     top_ab = [r for r in results if r.get("tier") in ("A", "B")]
     print(f"\n  After hard rules — Tier A/B: {len(top_ab)}\n")
 
     # Verify top candidate URLs
-    print("[ VerifyAgent ] Checking top candidate URLs via Grok...")
-    results = verify_listings(grok, results, top_n=5)
-    print()
+    with timed_stage("verification", stage_timings):
+        if verify_top > 0:
+            print(f"[ VerifyAgent ] Checking top {verify_top} candidate URLs via Grok...")
+            results = verify_listings(grok, results, top_n=verify_top)
+        else:
+            print("[ VerifyAgent ] Skipped (--verify-top 0).")
+        print()
 
     # Save scored results
     with open(run_dir / "scored.json", "w") as f:
@@ -769,16 +526,17 @@ def orchestrate(
 
     # --- Phase 3: Deep Dive Agent on Top 3 ---
     deep_dives: dict = {}
-    if not no_deep_dive:
-        top3 = [r for r in results if "error" not in r][:3]
-        if top3:
-            print(f"[ DeepDiveAgent ] Running Grok due diligence on top {len(top3)} candidates...")
-            for candidate in top3:
-                name = candidate.get("business_name", "Unknown")
-                print(f"  Deep dive: {name[:55]}...")
-                deep_dives[name] = deep_dive(grok, candidate)
-                time.sleep(0.3)
-            print()
+    with timed_stage("deep_dive", stage_timings):
+        if not no_deep_dive:
+            top3 = [r for r in results if "error" not in r][:3]
+            if top3:
+                print(f"[ DeepDiveAgent ] Running Grok due diligence on top {len(top3)} candidates...")
+                for candidate in top3:
+                    name = candidate.get("business_name", "Unknown")
+                    print(f"  Deep dive: {name[:55]}...")
+                    deep_dives[name] = deep_dive(grok, candidate)
+                    time.sleep(0.3)
+                print()
 
     # Save deep dives
     if deep_dives:
@@ -786,7 +544,7 @@ def orchestrate(
             json.dump(deep_dives, f, indent=2)
 
     # --- Generate Report ---
-    report = render_report(results, deep_dives, budget, min_budget=min_budget)
+    report = render_agent_report(results, deep_dives, budget, min_budget=min_budget)
     print(report)
 
     with open(run_dir / "report.txt", "w") as f:
@@ -805,15 +563,24 @@ def orchestrate(
         "biz_type": biz_type,
         "location": location,
         "rounds": rounds,
+        "scoring_workers": scoring_workers,
+        "verify_top": verify_top,
         "total_found": len(listings),
         "unique_listings": len(listings),
         "scored": len(results),
+        "stage_seconds": stage_timings,
+        "source_breakdown": source_breakdown(listings),
+        "proximity_breakdown": proximity_breakdown(listings),
         "tier_a": sum(1 for r in results if r.get("tier") == "A"),
         "tier_b": sum(1 for r in results if r.get("tier") == "B"),
         "tier_c": sum(1 for r in results if r.get("tier") == "C"),
         "tier_d": sum(1 for r in results if r.get("tier") == "D"),
         "top_pick": results[0].get("business_name") if results else None,
         "top_score": results[0].get("weighted_score") if results else None,
+        "closest_distance_miles": min(
+            (r["distance_to_philly_miles"] for r in results if r.get("distance_to_philly_miles") is not None),
+            default=None,
+        ),
         "top_payback": (results[0].get("extracted_financials") or {}).get("payback_years") if results else None,
     }
     with open(run_dir / "meta.json", "w") as f:
@@ -859,6 +626,8 @@ def main():
     parser.add_argument("--budget", type=int, default=None, help="Max asking price to consider (default: saved config). Down payment ~$50k, seller finances balance.")
     parser.add_argument("--min-budget", type=int, default=None, help="Min asking price to consider (default: saved config).")
     parser.add_argument("--rounds", type=int, default=3, help="Parallel search agents to run (default: 3)")
+    parser.add_argument("--scoring-workers", type=int, default=5, help="Parallel scoring workers to run (default: 5)")
+    parser.add_argument("--verify-top", type=int, default=5, help="Top candidate URLs to verify via Grok; use 0 to skip (default: 5)")
     parser.add_argument("--type", type=str, default="", dest="biz_type")
     parser.add_argument("--location", type=str, default=None)
     parser.add_argument("--no-deep-dive", action="store_true")
@@ -911,6 +680,8 @@ def main():
         location=args.location,
         no_deep_dive=args.no_deep_dive,
         no_commit=args.no_commit,
+        scoring_workers=args.scoring_workers,
+        verify_top=args.verify_top,
         from_json=args.from_json,
     )
 

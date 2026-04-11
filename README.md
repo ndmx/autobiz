@@ -6,11 +6,23 @@ Give autobiz a CSV of business listings and it autonomously analyzes each one ag
 
 ## How it works
 
-Three files that matter:
+Core files:
 
 - **`program.md`** — the scoring framework. Edit this to tune what "strong business" means to you. This is your human-facing lever.
-- **`analyze.py`** — the engine. Reads the CSV, calls Claude to extract financials and score each business, renders a ranked report. Don't edit this unless you want to change the tool itself.
-- **`pyproject.toml`** — dependencies (just `anthropic`).
+- **`scraper.py`** — source-backed listing collection, Philadelphia-first and Pennsylvania-wide.
+- **`agent.py`** — multi-agent orchestration: discovery, scoring, verification, deep dives, reports, and run artifacts.
+- **`listing_utils.py`** — shared listing filtering, metadata preservation, and proximity ranking helpers.
+- **`proximity.py`** — approximate distance-to-Philadelphia enrichment.
+- **`reporting.py`** — text report rendering.
+- **`config.py`** — config, `.env` loading, and provider client factories.
+- **`pyproject.toml`** — dependencies.
+
+## Documentation
+
+- [Architecture](docs/ARCHITECTURE.md)
+- [Runbook](docs/RUNBOOK.md)
+- [Data Quality](docs/DATA_QUALITY.md)
+- [Extending autobiz](docs/EXTENDING.md)
 
 ## Quick start
 
@@ -58,6 +70,16 @@ uv run scraper.py --location "Pennsylvania" --min-budget 75000 --budget 250000 \
 # Score the scraped listings and include a closest-to-Philadelphia ranking
 uv run agent.py --from-json data_pa_wide.json --location "Pennsylvania" \
   --min-budget 75000 --budget 250000 --no-commit
+```
+
+Useful orchestration controls:
+
+```bash
+# Limit parallel scoring and verify fewer URLs
+uv run agent.py --from-json data_pa_wide.json --scoring-workers 2 --verify-top 3 --no-commit
+
+# Fast local run shape check without URL verification or deep dives
+uv run agent.py --from-json data_pa_wide.json --verify-top 0 --no-deep-dive --no-commit
 ```
 
 ## Scoring Parameters
