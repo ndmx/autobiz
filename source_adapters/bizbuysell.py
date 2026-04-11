@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from urllib.parse import quote_plus
 
+from source_adapters.parsing import parse_listing_cards
+
 
 def build_urls(location: str, max_price: int, min_price: int = 0) -> list[tuple[str, str]]:
     loc_enc = quote_plus(location)
@@ -62,3 +64,45 @@ def build_urls(location: str, max_price: int, min_price: int = 0) -> list[tuple[
         ("BizBuySell-PA-all", f"https://www.bizbuysell.com/pennsylvania-businesses-for-sale/?{price_filter}"),
     ])
     return urls
+
+
+def parse_listings(html: str, source_url: str, label: str = "BizBuySell") -> list[dict]:
+    return parse_listing_cards(
+        html=html,
+        base_url=source_url,
+        source=label,
+        card_selectors=[
+            "[data-testid*='listing']",
+            ".listing-card",
+            ".bfs-card",
+            ".result",
+            "article",
+            "li",
+        ],
+        title_selectors=[
+            "[data-testid*='title']",
+            ".business-title",
+            ".listing-title",
+            "h3",
+            "h2",
+            "a",
+        ],
+        price_selectors=[
+            "[data-testid*='price']",
+            ".asking-price",
+            ".price",
+            ".financial",
+        ],
+        location_selectors=[
+            "[data-testid*='location']",
+            ".location",
+            ".city-state",
+        ],
+        description_selectors=[
+            "[data-testid*='description']",
+            ".description",
+            ".summary",
+            "p",
+        ],
+        link_selectors=["a[href*='/Business-Opportunity/']", "a[href*='/business-for-sale/']", "a[href]"],
+    )

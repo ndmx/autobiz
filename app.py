@@ -15,6 +15,7 @@ from flask import Flask, jsonify, redirect, render_template, request, url_for
 
 import config as cfg
 from dashboard_data import dashboard_context
+from run_jobs import build_score_command, build_scrape_command, list_run_jobs, start_run_job
 
 app = Flask(__name__)
 
@@ -51,7 +52,29 @@ def index():
 @app.route("/dashboard", methods=["GET"])
 def dashboard():
     context = dashboard_context(request.args.get("source", ""))
+    context["jobs"] = list_run_jobs()
     return render_template("dashboard.html", **context)
+
+
+@app.route("/jobs/start-scrape", methods=["POST"])
+def start_scrape():
+    app_cfg = cfg.load_config()
+    payload, status_code = start_run_job("scrape", build_scrape_command(app_cfg))
+    return jsonify(payload), status_code
+
+
+@app.route("/jobs/start-score", methods=["POST"])
+def start_score():
+    if not (cfg.PROJECT_DIR / "data_pa_wide.json").exists():
+        return jsonify({"ok": False, "error": "data_pa_wide.json is missing. Run scrape first."}), 400
+    app_cfg = cfg.load_config()
+    payload, status_code = start_run_job("score", build_score_command(app_cfg))
+    return jsonify(payload), status_code
+
+
+@app.route("/jobs/status", methods=["GET"])
+def job_status():
+    return jsonify({"ok": True, "jobs": list_run_jobs()})
 
 
 @app.route("/settings", methods=["GET"])

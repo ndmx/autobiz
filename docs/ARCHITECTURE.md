@@ -18,9 +18,10 @@ Philadelphia-first discovery with statewide Pennsylvania coverage.
 | Module | Responsibility |
 | --- | --- |
 | `app.py` | Flask dashboard/settings shell and local browser auto-open. |
+| `run_jobs.py` | Background dashboard-launched scrape and score jobs. |
 | `config.py` | Loads `config.json`, project `.env` files, shell env, and built-in defaults. Creates provider clients. |
 | `scraper.py` | Source-backed listing collection. Direct Craigslist scrape plus Grok-proxied listing sites. |
-| `source_adapters/` | Per-source scraping or URL-building adapters. |
+| `source_adapters/` | Per-source direct parsers and Grok-fallback URL builders. |
 | `dedupe.py` | Fuzzy cross-source duplicate detection and merge logic. |
 | `dashboard_data.py` | Shared dashboard and static HTML report data shaping. |
 | `research.py` | Shared discovery, market enrichment, scoring prompt, scoring math, and deep-dive logic. |
@@ -36,6 +37,9 @@ Philadelphia-first discovery with statewide Pennsylvania coverage.
 ```mermaid
 flowchart TD
     Settings["app.py settings UI"] --> Config["config.py"]
+    Settings --> Jobs["run_jobs.py"]
+    Jobs --> Scraper
+    Jobs --> Agent
     Env[".env / shell env"] --> Config
     Program["program.md scoring thesis"] --> Research["research.py prompts and scoring"]
     Scraper["scraper.py source-backed listings"] --> Data["data_*.csv / data_*.json"]
@@ -79,6 +83,19 @@ Each scored or scraped listing also gets `financial_confidence`, including
 field-level provenance for asking price, cash flow, revenue, and source. This
 keeps scraped facts, LLM-extracted facts, estimates, and missing values visible
 in both the live dashboard and run artifacts.
+
+## Source Adapters
+
+Marketplace adapters expose two hooks:
+
+- `build_urls(location, max_price, min_price)`: Philly-first and statewide
+  marketplace search URLs.
+- `parse_listings(html, source_url, label)`: direct HTML card parsing for that
+  marketplace.
+
+`scraper.py` tries direct HTML parsing first for BizBuySell, BusinessBroker,
+BizQuest, and DealStream, then falls back to Grok extraction when a source is
+blocked, dynamic, or has no parseable cards.
 
 ## Proximity Model
 

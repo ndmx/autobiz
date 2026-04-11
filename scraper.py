@@ -23,7 +23,7 @@ import json
 import time
 
 from source_adapters.craigslist import scrape_craigslist
-from source_adapters.grok_pages import build_grok_source_urls, grok_scrape_url
+from source_adapters.grok_pages import build_grok_source_urls, direct_scrape_url, grok_scrape_url
 
 from dedupe import dedupe_listings
 from listing_utils import financial_confidence
@@ -155,7 +155,9 @@ def main():
     if grok:
         print("\n[ Grok-proxied sources ]")
         for label, url in build_grok_source_urls(args.location, args.budget, min_price=args.min_budget):
-            batch = grok_scrape_url(grok, url, label, args.verbose)
+            batch = direct_scrape_url(url, label, args.verbose)
+            if not batch:
+                batch = grok_scrape_url(grok, url, label, args.verbose)
             all_listings.extend(batch)
             time.sleep(0.8)
 

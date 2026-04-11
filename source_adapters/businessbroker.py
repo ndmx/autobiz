@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from source_adapters.parsing import parse_listing_cards
+
 
 def build_urls(location: str, max_price: int, min_price: int = 0) -> list[tuple[str, str]]:
     loc_lower = location.lower()
@@ -25,3 +27,24 @@ def build_urls(location: str, max_price: int, min_price: int = 0) -> list[tuple[
             f"https://www.businessbroker.net/businesses-for-sale/pennsylvania/?MinPrice={min_price}&MaxPrice={max_price}&Page={page}",
         ))
     return urls
+
+
+def parse_listings(html: str, source_url: str, label: str = "BusinessBroker") -> list[dict]:
+    return parse_listing_cards(
+        html=html,
+        base_url=source_url,
+        source=label,
+        card_selectors=[
+            ".business-listing",
+            ".listing",
+            ".searchResult",
+            ".result",
+            "article",
+            "li",
+        ],
+        title_selectors=[".listing-title", ".business-name", "h3", "h2", "a"],
+        price_selectors=[".price", ".asking-price", ".listing-price", ".financials"],
+        location_selectors=[".location", ".city-state", ".listing-location"],
+        description_selectors=[".description", ".summary", ".listing-summary", "p"],
+        link_selectors=["a[href*='business-for-sale']", "a[href*='/businesses-for-sale/']", "a[href]"],
+    )

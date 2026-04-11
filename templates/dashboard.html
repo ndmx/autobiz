@@ -64,6 +64,19 @@
       </div>
     </section>
 
+    <section class="run-panel" aria-label="Run controls">
+      <div>
+        <h2>Run Pipeline</h2>
+        <p>Use saved defaults for location and asking-price range.</p>
+      </div>
+      <div class="run-actions">
+        <button type="button" class="run-button" data-job="scrape">Scrape PA Listings</button>
+        <button type="button" class="run-button secondary" data-job="score">Score PA Data</button>
+      </div>
+      <pre id="job-log" aria-live="polite">{% if jobs %}{{ jobs[0].kind }}: {{ jobs[0].status }}
+{{ jobs[0].log_tail }}{% else %}No dashboard-launched jobs yet.{% endif %}</pre>
+    </section>
+
     <section class="board" aria-label="Business listings">
       <div class="board-head">
         <div>
@@ -149,6 +162,8 @@
     const confidence = document.getElementById("confidence");
     const rows = Array.from(document.querySelectorAll("#listing-body tr"));
     const visibleCount = document.getElementById("visible-count");
+    const jobLog = document.getElementById("job-log");
+    const jobButtons = Array.from(document.querySelectorAll(".run-button"));
     const thresholds = { high: 80, medium: 55, low: 30 };
 
     function applyFilters() {
@@ -167,6 +182,41 @@
 
     search?.addEventListener("input", applyFilters);
     confidence?.addEventListener("change", applyFilters);
+
+    async function refreshJobs() {
+      if (!jobLog) return;
+      const resp = await fetch("/jobs/status");
+      const data = await resp.json();
+      const job = data.jobs?.[0];
+      if (!job) {
+        jobLog.textContent = "No dashboard-launched jobs yet.";
+        return;
+      }
+      jobLog.textContent = `${job.kind}: ${job.status}\n${job.log_tail || ""}`;
+      jobButtons.forEach((button) => {
+        button.disabled = data.jobs.some((item) => item.status === "running" && item.kind === button.dataset.job);
+      });
+    }
+
+    async function startJob(kind) {
+      const endpoint = kind === "score" ? "/jobs/start-score" : "/jobs/start-scrape";
+      jobLog.textContent = `Starting ${kind} job...`;
+      const resp = await fetch(endpoint, { method: "POST" });
+      const data = await resp.json();
+      if (!data.ok) {
+        jobLog.textContent = data.error || `Could not start ${kind} job.`;
+        return;
+      }
+      await refreshJobs();
+    }
+
+    jobButtons.forEach((button) => {
+      button.addEventListener("click", () => startJob(button.dataset.job));
+    });
+    if (jobLog) {
+      refreshJobs();
+      setInterval(refreshJobs, 4000);
+    }
   </script>
 </body>
 </html>

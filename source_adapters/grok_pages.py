@@ -4,7 +4,10 @@ from __future__ import annotations
 
 import json
 
+import requests
+
 from source_adapters import bizbuysell, bizquest, businessbroker, dealstream
+from source_adapters.craigslist import HEADERS
 from xai_sdk import Client as XaiClient
 from xai_sdk.chat import user as xai_user
 
@@ -47,6 +50,41 @@ Return ONLY a valid JSON array with this schema (no markdown):
 If the page is blocked, returns an error, or has no listings, return an empty array: []
 Do NOT generate hypothetical listings — only return what you actually see on the page.
 """
+
+
+PARSER_MODULES = [
+    ("BizBuySell", bizbuysell),
+    ("BusinessBroker", businessbroker),
+    ("BizQuest", bizquest),
+    ("DealStream", dealstream),
+]
+
+
+def parser_for_label(label: str):
+    for prefix, module in PARSER_MODULES:
+        if label.startswith(prefix):
+            return module.parse_listings
+    return None
+
+
+def direct_scrape_url(url: str, label: str, verbose: bool = False) -> list[dict]:
+    parser = parser_for_label(label)
+    if parser is None:
+        return []
+    try:
+        response = requests.get(url, headers=HEADERS, timeout=20)
+        response.raise_for_status()
+    except Exception as e:
+        if verbose:
+            print(f"  [Direct->{label}] unavailable: {e}")
+        return []
+
+    listings = parser(response.text, url, label=label)
+    if listings:
+        print(f"  [Direct->{label}] Found {len(listings)} listings")
+    elif verbose:
+        print(f"  [Direct->{label}] no parseable listing cards")
+    return listings
 
 
 def grok_scrape_url(grok: XaiClient, url: str, label: str, verbose: bool) -> list[dict]:

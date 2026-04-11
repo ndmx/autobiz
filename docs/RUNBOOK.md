@@ -54,6 +54,13 @@ Use the dashboard to compare score, Philly distance, source, financial
 confidence, and deal terms. Use the settings link for provider/model defaults,
 API key testing, default location, and default asking-price range.
 
+The dashboard run buttons launch background jobs using the saved defaults:
+
+- `Scrape PA Listings` refreshes `data_pa_wide.csv` and `data_pa_wide.json`.
+- `Score PA Data` runs the agent against `data_pa_wide.json`.
+
+Job logs stream into the dashboard while the process is running.
+
 For terminal-only or automation runs:
 
 ```bash

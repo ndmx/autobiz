@@ -29,4 +29,49 @@ jobs:
         run: uv run python -m unittest discover -s tests
 
       - name: Compile Python modules
-        run: uv run python -m compileall app.py agent.py scraper.py listing_utils.py proximity.py reporting.py dashboard_data.py dedupe.py source_adapters tests
+        run: uv run python -m compileall app.py agent.py scraper.py research.py listing_utils.py proximity.py reporting.py dashboard_data.py dedupe.py run_jobs.py source_adapters tests
+
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Python dependencies
+        run: uv sync --frozen
+
+      - name: Install browser test dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Start dashboard
+        run: |
+          AUTOBIZ_NO_BROWSER=1 PORT=7864 uv run app.py > /tmp/autobiz-flask.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:7864/dashboard > /tmp/autobiz-dashboard.html; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/autobiz-flask.log
+          exit 1
+
+      - name: Run browser tests
+        env:
+          BASE_URL: http://127.0.0.1:7864
+        run: npm run test:e2e

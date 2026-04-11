@@ -18,6 +18,7 @@ Core files:
 - **`dashboard_data.py`** — shared dashboard and run-report data shaping.
 - **`reporting.py`** — text report rendering.
 - **`app.py`** — browser dashboard and settings UI.
+- **`run_jobs.py`** — background scrape/score launchers used by the dashboard.
 - **`config.py`** — config, `.env` loading, and provider client factories.
 - **`pyproject.toml`** — dependencies.
 
@@ -98,6 +99,11 @@ scraped JSON. Rows are ranked by distance from Philadelphia, then score, with
 source, asking price, cash flow, revenue, deal terms, and financial confidence
 visible together. For headless runs, use `AUTOBIZ_NO_BROWSER=1 uv run app.py`.
 
+The dashboard has run buttons for:
+
+- Scraping PA listings into `data_pa_wide.csv` and `data_pa_wide.json`.
+- Scoring `data_pa_wide.json` through the agent pipeline.
+
 Each scored run also writes a static `dashboard.html` next to `report.txt`, so
 the visual report is preserved with the run artifacts.
 
@@ -125,6 +131,14 @@ uv run python -m compileall app.py agent.py scraper.py listing_utils.py proximit
 
 GitHub Actions runs the same checks on pushes to `main` / `codex/**` branches
 and on pull requests.
+
+Browser checks:
+
+```bash
+npm install
+AUTOBIZ_NO_BROWSER=1 PORT=7864 uv run app.py
+BASE_URL=http://127.0.0.1:7864 npm run test:e2e
+```
 
 ## Scoring Parameters
 
