@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>autobiz - Dashboard</title>
+  <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <a class="brand" href="/dashboard">autobiz</a>
+      <p>Philadelphia-first acquisition board</p>
+    </div>
+    <nav>
+      <a href="/dashboard" aria-current="page">Dashboard</a>
+      <a href="/settings">Settings</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="Dataset controls">
+      <form method="get" class="source-form">
+        <label for="source">Dataset</label>
+        <select id="source" name="source" onchange="this.form.submit()">
+          {% for source in sources %}
+          <option value="{{ source.id }}" {% if source.id == selected_id %}selected{% endif %}>{{ source.label }}</option>
+          {% endfor %}
+        </select>
+      </form>
+      <div class="filters">
+        <label for="search">Search</label>
+        <input id="search" type="search" placeholder="Name, city, source, type">
+        <label for="confidence">Confidence</label>
+        <select id="confidence">
+          <option value="">Any</option>
+          <option value="high">High</option>
+          <option value="medium">Medium+</option>
+          <option value="low">Low+</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="summary-grid" aria-label="Run summary">
+      <div class="summary-tile">
+        <span>Total</span>
+        <strong>{{ summary.total }}</strong>
+      </div>
+      <div class="summary-tile">
+        <span>Scored</span>
+        <strong>{{ summary.scored }}</strong>
+      </div>
+      <div class="summary-tile">
+        <span>Avg Score</span>
+        <strong>{% if summary.avg_score is not none %}{{ summary.avg_score }}{% else %}N/A{% endif %}</strong>
+      </div>
+      <div class="summary-tile">
+        <span>Closest</span>
+        <strong>{% if summary.closest is not none %}{{ summary.closest }} mi{% else %}N/A{% endif %}</strong>
+      </div>
+      <div class="summary-tile">
+        <span>High Confidence</span>
+        <strong>{{ summary.high_confidence }}</strong>
+      </div>
+    </section>
+
+    <section class="board" aria-label="Business listings">
+      <div class="board-head">
+        <div>
+          <h1>{{ selected_label }}</h1>
+          <p>Ranked by distance from Philadelphia, then score.</p>
+        </div>
+        <span id="visible-count">{{ rows|length }} shown</span>
+      </div>
+
+      {% if rows %}
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Business</th>
+              <th>Distance</th>
+              <th>Score</th>
+              <th>Financials</th>
+              <th>Confidence</th>
+              <th>Deal</th>
+              <th>Source</th>
+            </tr>
+          </thead>
+          <tbody id="listing-body">
+            {% for row in rows %}
+            <tr
+              data-search="{{ (row.name ~ ' ' ~ row.type ~ ' ' ~ row.location ~ ' ' ~ row.source ~ ' ' ~ row.structure)|lower }}"
+              data-confidence="{{ row.confidence_score }}"
+            >
+              <td class="rank">#{{ row.proximity_rank }}</td>
+              <td class="business-cell">
+                <strong>{{ row.name }}</strong>
+                <span>{{ row.type }} · {{ row.location }}</span>
+                {% if row.estimated %}<em>Estimated</em>{% endif %}
+              </td>
+              <td>
+                <div class="metric-label">{{ row.distance_display }}</div>
+                <div class="bar"><span style="width: {{ row.distance_pct }}%"></span></div>
+                <small>{{ row.bucket }}</small>
+              </td>
+              <td>
+                <div class="score-line">
+                  <strong>{{ row.score_display }}</strong>
+                  <span class="tier tier-{{ row.tier_class }}">{{ row.tier }}</span>
+                </div>
+                <div class="bar score"><span style="width: {{ row.score_pct }}%"></span></div>
+              </td>
+              <td class="money-cell">
+                <span>Ask {{ row.asking }}</span>
+                <span>CF {{ row.cash_flow }}</span>
+                <span>Rev {{ row.revenue }}</span>
+              </td>
+              <td>
+                <span class="confidence confidence-{{ row.confidence_level }}">{{ row.confidence_level|replace('_', ' ') }}</span>
+                <small>{{ row.confidence_score }}/100 · {{ row.confidence_reasons }}</small>
+              </td>
+              <td class="deal-cell">{{ row.structure }}</td>
+              <td>
+                {% if row.source_url and row.source_url != "estimated" %}
+                <a href="{{ row.source_url }}" target="_blank" rel="noreferrer">{{ row.source }}</a>
+                {% else %}
+                <span>{{ row.source }}</span>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <div class="empty-state">
+        <h2>No listings yet</h2>
+        <p>Run <code>uv run scraper.py --location "Pennsylvania" --json data_pa_wide.json</code>, then refresh this page.</p>
+      </div>
+      {% endif %}
+    </section>
+  </main>
+
+  <script>
+    const search = document.getElementById("search");
+    const confidence = document.getElementById("confidence");
+    const rows = Array.from(document.querySelectorAll("#listing-body tr"));
+    const visibleCount = document.getElementById("visible-count");
+    const thresholds = { high: 80, medium: 55, low: 30 };
+
+    function applyFilters() {
+      const term = (search?.value || "").trim().toLowerCase();
+      const minConfidence = thresholds[confidence?.value] || 0;
+      let visible = 0;
+      rows.forEach((row) => {
+        const matchesSearch = !term || row.dataset.search.includes(term);
+        const matchesConfidence = Number(row.dataset.confidence || 0) >= minConfidence;
+        const show = matchesSearch && matchesConfidence;
+        row.hidden = !show;
+        if (show) visible += 1;
+      });
+      if (visibleCount) visibleCount.textContent = `${visible} shown`;
+    }
+
+    search?.addEventListener("input", applyFilters);
+    confidence?.addEventListener("change", applyFilters);
+  </script>
+</body>
+</html>

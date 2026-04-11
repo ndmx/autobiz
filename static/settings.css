@@ -11,7 +11,7 @@
   --success: #34d399;
   --error: #f87171;
   --warning: #fbbf24;
-  --radius: 10px;
+  --radius: 8px;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -49,6 +49,15 @@ header {
 .header-sub {
   color: var(--text-muted);
   font-size: 13px;
+}
+.header-link {
+  margin-left: auto;
+  color: var(--text);
+  font-size: 13px;
+  text-decoration: none;
+}
+.header-link:hover {
+  color: var(--accent);
 }
 
 /* ── Main layout ── */

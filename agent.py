@@ -40,6 +40,8 @@ from listing_utils import (
     assign_result_proximity_ranks,
     attach_listing_metadata,
     enrich_listing_for_philly,
+    financial_confidence,
+    financial_value_present,
     filter_and_rank_listings,
     proximity_breakdown,
     source_breakdown,
@@ -159,7 +161,7 @@ def save_findings(results: list[dict], run_id: str, budget: int):
 
 def apply_hard_rules(results: list[dict]) -> list[dict]:
     """Apply tier caps and margin sanity checks after Claude scoring."""
-    from research import get_industry_margin_norm, compute_weighted_score, score_to_tier, RED_FLAG_WEIGHT
+    from research import get_industry_margin_norm, compute_weighted_score, score_to_tier
 
     for r in results:
         if "error" in r:
@@ -168,6 +170,22 @@ def apply_hard_rules(results: list[dict]) -> list[dict]:
         scores = r.get("scores", {})
         fin = r.get("extracted_financials", {})
         downgrades = []
+        confidence = r.get("financial_confidence") or financial_confidence(r)
+        r["financial_confidence"] = confidence
+        cash_flow = fin.get("cash_flow_annual") or fin.get("annual_cash_flow") or r.get("cash_flow_annual")
+
+        red_flags = scores.get("red_flags", {})
+        flags = red_flags.get("flags", [])
+        if not isinstance(flags, list):
+            flags = [str(flags)]
+
+        def add_flag(message: str, penalty: int = 0) -> None:
+            red_flags["flags"] = flags
+            flags.append(message)
+            if penalty:
+                red_flags["penalty"] = red_flags.get("penalty", 0) + penalty
+            scores["red_flags"] = red_flags
+            r["scores"] = scores
 
         # Rule 1: owner-only (independence 1/5) → cap weighted_score at 74
         independence = scores.get("owner_independence", {}).get("score", 3)
@@ -182,6 +200,27 @@ def apply_hard_rules(results: list[dict]) -> list[dict]:
             if r.get("weighted_score", 0) >= 80:
                 r["weighted_score"] = min(r["weighted_score"], 79.0)
                 downgrades.append("estimated listing (capped at B-tier)")
+
+        # Rule 3: missing cash flow cannot rank as a top acquisition candidate.
+        if not financial_value_present(cash_flow):
+            if r.get("weighted_score", 0) > 69:
+                r["weighted_score"] = 69.0
+                downgrades.append("missing verified cash flow (score capped at 69)")
+            add_flag("Missing verified cash flow: cannot rank as top-tier until owner benefit is confirmed")
+
+        # Rule 4: low financial evidence cannot rank above a diligence queue.
+        if confidence["score"] < 30:
+            if r.get("weighted_score", 0) > 49:
+                r["weighted_score"] = 49.0
+                downgrades.append("very low financial confidence (score capped at 49)")
+            add_flag("Very low financial confidence: verify asking price, cash flow, and revenue before ranking")
+        elif confidence["score"] < 55:
+            cap = 59.0 if not cash_flow else 69.0
+            if r.get("weighted_score", 0) > cap:
+                r["weighted_score"] = cap
+                label = "missing cash flow" if not cash_flow else "low financial confidence"
+                downgrades.append(f"{label} (score capped at {cap:.0f})")
+            add_flag("Low financial confidence: hard financials are incomplete")
 
         # Rule 3: margin > 2x industry norm → extra -2 penalty
         margin = fin.get("profit_margin_pct") or 0

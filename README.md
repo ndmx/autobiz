@@ -10,10 +10,12 @@ Core files:
 
 - **`program.md`** — the scoring framework. Edit this to tune what "strong business" means to you. This is your human-facing lever.
 - **`scraper.py`** — source-backed listing collection, Philadelphia-first and Pennsylvania-wide.
+- **`source_adapters/`** — per-source adapters for Craigslist and Grok-backed marketplace pages.
 - **`agent.py`** — multi-agent orchestration: discovery, scoring, verification, deep dives, reports, and run artifacts.
 - **`listing_utils.py`** — shared listing filtering, metadata preservation, and proximity ranking helpers.
 - **`proximity.py`** — approximate distance-to-Philadelphia enrichment.
 - **`reporting.py`** — text report rendering.
+- **`app.py`** — browser dashboard and settings UI.
 - **`config.py`** — config, `.env` loading, and provider client factories.
 - **`pyproject.toml`** — dependencies.
 
@@ -70,6 +72,9 @@ uv run scraper.py --location "Pennsylvania" --min-budget 75000 --budget 250000 \
 # Score the scraped listings and include a closest-to-Philadelphia ranking
 uv run agent.py --from-json data_pa_wide.json --location "Pennsylvania" \
   --min-budget 75000 --budget 250000 --no-commit
+
+# Open the browser dashboard
+uv run app.py
 ```
 
 Useful orchestration controls:
@@ -80,7 +85,24 @@ uv run agent.py --from-json data_pa_wide.json --scoring-workers 2 --verify-top 3
 
 # Fast local run shape check without URL verification or deep dives
 uv run agent.py --from-json data_pa_wide.json --verify-top 0 --no-deep-dive --no-commit
+
+# Run unit tests
+uv run python -m unittest discover -s tests
 ```
+
+The dashboard opens at `http://localhost:7860/dashboard`. It defaults to the
+newest scored run when one exists, and can also load the PA-wide scraped JSON.
+Rows are ranked by distance from Philadelphia, then score, with source, asking
+price, cash flow, revenue, deal terms, and financial confidence visible together.
+
+## Financial confidence
+
+Every scraped or scored listing gets a `financial_confidence` block:
+
+- `high`: asking price, cash flow, revenue, seller/source evidence are mostly present.
+- `medium`: enough financial evidence for a diligence queue.
+- `low` / `very_low`: missing core facts. The hard-rules pass caps these listings
+  so missing cash flow cannot rank as a top acquisition candidate.
 
 ## Scoring Parameters
 

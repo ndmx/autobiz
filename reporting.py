@@ -78,6 +78,14 @@ def render_agent_report(results: list[dict], deep_dives: dict, budget: int, min_
         if adjustments:
             lines.append(f"  ↓ Adjusted: {'; '.join(adjustments)}")
 
+        confidence = r.get("financial_confidence", {})
+        if confidence:
+            reasons = ", ".join(confidence.get("reasons", [])[:3])
+            lines.append(
+                f"  Financial confidence: {confidence.get('level', 'unknown')} "
+                f"({confidence.get('score', 0)}/100)  |  {reasons}"
+            )
+
         ap = r.get("asking_price_usd")
         cf = fin.get("cash_flow_annual")
         rev = fin.get("gross_revenue_annual")
