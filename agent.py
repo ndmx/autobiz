@@ -169,8 +169,9 @@ def apply_hard_rules(results: list[dict]) -> list[dict]:
 
         scores = r.get("scores", {})
         fin = r.get("extracted_financials", {})
+        existing_adjustments = list(r.get("_rule_adjustments", []))
         downgrades = []
-        confidence = r.get("financial_confidence") or financial_confidence(r)
+        confidence = financial_confidence(r)
         r["financial_confidence"] = confidence
         cash_flow = fin.get("cash_flow_annual") or fin.get("annual_cash_flow") or r.get("cash_flow_annual")
 
@@ -179,71 +180,74 @@ def apply_hard_rules(results: list[dict]) -> list[dict]:
         if not isinstance(flags, list):
             flags = [str(flags)]
 
+        def add_adjustment(message: str) -> None:
+            if message not in existing_adjustments and message not in downgrades:
+                downgrades.append(message)
+
         def add_flag(message: str, penalty: int = 0) -> None:
             red_flags["flags"] = flags
-            flags.append(message)
-            if penalty:
+            already_present = message in flags
+            if not already_present:
+                flags.append(message)
+            if penalty and not already_present:
                 red_flags["penalty"] = red_flags.get("penalty", 0) + penalty
             scores["red_flags"] = red_flags
             r["scores"] = scores
 
-        # Rule 1: owner-only (independence 1/5) → cap weighted_score at 74
+        # Rule 1: margin > 2x industry norm → extra -2 penalty.
+        # Apply this before caps so later caps remain final.
+        margin = fin.get("profit_margin_pct") or 0
+        btype = r.get("business_type", "")
+        norm = get_industry_margin_norm(btype)
+        if margin and margin > (norm * 2):
+            flag_message = (
+                f"Margin {margin:.0f}% is {margin/norm:.1f}x the {norm}% industry norm — "
+                f"verify owner labor is costed"
+            )
+            add_flag(flag_message, penalty=2)
+            r["weighted_score"] = compute_weighted_score(scores)
+            add_adjustment(f"margin {margin:.0f}% exceeds 2x norm ({norm}%) — penalty applied")
+
+        # Rule 2: owner-only (independence 1/5) → cap weighted_score at 74
         independence = scores.get("owner_independence", {}).get("score", 3)
         if independence <= 1:
             if r.get("weighted_score", 0) > 74:
                 r["weighted_score"] = 74.0
-                downgrades.append("owner-only: no staff (score capped at 74)")
+                add_adjustment("owner-only: no staff (score capped at 74)")
 
-        # Rule 2: estimated listing → cap at B-tier
+        # Rule 3: estimated listing → cap at B-tier
         if r.get("is_estimated") or r.get("source_url", "") in ("estimated", ""):
             r["is_estimated"] = True
             if r.get("weighted_score", 0) >= 80:
                 r["weighted_score"] = min(r["weighted_score"], 79.0)
-                downgrades.append("estimated listing (capped at B-tier)")
+                add_adjustment("estimated listing (capped at B-tier)")
 
-        # Rule 3: missing cash flow cannot rank as a top acquisition candidate.
+        # Rule 4: missing cash flow cannot rank as a top acquisition candidate.
         if not financial_value_present(cash_flow):
             if r.get("weighted_score", 0) > 69:
                 r["weighted_score"] = 69.0
-                downgrades.append("missing verified cash flow (score capped at 69)")
+                add_adjustment("missing verified cash flow (score capped at 69)")
             add_flag("Missing verified cash flow: cannot rank as top-tier until owner benefit is confirmed")
 
-        # Rule 4: low financial evidence cannot rank above a diligence queue.
+        # Rule 5: low financial evidence cannot rank above a diligence queue.
         if confidence["score"] < 30:
             if r.get("weighted_score", 0) > 49:
                 r["weighted_score"] = 49.0
-                downgrades.append("very low financial confidence (score capped at 49)")
+                add_adjustment("very low financial confidence (score capped at 49)")
             add_flag("Very low financial confidence: verify asking price, cash flow, and revenue before ranking")
         elif confidence["score"] < 55:
             cap = 59.0 if not cash_flow else 69.0
             if r.get("weighted_score", 0) > cap:
                 r["weighted_score"] = cap
                 label = "missing cash flow" if not cash_flow else "low financial confidence"
-                downgrades.append(f"{label} (score capped at {cap:.0f})")
+                add_adjustment(f"{label} (score capped at {cap:.0f})")
             add_flag("Low financial confidence: hard financials are incomplete")
-
-        # Rule 3: margin > 2x industry norm → extra -2 penalty
-        margin = fin.get("profit_margin_pct") or 0
-        btype = r.get("business_type", "")
-        norm = get_industry_margin_norm(btype)
-        if margin and margin > (norm * 2):
-            rf = scores.get("red_flags", {})
-            existing_penalty = rf.get("penalty", 0)
-            rf["penalty"] = existing_penalty + 2
-            rf["flags"] = rf.get("flags", []) + [
-                f"Margin {margin:.0f}% is {margin/norm:.1f}x the {norm}% industry norm — verify owner labor is costed"
-            ]
-            scores["red_flags"] = rf
-            r["scores"] = scores
-            new_score = compute_weighted_score(scores)
-            r["weighted_score"] = new_score
-            downgrades.append(f"margin {margin:.0f}% exceeds 2x norm ({norm}%) — penalty applied")
 
         # Recompute tier from final score
         r["tier"] = score_to_tier(r["weighted_score"])
 
-        if downgrades:
-            r["_rule_adjustments"] = downgrades
+        if existing_adjustments or downgrades:
+            r["_rule_adjustments"] = existing_adjustments + downgrades
 
     return results
 
@@ -555,6 +559,11 @@ def orchestrate(
         if verify_top > 0:
             print(f"[ VerifyAgent ] Checking top {verify_top} candidate URLs via Grok...")
             results = verify_listings(grok, results, top_n=verify_top)
+            results = apply_hard_rules(results)
+            assign_result_proximity_ranks(results)
+            results.sort(key=lambda x: x.get("weighted_score", 0), reverse=True)
+            top_ab = [r for r in results if r.get("tier") in ("A", "B")]
+            print(f"  Re-applied hard rules after verification — Tier A/B: {len(top_ab)}")
         else:
             print("[ VerifyAgent ] Skipped (--verify-top 0).")
         print()
