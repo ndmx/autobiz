@@ -49,7 +49,7 @@ evidence should not rank above better-documented listings.
 | `R` | annual gross revenue in USD | listing fields / extracted financials |
 | `D` | assumed down payment | `min(budget, 50000)` |
 | `s_i` | rubric score for a dimension, 1 to 5 | Claude scoring JSON |
-| `w_i` | rubric weight | `research.SCORING_WEIGHTS` |
+| `w_i` | rubric weight | `research.WEIGHTS` |
 | `p` | red-flag penalty count | Claude scoring JSON plus hard rules |
 | `C` | financial confidence score, 0 to 100 | `listing_utils.financial_confidence` |
 
@@ -58,6 +58,14 @@ evidence should not rank above better-documented listings.
 Financial confidence measures how much hard evidence a listing has. It is not a
 quality score. A bad deal can have high confidence, and a great-sounding deal
 can be capped if the hard numbers are missing.
+
+**Important:** confidence is computed on the *merged* record after Claude scores
+it, not on the raw scraped listing alone (`listing_utils.attach_listing_metadata`
+calls `financial_confidence({**listing, **result})`). This means fields that
+Claude extracted from the listing description — cash flow, revenue, asking price
+— count toward `C` even if they were absent in the original scraped data. A
+listing that looked sparse before scoring can have meaningfully higher confidence
+after Claude extracts structured financials from its narrative text.
 
 The current formula is:
 
@@ -153,6 +161,12 @@ Q = 5 * I[asking_price present]
 
 The description term uses integer floor division, not a fractional ratio.
 
+**`_duplicate_count` semantics:** the first unique occurrence is stored with
+`_duplicate_count = 1`, not `0`. Each time a duplicate is merged in, the count
+increments by one (`dedupe.py:141`). A count of `2` means one duplicate was
+found and absorbed — two sources carried the same listing. This is easy to
+misread as "two duplicates were found."
+
 ## 5. Philadelphia Proximity
 
 The default anchor is Philadelphia:
@@ -193,6 +207,16 @@ monthly_net = (F - annual_payment) / 12
 With the common default max budget of `$250k`, `D` is `$50k`. If a run uses a
 budget below `$50k`, the down payment becomes that lower budget value.
 
+**Down payment mismatch with scoring prompt:** the Claude scoring prompt
+describes the down payment as "~$50,000 (flexible $30k–$80k)". Claude may
+therefore score DSCR against a different assumed down payment than what the code
+computes in `deal_structure`. The code always uses the fixed `min(budget,
+50000)` value. If Claude assumes a lower down payment, the note is larger, the
+annual payment is higher, and DSCR appears worse — potentially producing a lower
+`dscr_score` than the code's own deal structure would imply. This is a latent
+inconsistency between the LLM judgment and the deterministic formula. See
+Section 12, limitation 9.
+
 DSCR score:
 
 | DSCR | Score |
@@ -229,6 +253,14 @@ S_scored = max(0, S_raw - p * 5)
 ```
 
 Each red-flag penalty point subtracts 5 score points.
+
+**Score floor before penalties:** when every dimension scores 1 out of 5,
+`S_raw = (1/5) * (30+20+15+15+10+10) = 20`. So `S_raw` is bounded `[20, 100]`
+— a listing cannot fall below 20 from rubric scores alone. Penalties are what
+push the score below 20, and `max(0, ...)` prevents it going negative. This
+means a score in the range 1–19 is only reachable through penalty deductions,
+not through low rubric scores alone. A score of exactly 20 indicates all six
+dimensions were scored at the minimum with zero penalty.
 
 Tier mapping:
 
@@ -313,6 +345,15 @@ elif 30 <= C < 55:
 
 After all rules, the tier is recomputed from the final score.
 
+**Rule 4 / Rule 5 overlap:** when cash flow is absent and `30 <= C < 55`, both
+rules fire on the same listing. Rule 4 caps at 69; Rule 5 then caps at 59
+(because cash flow is absent). Rule 5 is always the tighter constraint in this
+combination, so Rule 4's cap of 69 is immediately overridden. The effective
+ceiling is 59. This is not a bug — the rules are applied sequentially and the
+last cap wins — but it means Rule 4 is redundant whenever Rule 5's `30 <= C <
+55` branch also triggers. If you want to reason about the binding rule for a
+given listing, check Rule 5 first when confidence is low.
+
 ## 9. Verification
 
 The top `N` listings with non-empty, non-estimated URLs are checked by Grok.
@@ -327,6 +368,19 @@ After verification, the orchestrator re-runs hard rules in the same run. That
 means an `UNVERIFIED` result can immediately lower financial confidence, cap the
 score, and change the tier before reports, dashboard output, metadata, and job
 history are written.
+
+**Conditional on `--verify-top`:** the hard-rule re-pass only happens when
+`verify_top > 0` (the default). When verification is skipped with
+`--verify-top 0`, `apply_hard_rules` is called exactly once — after scoring,
+before verification — and never again (`agent.py:550` vs `agent.py:562`). A
+fast or dry run with verification disabled therefore gets one fewer hard-rule
+pass. Any score inflation that verification would have caught (e.g. a listing
+with a bad URL that would have been marked `is_estimated`) is not corrected.
+
+**Listings with no source URL are never verified.** Only listings with a
+non-empty, non-estimated `source_url` are submitted to Grok. Listings without a
+URL stay `_verified = "UNKNOWN"` and are unaffected by verification. The
+estimated cap (Rule 3) already applies to them from the first hard-rule pass.
 
 ## 10. Cross-Run Memory
 
@@ -366,4 +420,10 @@ manual dashboard startup.
 7. Payback years are reported but are not a deterministic hard filter.
 8. Red-flag penalties are capped by the scoring schema, so many simultaneous
    risks can compress into the same maximum penalty band.
+9. The Claude scoring prompt describes the down payment as "flexible $30k–$80k"
+   but the code always computes deal structure using `min(budget, 50000)`. Claude
+   may evaluate DSCR against a different assumed down payment than what appears
+   in the `deal_structure` output block, producing a `dscr_score` that does not
+   exactly match the code's own arithmetic. Aligning the prompt to use the exact
+   same fixed `D` value would remove this ambiguity.
 
