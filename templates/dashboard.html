@@ -66,13 +66,19 @@
 
     <section class="run-panel" aria-label="Run controls">
       <div>
-        <h2>Run Pipeline</h2>
-        <p>Use saved defaults for location and asking-price range.</p>
+        <h2>Start a Fresh Run</h2>
+        <p>Scrape with saved defaults, import your own file, or score the selected dataset.</p>
       </div>
       <div class="run-actions">
-        <button type="button" class="run-button" data-job="scrape">Scrape PA Listings</button>
-        <button type="button" class="run-button secondary" data-job="score">Score PA Data</button>
+        <button type="button" class="run-button" data-job="scrape">Start New Scrape</button>
+        <button type="button" class="run-button secondary" data-job="score">Score Selected Dataset</button>
+        <small>Scoring uses the dataset selected above.</small>
       </div>
+      <form class="upload-form" action="/data/upload" method="post" enctype="multipart/form-data">
+        <label for="data_file">Add CSV or JSON</label>
+        <input id="data_file" name="data_file" type="file" accept=".csv,.json">
+        <button type="submit" class="run-button secondary">Upload Dataset</button>
+      </form>
       <pre id="job-log" aria-live="polite">{% if jobs %}{{ jobs[0].kind }}: {{ jobs[0].status }}
 {{ jobs[0].log_tail }}{% else %}No dashboard-launched jobs yet.{% endif %}</pre>
       <div class="job-history">
@@ -178,6 +184,7 @@
   <script>
     const search = document.getElementById("search");
     const confidence = document.getElementById("confidence");
+    const sourceSelect = document.getElementById("source");
     const rows = Array.from(document.querySelectorAll("#listing-body tr"));
     const visibleCount = document.getElementById("visible-count");
     const jobLog = document.getElementById("job-log");
@@ -252,7 +259,12 @@
     async function startJob(kind) {
       const endpoint = kind === "score" ? "/jobs/start-score" : "/jobs/start-scrape";
       jobLog.textContent = `Starting ${kind} job...`;
-      const resp = await fetch(endpoint, { method: "POST" });
+      const body = kind === "score" ? JSON.stringify({ source: sourceSelect?.value || "" }) : "{}";
+      const resp = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body,
+      });
       const data = await resp.json();
       if (!data.ok) {
         jobLog.textContent = data.error || `Could not start ${kind} job.`;

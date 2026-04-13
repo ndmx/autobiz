@@ -5,8 +5,8 @@ const baseURL = process.env.BASE_URL || "http://127.0.0.1:7864";
 test("dashboard loads listings and filters without layout breakage", async ({ page }) => {
   await page.goto(`${baseURL}/dashboard`);
   await expect(page.getByText("Philadelphia-first acquisition board")).toBeVisible();
-  await expect(page.getByRole("button", { name: "Scrape PA Listings" })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Score PA Data" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Start New Scrape" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Score Selected Dataset" })).toBeVisible();
   await expect(page.locator("table")).toBeVisible();
   await expect(page.locator("#visible-count")).toContainText("shown");
 

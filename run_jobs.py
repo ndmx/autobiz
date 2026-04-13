@@ -60,7 +60,7 @@ def build_scrape_command(cfg: dict) -> list[str]:
     ]
 
 
-def build_score_command(cfg: dict) -> list[str]:
+def build_score_command(cfg: dict, input_path: str = "data_pa_wide.json") -> list[str]:
     defaults = cfg.get("defaults", {})
     location = defaults.get("location", "Pennsylvania")
     min_budget = int(defaults.get("budget_min", 75000))
@@ -69,7 +69,7 @@ def build_score_command(cfg: dict) -> list[str]:
         sys.executable,
         "agent.py",
         "--from-json",
-        "data_pa_wide.json",
+        input_path,
         "--location",
         location,
         "--min-budget",

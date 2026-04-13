@@ -8,10 +8,14 @@ Opens the dashboard at: http://localhost:7860/dashboard
 """
 
 import os
+import csv
+import json
 import threading
 import webbrowser
+from pathlib import Path
 
 from flask import Flask, Response, jsonify, redirect, render_template, request, send_file, url_for
+from werkzeug.utils import secure_filename
 
 import config as cfg
 from dashboard_data import dashboard_context
@@ -29,6 +33,8 @@ app = Flask(__name__)
 initialize_job_system()
 
 BROWSER_DISABLED_VALUES = {"1", "true", "yes", "on"}
+UPLOAD_DIR = cfg.PROJECT_DIR / "data_uploads"
+UPLOAD_EXTENSIONS = {".csv", ".json"}
 
 
 # ---------------------------------------------------------------------------
@@ -47,6 +53,39 @@ def open_browser_later(url: str, delay: float = 1.0) -> None:
     timer = threading.Timer(delay, lambda: webbrowser.open(url, new=2))
     timer.daemon = True
     timer.start()
+
+
+def selected_source_path(source_id: str) -> Path | None:
+    source_id = (source_id or "").strip()
+    if not source_id:
+        source_id = "data_pa_wide.json"
+    path = safe_project_path(source_id)
+    if not path or not path.exists() or not path.is_file():
+        return None
+    if path.suffix.lower() not in UPLOAD_EXTENSIONS:
+        return None
+    return path
+
+
+def score_input_for_source(path: Path) -> Path:
+    if path.suffix.lower() == ".json":
+        return path
+
+    rows: list[dict] = []
+    with path.open(newline="", encoding="utf-8") as handle:
+        rows = [dict(row) for row in csv.DictReader(handle)]
+
+    UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+    json_path = UPLOAD_DIR / f"{path.stem}_score_input.json"
+    json_path.write_text(json.dumps(rows, indent=2))
+    return json_path
+
+
+def relative_project_path(path: Path) -> str:
+    try:
+        return path.relative_to(cfg.PROJECT_DIR).as_posix()
+    except ValueError:
+        return path.as_posix()
 
 
 # ---------------------------------------------------------------------------
@@ -74,11 +113,37 @@ def start_scrape():
 
 @app.route("/jobs/start-score", methods=["POST"])
 def start_score():
-    if not (cfg.PROJECT_DIR / "data_pa_wide.json").exists():
-        return jsonify({"ok": False, "error": "data_pa_wide.json is missing. Run scrape first."}), 400
+    payload = request.get_json(silent=True) or {}
+    source_path = selected_source_path(payload.get("source", ""))
+    if not source_path:
+        return jsonify({"ok": False, "error": "Choose a JSON or CSV dataset before scoring."}), 400
+
+    try:
+        score_path = score_input_for_source(source_path)
+    except Exception as e:
+        return jsonify({"ok": False, "error": f"Could not prepare dataset for scoring: {e}"}), 400
+
     app_cfg = cfg.load_config()
-    payload, status_code = start_run_job("score", build_score_command(app_cfg))
+    payload, status_code = start_run_job("score", build_score_command(app_cfg, relative_project_path(score_path)))
     return jsonify(payload), status_code
+
+
+@app.route("/data/upload", methods=["POST"])
+def upload_data():
+    file = request.files.get("data_file")
+    if not file or not file.filename:
+        return redirect(url_for("dashboard"))
+
+    filename = secure_filename(file.filename)
+    suffix = Path(filename).suffix.lower()
+    if suffix not in UPLOAD_EXTENSIONS:
+        return Response("Upload a CSV or JSON file.", status=400, mimetype="text/plain")
+
+    UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+    destination = UPLOAD_DIR / filename
+    file.save(destination)
+
+    return redirect(url_for("dashboard", source=relative_project_path(destination)))
 
 
 @app.route("/jobs/status", methods=["GET"])
@@ -120,10 +185,11 @@ def settings():
 
     # Detect which keys are coming from env vars
     env_status = {}
+    env_key_map = cfg.env_key_map_for_config(current)
     for role, provider_key in [("scoring", "scoring"), ("research", "research")]:
         stored = current[role].get("api_key", "").strip()
         provider = current[role].get("provider", "")
-        env_var = cfg.ENV_KEY_MAP.get(provider, "")
+        env_var = env_key_map.get(provider, "")
         env_val = os.environ.get(env_var, "").strip()
         if stored:
             env_status[role] = "config"
@@ -144,8 +210,11 @@ def settings():
         cfg=current,
         masked=masked,
         env_status=env_status,
-        provider_models=cfg.PROVIDER_MODELS,
-        env_key_map=cfg.ENV_KEY_MAP,
+        provider_models=cfg.provider_models_for_config(current),
+        env_key_map=cfg.env_key_map_for_config(current),
+        provider_labels=cfg.provider_labels_for_config(current),
+        extra_providers=current.get("providers", []),
+        max_extra_providers=cfg.MAX_EXTRA_PROVIDERS,
         config_exists=config_exists,
         last_saved=last_saved,
     )
@@ -176,6 +245,19 @@ def save():
         research_key = data.get("research_api_key", "").strip()
         if research_key and not research_key.startswith("•"):
             current["research"]["api_key"] = research_key
+
+        # Provider library
+        saved_provider_keys = {
+            item.get("id") or item.get("name"): item.get("api_key", "")
+            for item in current.get("providers", [])
+        }
+        incoming_providers = data.get("providers", [])
+        for provider in incoming_providers:
+            if not isinstance(provider, dict):
+                continue
+            if not provider.get("api_key"):
+                provider["api_key"] = saved_provider_keys.get(provider.get("id")) or saved_provider_keys.get(provider.get("name"), "")
+        current["providers"] = cfg.clean_provider_configs(incoming_providers)
 
         # Defaults section
         try:
@@ -213,7 +295,7 @@ def test_key():
                 api_key = current["research"].get("api_key", "")
             # Final fallback: env var
             if not api_key:
-                api_key = os.environ.get(cfg.ENV_KEY_MAP.get(provider, ""), "")
+                api_key = os.environ.get(cfg.env_key_map_for_config(current).get(provider, ""), "")
 
         result = cfg.test_connection(provider, model, api_key)
         return jsonify(result)

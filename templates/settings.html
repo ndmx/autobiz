@@ -11,7 +11,7 @@
     <div class="header-inner">
       <div class="logo">autobiz</div>
       <div class="header-sub">Model &amp; API Settings</div>
-      <a class="header-link" href="/dashboard">Dashboard</a>
+      <a class="header-link button-link" href="/dashboard">Back to Dashboard</a>
     </div>
   </header>
 
@@ -31,7 +31,7 @@
         <select id="scoring_provider" onchange="providerChanged('scoring', this.value)">
           {% for p in provider_models %}
           <option value="{{ p }}" {% if cfg.scoring.provider == p %}selected{% endif %}>
-            {{ p | title }}
+            {{ provider_labels[p] }}
           </option>
           {% endfor %}
         </select>
@@ -97,7 +97,7 @@
         <select id="research_provider" onchange="providerChanged('research', this.value)">
           {% for p in provider_models %}
           <option value="{{ p }}" {% if cfg.research.provider == p %}selected{% endif %}>
-            {{ p | title }}
+            {{ provider_labels[p] }}
           </option>
           {% endfor %}
         </select>
@@ -152,6 +152,22 @@
       </div>
     </section>
 
+    <!-- ── Provider Library ── -->
+    <section class="card">
+      <div class="card-header">
+        <h2>Provider Library</h2>
+        <p class="card-desc">Add up to {{ max_extra_providers }} OpenAI-compatible providers. Use <strong>local</strong> for models running on your machine (no API key required) or <strong>hosted</strong> for any remote API.</p>
+      </div>
+
+      <div id="provider-list" class="provider-list"></div>
+
+      <div class="card-actions">
+        <button type="button" class="btn btn-secondary" onclick="addProvider()">Add Provider</button>
+        <span id="provider_count" class="test-result"></span>
+      </div>
+      <div class="field-hint">Local examples: <code>http://127.0.0.1:11434/v1</code> for Ollama or <code>http://127.0.0.1:1234/v1</code> for LM Studio.</div>
+    </section>
+
     <!-- ── Run Defaults ── -->
     <section class="card">
       <div class="card-header">
@@ -182,6 +198,7 @@
     <!-- ── Save ── -->
     <div class="save-bar">
       <button class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
+      <a class="btn btn-secondary nav-btn" href="/dashboard">Back to Dashboard</a>
       {% if last_saved %}
       <span class="last-saved">Last saved: {{ last_saved }}</span>
       {% endif %}
@@ -192,6 +209,8 @@
     // Provider → suggested models (rendered by Jinja2)
     const PROVIDER_MODELS = {{ provider_models | tojson }};
     const ENV_KEY_MAP = {{ env_key_map | tojson }};
+    const MAX_EXTRA_PROVIDERS = {{ max_extra_providers }};
+    let extraProviders = {{ extra_providers | tojson }};
 
     function providerChanged(role, provider) {
       // Update datalist options
@@ -225,6 +244,102 @@
         input.type = "password";
         eye.style.opacity = "1";
       }
+    }
+
+    function renderProviders() {
+      const list = document.getElementById("provider-list");
+      const count = document.getElementById("provider_count");
+      list.innerHTML = "";
+      extraProviders.forEach((provider, index) => {
+        const row = document.createElement("div");
+        row.className = "provider-row";
+        row.innerHTML = `
+          <div class="field-row">
+            <div class="field-group">
+              <label>Name</label>
+              <input type="text" data-provider-field="name" data-index="${index}" value="${escapeAttr(provider.name || "")}" placeholder="Local Ollama">
+            </div>
+            <div class="field-group">
+              <label>Type</label>
+              <select data-provider-field="kind" data-index="${index}">
+                ${["local", "hosted"].map((kind) => `<option value="${kind}" ${(provider.kind === kind || (kind === "hosted" && !["local"].includes(provider.kind))) ? "selected" : ""}>${kind}</option>`).join("")}
+              </select>
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Base URL</label>
+            <input type="text" data-provider-field="base_url" data-index="${index}" value="${escapeAttr(provider.base_url || "")}" placeholder="https://api.example.com/v1">
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Env Key</label>
+              <input type="text" data-provider-field="env_key" data-index="${index}" value="${escapeAttr(provider.env_key || "")}" placeholder="MY_PROVIDER_API_KEY">
+            </div>
+            <div class="field-group">
+              <label>API Key</label>
+              <input type="password" data-provider-field="api_key" data-index="${index}" value="" placeholder="${provider.api_key ? "Saved" : "Optional for local"}">
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Models</label>
+            <input type="text" data-provider-field="models" data-index="${index}" value="${escapeAttr((provider.models || []).join(", "))}" placeholder="llama3.1, mixtral, provider-model-id">
+          </div>
+          <button type="button" class="btn btn-secondary" onclick="removeProvider(${index})">Remove Provider</button>
+        `;
+        list.appendChild(row);
+      });
+      count.textContent = `${extraProviders.length}/${MAX_EXTRA_PROVIDERS} providers`;
+      bindProviderInputs();
+    }
+
+    function bindProviderInputs() {
+      document.querySelectorAll("[data-provider-field]").forEach((input) => {
+        input.addEventListener("input", updateProviderFromInput);
+        input.addEventListener("change", updateProviderFromInput);
+      });
+    }
+
+    function updateProviderFromInput(event) {
+      const input = event.target;
+      const index = Number(input.dataset.index);
+      const field = input.dataset.providerField;
+      extraProviders[index][field] = input.value;
+    }
+
+    function addProvider() {
+      if (extraProviders.length >= MAX_EXTRA_PROVIDERS) {
+        showToast(`Maximum ${MAX_EXTRA_PROVIDERS} providers.`, "error");
+        return;
+      }
+      extraProviders.push({ name: "", kind: "hosted", base_url: "", env_key: "", api_key: "", models: [] });
+      renderProviders();
+    }
+
+    function removeProvider(index) {
+      extraProviders.splice(index, 1);
+      renderProviders();
+    }
+
+    function collectProviders() {
+      return extraProviders.map((provider) => ({
+        id: provider.id || "",
+        name: (provider.name || "").trim(),
+        kind: ["local", "hosted"].includes(provider.kind) ? provider.kind : "hosted",
+        base_url: (provider.base_url || "").trim(),
+        env_key: (provider.env_key || "").trim(),
+        api_key: (provider.api_key || "").trim(),
+        models: Array.isArray(provider.models) ? provider.models.join(", ") : (provider.models || ""),
+      })).filter((provider) => provider.name);
+    }
+
+    function escapeAttr(value) {
+      return String(value || "").replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;",
+      }[char]));
     }
 
     async function testConnection(role) {
@@ -264,6 +379,7 @@
         research_provider: document.getElementById("research_provider").value,
         research_model:    document.getElementById("research_model").value.trim(),
         research_api_key:  document.getElementById("research_api_key").value.trim(),
+        providers: collectProviders(),
         location:    document.getElementById("location").value.trim(),
         budget_min:  parseInt(document.getElementById("budget_min").value) || 0,
         budget_max:  parseInt(document.getElementById("budget_max").value) || 0,
@@ -297,6 +413,8 @@
       toast.className = `toast ${type}`;
       setTimeout(() => { toast.className = "toast hidden"; }, 3500);
     }
+
+    renderProviders();
   </script>
 </body>
 </html>

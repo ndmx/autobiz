@@ -12,6 +12,7 @@ Usage:
 
 import json
 import os
+import re
 import time
 from pathlib import Path
 
@@ -38,7 +39,10 @@ DEFAULTS = {
         "budget_min": 75000,
         "budget_max": 250000,
     },
+    "providers": [],
 }
+
+MAX_EXTRA_PROVIDERS = 4
 
 # Maps provider name → env var name for API key fallback
 ENV_KEY_MAP = {
@@ -73,6 +77,87 @@ PROVIDER_MODELS = {
         "gemini-1.5-flash",
     ],
 }
+
+
+def _provider_id(name: str) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "-", (name or "").strip().lower()).strip("-")
+    return f"custom-{slug}" if slug else ""
+
+
+def clean_provider_configs(providers: list[dict]) -> list[dict]:
+    cleaned: list[dict] = []
+    seen: set[str] = set(PROVIDER_MODELS)
+    for provider in providers or []:
+        if not isinstance(provider, dict):
+            continue
+        name = str(provider.get("name", "")).strip()
+        base_url = str(provider.get("base_url", "")).strip()
+        models_raw = str(provider.get("models", "")).strip()
+        provider_id = str(provider.get("id", "")).strip() or _provider_id(name)
+        provider_id = re.sub(r"[^a-z0-9_-]+", "-", provider_id.lower()).strip("-")
+        if not name or not provider_id or provider_id in seen:
+            continue
+        models = [
+            model.strip()
+            for model in models_raw.replace("\n", ",").split(",")
+            if model.strip()
+        ]
+        cleaned.append({
+            "id": provider_id,
+            "name": name,
+            "kind": "local" if str(provider.get("kind", "")).strip() == "local" else "hosted",
+            "base_url": base_url,
+            "env_key": str(provider.get("env_key", "")).strip(),
+            "api_key": str(provider.get("api_key", "")).strip(),
+            "models": models,
+        })
+        seen.add(provider_id)
+        if len(cleaned) >= MAX_EXTRA_PROVIDERS:
+            break
+    return cleaned
+
+
+def custom_provider_config(provider: str, data: dict = None) -> dict | None:
+    data = data or load_config()
+    for item in data.get("providers", []):
+        if item.get("id") == provider:
+            return item
+    return None
+
+
+def provider_models_for_config(data: dict = None) -> dict:
+    data = data or load_config()
+    models = {key: list(value) for key, value in PROVIDER_MODELS.items()}
+    for item in data.get("providers", []):
+        provider_id = item.get("id")
+        if provider_id:
+            models[provider_id] = item.get("models") or []
+    return models
+
+
+def env_key_map_for_config(data: dict = None) -> dict:
+    data = data or load_config()
+    env_map = dict(ENV_KEY_MAP)
+    for item in data.get("providers", []):
+        provider_id = item.get("id")
+        if provider_id:
+            env_map[provider_id] = item.get("env_key") or f"{provider_id.upper().replace('-', '_')}_API_KEY"
+    return env_map
+
+
+def provider_labels_for_config(data: dict = None) -> dict:
+    data = data or load_config()
+    labels = {
+        "anthropic": "Anthropic",
+        "openai": "OpenAI",
+        "xai": "xAI",
+        "gemini": "Gemini",
+    }
+    for item in data.get("providers", []):
+        provider_id = item.get("id")
+        if provider_id:
+            labels[provider_id] = item.get("name") or provider_id
+    return labels
 
 MAX_RETRIES = 3
 RETRY_DELAY = 2
@@ -130,6 +215,7 @@ def load_config() -> dict:
             for section in ("scoring", "research", "defaults"):
                 if section in saved and isinstance(saved[section], dict):
                     cfg[section].update(saved[section])
+            cfg["providers"] = clean_provider_configs(saved.get("providers", []))
         except Exception:
             pass
 
@@ -137,6 +223,7 @@ def load_config() -> dict:
 
 
 def save_config(data: dict) -> None:
+    data["providers"] = clean_provider_configs(data.get("providers", []))
     CONFIG_PATH.write_text(json.dumps(data, indent=2))
 
 
@@ -151,10 +238,13 @@ def resolve_api_key(provider: str, stored_key: str) -> str:
     """
     key = stored_key.strip() if stored_key else ""
     if not key:
-        env_var = ENV_KEY_MAP.get(provider, "")
+        env_var = env_key_map_for_config().get(provider, "")
         key = os.environ.get(env_var, "").strip()
+    custom = custom_provider_config(provider)
+    if not key and custom and custom.get("kind") == "local":
+        return "local"
     if not key:
-        env_var = ENV_KEY_MAP.get(provider, f"{provider.upper()}_API_KEY")
+        env_var = env_key_map_for_config().get(provider, f"{provider.upper()}_API_KEY")
         raise ValueError(
             f"No API key found for provider '{provider}'. "
             f"Set it in the settings page or via the {env_var} environment variable."
@@ -183,7 +273,8 @@ def get_scoring_client(cfg: dict = None):
     if cfg is None:
         cfg = load_config()
     provider = cfg["scoring"]["provider"]
-    key = resolve_api_key(provider, cfg["scoring"].get("api_key", ""))
+    custom = custom_provider_config(provider, cfg)
+    key = resolve_api_key(provider, cfg["scoring"].get("api_key", "") or (custom or {}).get("api_key", ""))
 
     if provider == "anthropic":
         import anthropic
@@ -204,6 +295,11 @@ def get_scoring_client(cfg: dict = None):
             raise ImportError("Install google-generativeai: uv add google-generativeai")
         genai.configure(api_key=key)
         return provider, genai
+
+    elif custom:
+        from openai import OpenAI
+        base_url = custom.get("base_url") or None
+        return provider, OpenAI(api_key=key, base_url=base_url)
 
     else:
         raise ValueError(f"Unknown scoring provider: '{provider}'")
@@ -236,7 +332,7 @@ def llm_score_call(prompt: str, cfg: dict = None, max_tokens: int = 1800) -> str
                 )
                 return resp.content[0].text.strip()
 
-            elif provider in ("openai", "xai"):
+            elif provider in ("openai", "xai") or custom_provider_config(provider, cfg):
                 resp = client.chat.completions.create(
                     model=model,
                     max_tokens=max_tokens,
@@ -274,10 +370,12 @@ def test_connection(provider: str, model: str, api_key: str) -> dict:
     Makes a minimal API call. Returns {"ok": True, "latency_ms": N} or {"ok": False, "error": "..."}.
     """
     import time as _time
+    current = load_config()
     mini_cfg = {
         "scoring": {"provider": provider, "model": model, "api_key": api_key},
         "research": {"provider": "xai", "model": "", "api_key": ""},
         "defaults": {},
+        "providers": current.get("providers", []),
     }
     start = _time.monotonic()
     try:

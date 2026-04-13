@@ -26,6 +26,14 @@ class RunJobsTests(unittest.TestCase):
         self.assertIn("--from-json", command)
         self.assertIn("data_pa_wide.json", command)
 
+    def test_build_score_command_accepts_uploaded_input(self):
+        command = run_jobs.build_score_command(
+            {"defaults": {"location": "Pennsylvania", "budget_min": 75000, "budget_max": 250000}},
+            "data_uploads/my_listings.json",
+        )
+
+        self.assertIn("data_uploads/my_listings.json", command)
+
     @patch("run_jobs.subprocess.Popen")
     def test_start_run_job_tracks_background_process(self, popen):
         process = Mock()

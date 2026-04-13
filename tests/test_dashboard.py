@@ -1,7 +1,11 @@
 import unittest
+import tempfile
+from io import BytesIO
 from unittest.mock import patch
+from pathlib import Path
 
 from app import app
+import app as app_module
 
 
 class DashboardTests(unittest.TestCase):
@@ -13,8 +17,9 @@ class DashboardTests(unittest.TestCase):
         body = response.get_data(as_text=True)
         self.assertIn("Philadelphia-first acquisition board", body)
         self.assertIn("Ranked by distance from Philadelphia, then score.", body)
-        self.assertIn("Scrape PA Listings", body)
-        self.assertIn("Score PA Data", body)
+        self.assertIn("Start New Scrape", body)
+        self.assertIn("Score Selected Dataset", body)
+        self.assertIn("Upload Dataset", body)
         self.assertIn("<table>", body)
 
     def test_start_scrape_route_returns_background_job(self):
@@ -24,6 +29,20 @@ class DashboardTests(unittest.TestCase):
 
         self.assertEqual(response.status_code, 202)
         self.assertTrue(response.get_json()["ok"])
+
+    def test_upload_data_accepts_csv(self):
+        client = app.test_client()
+        with tempfile.TemporaryDirectory() as tmp:
+            upload_dir = Path(tmp)
+            with patch.object(app_module, "UPLOAD_DIR", upload_dir):
+                response = client.post(
+                    "/data/upload",
+                    data={"data_file": (BytesIO(b"business_name,location\nRoute,Philadelphia\n"), "routes.csv")},
+                    content_type="multipart/form-data",
+                )
+
+            self.assertEqual(response.status_code, 302)
+            self.assertTrue((upload_dir / "routes.csv").exists())
 
     def test_job_status_route_returns_jobs(self):
         client = app.test_client()

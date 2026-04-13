@@ -1,6 +1,8 @@
 import unittest
+import tempfile
+from pathlib import Path
 
-from dashboard_data import rows_for_items
+from dashboard_data import load_dashboard_data, rows_for_items
 
 
 class DashboardDataTests(unittest.TestCase):
@@ -21,6 +23,26 @@ class DashboardDataTests(unittest.TestCase):
         self.assertIn("cash_flow: scraped", row["provenance_summary"])
         self.assertEqual(row["duplicate_count"], 2)
         self.assertIn("BizBuySell", row["duplicate_sources"])
+
+    def test_source_label_falls_back_to_source_url_domain(self):
+        [row] = rows_for_items([
+            {
+                "business_name": "Pizza Shop",
+                "location": "Philadelphia, PA",
+                "source_url": "https://www.bizbuysell.com/Business-Opportunity/example/123/",
+            }
+        ])
+
+        self.assertEqual(row["source"], "BizBuySell")
+
+    def test_load_dashboard_data_reads_csv_uploads(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "listings.csv"
+            path.write_text("business_name,location\nRoute,Philadelphia PA\n")
+
+            rows = load_dashboard_data(path)
+
+        self.assertEqual(rows[0]["business_name"], "Route")
 
 
 if __name__ == "__main__":
